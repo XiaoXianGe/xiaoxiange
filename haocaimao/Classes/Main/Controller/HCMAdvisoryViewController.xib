@@ -93,8 +93,12 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconfont-guanbi" id="8df-ad-dXA">
+                            <rect key="frame" x="9" y="19" width="24" height="25"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0Ah-TR-SBi">
-                            <rect key="frame" x="1" y="25" width="43" height="24"/>
+                            <rect key="frame" x="1" y="8" width="56" height="41"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <state key="normal">
@@ -104,10 +108,6 @@
                                 <action selector="closeTheView" destination="-1" eventType="touchUpInside" id="xR4-Kc-rB0"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconfont-guanbi" id="8df-ad-dXA">
-                            <rect key="frame" x="9" y="24" width="20" height="20"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
                     </subviews>
                     <color key="backgroundColor" red="0.93202611019736847" green="0.15134148848684212" blue="0.21301912006578946" alpha="1" colorSpace="calibratedRGB"/>
                 </view>

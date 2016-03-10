@@ -23,6 +23,11 @@
 #import "PartnerViewController.h"
 #import "HCMVipLoginViewController.h"
 
+#import "HCMPartnerInfoModel.h"
+#import "MJExtension.h"
+#import "HCMPartnerCenterViewController.h"
+
+
 @interface HCMHomeCollectionViewController ()<HCMHomeTopViewControllerDelegate>
 
 @property (strong, nonatomic)HCMHomeTopViewController *homeTop;
@@ -391,21 +396,77 @@ static NSString * const reuseIdentifier = @"Cell";
      self.status = [self.defaults boolForKey:@"status"];
     
     if (self.status) {
+        NSString * sid = [self.defaults objectForKey:@"sid"];
+        NSString * uid = [self.defaults objectForKey:@"uid"];
+
         
-        PartnerViewController *partner = [[PartnerViewController alloc]initWithNibName:@"PartnerViewController" bundle:nil];
+        NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+                
+        params[@"session"] = @{@"sid":sid,@"uid":uid};
+
+        [[HomeNetwork sharedManager]postPartnerFormURL:params successBlock:^(id responseBody) {
+            HCMLog(@"%@",responseBody);
+            
+            if (responseBody[@"status"][@"error_desc"]) {
+                [SVProgressHUD showInfoWithStatus:responseBody[@"status"][@"error_desc"]];
+                
+                [self userLogin];
+                
+                return ;
+            }
+            
+            NSString *str = [NSString stringWithFormat:@"%@",responseBody[@"data"][@"salesPartnerStatus"]];
+            
+            if ([str isEqualToString:@"0"]) {
+                //未注册和合伙人
+                HCMLog(@"未注册和合伙人");
+
+                HCMPartnerInfoModel *partnerModel = [HCMPartnerInfoModel objectWithKeyValues:responseBody[@"data"][@"userProfile"]];
+                
+                PartnerViewController *partner = [[PartnerViewController alloc]initWithNibName:@"PartnerViewController" bundle:nil];
+                
+                partner.email = partnerModel.email;
+                partner.mobilePhone = partnerModel.mobilePhone;
+                partner.sex = [partnerModel.sex integerValue];
+                
+                [self.navigationController pushViewController:partner animated:YES];
+            }else{
+                //已注册合伙人
+                HCMLog(@"已注册合伙人");
+                HCMPartnerCenterViewController *vc =[[HCMPartnerCenterViewController alloc]init];
+                
+                [self.navigationController pushViewController:vc animated:YES];
+            
+            }
+            
+            
+            
+        } failureBlock:^(NSString *error) {
+            HCMLog(@"合伙人失败");
+        }];
+  
+
         
-        [self.navigationController pushViewController:partner animated:YES];
         
         return;
     }else{
         
-        HCMVipLoginViewController *vipLoginVC = [[HCMVipLoginViewController alloc]init];
-        
-        self.tabBarController.tabBar.hidden = YES;
-        
-        [self.navigationController pushViewController:vipLoginVC animated:YES];
+        //这里是非登录状态(!_self.status)
+        [SVProgressHUD showInfoWithStatus:@"客官,请先登录~"];
+        [self userLogin];
     }
     
+}
+
+/**
+ * 用户登录
+ */
+-(void)userLogin{
+    HCMVipLoginViewController *vipLoginVC = [[HCMVipLoginViewController alloc]init];
+    
+    self.tabBarController.tabBar.hidden = YES;
+    
+    [self.navigationController pushViewController:vipLoginVC animated:YES];
 }
 
 -(void)TouchEvent{

@@ -1,24 +1,26 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "E87D6FCFB0CFB26E12764BC8F78B356D0E2780C9",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "E2D33BAE3C221A772D10C5F728875C5CE2B96D9E",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "DACB74C70EBCCDA3D277B95F7A975CF5B79AB6CD" : 0,
     "C88434CD966903D896B2F9E6975CAADE2AC5BDAE" : 0,
-    "8F6574DE3E8F724BC183B6EB0606BF5613A92378" : 0,
     "E87D6FCFB0CFB26E12764BC8F78B356D0E2780C9" : 0,
     "BAD9370AFD3C9E215719BCDD91CD23E71EDBAB28" : 0,
-    "2263E4AA1B894E0D2782FE8209EE45234EC9DB50" : 0
+    "DACB74C70EBCCDA3D277B95F7A975CF5B79AB6CD" : 0,
+    "2263E4AA1B894E0D2782FE8209EE45234EC9DB50" : 0,
+    "E2D33BAE3C221A772D10C5F728875C5CE2B96D9E" : 0,
+    "8F6574DE3E8F724BC183B6EB0606BF5613A92378" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "69363BC0-992F-4022-A070-89F23E804E07",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "DACB74C70EBCCDA3D277B95F7A975CF5B79AB6CD" : "haocaimao2.0.3\/",
     "C88434CD966903D896B2F9E6975CAADE2AC5BDAE" : "haocaimao2.0.1\/",
-    "8F6574DE3E8F724BC183B6EB0606BF5613A92378" : "haocaimao%E5%89%AF%E6%9C%AC%202",
     "E87D6FCFB0CFB26E12764BC8F78B356D0E2780C9" : "haocaimao2.0.4\/",
     "BAD9370AFD3C9E215719BCDD91CD23E71EDBAB28" : "haocaimao2.0.2\/",
-    "2263E4AA1B894E0D2782FE8209EE45234EC9DB50" : "haocaimao"
+    "DACB74C70EBCCDA3D277B95F7A975CF5B79AB6CD" : "haocaimao2.0.3\/",
+    "2263E4AA1B894E0D2782FE8209EE45234EC9DB50" : "haocaimao",
+    "E2D33BAE3C221A772D10C5F728875C5CE2B96D9E" : "xiaoxiange\/",
+    "8F6574DE3E8F724BC183B6EB0606BF5613A92378" : "haocaimao%E5%89%AF%E6%9C%AC%202"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "haocaimao",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -48,6 +50,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/LeeSamYear\/haocaimao2.0.3.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DACB74C70EBCCDA3D277B95F7A975CF5B79AB6CD"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/XiaoXianGe\/xiaoxiange.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E2D33BAE3C221A772D10C5F728875C5CE2B96D9E"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/XiaoXianGe\/haocaimao2.0.4.git",

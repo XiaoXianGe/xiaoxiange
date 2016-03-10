@@ -42,6 +42,26 @@ static NSString *const CreateCollectURL = @"http://www.haocaimao.com/ecmobile/?u
  */
 static NSString *const goodsDescURL = @"http://www.haocaimao.com/ecmobile/?url=goods/desc";
 
+/**
+ * 合伙人申请接入URL
+ */
+static NSString *const PartnerFormURL = @"http://www.haocaimao.com/ecmobile/?url=user/salesPartnerForm";
+
+/**
+ * 合伙人信息接入URL
+ */
+static NSString *const PartnerApplyURL = @"http://www.haocaimao.com/ecmobile/?url=user/salesPartnerApply";
+
+
+/**
+ * 合伙人信息接入URL
+ */
+static NSString *const PartnerIndexURL = @"http://www.haocaimao.com/ecmobile/?url=user/salesPartnerIndex";
+
+
+
+
+
 
 +(HomeNetwork *)sharedManager{
     static HomeNetwork *sharedNetworkSingleton = nil;
@@ -219,4 +239,68 @@ static NSString *const goodsDescURL = @"http://www.haocaimao.com/ecmobile/?url=g
 }
 
 
+
+#pragma mark - 合伙人接入
+
+-(void)postPartnerFormURL:(NSDictionary *)userInfo successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+    
+    AFHTTPRequestOperationManager *manager = [self baseHtppRequest];
+    
+    NSString *urlStr = [PartnerFormURL stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    [manager POST:urlStr parameters:userInfo success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        successBlock(responseObject);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        failureBlock(errorStr);
+        
+    }];
+}
+/**
+ *  合伙人申请接入
+ */
+-(void)postPartnerApplyURL:(NSDictionary *)userInfo successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+    
+    
+    AFHTTPRequestOperationManager *manager = [self baseHtppRequest];
+    
+    NSString *urlStr = [PartnerApplyURL stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    [manager POST:urlStr parameters:userInfo success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        successBlock(responseObject);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        failureBlock(errorStr);
+        
+    }];
+    
+}
+/**
+ *  合伙人提成数据
+ */
+-(void)postPartnerIndexURL:(NSDictionary *)userInfo successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+    
+    
+    AFHTTPRequestOperationManager *manager = [self baseHtppRequest];
+    
+    NSString *urlStr = [PartnerIndexURL stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    [manager POST:urlStr parameters:userInfo success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        successBlock(responseObject);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        failureBlock(errorStr);
+        
+    }];
+    
+}
 @end

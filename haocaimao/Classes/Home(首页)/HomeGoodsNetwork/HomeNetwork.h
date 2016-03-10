@@ -62,9 +62,17 @@ typedef void(^FailureBlock)(NSString *error);
  *  商品详情(商品详情里面的)
  */
 - (void)postGoodsDesc:(NSDictionary *)userInfo successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
-
-
-
-
+/**
+ *  合伙人申请接入
+ */
+-(void)postPartnerFormURL:(NSDictionary *)userInfo successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
+/**
+ *  合伙人申请接入
+ */
+-(void)postPartnerApplyURL:(NSDictionary *)userInfo successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
+/**
+ *  合伙人提成数据
+ */
+-(void)postPartnerIndexURL:(NSDictionary *)userInfo successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
 
 @end

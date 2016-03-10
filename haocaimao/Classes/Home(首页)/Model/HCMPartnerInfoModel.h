@@ -1,19 +1,19 @@
 //
-//  PartnerViewController.h
+//  HCMPartnerInfoModel.h
 //  haocaimao
 //
-//  Created by 好采猫 on 16/1/27.
+//  Created by 好采猫 on 16/3/10.
 //  Copyright © 2016年 haocaimao. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-@interface PartnerViewController : UIViewController
+@interface HCMPartnerInfoModel : NSObject
 /** 申请人邮箱 */
 @property(copy,nonatomic)NSString *email;
 /** 申请人电话 */
 @property(copy,nonatomic)NSString *mobilePhone;
 /** 申请人性别 */
-@property(assign, nonatomic)NSInteger sex;
+@property(copy,nonatomic)NSString *sex;
 
 @end

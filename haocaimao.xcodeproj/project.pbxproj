@@ -186,6 +186,13 @@
 		239214261BE9A17900CC1BCE /* HCMAdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 239214251BE9A17900CC1BCE /* HCMAdVC.m */; };
 		239F0F2C1BFC0FCF00A2CF6E /* TouchEventForTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 239F0F2B1BFC0FCF00A2CF6E /* TouchEventForTableView.m */; };
 		23A0155C1BB0F4D700B18EE1 /* UIImage+Circle.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A0155B1BB0F4D700B18EE1 /* UIImage+Circle.m */; };
+		23A182C71C910F8A00BAEE73 /* HCMPartnerInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A182C61C910F8A00BAEE73 /* HCMPartnerInfoModel.m */; };
+		23A182CE1C91255D00BAEE73 /* HCMPartnerCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A182C91C91255D00BAEE73 /* HCMPartnerCenterCell.m */; };
+		23A182CF1C91255D00BAEE73 /* HCMPartnerCenterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23A182CA1C91255D00BAEE73 /* HCMPartnerCenterCell.xib */; };
+		23A182D01C91255D00BAEE73 /* HCMPartnerCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A182CC1C91255D00BAEE73 /* HCMPartnerCenterViewController.m */; };
+		23A182D11C91255D00BAEE73 /* HCMPartnerCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23A182CD1C91255D00BAEE73 /* HCMPartnerCenterViewController.xib */; };
+		23A182D41C91730A00BAEE73 /* PartnerIndexModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A182D31C91730A00BAEE73 /* PartnerIndexModel.m */; };
+		23A182D71C9177E400BAEE73 /* PartnerIndex2Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A182D61C9177E400BAEE73 /* PartnerIndex2Model.m */; };
 		23A334B41C19473800CEC213 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A334AA1C19473700CEC213 /* FMDatabase.m */; };
 		23A334B51C19473800CEC213 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A334AC1C19473800CEC213 /* FMDatabaseAdditions.m */; };
 		23A334B61C19473800CEC213 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A334AE1C19473800CEC213 /* FMDatabasePool.m */; };
@@ -649,6 +656,18 @@
 		239F0F2B1BFC0FCF00A2CF6E /* TouchEventForTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchEventForTableView.m; sourceTree = "<group>"; };
 		23A0155A1BB0F4D700B18EE1 /* UIImage+Circle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Circle.h"; sourceTree = "<group>"; };
 		23A0155B1BB0F4D700B18EE1 /* UIImage+Circle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Circle.m"; sourceTree = "<group>"; };
+		23A182C51C910F8A00BAEE73 /* HCMPartnerInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMPartnerInfoModel.h; sourceTree = "<group>"; };
+		23A182C61C910F8A00BAEE73 /* HCMPartnerInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMPartnerInfoModel.m; sourceTree = "<group>"; };
+		23A182C81C91255D00BAEE73 /* HCMPartnerCenterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMPartnerCenterCell.h; sourceTree = "<group>"; };
+		23A182C91C91255D00BAEE73 /* HCMPartnerCenterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMPartnerCenterCell.m; sourceTree = "<group>"; };
+		23A182CA1C91255D00BAEE73 /* HCMPartnerCenterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HCMPartnerCenterCell.xib; sourceTree = "<group>"; };
+		23A182CB1C91255D00BAEE73 /* HCMPartnerCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMPartnerCenterViewController.h; sourceTree = "<group>"; };
+		23A182CC1C91255D00BAEE73 /* HCMPartnerCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMPartnerCenterViewController.m; sourceTree = "<group>"; };
+		23A182CD1C91255D00BAEE73 /* HCMPartnerCenterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HCMPartnerCenterViewController.xib; sourceTree = "<group>"; };
+		23A182D21C91730A00BAEE73 /* PartnerIndexModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartnerIndexModel.h; sourceTree = "<group>"; };
+		23A182D31C91730A00BAEE73 /* PartnerIndexModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartnerIndexModel.m; sourceTree = "<group>"; };
+		23A182D51C9177E400BAEE73 /* PartnerIndex2Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartnerIndex2Model.h; sourceTree = "<group>"; };
+		23A182D61C9177E400BAEE73 /* PartnerIndex2Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartnerIndex2Model.m; sourceTree = "<group>"; };
 		23A334A91C19473700CEC213 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		23A334AA1C19473700CEC213 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		23A334AB1C19473700CEC213 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -1060,6 +1079,8 @@
 				234A44D91BCF7DB1006910BE /* RegionNetworking.m */,
 				23DF59BD1BE0621100FBFE2C /* GoodsFormartMessage.h */,
 				23DF59BE1BE0621100FBFE2C /* GoodsFormartMessage.m */,
+				23A182C51C910F8A00BAEE73 /* HCMPartnerInfoModel.h */,
+				23A182C61C910F8A00BAEE73 /* HCMPartnerInfoModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1286,6 +1307,10 @@
 				238FD6401C2E820600F95CCD /* OutOfGoodsModel.m */,
 				238FD6411C2E820600F95CCD /* TakeOutMoneyModel.h */,
 				238FD6421C2E820600F95CCD /* TakeOutMoneyModel.m */,
+				23A182D21C91730A00BAEE73 /* PartnerIndexModel.h */,
+				23A182D31C91730A00BAEE73 /* PartnerIndexModel.m */,
+				23A182D51C9177E400BAEE73 /* PartnerIndex2Model.h */,
+				23A182D61C9177E400BAEE73 /* PartnerIndex2Model.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1449,6 +1474,12 @@
 				23ADD9FD1C5891B1009A1642 /* PartnerViewController.h */,
 				23ADD9FE1C5891B1009A1642 /* PartnerViewController.m */,
 				23ADD9FF1C5891B1009A1642 /* PartnerViewController.xib */,
+				23A182CB1C91255D00BAEE73 /* HCMPartnerCenterViewController.h */,
+				23A182CC1C91255D00BAEE73 /* HCMPartnerCenterViewController.m */,
+				23A182CD1C91255D00BAEE73 /* HCMPartnerCenterViewController.xib */,
+				23A182C81C91255D00BAEE73 /* HCMPartnerCenterCell.h */,
+				23A182C91C91255D00BAEE73 /* HCMPartnerCenterCell.m */,
+				23A182CA1C91255D00BAEE73 /* HCMPartnerCenterCell.xib */,
 			);
 			path = "合伙人";
 			sourceTree = "<group>";
@@ -2398,6 +2429,7 @@
 				238FD6241C2E7EC500F95CCD /* HCMUserInfoViewController.xib in Resources */,
 				2308B1161C22B82700430C12 /* HCMModification ViewController.xib in Resources */,
 				234EB08B1BE73D7C00B11561 /* UMShareEditViewController.xib in Resources */,
+				23A182CF1C91255D00BAEE73 /* HCMPartnerCenterCell.xib in Resources */,
 				2357E2EA1C02C8EC00E7FA4B /* Property List.plist in Resources */,
 				23EE22181C02C2600053D68C /* HCMShoppingTableViewController.xib in Resources */,
 				22E285C71BA6B5FF008B18B4 /* HCMCommentTableViewController.xib in Resources */,
@@ -2461,6 +2493,7 @@
 				238FD5BC1C2E775500F95CCD /* HCMAddLocationTableViewController.xib in Resources */,
 				234EB08F1BE73D7C00B11561 /* UMSShareListController.xib in Resources */,
 				238FD5CA1C2E789C00F95CCD /* HCMRecentBrowseTableViewController.xib in Resources */,
+				23A182D11C91255D00BAEE73 /* HCMPartnerCenterViewController.xib in Resources */,
 				238FD64F1C2E82E300F95CCD /* HCMFeedBacksViewController.xib in Resources */,
 				238FD5FE1C2E7B3100F95CCD /* HCMMyWalletTableViewController.xib in Resources */,
 			);
@@ -2506,6 +2539,7 @@
 				23EE22131C02C2600053D68C /* HCMShoppingTableViewController.m in Sources */,
 				23D0260C1B8B22210009C7EE /* UIView+WebCacheOperation.m in Sources */,
 				234A44E41BCF9E4C006910BE /* HCMChooseViewController.m in Sources */,
+				23A182D01C91255D00BAEE73 /* HCMPartnerCenterViewController.m in Sources */,
 				23D6504E1C101CBC00774848 /* SearchViewController.m in Sources */,
 				238FD61D1C2E7EC500F95CCD /* HCMHongBaoTableViewController.m in Sources */,
 				23AF71B01C8AC846001B51CD /* WeChatPayModel.m in Sources */,
@@ -2535,6 +2569,7 @@
 				230DC3741C045898007A125F /* HCMCartSection.m in Sources */,
 				23EE22701C02C2600053D68C /* FlowCheckCell.m in Sources */,
 				22ADFAFE1BCE9EE800F5159A /* HCMSubCollectionViewController.m in Sources */,
+				23A182C71C910F8A00BAEE73 /* HCMPartnerInfoModel.m in Sources */,
 				23D026001B8B22210009C7EE /* SDWebImageCompat.m in Sources */,
 				23D0260A1B8B22210009C7EE /* UIImageView+HighlightedWebCache.m in Sources */,
 				23D6505B1C101CBC00774848 /* secondCollectionViewCell.m in Sources */,
@@ -2579,6 +2614,7 @@
 				23AF714F1C8974A6001B51CD /* HCMDealModel.m in Sources */,
 				23C4BAE21C83D94000F0610B /* HCMAdvisoryViewController.m in Sources */,
 				23AF71881C897660001B51CD /* MJRefreshHeader.m in Sources */,
+				23A182D41C91730A00BAEE73 /* PartnerIndexModel.m in Sources */,
 				23C805931B9403470090E285 /* MJProperty.m in Sources */,
 				23A334B51C19473800CEC213 /* FMDatabaseAdditions.m in Sources */,
 				23E495DB1C49E8BB0064D63B /* weiXinData.m in Sources */,
@@ -2591,6 +2627,7 @@
 				23EE221F1C02C2600053D68C /* OrderGoodsListModel.m in Sources */,
 				23A334B81C19473800CEC213 /* FMResultSet.m in Sources */,
 				23D026011B8B22210009C7EE /* SDWebImageDecoder.m in Sources */,
+				23A182CE1C91255D00BAEE73 /* HCMPartnerCenterCell.m in Sources */,
 				2374E4571BA81957008BB342 /* SVRadialGradientLayer.m in Sources */,
 				23DF59BF1BE0621100FBFE2C /* GoodsFormartMessage.m in Sources */,
 				23D025F31B8B22210009C7EE /* AFURLResponseSerialization.m in Sources */,
@@ -2642,6 +2679,7 @@
 				23D025F21B8B22210009C7EE /* AFURLRequestSerialization.m in Sources */,
 				23D025F11B8B22210009C7EE /* AFURLConnectionOperation.m in Sources */,
 				23D650521C101CBC00774848 /* SortBarndPrice.m in Sources */,
+				23A182D71C9177E400BAEE73 /* PartnerIndex2Model.m in Sources */,
 				238FD5E21C2E790300F95CCD /* HCMNonPaymentTableVC.m in Sources */,
 				23D025F81B8B22210009C7EE /* UIButton+AFNetworking.m in Sources */,
 				23E495DC1C49E8BB0064D63B /* weiXinLoginModel.m in Sources */,

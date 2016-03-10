@@ -177,6 +177,12 @@ typedef void(^FailureBlock)(NSString *error);
  *  微信支付（代付款）
  */
 - (void)postAwaitPayWechatPayURL:(NSDictionary *)userInfo successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
+
+
+
+
+
+
 @end
 
 
