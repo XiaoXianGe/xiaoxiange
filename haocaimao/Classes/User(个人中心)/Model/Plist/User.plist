@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>联系我们</key>
+		<array>
+			<string>售后政策</string>
+			<string>投诉与建议</string>
+		</array>
+	</dict>
+	<dict>
+		<key>新手上路</key>
+		<array>
+			<string>购物流程</string>
+			<string>账户安全</string>
+			<string>订单处理</string>
+		</array>
+	</dict>
+	<dict>
+		<key>配送与支付</key>
+		<array>
+			<string>支付方式说明</string>
+			<string>退款时效</string>
+			<string>配送服务收费标准</string>
+			<string>在线支付</string>
+		</array>
+	</dict>
+	<dict>
+		<key>服务保证</key>
+		<array>
+			<string>退换货原则</string>
+			<string>售后服务保证</string>
+			<string>产品质量保证</string>
+			<string>服务承诺</string>
+		</array>
+	</dict>
+	<dict>
+		<key>会员中心</key>
+		<array>
+			<string>取消订单</string>
+		</array>
+	</dict>
+</array>
+</plist>

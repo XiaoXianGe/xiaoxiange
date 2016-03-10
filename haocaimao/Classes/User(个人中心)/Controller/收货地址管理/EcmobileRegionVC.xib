@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EcmobileRegionVC">
+            <connections>
+                <outlet property="cityTV" destination="Vt7-kz-eZf" id="Lml-CS-iV3"/>
+                <outlet property="districtTV" destination="nri-uR-Qra" id="RVn-BQ-41J"/>
+                <outlet property="provinceTV" destination="Bbc-zb-6pZ" id="nWj-1O-2lo"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Bbc-zb-6pZ" userLabel="Province Table View">
+                    <rect key="frame" x="0.0" y="0.0" width="120" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="qum-AL-lIS"/>
+                        <outlet property="delegate" destination="-1" id="WHB-l2-gfI"/>
+                    </connections>
+                </tableView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vt7-kz-eZf" userLabel="City Table View">
+                    <rect key="frame" x="120" y="64" width="120" height="536"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="qqw-Br-xQh"/>
+                        <outlet property="delegate" destination="-1" id="rep-MS-2Et"/>
+                    </connections>
+                </tableView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nri-uR-Qra" userLabel="District Table View">
+                    <rect key="frame" x="240" y="64" width="160" height="536"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="pLs-mW-xTn"/>
+                        <outlet property="delegate" destination="-1" id="Sjn-PM-k6T"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Vt7-kz-eZf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="Exx-Wh-Epf"/>
+                <constraint firstItem="nri-uR-Qra" firstAttribute="leading" secondItem="Vt7-kz-eZf" secondAttribute="trailing" id="Fel-Bq-IHN"/>
+                <constraint firstItem="Bbc-zb-6pZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="G2I-bZ-d30"/>
+                <constraint firstAttribute="bottom" secondItem="nri-uR-Qra" secondAttribute="bottom" id="LAC-w6-mjl"/>
+                <constraint firstAttribute="bottom" secondItem="Vt7-kz-eZf" secondAttribute="bottom" id="Loh-Rw-e5p"/>
+                <constraint firstAttribute="bottom" secondItem="Bbc-zb-6pZ" secondAttribute="bottom" id="U5w-6Q-Up0"/>
+                <constraint firstItem="Bbc-zb-6pZ" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.3" id="Vej-o8-p4k"/>
+                <constraint firstItem="nri-uR-Qra" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="WeL-AU-j9a"/>
+                <constraint firstItem="nri-uR-Qra" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.4" id="dEz-v5-5e4"/>
+                <constraint firstItem="Vt7-kz-eZf" firstAttribute="leading" secondItem="Bbc-zb-6pZ" secondAttribute="trailing" id="nkF-gt-buM"/>
+                <constraint firstItem="Vt7-kz-eZf" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.3" id="qFU-pj-ctd"/>
+                <constraint firstItem="Bbc-zb-6pZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="zGr-ya-gja"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="147" y="210"/>
+        </view>
+    </objects>
+</document>

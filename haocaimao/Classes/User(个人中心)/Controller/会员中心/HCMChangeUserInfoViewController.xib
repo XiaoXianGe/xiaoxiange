@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HCMChangeUserInfoViewController">
+            <connections>
+                <outlet property="email" destination="Q6A-d1-qYS" id="PyA-Ug-jGC"/>
+                <outlet property="phoneNUm" destination="Joa-ix-i3q" id="lCM-cD-GyZ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outletCollection property="sexArray" destination="PvW-9I-EIw" id="Qek-UE-kNw"/>
+                <outletCollection property="sexArray" destination="sls-Gl-B5S" id="NiR-Vt-XHG"/>
+                <outletCollection property="sexArray" destination="SWN-JC-3fn" id="9UZ-bS-TAq"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell-bg-single" translatesAutoresizingMaskIntoConstraints="NO" id="CKJ-9n-FVN">
+                    <rect key="frame" x="21" y="77" width="278" height="35"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="21" y="79" width="278" height="35"/>
+                    </variation>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell-bg-single" translatesAutoresizingMaskIntoConstraints="NO" id="gM9-SJ-148">
+                    <rect key="frame" x="21" y="115" width="278" height="35"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="21" y="117" width="278" height="35"/>
+                    </variation>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell-bg-single" translatesAutoresizingMaskIntoConstraints="NO" id="gGn-Tc-Aa4">
+                    <rect key="frame" x="21" y="156" width="278" height="35"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="21" y="158" width="278" height="35"/>
+                    </variation>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="性别:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tb6-bl-YNP">
+                    <rect key="frame" x="37" y="84" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="37" y="86" width="42" height="21"/>
+                    </variation>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="邮箱:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPB-o8-brA">
+                    <rect key="frame" x="37" y="122" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="37" y="124" width="42" height="21"/>
+                    </variation>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电话:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c10-sd-c9D">
+                    <rect key="frame" x="37" y="163" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="37" y="165" width="42" height="21"/>
+                    </variation>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ln-Pr-Z7x">
+                    <rect key="frame" x="110" y="208" width="103" height="30"/>
+                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                    <state key="normal" title="确定">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="109" y="224" width="103" height="30"/>
+                    </variation>
+                    <connections>
+                        <action selector="clickOK" destination="-1" eventType="touchUpInside" id="JB2-Gx-WZq"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PvW-9I-EIw">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title=" 匿名" image="oval_unselected">
+                        <color key="titleColor" red="0.30595012630000001" green="0.30595012630000001" blue="0.30595012630000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="selected" title=" 匿名" image="oval_selected"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="88" y="86" width="51" height="22"/>
+                    </variation>
+                    <connections>
+                        <action selector="changeTheSex:" destination="-1" eventType="touchUpInside" id="HYo-ty-cMU"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sls-Gl-B5S">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title=" 男" image="oval_unselected">
+                        <color key="titleColor" red="0.30595012630000001" green="0.30595012630000001" blue="0.30595012630000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="selected" title=" 男" image="oval_selected"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="147" y="86" width="51" height="22"/>
+                    </variation>
+                    <connections>
+                        <action selector="changeTheSex:" destination="-1" eventType="touchUpInside" id="JIf-6q-Kgb"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SWN-JC-3fn">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title=" 女" image="oval_unselected">
+                        <color key="titleColor" red="0.30595012630000001" green="0.30595012630000001" blue="0.30595012630000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="selected" title=" 女" image="oval_selected"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="201" y="86" width="51" height="22"/>
+                    </variation>
+                    <connections>
+                        <action selector="changeTheSex:" destination="-1" eventType="touchUpInside" id="0tm-p1-FUf"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q6A-d1-qYS">
+                    <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="80" y="124" width="209" height="22"/>
+                    </variation>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Joa-ix-i3q">
+                    <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="80" y="163" width="209" height="25"/>
+                    </variation>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="CKJ-9n-FVN"/>
+                    <exclude reference="gM9-SJ-148"/>
+                    <exclude reference="gGn-Tc-Aa4"/>
+                    <exclude reference="Tb6-bl-YNP"/>
+                    <exclude reference="CPB-o8-brA"/>
+                    <exclude reference="c10-sd-c9D"/>
+                    <exclude reference="7Ln-Pr-Z7x"/>
+                    <exclude reference="PvW-9I-EIw"/>
+                    <exclude reference="sls-Gl-B5S"/>
+                    <exclude reference="SWN-JC-3fn"/>
+                    <exclude reference="Q6A-d1-qYS"/>
+                    <exclude reference="Joa-ix-i3q"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="CKJ-9n-FVN"/>
+                    <include reference="gM9-SJ-148"/>
+                    <include reference="gGn-Tc-Aa4"/>
+                    <include reference="Tb6-bl-YNP"/>
+                    <include reference="CPB-o8-brA"/>
+                    <include reference="c10-sd-c9D"/>
+                    <include reference="7Ln-Pr-Z7x"/>
+                    <include reference="PvW-9I-EIw"/>
+                    <include reference="sls-Gl-B5S"/>
+                    <include reference="SWN-JC-3fn"/>
+                    <include reference="Q6A-d1-qYS"/>
+                    <include reference="Joa-ix-i3q"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="207.5" y="56"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="cell-bg-single" width="303" height="48"/>
+        <image name="oval_selected" width="15" height="15"/>
+        <image name="oval_unselected" width="15" height="15"/>
+    </resources>
+</document>

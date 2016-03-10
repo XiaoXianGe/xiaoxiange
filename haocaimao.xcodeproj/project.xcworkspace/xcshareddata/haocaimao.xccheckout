@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>69363BC0-992F-4022-A070-89F23E804E07</string>
+	<key>IDESourceControlProjectName</key>
+	<string>haocaimao</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2263E4AA1B894E0D2782FE8209EE45234EC9DB50</key>
+		<string>https://github.com/LeeSamYear/haocaimao.git</string>
+		<key>8F6574DE3E8F724BC183B6EB0606BF5613A92378</key>
+		<string>https://github.com/LeeSamYear/haocaimao2.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>haocaimao.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2263E4AA1B894E0D2782FE8209EE45234EC9DB50</key>
+		<string>../..</string>
+		<key>8F6574DE3E8F724BC183B6EB0606BF5613A92378</key>
+		<string>../..%E5%89%AF%E6%9C%AC%202</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/LeeSamYear/haocaimao.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2263E4AA1B894E0D2782FE8209EE45234EC9DB50</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2263E4AA1B894E0D2782FE8209EE45234EC9DB50</string>
+			<key>IDESourceControlWCCName</key>
+			<string>haocaimao</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8F6574DE3E8F724BC183B6EB0606BF5613A92378</string>
+			<key>IDESourceControlWCCName</key>
+			<string>haocaimao%E5%89%AF%E6%9C%AC%202</string>
+		</dict>
+	</array>
+</dict>
+</plist>
