@@ -64,6 +64,8 @@
     
     [[AddressNerworking sharedManager]postUserInfoURL:dict successBlock:^(id responseBody) {
         
+        HCMLog(@"-----%@",responseBody);
+        
         [SVProgressHUD showSuccessWithStatus:nil];
         
         self.sex.text = [self whatAreYouIs:responseBody[@"data"][@"sex"]];

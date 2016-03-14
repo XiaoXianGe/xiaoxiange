@@ -169,7 +169,7 @@
     [defaults synchronize];
     [[AddressNerworking sharedManager]postweiXinUserLogoin:mutabDict successBlock:^(id responseBody) {
         
-       // HCMLog(@"开始授权%@",responseBody);
+        HCMLog(@"开始授权%@",responseBody);
         
         if (responseBody[@"status"][@"error_code"]) {
             
@@ -188,6 +188,7 @@
                 [defaults setObject:responseBody[@"data"][@"userid"] forKey:@"uid"];
                 [defaults setObject:responseBody[@"data"][@"sessionId"] forKey:@"sid"];
                 [defaults setBool:responseBody[@"status"][@"succeed"] forKey:@"status"];
+                [defaults setObject:responseBody[@"data"][@"userInfo"][@"realName"] forKey:@"realName"];
                
                 [defaults synchronize];
                 
@@ -210,6 +211,9 @@
     //}
  
 }//判断刷新
+
+
+
 - (void)loadData{
     BOOL load = [self.sqlBase open];
     if (load) {

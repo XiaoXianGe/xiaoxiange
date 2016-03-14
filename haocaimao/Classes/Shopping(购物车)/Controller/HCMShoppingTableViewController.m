@@ -510,6 +510,7 @@ static NSString *ID = @"Cell";
          [SVProgressHUD showInfoWithStatus:@"网络链接失败"];
     }];
 }
+
 //点击删除店铺
 - (void)clickDeleteShopGoodsCell:(HCMCartCell *)cell seller_id:(NSString *)seller_id{
     self.navigationItem.rightBarButtonItem = nil;

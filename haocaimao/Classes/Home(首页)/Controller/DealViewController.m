@@ -268,12 +268,12 @@
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickBack) image:@"nav-back" highImage:@"nav-back"];
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickshare) image:@"item-info-header-share-icon-1" highImage:@"item-info-header-share-icon-1"];
     
-    [self sendDealOfGoodsRequest];
-    
     NSString *url = [NSString stringWithFormat:@"http://www.haocaimao.com/mobile/index.php?m=default&c=goods&a=index&id=%@",self.goods_id];
     [UMSocialWechatHandler setWXAppId:APP_ID appSecret:APP_SECRET url:url];
     
     //[self loadButton];
+    
+    [self sendDealOfGoodsRequest];
     
 }
 
@@ -1080,7 +1080,7 @@
     if (--self.counter <0 ) {
         [self.timer invalidate];
     }else{
-        self.promote_end_date.text = [NSString stringWithFormat:@"%ld天%ld小时%ld分钟%ld秒",(self.counter/86400),(self.counter/3600%24),(self.counter/60%60),(self.counter%60)];
+        self.promote_end_date.text = [NSString stringWithFormat:@"%d天%d小时%d分钟%d秒",(self.counter/86400),(self.counter/3600%24),(self.counter/60%60),(self.counter%60)];
     }
     
 }

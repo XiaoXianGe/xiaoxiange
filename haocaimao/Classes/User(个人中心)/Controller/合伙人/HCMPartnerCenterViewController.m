@@ -5,6 +5,7 @@
 //  Created by 好采猫 on 16/3/9.
 //  Copyright © 2016年 好采猫. All rights reserved.
 //
+//  合伙人中心  提成 分成  
 
 #import "HCMPartnerCenterViewController.h"
 #import "UIView+Extension.h"
@@ -14,11 +15,13 @@
 #import "PartnerIndex2Model.h"
 #import "MJExtension.h"
 
+#import "UMSocialWechatHandler.h"
+#import "UMSocial.h"
 
 #define CellHeight 40 
 
 
-@interface HCMPartnerCenterViewController ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
+@interface HCMPartnerCenterViewController ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,UMSocialUIDelegate>
 
 /** 内容视图 */
 @property (strong, nonatomic) IBOutlet UIView *VView;
@@ -34,9 +37,19 @@
 @property (weak, nonatomic) IBOutlet UIView *headGreenView;
 
 @property(strong,nonatomic)PartnerIndexModel *partnerIndexModel;
+
 @property(strong,nonatomic)NSMutableArray *indexArray;
 
 @property(strong,nonatomic) NSUserDefaults *defaults;
+
+@property (weak, nonatomic) IBOutlet UIButton *shareWeChat;
+
+@property (weak, nonatomic) IBOutlet UIButton *shareFaceToFace;
+
+@property (strong ,nonatomic) UIView *QRCodeView;
+
+@property (copy,nonatomic) NSString * uid;
+@property (copy,nonatomic) NSString * sid;
 
 @property(assign)BOOL status;
 
@@ -66,6 +79,8 @@
     
 }
 
+
+
 /**
  *  发送网络请求
  */
@@ -75,15 +90,14 @@
     
     if (self.status) {
         
-        NSString *uid = [self.defaults objectForKey:@"uid"];
-        NSString *sid = [self.defaults objectForKey:@"sid"];
+        self.uid = [self.defaults objectForKey:@"uid"];
+        self.sid = [self.defaults objectForKey:@"sid"];
         
         NSMutableDictionary *params =[NSMutableDictionary dictionary];
-        params[@"session"] = @{@"uid":uid,@"sid":sid};
+        params[@"session"] = @{@"uid":self.uid,@"sid":self.sid};
         
         [[HomeNetwork sharedManager]postPartnerIndexURL:params successBlock:^(id responseBody) {
             
-            HCMLog(@"------%@",responseBody);
             self.partnerIndexModel= [PartnerIndexModel objectWithKeyValues:responseBody[@"data"]];
             
            self.indexArray = [PartnerIndex2Model objectArrayWithKeyValuesArray:responseBody[@"data"][@"index"]];
@@ -91,7 +105,8 @@
             [self.ParnterNumberTableView reloadData];
             [self.orderNumberTableView reloadData];
             
-            
+            [SVProgressHUD dismiss];
+            [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
             
         } failureBlock:^(NSString *error) {
             
@@ -108,15 +123,11 @@
 -(void)setUpController{
     
     self.navigationController.navigationBarHidden = NO;
-    self.navigationItem.title = @"我是合伙人";
+    self.navigationItem.title = @"合伙人中心";
     
     [self.navigationController.navigationBar setTitleTextAttributes:
-     
-     
      @{NSFontAttributeName:[UIFont systemFontOfSize:17],
-       
-       
-       NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickBack) image:@"nav-back" highImage:@"nav-back"];
     
@@ -129,6 +140,10 @@
 
 //创建scrollView
 -(void)setUpScrollView{
+    
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+    [SVProgressHUD show];
+    
     UIScrollView *scrollView = [[UIScrollView alloc]init];
     self.scrollView = scrollView;
     
@@ -160,13 +175,18 @@
         
         self.orderNumberTableView.y = self.headGreenView.y + self.headGreenView.height;
         
-        self.orderNumberTableView.height = CellHeight * self.indexArray.count;
+        self.orderNumberTableView.height = CellHeight * (self.indexArray.count? self.indexArray.count : 1 ) ;
+        
+        self.shareFaceToFace.y = self.orderNumberTableView.y + self.orderNumberTableView.height + 30;
+        
+        self.shareWeChat.y = self.shareFaceToFace.y;
         
         _scrollView.contentSize = CGSizeMake(320, self.orderNumberTableView.y + self.orderNumberTableView.height + 100);
         
-        return self.indexArray.count;
+        
+        return self.indexArray.count ? self.indexArray.count : 1 ;
+        
     }
-    
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -186,25 +206,101 @@
         cell.Label_Right.text = self.partnerIndexModel.proportion;
     }else{
         
-        PartnerIndex2Model *model = self.indexArray[indexPath.row];
-        cell.Label_Left.text = model.orderSN;
-        cell.Label_Middle.text = model.commission;
-        
-        if ([model.status isEqualToString:@"1"]) {
-             cell.Label_Right.text =@"已结算";
+        if (self.indexArray.count == 0) {
+            cell.Label_Left.text = @"--";
+            cell.Label_Right.text = @"--";
+            cell.Label_Middle.text = @"--";
         }else{
-            cell.Label_Right.text = @"未结算";
+            PartnerIndex2Model *model = self.indexArray[indexPath.row];
+            cell.Label_Left.text = model.orderSN;
+            cell.Label_Middle.text = model.commission;
+            
+            if ([model.status isEqualToString:@"1"]) {
+                cell.Label_Right.text =@"已结算";
+            }else{
+                cell.Label_Right.text = @"未结算";
+                cell.Label_Right.textColor = [UIColor redColor];
+            }
         }
-        
     }
     return cell;
+}
+
+//分享合伙人
+- (IBAction)shareToWeChat {
+    
+    NSString *url = [NSString stringWithFormat:@"http://www.haocaimao.com/mobile/index.php?u=%@",self.uid];
+    [UMSocialWechatHandler setWXAppId:APP_ID appSecret:APP_SECRET url:url];
+    
+    [UMSocialSnsService presentSnsIconSheetView:self
+                                         appKey:@"5636fa51e0f55af8bf004172"
+                                      shareText:@"0元创业,立刻成为好采猫合伙人，领只招财猫回家！"
+                                     shareImage:[UIImage imageNamed:@"partnerLogo.jpg"]
+                                shareToSnsNames:[NSArray arrayWithObjects:UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,nil]
+                                       delegate:self];
+    
+}
+
+-(void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response
+{
+    //根据`responseCode`得到发送结果,如果分享成功
+    if(response.responseCode == UMSResponseCodeSuccess)
+    {
+        [SVProgressHUD showSuccessWithStatus:@"分享成功"];
+    }
+}
+
+- (IBAction)shareForFaceToFace {
+    if (self.status) {
+       
+        if (self.QRCodeView)  {
+            [self.VView addSubview:self.QRCodeView];
+            return;
+        }
+       
+        NSMutableDictionary *params =[NSMutableDictionary dictionary];
+        params[@"session"] = @{@"uid":self.uid,@"sid":self.sid};
+        
+        [[HomeNetwork sharedManager]postPartnerQRCodeCreateURL:params successBlock:^(id responseBody) {
+            
+            [self setupQRCode:responseBody];
+            
+        } failureBlock:^(NSString *error) {
+            [SVProgressHUD showInfoWithStatus:@"加载失败"];
+        }];
+    }
+}
+
+//创建二维码
+-(void)setupQRCode:(NSDictionary *)responseBody{
+    
+    UIView *view = [[UIView alloc]init];
+    view.backgroundColor = HCMColor(30, 30, 30, 0.7);
+    view.frame = [UIScreen mainScreen].bounds;
+    [self.VView addSubview:view];
+    
+    UIImageView *imageView = [[UIImageView alloc]init];
+    imageView.frame = CGRectMake(50, 100, 220, 220);
+    [imageView sd_setImageWithURL:responseBody[@"data"][@"shareImages"]];
+    [view addSubview:imageView];
+    
+    UIButton *button =[[UIButton alloc]init];
+    button.frame = [UIScreen mainScreen].bounds;
+    [button addTarget:self action:@selector(dismissQRCode) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:button];
+    self.QRCodeView = view;
+    
+}
+
+//关闭二维码
+-(void)dismissQRCode{
+    [self.QRCodeView removeFromSuperview];
     
 }
 
 -(void)clickBack{
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
-
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return CellHeight;

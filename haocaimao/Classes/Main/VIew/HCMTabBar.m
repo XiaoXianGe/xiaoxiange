@@ -74,7 +74,6 @@
    // UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 56)];
     self.backView.frame = CGRectMake(0, 0, 320, 56);
     
-    
     CGFloat width = self.width;
     CGFloat height = self.height;
     
@@ -113,7 +112,6 @@
         
         [self.window.rootViewController presentViewController:adVC animated:YES completion:nil];
     }
-    
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{

@@ -14,6 +14,7 @@
  *  用户登录URL
  */
 static NSString *const userLoginURL = @"http://www.haocaimao.com/ecmobile/?url=user/signin";
+//static NSString *const userLoginURL = @"http://192.168.10.162/ecmobile/?url=user/signin";
 /**
  *  微信登录URL
  */

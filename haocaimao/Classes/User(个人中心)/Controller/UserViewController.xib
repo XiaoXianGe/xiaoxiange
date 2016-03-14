@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserViewController">
@@ -25,6 +25,8 @@
                 <outlet property="noReceiveItem" destination="f1t-4N-LE6" id="Hn3-I2-l7V"/>
                 <outlet property="noShipmentsItem" destination="jPh-tZ-c1h" id="Ql6-o3-Zdx"/>
                 <outlet property="ordeHistoryItme" destination="KyT-xO-6Yy" id="Yum-L8-qbR"/>
+                <outlet property="partnerCell" destination="mtP-8l-QjK" id="5zD-Y6-xif"/>
+                <outlet property="partnerInfoLabel" destination="zq1-Zi-oJp" id="DcQ-ko-3xK"/>
                 <outlet property="profileImgBg" destination="da3-Q3-4ZI" id="fkW-FR-Jlj"/>
                 <outlet property="tabbar" destination="gHX-j1-jaK" id="2Ip-Po-M5Q"/>
                 <outlet property="tableView" destination="DO1-Hp-fIL" id="3cl-hZ-exN"/>
@@ -284,16 +286,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="address" translatesAutoresizingMaskIntoConstraints="NO" id="bA5-4x-EOI">
-                                <rect key="frame" x="10" y="9" width="20" height="25"/>
+                                <rect key="frame" x="10" y="11" width="20" height="25"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="管理收货地址" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYf-tX-QnK">
-                                <rect key="frame" x="41" y="13" width="102" height="21"/>
+                                <rect key="frame" x="41" y="15" width="102" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="更多收货地址 &gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2t-nl-W1x">
-                                <rect key="frame" x="218" y="10" width="100" height="21"/>
+                                <rect key="frame" x="218" y="14" width="100" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.68173926770000004" green="0.68173926770000004" blue="0.68173926770000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -316,16 +318,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hcmLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Nfl-xn-NP3">
-                                <rect key="frame" x="8" y="9" width="26" height="25"/>
+                                <rect key="frame" x="8" y="11" width="26" height="25"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="好采猫会员" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1B-UJ-KaD">
-                                <rect key="frame" x="42" y="11" width="85" height="21"/>
+                                <rect key="frame" x="42" y="14" width="85" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="会员俱乐部 &gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3H9-Gc-vQS">
-                                <rect key="frame" x="231" y="13" width="82" height="21"/>
+                                <rect key="frame" x="231" y="14" width="82" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.68173926770000004" green="0.68173926770000004" blue="0.68173926770000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -348,16 +350,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="kefu" translatesAutoresizingMaskIntoConstraints="NO" id="BLh-YT-asb">
-                                <rect key="frame" x="10" y="9" width="23" height="25"/>
+                                <rect key="frame" x="10" y="11" width="23" height="25"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="服务与反馈" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wE7-Vw-70H">
-                                <rect key="frame" x="41" y="11" width="85" height="21"/>
+                                <rect key="frame" x="41" y="14" width="85" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="意见反馈 &gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYf-3o-UFi">
-                                <rect key="frame" x="244" y="14" width="68" height="21"/>
+                                <rect key="frame" x="244" y="15" width="68" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.68173926770000004" green="0.68173926770000004" blue="0.68173926770000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -380,10 +382,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="helpme" translatesAutoresizingMaskIntoConstraints="NO" id="aij-e8-ftJ">
-                                <rect key="frame" x="8" y="11" width="29" height="21"/>
+                                <rect key="frame" x="8" y="12" width="29" height="21"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="帮助" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I95-nv-jjy">
-                                <rect key="frame" x="43" y="11" width="85" height="21"/>
+                                <rect key="frame" x="43" y="14" width="85" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -401,9 +403,42 @@
             </tableViewCellContentView>
             <point key="canvasLocation" x="260" y="448"/>
         </tableViewCell>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="mtP-8l-QjK" userLabel="合伙人">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mtP-8l-QjK" id="GaB-y8-jjb">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KlK-yg-kn5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="合伙人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fW-mS-nxu">
+                                <rect key="frame" x="43" y="15" width="85" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="进入合伙人中心 &gt;" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zq1-Zi-oJp">
+                                <rect key="frame" x="198" y="14" width="110" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.68173926770000004" green="0.68173926770000004" blue="0.68173926770000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="boss" translatesAutoresizingMaskIntoConstraints="NO" id="PmL-ZM-Xsi">
+                                <rect key="frame" x="9" y="10" width="27" height="27"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </subviews>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="-206" y="409"/>
+        </tableViewCell>
     </objects>
     <resources>
         <image name="address" width="44" height="62"/>
+        <image name="boss" width="53" height="54"/>
         <image name="hcmLogo" width="42" height="38"/>
         <image name="helpme" width="67" height="40"/>
         <image name="kefu" width="42" height="38"/>

@@ -36,7 +36,9 @@
 @end
 
 @implementation HCMVipLoginViewController
-- (HCMUserNumberTableViewController *)userNumber{
+
+- (HCMUserNumberTableViewController *)userNumber
+{
     if (!_userNumber) {
         _userNumber = [[HCMUserNumberTableViewController alloc]init];
         CGRect frame = self.userName.frame;
@@ -49,13 +51,17 @@
     }
     return _userNumber;
 }
--(weiXinData *)data{
+
+-(weiXinData *)data
+{
     if (_data==nil) {
         _data = [[weiXinData alloc]init];
     }
    return _data;
 }
--(NSUserDefaults *)defaults{
+
+-(NSUserDefaults *)defaults
+{
     
     if (!_defaults) {
         _defaults = [NSUserDefaults standardUserDefaults];
@@ -63,7 +69,8 @@
     return _defaults;
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     [HCMNSNotificationCenter addObserver:self selector:@selector(clickUser:) name:@"userNumber" object:nil];
     [HCMNSNotificationCenter addObserver:self selector:@selector(weChatLogin) name:@"weChatLogin" object:nil];
@@ -84,28 +91,38 @@
     
 }
 
-- (void)weChatLogin{
+- (void)weChatLogin
+{
     [self dismissViewControllerAnimated:YES completion:nil];
     [self.navigationController popToRootViewControllerAnimated:YES];
     
 }
--(void)passwordChange:(NSNotification *)notification{
+
+-(void)passwordChange:(NSNotification *)notification
+{
     self.loginBtn.enabled = ([((UITextField *)notification.object).text length]>=5)&& ([((UITextField *)notification.object).text length]<=18);
 }
 
-- (void)userNameEditorial{
+- (void)userNameEditorial
+{
     [self deleteHCMTableView];
 
 }
-- (void)userNameChange{
+
+- (void)userNameChange
+{
     [self deleteHCMTableView];
 
 }
-- (void)clickUser:(NSNotification *)notification{
+
+- (void)clickUser:(NSNotification *)notification
+{
     self.userName.text = notification.userInfo[@"indexNumber"];
     [self deleteHCMTableView];
 }
-- (void)viewDidAppear:(BOOL)animated{
+
+- (void)viewDidAppear:(BOOL)animated
+{
     
     [super viewDidAppear:animated];
     
@@ -115,7 +132,9 @@
     }else{
         self.memoryNumber.hidden = YES;
     }
-
+    
+    [SVProgressHUD dismiss];
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
     
 }
 
@@ -132,7 +151,6 @@
     }else{
         
         [self.view endEditing:YES];
-        
         [MBProgressHUD showMessage:@"正在登录"];
         
         NSMutableDictionary *mutabDict = [NSMutableDictionary dictionary];
@@ -142,12 +160,16 @@
         [[AddressNerworking sharedManager] postUserLogoin:mutabDict successBlock:^(id responseBody) {
         [MBProgressHUD hideHUD];
             
+            HCMLog(@"%@",responseBody);
+            
             if (responseBody[@"status"][@"error_code"]) {
                 
                 [MBProgressHUD showError:responseBody[@"status"][@"error_desc"]];
             
                 return ;
+                
             }else{
+                
                 NSString *str = [self.defaults objectForKey:@"userNumber0"];
                 NSString *str2 = [self.defaults objectForKey:@"userNumber1"];
                 NSString *str3 = [self.defaults objectForKey:@"userNumber3"];
@@ -164,19 +186,23 @@
                 }
                 [self.defaults synchronize];
                 
-
                [SVProgressHUD showSuccessWithStatus:nil];
+                
                 NSString *uid = responseBody[@"data"][@"session"][@"uid"];
                 NSString *sid = responseBody[@"data"][@"session"][@"sid"];
-            [self.defaults setObject:uid forKey:@"uid"];
-            [self.defaults setObject:sid forKey:@"sid"];
-            [self.defaults setObject:self.userName.text forKey:@"userName"];
-            [self.defaults setBool:YES forKey:@"status"];
-            [self.defaults synchronize];
                 
-            [self.navigationController popToRootViewControllerAnimated:YES];
-            [self dismissViewControllerAnimated:YES completion:nil];
+                [self.defaults setObject:uid forKey:@"uid"];
+                [self.defaults setObject:sid forKey:@"sid"];
                 
+                [self.defaults setObject:self.userName.text forKey:@"userName"];
+                [self.defaults setObject:responseBody[@"data"][@"user"][@"realName"] forKey:@"realName"];
+                
+                [self.defaults setBool:YES forKey:@"status"];
+                [self.defaults synchronize];
+                    
+                [self.navigationController popToRootViewControllerAnimated:YES];
+                [self dismissViewControllerAnimated:YES completion:nil];
+                    
             }
             
         } failureBlock:^(NSString *error) {
@@ -200,13 +226,16 @@
  *  注册新用户
  *
  */
-- (IBAction)registeringNewUser:(UIButton *)sender {
+- (IBAction)registeringNewUser:(UIButton *)sender
+{
     
      HCMValidationRegisteredVC  *VRVC = [[HCMValidationRegisteredVC alloc]initWithNibName:@"HCMValidationRegisteredVC" bundle:nil];
     [self.navigationController pushViewController:VRVC animated:YES];
     
 }
-- (IBAction)userNumber:(UIButton *)sender {
+
+- (IBAction)userNumber:(UIButton *)sender
+{
    BOOL number = sender.selected = !sender.selected;
     if (number) {
         [self addUserNumber];
@@ -222,7 +251,9 @@
 
    
 }
-- (void)addUserNumber{
+
+- (void)addUserNumber
+{
     if ([self.defaults objectForKey:@"userNumber0"]!=nil) {
         [self.userNumber.number addObject:[self.defaults objectForKey:@"userNumber0"]];
 
@@ -239,12 +270,16 @@
     
 
 }
-- (void)deleteHCMTableView{
+
+- (void)deleteHCMTableView
+{
     [self.userNumber.view removeFromSuperview];
     self.userNumber = nil;
     self.memoryNumber.selected = NO;
 }
-- (IBAction)passwordLook:(UIButton *)sender {
+
+- (IBAction)passwordLook:(UIButton *)sender
+{
     self.password.secureTextEntry = YES;
 
      BOOL lock = sender.selected = !sender.selected;
@@ -253,18 +288,20 @@
     }
 }
 
-
-- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {  // 这个方法是UITextFieldDelegate协议里面的
+- (BOOL)textFieldShouldReturn:(UITextField *)theTextField
+{  // 这个方法是UITextFieldDelegate协议里面的
     [theTextField resignFirstResponder]; //这句代码可以隐藏 键盘
     return YES;
 }
-- (IBAction)getPassword:(UIButton *)sender {
+
+- (IBAction)getPassword:(UIButton *)sender
+{
     HCMGetPasswordViewController *getPassword = [[HCMGetPasswordViewController alloc]initWithNibName:@"HCMGetPasswordViewController" bundle:nil];
     [self.navigationController pushViewController:getPassword animated:YES];
 }
 
-
-- (IBAction)weixin:(id)sender {
+- (IBAction)weixin:(id)sender
+{
     
     
     [self sendAuthReq];
@@ -303,7 +340,8 @@ dispatch_async(dispatch_get_main_queue(), ^{
     return YES;
     
 }//刷新Access_token;*/
-- (void)sendAuthReq{
+- (void)sendAuthReq
+{
    
     SendAuthReq *req = [[SendAuthReq alloc]init];
     req.scope = @"snsapi_base,snsapi_userinfo";
@@ -312,26 +350,30 @@ dispatch_async(dispatch_get_main_queue(), ^{
 }//发送授权请求
 
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
     [self deleteHCMTableView];
     [self.view endEditing:YES];
 }
 
 //询价推出的vipView，左上角的按钮
-- (IBAction)ViPLoginPresentAndDismiss {
+- (IBAction)ViPLoginPresentAndDismiss
+{
     
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 
-- (void)weChatLoginNew{
+- (void)weChatLoginNew
+{
     
     HCMWeChatViewController *weChat = [[HCMWeChatViewController alloc]initWithNibName:@"HCMWeChatViewController" bundle:nil];
     [self.navigationController pushViewController:weChat animated:YES];
     
 }
 
--(void)dealloc{
+-(void)dealloc
+{
     [HCMNSNotificationCenter removeObserver:self];
 }
 @end

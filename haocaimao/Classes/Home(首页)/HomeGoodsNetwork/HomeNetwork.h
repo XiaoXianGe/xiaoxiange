@@ -74,5 +74,9 @@ typedef void(^FailureBlock)(NSString *error);
  *  合伙人提成数据
  */
 -(void)postPartnerIndexURL:(NSDictionary *)userInfo successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
+/**
+ *  合伙人当面扫
+ */
+-(void)postPartnerQRCodeCreateURL:(NSDictionary *)userInfo successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
 
 @end

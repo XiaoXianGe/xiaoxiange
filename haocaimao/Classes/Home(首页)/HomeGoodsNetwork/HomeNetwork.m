@@ -57,7 +57,10 @@ static NSString *const PartnerApplyURL = @"http://www.haocaimao.com/ecmobile/?ur
  * 合伙人信息接入URL
  */
 static NSString *const PartnerIndexURL = @"http://www.haocaimao.com/ecmobile/?url=user/salesPartnerIndex";
-
+/**
+ * 合伙人信息接入URL
+ */
+static NSString *const PartnerQRCodeCreateURL = @"http://www.haocaimao.com/ecmobile/?url=common/QRCodeCreate";
 
 
 
@@ -303,4 +306,26 @@ static NSString *const PartnerIndexURL = @"http://www.haocaimao.com/ecmobile/?ur
     }];
     
 }
+
+/**
+ *  合伙人当面扫
+ */
+-(void)postPartnerQRCodeCreateURL:(NSDictionary *)userInfo successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+    AFHTTPRequestOperationManager *manager = [self baseHtppRequest];
+    
+    NSString *urlStr = [PartnerQRCodeCreateURL stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    [manager POST:urlStr parameters:userInfo success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        successBlock(responseObject);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        failureBlock(errorStr);
+        
+    }];
+    
+}
+
 @end

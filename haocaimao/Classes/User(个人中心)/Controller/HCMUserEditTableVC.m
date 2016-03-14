@@ -164,6 +164,7 @@
         [self.defaults removeObjectForKey:@"headimgurl"];
         [self.defaults removeObjectForKey:@"imgData"];
         [self.defaults removeObjectForKey:@"unionid"];
+        [self.defaults removeObjectForKey:@"realName"];
 
         [self.defaults synchronize];
         

@@ -101,6 +101,8 @@
     
     [[AddressNerworking sharedManager]postUserInfoURL:dict successBlock:^(id responseBody) {
         
+        HCMLog(@"===========%@",responseBody);
+        
         if (responseBody[@"status"][@"error_code"]) {
             [SVProgressHUD showInfoWithStatus:responseBody[@"status"][@"error_desc"]];
             return ;

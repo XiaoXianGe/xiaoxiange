@@ -12,6 +12,8 @@
                 <outlet property="headGreenView" destination="RFN-yb-ogh" id="rfW-8K-eae"/>
                 <outlet property="headRedVIew" destination="x1F-ME-lT6" id="Q1n-d0-LFB"/>
                 <outlet property="orderNumberTableView" destination="Q0f-f8-VDg" id="8mA-0A-dQx"/>
+                <outlet property="shareFaceToFace" destination="3s9-lo-hUc" id="nic-Cx-2mc"/>
+                <outlet property="shareWeChat" destination="Pvh-2o-oWe" id="tuf-aT-yk6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -163,10 +165,30 @@
                         <outlet property="delegate" destination="-1" id="MvO-Ze-7cc"/>
                     </connections>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Pvh-2o-oWe" userLabel="微信分享">
+                    <rect key="frame" x="26" y="429" width="130" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" backgroundImage="partner微信"/>
+                    <connections>
+                        <action selector="shareToWeChat" destination="-1" eventType="touchUpInside" id="8vc-Nb-HWg"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3s9-lo-hUc" userLabel="扫一扫分享">
+                    <rect key="frame" x="164" y="429" width="130" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" backgroundImage="partner当面"/>
+                    <connections>
+                        <action selector="shareForFaceToFace" destination="-1" eventType="touchUpInside" id="tsv-xq-NHV"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <point key="canvasLocation" x="378" y="290"/>
         </view>
     </objects>
+    <resources>
+        <image name="partner当面" width="329" height="94"/>
+        <image name="partner微信" width="328" height="94"/>
+    </resources>
 </document>

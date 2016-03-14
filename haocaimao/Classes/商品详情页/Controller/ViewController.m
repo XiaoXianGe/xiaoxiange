@@ -17,6 +17,7 @@
 #import "UINavigationBar+Background.h"
 #import "UIView+Extension.h"
 #import "AFNetworking.h"
+
 #import "HCMDealCell.h"
 #import "MJExtension.h"
 #import "SVProgressHUD.h"

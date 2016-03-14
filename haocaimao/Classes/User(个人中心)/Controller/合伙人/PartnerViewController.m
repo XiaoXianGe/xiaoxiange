@@ -5,9 +5,11 @@
 //  Created by 好采猫 on 16/1/27.
 //  Copyright © 2016年 haocaimao. All rights reserved.
 //
+//  注册 申请成为 合伙人
 
 #import "PartnerViewController.h"
 #import "HomeNetwork.h"
+#import "HCMPartnerCenterViewController.h"
 
 @interface PartnerViewController ()<UIScrollViewDelegate>
 
@@ -86,10 +88,17 @@
        NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickBack) image:@"nav-back" highImage:@"nav-back"];
+    
+    [SVProgressHUD dismiss];
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
+
+    
 }
+
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     self.tabBarController.tabBar.hidden = NO;
+    
     
 }
 
@@ -120,6 +129,11 @@
     
     [self.view endEditing:YES];
     
+    if (self.nameTextField.text.length == 0 || self.emailTextField.text.length == 0 || self.numberTextField.text.length == 0) {
+        [SVProgressHUD showInfoWithStatus:@"请完整填写资料"];
+        return;
+    }
+    
     //检查资料是否完整
     self.MarkSex = NO;
     for (UIButton *btn in self.SexArray) {
@@ -129,11 +143,7 @@
         [SVProgressHUD showInfoWithStatus:@"请选择性别"];
         return;
     }
-    
-    if (self.nameTextField.text.length == 0 || self.emailTextField.text.length == 0 || self.numberTextField.text.length == 0) {
-        [SVProgressHUD showInfoWithStatus:@"请完整填写资料"];
-        return;
-    }
+
     
     self.status = [self.defaults boolForKey:@"status"];
     
@@ -151,19 +161,15 @@
         params[@"sex"] = [NSString stringWithFormat:@"%ld",(long)self.sex];
         
         HCMLog(@"%@",params);
-                
+        
         [[HomeNetwork sharedManager]postPartnerApplyURL:params successBlock:^(id responseBody) {
             
-            NSLog(@"%@",responseBody);
-            if (responseBody[@"status"][@"error_desc"]) {
-                [SVProgressHUD showInfoWithStatus:responseBody[@"status"][@"error_desc"]];
-                return ;
-            }
-            
-            [SVProgressHUD showSuccessWithStatus:@"注册成功"];
-            
+            [SVProgressHUD showInfoWithStatus:responseBody[@"status"][@"error_desc"]];
+                
             self.successView.frame = CGRectMake(0, 0, HCMScreenWidth, HCMScreenHeight);
             [self.VView addSubview:self.successView];
+            
+            [SVProgressHUD showSuccessWithStatus:@"注册成功"];
             
         } failureBlock:^(NSString *error) {
             
@@ -172,20 +178,19 @@
         }];
 
     }
-    
-    
 }
 
 /**
  * 点击successView分享button
  */
 - (IBAction)gotoShare {
-    
-    
     HCMLog(@"分享。、。");
     
+    HCMPartnerCenterViewController *vc = [[HCMPartnerCenterViewController alloc]init];
+    
+    [self.navigationController pushViewController:vc animated:YES];
+    
 }
-
 
 
 /**

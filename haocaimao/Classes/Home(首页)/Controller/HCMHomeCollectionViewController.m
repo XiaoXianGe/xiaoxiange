@@ -27,7 +27,6 @@
 #import "MJExtension.h"
 #import "HCMPartnerCenterViewController.h"
 
-
 @interface HCMHomeCollectionViewController ()<HCMHomeTopViewControllerDelegate>
 
 @property (strong, nonatomic)HCMHomeTopViewController *homeTop;
@@ -206,10 +205,11 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 -(void)clickLogo{
-    [self.collectionView setContentOffset:CGPointMake(0, 0) animated:YES];
-//    ViewController *vc = [[ViewController alloc]init];
-//    vc.goods_id = @"318";
-//    [self.navigationController pushViewController:vc animated:YES];
+   // [self.collectionView setContentOffset:CGPointMake(0, 0) animated:YES];
+    ViewController *vc = [[ViewController alloc]init];
+    vc.goods_id = @"318";
+    [self.navigationController pushViewController:vc animated:YES];
+    [SVProgressHUD show];
 
 }
 
@@ -393,12 +393,14 @@ static NSString * const reuseIdentifier = @"Cell";
 //申请成为合伙人
 -(void)gotoPartnerCenter:(HCMHomeTopViewController *)delegate{
     
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+    [SVProgressHUD show];
+    
      self.status = [self.defaults boolForKey:@"status"];
     
     if (self.status) {
         NSString * sid = [self.defaults objectForKey:@"sid"];
         NSString * uid = [self.defaults objectForKey:@"uid"];
-
         
         NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
                 
@@ -418,7 +420,7 @@ static NSString * const reuseIdentifier = @"Cell";
             NSString *str = [NSString stringWithFormat:@"%@",responseBody[@"data"][@"salesPartnerStatus"]];
             
             if ([str isEqualToString:@"0"]) {
-                //未注册和合伙人
+                //未注册和合伙人 跳到申请界面
                 HCMLog(@"未注册和合伙人");
 
                 HCMPartnerInfoModel *partnerModel = [HCMPartnerInfoModel objectWithKeyValues:responseBody[@"data"][@"userProfile"]];
@@ -431,28 +433,26 @@ static NSString * const reuseIdentifier = @"Cell";
                 
                 [self.navigationController pushViewController:partner animated:YES];
             }else{
-                //已注册合伙人
+                //已注册合伙人 显示合伙人收益信息
                 HCMLog(@"已注册合伙人");
                 HCMPartnerCenterViewController *vc =[[HCMPartnerCenterViewController alloc]init];
                 
                 [self.navigationController pushViewController:vc animated:YES];
             
             }
-            
-            
-            
         } failureBlock:^(NSString *error) {
             HCMLog(@"合伙人失败");
+            [SVProgressHUD showInfoWithStatus:@"请求失败"];
+            [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
+        
         }];
-  
-
-        
-        
         return;
+        
     }else{
         
         //这里是非登录状态(!_self.status)
         [SVProgressHUD showInfoWithStatus:@"客官,请先登录~"];
+        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
         [self userLogin];
     }
     

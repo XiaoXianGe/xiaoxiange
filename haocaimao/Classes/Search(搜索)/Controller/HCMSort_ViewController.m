@@ -86,7 +86,13 @@ static NSString * const reuseIdentifier = @"Cell";
     
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickBack) image:@"nav-back" highImage:@"nav-back"];
     
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickSearchBrand) image:@"nav_choose" highImage:@"nav_choose"];
+    UIBarButtonItem *barSearchBtn=[UIBarButtonItem itemWithTarget:self action:@selector(clickSearchBrand) image:@"nav_choose" highImage:@"nav_choose"];
+    
+    UIBarButtonItem *barMoreBtn=[UIBarButtonItem itemWithTarget:self action:@selector(gotoTheSearch) image:@"nav_search" highImage:@"nav_search"];
+    
+    NSArray *rightBtns=[NSArray arrayWithObjects:barSearchBtn,barMoreBtn, nil];
+    
+    self.navigationItem.rightBarButtonItems = rightBtns;
     
     self.sortClickView.frame = CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, 40);
     self.collectView.frame = CGRectMake(0, 104, self.sortClickView.frame.size.width, [UIScreen mainScreen].bounds.size.height - 104);

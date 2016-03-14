@@ -29,13 +29,14 @@
 #define HCMLogFunc HCMLog(@"%s", __func__)
 
 #define HCMNSNotificationCenter  [NSNotificationCenter defaultCenter]
+
 #define HCMScreenWidth [[UIScreen mainScreen]bounds].size.width
 #define HCMScreenHeight [[UIScreen mainScreen]bounds].size.height
-#define HCMColor(r,g,b,a)         [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:((a!=1.0)?a:1.0)]
 
+#define HCMColor(r,g,b,a)         [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:((a!=1.0)?a:1.0)]
 #define HCMRandomColor HCMColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256),1.0)
 
-
+//微信分享 授权登录
 #define APP_ID @"wx2a1388283f78955d"
 #define APP_SECRET @"c3076ba236c8d120b3eb829bad13b154"
 

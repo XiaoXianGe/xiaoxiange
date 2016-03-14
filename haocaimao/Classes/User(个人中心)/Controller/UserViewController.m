@@ -39,6 +39,10 @@
 #import "partnerCell.h"
 
 #import "PartnerViewController.h"
+#import "HomeNetwork.h"
+#import "HCMPartnerInfoModel.h"
+#import "HCMPartnerCenterViewController.h"
+#import "MJExtension.h"
 
 @interface UserViewController ()<UITableViewDelegate,UITableViewDataSource,UITabBarDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIAlertViewDelegate>
 
@@ -50,6 +54,7 @@
 @property (strong, nonatomic) IBOutlet UITableViewCell *HCMCentreCell;
 @property (strong, nonatomic) IBOutlet UITableViewCell *AirlinesCell;
 @property (strong, nonatomic) IBOutlet UITableViewCell *HelpMeCell;
+@property (strong, nonatomic) IBOutlet UITableViewCell *partnerCell;
 
 
 @property (strong, nonatomic)HCMVIPUserModel *vipUserMobel;
@@ -87,7 +92,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *money;
 
 @property (strong,nonatomic) NSDictionary *dic;
-@property (strong,nonatomic)UINib *nib;
+//@property (strong,nonatomic)UINib *nib;
+@property (weak, nonatomic) IBOutlet UILabel *partnerInfoLabel;
 
 @end
 
@@ -203,6 +209,7 @@
     
     if (self.status) {
         
+        
         NSString *sid = [self.defaults objectForKey:@"sid"];
         NSString *uid = [self.defaults objectForKey:@"uid"];
         
@@ -263,6 +270,13 @@
     
     if (self.status) {
         
+        //判断是否为合伙人
+        if( [[self.defaults objectForKey:@"realName"] isEqualToString:@""] ){
+            self.partnerInfoLabel.text = @"申请合伙人>";
+        }else{
+            self.partnerInfoLabel.text = @"进入合伙人中心>";
+        }
+        
         [self networking];
         self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(networking)];
         
@@ -286,6 +300,7 @@
         self.YouHuiJuan.text = @"0";
         self.userImage.hidden = YES;
         self.clickLogin.enabled = YES;
+        self.partnerInfoLabel.text = @"申请合伙人>";
     }
 }
 
@@ -347,6 +362,8 @@
 
         [self.defaults removeObjectForKey:@"sid"];
         [self.defaults removeObjectForKey:@"uid"];
+        [self.defaults removeObjectForKey:@"realName"];
+        
         [self.defaults synchronize];
         
         [[NSNotificationCenter defaultCenter]postNotificationName:@"UserLoginOut" object:nil userInfo:nil];
@@ -440,15 +457,15 @@
         if (indexPath.row == 0) {
             return self.addressCell;
         }else if(indexPath.row == 1){
-            if (self.nib == nil) {
-                self.nib = [UINib nibWithNibName:@"partnerCell" bundle:nil];
-                [self.tableView registerNib:self.nib forCellReuseIdentifier:@"Cell"];
-            }
-            
-            partnerCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell"];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            return cell;
-          //return self.HCMCentreCell;
+//            if (self.nib == nil) {
+//                self.nib = [UINib nibWithNibName:@"partnerCell" bundle:nil];
+//                [self.tableView registerNib:self.nib forCellReuseIdentifier:@"Cell"];
+//            }
+//            
+//            partnerCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell"];
+//            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//            return cell;
+          return self.partnerCell;
         }else{
             return self.HCMCentreCell;
         }
@@ -660,20 +677,63 @@
 //合伙人中心
 -(void)PartnerCenter{
     if (self.status) {
+        NSString * sid = [self.defaults objectForKey:@"sid"];
+        NSString * uid = [self.defaults objectForKey:@"uid"];
         
-        PartnerViewController *partner = [[PartnerViewController alloc]initWithNibName:@"PartnerViewController" bundle:nil];
+        NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
         
-        [self.navigationController pushViewController:partner animated:YES];
+        params[@"session"] = @{@"sid":sid,@"uid":uid};
         
+        [[HomeNetwork sharedManager]postPartnerFormURL:params successBlock:^(id responseBody) {
+            HCMLog(@"%@",responseBody);
+            
+            if (responseBody[@"status"][@"error_desc"]) {
+                [SVProgressHUD showInfoWithStatus:responseBody[@"status"][@"error_desc"]];
+                
+                [self userGoLogin];
+                
+                return ;
+            }
+            
+            NSString *str = [NSString stringWithFormat:@"%@",responseBody[@"data"][@"salesPartnerStatus"]];
+            
+            if ([str isEqualToString:@"0"]) {
+                //未注册和合伙人 跳到申请界面
+                HCMLog(@"未注册和合伙人");
+                
+                HCMPartnerInfoModel *partnerModel = [HCMPartnerInfoModel objectWithKeyValues:responseBody[@"data"][@"userProfile"]];
+                
+                PartnerViewController *partner = [[PartnerViewController alloc]initWithNibName:@"PartnerViewController" bundle:nil];
+                
+                partner.email = partnerModel.email;
+                partner.mobilePhone = partnerModel.mobilePhone;
+                partner.sex = [partnerModel.sex integerValue];
+                
+                [self.navigationController pushViewController:partner animated:YES];
+            }else{
+                //已注册合伙人 显示合伙人收益信息
+                HCMLog(@"已注册合伙人");
+                HCMPartnerCenterViewController *vc =[[HCMPartnerCenterViewController alloc]init];
+                
+                [self.navigationController pushViewController:vc animated:YES];
+                
+            }
+        } failureBlock:^(NSString *error) {
+            HCMLog(@"合伙人失败");
+            [SVProgressHUD showInfoWithStatus:@"请求失败"];
+            [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
+            
+        }];
         return;
+        
     }else{
         
-        HCMVipLoginViewController *vipLoginVC = [[HCMVipLoginViewController alloc]initWithNibName:@"HCMVipLoginViewController" bundle:nil];
-        
-        [self animationtype];
-        
-        [self.navigationController pushViewController:vipLoginVC animated:YES];
+        //这里是非登录状态(!_self.status)
+        [SVProgressHUD showInfoWithStatus:@"客官,请先登录~"];
+        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
+        [self userGoLogin];
     }
+
 }
 
 //会员俱乐部
@@ -820,6 +880,16 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
+/**
+ * 用户登录
+ */
+-(void)userGoLogin{
+    HCMVipLoginViewController *vipLoginVC = [[HCMVipLoginViewController alloc]init];
+    
+    self.tabBarController.tabBar.hidden = YES;
+    
+    [self.navigationController pushViewController:vipLoginVC animated:YES];
+}
 
 //设置cell被点没有颜色
 -(void)setCellSelectionStyle{
