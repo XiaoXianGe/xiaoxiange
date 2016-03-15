@@ -14,7 +14,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="啊克里斯多夫那么少,电脑最开心经常v氨基酸那地方那是肯定房间看哈看韩剧" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2m-la-xim">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="啊克里斯多夫那么少,电脑最开心经常v氨基酸那地方那是肯定房间看哈看韩剧" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="260" translatesAutoresizingMaskIntoConstraints="NO" id="T2m-la-xim">
                         <rect key="frame" x="10" y="5" width="260" height="35"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="35" id="UQe-Ca-hIG"/>
@@ -68,7 +68,7 @@
                 <outlet property="market_price" destination="vwC-PV-lCU" id="ZHm-uM-PQB"/>
                 <outlet property="shop_price" destination="XrY-Xa-qGZ" id="111-mu-JGD"/>
             </connections>
-            <point key="canvasLocation" x="405" y="208.5"/>
+            <point key="canvasLocation" x="338" y="211"/>
         </tableViewCell>
     </objects>
 </document>

@@ -115,7 +115,7 @@
 }
 
 -(void)touchButton:(UIButton *)Button{
-    NSLog(@"..%lu",Button.tag);
+    NSLog(@"..%lu",(long)Button.tag);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

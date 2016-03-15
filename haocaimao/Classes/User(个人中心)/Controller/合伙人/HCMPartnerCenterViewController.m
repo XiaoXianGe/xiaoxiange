@@ -10,6 +10,7 @@
 #import "HCMPartnerCenterViewController.h"
 #import "UIView+Extension.h"
 #import "HCMPartnerCenterCell.h"
+
 #import "HomeNetwork.h"
 #import "PartnerIndexModel.h"
 #import "PartnerIndex2Model.h"
@@ -78,8 +79,6 @@
     [self NetWorking];
     
 }
-
-
 
 /**
  *  发送网络请求
@@ -192,25 +191,25 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     HCMPartnerCenterCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
+    //设置row隔空颜色
     if (indexPath.row % 2 == 0) {
-        cell.backgroundColor = HCMColor(233, 233, 233, 1.0);
-        
-    }else{
-        cell.backgroundColor = HCMColor(211, 211, 211, 1.0);
-    }
+        cell.backgroundColor = HCMColor(233, 233, 233, 1.0);}
+    else{
+        cell.backgroundColor = HCMColor(211, 211, 211, 1.0);}
     
+    //红色tableView内容设置
     if (tableView == self.ParnterNumberTableView) {
-     
         cell.Label_Left.text = self.partnerIndexModel.rank;
         cell.Label_Middle.text = self.partnerIndexModel.amount;
         cell.Label_Right.text = self.partnerIndexModel.proportion;
-    }else{
         
-        if (self.indexArray.count == 0) {
+    }else{//绿色tableView内容设置
+        if (self.indexArray.count == 0) { //返回内容为空
             cell.Label_Left.text = @"--";
             cell.Label_Right.text = @"--";
             cell.Label_Middle.text = @"--";
-        }else{
+            
+        }else{//返回内容有值
             PartnerIndex2Model *model = self.indexArray[indexPath.row];
             cell.Label_Left.text = model.orderSN;
             cell.Label_Middle.text = model.commission;
@@ -235,7 +234,7 @@
     [UMSocialSnsService presentSnsIconSheetView:self
                                          appKey:@"5636fa51e0f55af8bf004172"
                                       shareText:@"0元创业,立刻成为好采猫合伙人，领只招财猫回家！"
-                                     shareImage:[UIImage imageNamed:@"partnerLogo.jpg"]
+                                     shareImage:[UIImage imageNamed:@"partnerLogo"]
                                 shareToSnsNames:[NSArray arrayWithObjects:UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,nil]
                                        delegate:self];
     
@@ -250,20 +249,23 @@
     }
 }
 
+//当面扫一扫二维码
 - (IBAction)shareForFaceToFace {
     if (self.status) {
-       
+        
         if (self.QRCodeView)  {
             [self.VView addSubview:self.QRCodeView];
             return;
         }
-       
+       [SVProgressHUD show];
         NSMutableDictionary *params =[NSMutableDictionary dictionary];
         params[@"session"] = @{@"uid":self.uid,@"sid":self.sid};
         
         [[HomeNetwork sharedManager]postPartnerQRCodeCreateURL:params successBlock:^(id responseBody) {
             
             [self setupQRCode:responseBody];
+            
+            [SVProgressHUD dismiss];
             
         } failureBlock:^(NSString *error) {
             [SVProgressHUD showInfoWithStatus:@"加载失败"];

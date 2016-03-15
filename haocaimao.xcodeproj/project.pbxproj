@@ -27,6 +27,7 @@
 		2308B1101C22525500430C12 /* HCMGetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2308B10F1C22525500430C12 /* HCMGetPasswordViewController.xib */; };
 		2308B1151C22B82700430C12 /* HCMModification ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2308B1131C22B82700430C12 /* HCMModification ViewController.m */; };
 		2308B1161C22B82700430C12 /* HCMModification ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2308B1141C22B82700430C12 /* HCMModification ViewController.xib */; };
+		230D16941C97B5CA00C2F303 /* NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 230D16931C97B5CA00C2F303 /* NullSafe.m */; };
 		230DC3741C045898007A125F /* HCMCartSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 230DC3731C045898007A125F /* HCMCartSection.m */; };
 		2313918C1C27937F001D5E18 /* HCMWeChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2313918A1C27937F001D5E18 /* HCMWeChatViewController.m */; };
 		2313918D1C27937F001D5E18 /* HCMWeChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2313918B1C27937F001D5E18 /* HCMWeChatViewController.xib */; };
@@ -95,7 +96,6 @@
 		2362C40D1C5B498B00C0F4F2 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2362C40C1C5B498B00C0F4F2 /* CoreBluetooth.framework */; };
 		2362C40F1C5B4B5C00C0F4F2 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2362C40E1C5B4B5C00C0F4F2 /* libsqlite3.dylib */; };
 		2362C4111C5B4B7900C0F4F2 /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2362C4101C5B4B7900C0F4F2 /* libz.1.dylib */; };
-		23640DF11C030D2600B1DB24 /* NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 23640DF01C030D2600B1DB24 /* NullSafe.m */; };
 		236E4C721BD4E90500F49463 /* HCMValidationRegisteredVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 236E4C671BD4E90500F49463 /* HCMValidationRegisteredVC.m */; };
 		236E4C731BD4E90500F49463 /* HCMValidationRegisteredVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 236E4C681BD4E90500F49463 /* HCMValidationRegisteredVC.xib */; };
 		236E4C741BD4E90500F49463 /* HCMVipLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 236E4C6A1BD4E90500F49463 /* HCMVipLoginViewController.m */; };
@@ -398,6 +398,7 @@
 		2308B1121C22B82700430C12 /* HCMModification ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HCMModification ViewController.h"; sourceTree = "<group>"; };
 		2308B1131C22B82700430C12 /* HCMModification ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HCMModification ViewController.m"; sourceTree = "<group>"; };
 		2308B1141C22B82700430C12 /* HCMModification ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "HCMModification ViewController.xib"; sourceTree = "<group>"; };
+		230D16931C97B5CA00C2F303 /* NullSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullSafe.m; sourceTree = "<group>"; };
 		230DC3721C045897007A125F /* HCMCartSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMCartSection.h; sourceTree = "<group>"; };
 		230DC3731C045898007A125F /* HCMCartSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMCartSection.m; sourceTree = "<group>"; };
 		231391891C27937F001D5E18 /* HCMWeChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMWeChatViewController.h; sourceTree = "<group>"; };
@@ -509,7 +510,6 @@
 		2362C40C1C5B498B00C0F4F2 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		2362C40E1C5B4B5C00C0F4F2 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = /usr/lib/libsqlite3.dylib; sourceTree = "<absolute>"; };
 		2362C4101C5B4B7900C0F4F2 /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = /usr/lib/libz.1.dylib; sourceTree = "<absolute>"; };
-		23640DF01C030D2600B1DB24 /* NullSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullSafe.m; sourceTree = "<group>"; };
 		236E4C661BD4E90500F49463 /* HCMValidationRegisteredVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMValidationRegisteredVC.h; sourceTree = "<group>"; };
 		236E4C671BD4E90500F49463 /* HCMValidationRegisteredVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMValidationRegisteredVC.m; sourceTree = "<group>"; };
 		236E4C681BD4E90500F49463 /* HCMValidationRegisteredVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HCMValidationRegisteredVC.xib; sourceTree = "<group>"; };
@@ -1342,10 +1342,10 @@
 				2357E2991C02C8EC00E7FA4B /* HeadViewFunctionCell */,
 				2357E28E1C02C8EC00E7FA4B /* HCMEnshrineCell.h */,
 				2357E28F1C02C8EC00E7FA4B /* HCMEnshrineCell.m */,
+				2357E2901C02C8EC00E7FA4B /* HCMEnshrineCell.xib */,
 				238FD5EC1C2E79A500F95CCD /* HCMRecentBrowseTableViewCell.h */,
 				238FD5ED1C2E79A500F95CCD /* HCMRecentBrowseTableViewCell.m */,
 				238FD5EE1C2E79A500F95CCD /* HCMRecentBrowseTableViewCell.xib */,
-				2357E2901C02C8EC00E7FA4B /* HCMEnshrineCell.xib */,
 				2357E2911C02C8EC00E7FA4B /* HCMLayoutEnshrine.h */,
 				2357E2921C02C8EC00E7FA4B /* HCMLayoutEnshrine.m */,
 				2357E2931C02C8EC00E7FA4B /* HCMUserLocationTableViewControllerTableViewCell.h */,
@@ -1874,9 +1874,9 @@
 		23D0255F1B8B22200009C7EE /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				230D16931C97B5CA00C2F303 /* NullSafe.m */,
 				23AF71541C897571001B51CD /* UINavigationBar+Background.h */,
 				23AF71551C897571001B51CD /* UINavigationBar+Background.m */,
-				23640DF01C030D2600B1DB24 /* NullSafe.m */,
 				23D025601B8B22200009C7EE /* UIBarButtonItem+Extension.h */,
 				23D025611B8B22200009C7EE /* UIBarButtonItem+Extension.m */,
 				23D025621B8B22200009C7EE /* UIView+Extension.h */,
@@ -2578,7 +2578,6 @@
 				23AF71911C897660001B51CD /* MJRefreshStateHeader.m in Sources */,
 				238FD6521C2E82E300F95CCD /* UserClassitfTableViewController.m in Sources */,
 				2308B1151C22B82700430C12 /* HCMModification ViewController.m in Sources */,
-				23640DF11C030D2600B1DB24 /* NullSafe.m in Sources */,
 				23D026051B8B22210009C7EE /* SDWebImagePrefetcher.m in Sources */,
 				22E285B91BA6B5FF008B18B4 /* DealViewController.m in Sources */,
 				238FD5C81C2E789C00F95CCD /* HCMHotGoodsTableViewController.m in Sources */,
@@ -2702,6 +2701,7 @@
 				23D025EA1B8B22210009C7EE /* HCMnavigationViewController.m in Sources */,
 				23D026081B8B22210009C7EE /* UIImage+MultiFormat.m in Sources */,
 				238FD5EA1C2E790300F95CCD /* HCMWaitForTheDeliveryTableVC.m in Sources */,
+				230D16941C97B5CA00C2F303 /* NullSafe.m in Sources */,
 				236E4C721BD4E90500F49463 /* HCMValidationRegisteredVC.m in Sources */,
 				238FD5E41C2E790300F95CCD /* HCMNotReceivingTableVC.m in Sources */,
 				23AF718B1C897660001B51CD /* MJRefreshAutoStateFooter.m in Sources */,

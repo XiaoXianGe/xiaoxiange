@@ -33,7 +33,7 @@
     HCMLog(@"BaseReq===%@",req);
 }
 
-//发送微信授权请求
+//发送微信授权请求（微信支付请求）+（微信登录请求）
 - (void)onResp:(BaseResp *)resp{
     
     if ([resp isKindOfClass:[PayResp class]]) {
@@ -61,13 +61,16 @@
         
         [alert show];
         
-        } else {
         
-            
-        //微信登录授权
+        } else {//(微信登录)授权
+
         SendAuthResp *aresp = (SendAuthResp *)resp;
         
         if (aresp.errCode == 0) {
+            
+            [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+            [SVProgressHUD show];
+            
             NSString *url =[NSString stringWithFormat:@"https://api.weixin.qq.com/sns/oauth2/access_token?appid=%@&secret=%@&code=%@&grant_type=authorization_code", APP_ID, APP_SECRET, aresp.code];
             
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -169,8 +172,6 @@
     [defaults synchronize];
     [[AddressNerworking sharedManager]postweiXinUserLogoin:mutabDict successBlock:^(id responseBody) {
         
-        HCMLog(@"开始授权%@",responseBody);
-        
         if (responseBody[@"status"][@"error_code"]) {
             
             [MBProgressHUD showError:responseBody[@"status"][@"error_desc"]];
@@ -183,11 +184,12 @@
                 
                  //HCMLog(@"self.model%@",self.model);
                 [SVProgressHUD showSuccessWithStatus:@"登录成功"];
+                [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
                 
                 [defaults setObject:self.model.unionid forKey:@"unionid"];
                 [defaults setObject:responseBody[@"data"][@"userid"] forKey:@"uid"];
                 [defaults setObject:responseBody[@"data"][@"sessionId"] forKey:@"sid"];
-                [defaults setBool:responseBody[@"status"][@"succeed"] forKey:@"status"];
+                [defaults setBool:[responseBody[@"status"][@"succeed"] boolValue]forKey:@"status"];
                 [defaults setObject:responseBody[@"data"][@"userInfo"][@"realName"] forKey:@"realName"];
                
                 [defaults synchronize];
@@ -197,6 +199,7 @@
             }else{
             //微信授权新用户
                 [SVProgressHUD showSuccessWithStatus:@"授权成功，跳转注册"];
+                [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
                 
                 [HCMNSNotificationCenter postNotificationName:@"weChatLoginNew" object:nil];
                 

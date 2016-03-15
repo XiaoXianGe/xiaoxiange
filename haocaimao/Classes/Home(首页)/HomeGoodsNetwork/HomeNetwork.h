@@ -11,7 +11,7 @@
 
 
 //请求超时
-#define TIMEOUT 15
+#define HCMTIMEOUT 15
 
 
 @interface HomeNetwork : NSObject

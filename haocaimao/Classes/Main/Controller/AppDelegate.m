@@ -100,6 +100,7 @@
 
 //3D-touch
 -(void)setUp3Dtouch{
+    
     UIApplicationShortcutIcon *icon = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeSearch];
     
     UIApplicationShortcutItem *shortCutItem = [[UIApplicationShortcutItem alloc]initWithType:@"" localizedTitle:@"搜搜看看" localizedSubtitle:@"每天一看" icon:icon userInfo:nil];
@@ -137,14 +138,14 @@
 }
 
 
-/*********************
- *********************
- *********************
- *********************
- *********************
- *********************
- *********************
- *********************/
+/*********************************
+ *********************************
+ *********************************
+ ******** 个推推送（开发中）*********
+ *********************************
+ *********************************
+ *********************************
+ *********************************/
 
 //
 //

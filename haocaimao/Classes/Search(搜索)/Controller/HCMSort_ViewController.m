@@ -80,7 +80,7 @@ static NSString * const reuseIdentifier = @"Cell";
     self.searchBar = [HWSearchBar searchBar];
     [self.searchBar addTarget:self action:@selector(gotoTheSearch) forControlEvents:UIControlEventEditingDidEndOnExit];
     
-    self.searchBar.frame = CGRectMake(0, 0, 200, 30);
+    self.searchBar.frame = CGRectMake(0, 0, 150, 30);
     self.navigationItem.titleView = self.searchBar;
     //self.passwordTextfield.returnKeyType = UIReturnKeyDone;
     

@@ -92,7 +92,7 @@
         
         [defaults setObject:responseBody[@"data"][@"userid"] forKey:@"uid"];
         [defaults setObject:responseBody[@"data"][@"sessionId"] forKey:@"sid"];
-        [defaults setBool:responseBody[@"status"][@"succeed"] forKey:@"status"];
+        [defaults setBool:[responseBody[@"status"][@"succeed"] boolValue] forKey:@"status"];
         [defaults synchronize];
         
         for (UIViewController *viewController in self.navigationController.viewControllers) {

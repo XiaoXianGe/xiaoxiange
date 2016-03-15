@@ -192,6 +192,7 @@
 
 /** 关闭 */
 - (IBAction)closeTheView {
+    [self.view endEditing:YES];
     
     [self dismissViewControllerAnimated:YES completion:nil];
     

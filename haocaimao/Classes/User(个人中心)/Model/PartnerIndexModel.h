@@ -10,7 +10,6 @@
 
 @interface PartnerIndexModel : NSObject
 
-
 /** 等级 */
 @property(copy,nonatomic)NSString *rank;
 /** 注册人数 */

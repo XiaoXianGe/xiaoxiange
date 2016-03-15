@@ -45,11 +45,11 @@
                     <rect key="frame" x="58" y="137" width="175" height="33"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入你要查询的商品" textAlignment="natural" minimumFontSize="17" id="CJH-cs-Tws">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入你的手机号码" textAlignment="natural" minimumFontSize="17" id="CJH-cs-Tws">
                     <rect key="frame" x="69" y="140" width="159" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                 </textField>
                 <view contentMode="scaleToFill" id="pCM-IF-0OF">
                     <rect key="frame" x="63" y="173" width="165" height="58"/>

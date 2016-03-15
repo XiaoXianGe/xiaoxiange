@@ -57,7 +57,7 @@
                 <constraint firstAttribute="trailing" secondItem="DO1-Hp-fIL" secondAttribute="trailing" id="b8p-ac-UXe"/>
                 <constraint firstItem="DO1-Hp-fIL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="c1M-b6-Tn0"/>
             </constraints>
-            <point key="canvasLocation" x="-248" y="46"/>
+            <point key="canvasLocation" x="-172" y="32"/>
         </view>
         <view contentMode="scaleToFill" id="cfe-Jh-y1g">
             <rect key="frame" x="0.0" y="0.0" width="320" height="144"/>
@@ -194,7 +194,7 @@
                     </view>
                 </subviews>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="260" y="-78"/>
+            <point key="canvasLocation" x="235" y="-258"/>
         </tableViewCell>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="jRp-l8-b7h" userLabel="我的钱包">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -226,7 +226,7 @@
                     </view>
                 </subviews>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="260" y="8"/>
+            <point key="canvasLocation" x="235" y="-172"/>
         </tableViewCell>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="49" id="Vpn-9w-yLV" userLabel="账户余额">
             <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -247,7 +247,7 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="优惠卷" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2z-rc-Xlm">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="优惠券" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2z-rc-Xlm">
                         <rect key="frame" x="148" y="22" width="51" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -273,7 +273,7 @@
                     </label>
                 </subviews>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="260" y="99.5"/>
+            <point key="canvasLocation" x="235" y="-80.5"/>
         </tableViewCell>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="37x-Pk-Pht" userLabel="管理地址">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -305,7 +305,7 @@
                     </view>
                 </subviews>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="260" y="194"/>
+            <point key="canvasLocation" x="235" y="14"/>
         </tableViewCell>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="hhW-Eh-h9r" userLabel="好采猫中心">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -337,7 +337,7 @@
                     </view>
                 </subviews>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="260" y="279"/>
+            <point key="canvasLocation" x="235" y="180"/>
         </tableViewCell>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="GLa-Gu-kBc" userLabel="客服">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -369,7 +369,7 @@
                     </view>
                 </subviews>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="260" y="364"/>
+            <point key="canvasLocation" x="235" y="265"/>
         </tableViewCell>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="7Vi-Ow-NtY" userLabel="帮助">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -401,7 +401,7 @@
                     </view>
                 </subviews>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="260" y="448"/>
+            <point key="canvasLocation" x="235" y="349"/>
         </tableViewCell>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="mtP-8l-QjK" userLabel="合伙人">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -433,7 +433,7 @@
                     </view>
                 </subviews>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="-206" y="409"/>
+            <point key="canvasLocation" x="235" y="98"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -59,7 +59,7 @@ static NSString *const guessLikeURL = @"http://www.haocaimao.com/ecmobile/?url=g
 
 -(AFHTTPRequestOperationManager *)baseHtppRequest{
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager.requestSerializer setTimeoutInterval:TIMEOUT];
+    [manager.requestSerializer setTimeoutInterval:HCMTIMEOUT];
     
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"text/html", @"application/json", nil];
     return manager;

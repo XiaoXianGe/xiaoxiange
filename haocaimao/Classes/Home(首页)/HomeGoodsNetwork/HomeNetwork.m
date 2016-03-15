@@ -77,7 +77,7 @@ static NSString *const PartnerQRCodeCreateURL = @"http://www.haocaimao.com/ecmob
 
 -(AFHTTPRequestOperationManager *)baseHtppRequest{
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager.requestSerializer setTimeoutInterval:TIMEOUT];
+    [manager.requestSerializer setTimeoutInterval:HCMTIMEOUT];
     
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"text/html", @"application/json", nil];
     return manager;
