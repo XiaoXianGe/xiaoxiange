@@ -136,7 +136,7 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
     
     [[AddressNerworking sharedManager]postOrderList:dict successBlock:^(id responseBody) {
         
-        HCMLog(@"....%@",responseBody);
+//        HCMLog(@"....%@",responseBody);
         
         self.tableView.footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(toLoadMoreData)];
         
@@ -343,17 +343,22 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
     
     UIView *footer = (UIView *)[myFooter.contentView viewWithTag:80];
     UILabel *totalLabel = (UILabel *)[footer viewWithTag:81];
-
     UILabel *orderIDLabel = (UILabel *)[footer viewWithTag:79];
+    UILabel *payway = (UILabel *)[footer viewWithTag:78];
     
     orderIDLabel.text = orderList.order_id;
     totalLabel.text = orderList.total_fee;
-
+    payway.text = orderList.pay_code;
+    
     if (footer == nil) {
         
         HCMNoPayFooterview *footerView = [[HCMNoPayFooterview alloc]initWithNibName:@"HCMNoPayFooterview" bundle:nil];
        
-        //CGFloat footerW = [UIScreen mainScreen].bounds.size.width - 125;
+        UILabel *payway = [self setLabelsRect:CGRectMake(0, 0, 0, 0) textAlignment:YES];
+        payway.tag = 78;
+        payway.textColor = [UIColor whiteColor];
+        payway.text = orderList.pay_code;
+        
         
         UILabel *order_id = [self setLabelsRect:CGRectMake(0, 0, 0, 0) textAlignment:YES];
         order_id.tag = 79;
@@ -378,11 +383,9 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         UIButton *payBtn = [self setButtonRect:CGRectMake(X - 70, Y, 60, 20) bgImage:@"button-narrow-red" title:@"付  款"];
         [payBtn addTarget:self action:@selector(clickPayment:) forControlEvents:UIControlEventTouchUpInside];
         
+        [footer addSubview:payway];
         [footer addSubview:order_id];//付款用到的id
         [footer addSubview:total_fee_label];//总价格
-        //[footer addSubview:bonus_label];//积分
-        //[footer addSubview:shipping_fee_label];//运费
-        //[footer addSubview:integral_money_label];//红包
         [footer addSubview:payBtn];//支付按钮
         [footer addSubview:cancelBtn];//取消按钮
         [myFooter.contentView addSubview:footer];
@@ -420,9 +423,13 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
 - (void)clickPayment:(UIButton *)btn{
     
     [SVProgressHUD showInfoWithStatus:@"跳转中"];
-      UILabel *order_id = (UILabel *)[btn.superview viewWithTag:79];
+    UILabel *order_id = (UILabel *)[btn.superview viewWithTag:79];
+    UILabel *payway = (UILabel *)[btn.superview viewWithTag:78];
+
+    HCMLog(@"%@",payway.text);
+    
     //<微信支付>
-    if ([self.orderList.pay_code isEqualToString:@"wechatpay_unifiedorder"]) {
+    if ([payway.text isEqualToString:@"wechatpay_unifiedorder"]) {
         
         self.defaults = [NSUserDefaults  standardUserDefaults];
         self.uid = [self.defaults objectForKey:@"uid"];

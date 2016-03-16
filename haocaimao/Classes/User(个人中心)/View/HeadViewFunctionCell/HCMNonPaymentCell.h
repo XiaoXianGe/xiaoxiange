@@ -14,5 +14,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *shopPrice;
 @property (weak, nonatomic) IBOutlet UILabel *goodsNumber;
 @property (weak, nonatomic) IBOutlet UILabel *goodsName;
-
+@property (strong ,nonatomic)NSString * payWayStr;
 @end

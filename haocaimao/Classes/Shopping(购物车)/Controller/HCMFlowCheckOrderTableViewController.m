@@ -245,6 +245,8 @@ static NSString * const reuseIdentifier = @"MyCell";
     
 }
 - (IBAction)payWay:(UIButton *)sender {
+    
+    
 
     for (int i = 0 ; i < self.payWayArray.count; i++) {
         UIButton *btn = self.payWayArray[i];
@@ -258,30 +260,29 @@ static NSString * const reuseIdentifier = @"MyCell";
 
 //提交订单
 - (IBAction)clickSubmitListing:(UIButton *)sender {
-    
-  
-    
+
     //检查资料是否完整
      NSString *pay = [[NSString alloc]init];
  
-    if (self.payTag == 0) {//微信支付
-         pay = @"8";
-    }else if (self.payTag == 1){                 //支付宝
-        pay = @"6";
-    }else{
+    //检查资料是否完整
+    self.MarkPay = NO;
+    for (UIButton *btn in self.payWayArray) {
+        if (btn.selected == YES) {
+            self.MarkPay = YES;
+            if (self.payTag == 0) {//微信支付
+                pay = @"8";
+            }else if (self.payTag == 1){//支付宝
+                pay = @"6";
+            }
+            
+        }
+    }
+    if (self.MarkPay == NO) {
         [SVProgressHUD showInfoWithStatus:@"请选择支付方式"];
+        return;
     }
 
-
-    
-//   
-//    if (  [self.payment.text isEqualToString:@"支付宝"]) {
-//        
-//    }else if ([self.payment.text isEqualToString:@"微信支付"]){
-//       
-//    }else{  //银行汇款/转账
-//        pay = @"2";
-//    }
+   
     
     NSString *shipping = [self.orderGoods.shipping_list lastObject][@"shipping_id"];
     
