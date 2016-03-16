@@ -456,6 +456,7 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
             
             
         }];
+        return;
         
     }else{  //<支付宝支付>或者<网银支付>
         

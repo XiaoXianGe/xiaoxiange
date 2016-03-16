@@ -1130,8 +1130,7 @@
 				231391861C279343001D5E18 /* controller */,
 				23E495D61C49E8BB0064D63B /* Model */,
 			);
-			name = "第三方授权登录";
-			path = "haocaimao/Classes/第三方授权登录";
+			path = "第三方授权登录";
 			sourceTree = "<group>";
 		};
 		231391861C279343001D5E18 /* controller */ = {
@@ -1845,6 +1844,7 @@
 			children = (
 				23D0255E1B8B22200009C7EE /* Main */,
 				2357E2091C02C8EC00E7FA4B /* User(个人中心) */,
+				231391851C27931D001D5E18 /* 第三方授权登录 */,
 				234EB05E1BE73D7C00B11561 /* Share(分享) */,
 				23DF59B81BDF172E00FBFE2C /* Newfeature(新特性) */,
 				236E4C641BD4E90500F49463 /* VIPLogin（登录） */,
@@ -2267,7 +2267,6 @@
 		23FBE7311B7B272400F8B3AA = {
 			isa = PBXGroup;
 			children = (
-				231391851C27931D001D5E18 /* 第三方授权登录 */,
 				23FBE73C1B7B272400F8B3AA /* haocaimao */,
 				23FBE7561B7B272400F8B3AA /* haocaimaoTests */,
 				23FBE73B1B7B272400F8B3AA /* Products */,

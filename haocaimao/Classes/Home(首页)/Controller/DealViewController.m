@@ -39,7 +39,7 @@
 #import "MJPhoto.h"
 #import "UIImageView+MJWebCache.h"
 
-@interface DealViewController ()<UIScrollViewDelegate,UIAlertViewDelegate,UMSocialUIDelegate>
+@interface DealViewController ()<UIScrollViewDelegate,UIAlertViewDelegate,UMSocialUIDelegate,UITextFieldDelegate>
 /**
  *  主滚动和商品图滚动
  */
@@ -95,7 +95,7 @@
 @property(nonatomic,strong)NSMutableArray *allBtnPrice;
 @property(nonatomic,copy)NSString *markPrice;
 @property(nonatomic)float NewPrice_add;
-@property(nonatomic,copy)UILabel * priceLabel;
+//@property(nonatomic,copy)UILabel * priceLabel;
 
 //购物车右上角徽标
 @property (strong, nonatomic)NSTimer *timer;
@@ -118,7 +118,12 @@
 @property(copy,nonatomic)NSString *youError;
 
 @property(strong,nonatomic)NSMutableArray *shareImageArray;
+@property(strong,nonatomic)UITextField *countTextField;
+
+@property(strong,nonatomic)JKAlertDialog *alert;
+
 @end
+
 
 @implementation DealViewController
 - (MKNumberBadgeView *)numberBadge{
@@ -204,12 +209,13 @@
     }
     return _allBtnPrice;
 }
--(UILabel *)priceLabel{
-    if (!_priceLabel) {
-        _priceLabel = [[UILabel alloc]init];
-    }
-    return _priceLabel;
-}
+//-(UILabel *)priceLabel{
+//    if (!_priceLabel) {
+//        _priceLabel = [[UILabel alloc]init];
+//        _priceLabel.textAlignment = NSTextAlignmentRight;
+//    }
+//    return _priceLabel;
+//}
 
 -(NSMutableArray *)format_nameAndPrice_array{
     if (!_format_nameAndPrice_array) {
@@ -255,6 +261,8 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    self.count = 1;
     
     self.title = @"产品信息";
     
@@ -329,12 +337,25 @@
 
     if (status) {
         
+        if ([self.countButton.titleLabel.text isEqualToString:@"规格数量"]) {
+            
+            HCMLog(@"...");
+            
+            [self PopViewShow:nil];
+                
+            return;
+            
+
+        }        
+        
         NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
 
             //判读是否有sepc(规格)数据再取数据
             if (self.format_id_array.count == 0) {
                 dict[@"spec"] = @"";
+                HCMLog(@"...");
               }else{
+                  HCMLog(@"...");
                 NSMutableArray *arr = [[NSMutableArray alloc]init];
                 
                 [arr addObject:self.format_id_array[self.tag]];
@@ -345,11 +366,8 @@
                 if (self.format_id_arrayTwo.firstObject != nil) {
                     [arr addObject:self.format_id_arrayTwo[self.tagTwo]];}
                 dict[@"spec"] = arr;
-                  HCMLog(@"%@",arr);
             }
-            if (self.countNumLabel.text == nil) {
-                self.countNumLabel.text = @"1";
-            }
+        
         
             NSString *uid = [self.defaults objectForKey:@"uid"];
             NSString *sid = [self.defaults objectForKey:@"sid"];
@@ -357,12 +375,12 @@
         NSDictionary * dictBuyNow =   @{
                                         @"session":@{@"sid":sid,@"uid":uid},
                                         @"spec":dict[@"spec"],
-                                        @"number":self.countNumLabel.text,
+                                        @"number":self.countTextField.text,
                                         @"goods_id":self.goods_id
                                         };
         
         
-            NSInteger index = [self.buyNowAndAddCart indexOfObject:sender];
+        NSInteger index = [self.buyNowAndAddCart indexOfObject:sender];
         
         [[HomeNetwork sharedManager]postBuyNow:dictBuyNow successBlock:^(id responseBody) {
            
@@ -494,6 +512,7 @@
         }else{
             
             
+            
         }
         
         return;
@@ -506,7 +525,6 @@
         
         [self.navigationController pushViewController:vipLoginVC animated:YES];
     }
-
 }
 
 /**
@@ -622,13 +640,31 @@
 
 #pragma mark --- 购买数量 ---
 
+
+/**
+ *  修改购买数量  键盘弹出
+ */
+-(void)changeTextFieldStatus{
+    
+    HCMLogFunc;
+    
+    [self.countTextField becomeFirstResponder];
+    
+    [UIView animateWithDuration:0.25 animations:^{
+         self.alert.y = - (self.changeHeight/2) - 30;
+    }];
+
+}
+
 /**
  *  购买数量  *  加
  */
 -(void)countAdd{
     
+    [self.countTextField resignFirstResponder];
+
+    
     int buymax = [self.buyMax intValue];
-    self.count = [self.countNumLabel.text intValue];
     
     if (self.count == buymax) {
         
@@ -636,10 +672,10 @@
         
         return;
     }else{
+         self.count = [self.countTextField.text integerValue];
         self.count += 1;
-        self.countNumLabel.text = [NSString stringWithFormat:@"%ld",(long)self.count];
-        self.shop_price_Top.text = [NSString stringWithFormat:@"￥%.2f元",(self.NewPrice_add*self.count)];
-        self.priceLabel.text = self.shop_price_Top.text;
+        self.countTextField.text = [NSString stringWithFormat:@"%ld",(long)self.count];
+
     }
     
 }
@@ -648,88 +684,64 @@
  *  购买数量  *  减
  */
 -(void)countSub{
-    self.count = [self.countNumLabel.text intValue];
+    
+    [self.countTextField resignFirstResponder];
+
+    
+    self.count = [self.countTextField.text integerValue];
     self.count -= 1;
     while (self.count < 1) {
         self.count = 1;
     }
-    self.countNumLabel.text = [NSString stringWithFormat:@"%ld",(long)self.count];
-    self.shop_price_Top.text = [NSString stringWithFormat:@"￥%.2f元",(self.NewPrice_add*self.count)];
-    self.priceLabel.text = self.shop_price_Top.text;
+    self.countTextField.text = [NSString stringWithFormat:@"%ld",(long)self.count];
+
 }
 
 /**
  *  购买数量  *  确定
  */
 -(void)clickOK{
-    self.buyCountView.superview.superview.hidden = YES;
     
-    [self.countButton setTitle:[NSString stringWithFormat:@"数量 : %@",self.countNumLabel.text] forState:UIControlStateNormal];
-
+    [self.alert dismiss];
+    
+    self.count = [self.countTextField.text integerValue];
+    
+    [self.countTextField resignFirstResponder];
+    
+    if (self.btnsArray.count == 0) {
+        
+        [self.countButton setTitle:[NSString stringWithFormat:@"数量 : %zd",self.count] forState:UIControlStateNormal];
+        return;
+    }else{
+        UIButton *btn =  self.btnsArray[self.tag];
+        [self.countButton setTitle:[NSString stringWithFormat:@"数量:%zd 规格:%@",self.count,btn.titleLabel.text] forState:UIControlStateNormal];
+        
+    }
+    
+    [self getThePriceForGood:self.markPrice upDownPrice:self.allBtnPrice[self.tag]];
 }
+
 #pragma mark --- PopView弹出 ---
 /**
  *  数量按钮：PopView弹出
  */
 - (IBAction)PopViewShow:(id)sender {
-    /**
-     *  根据返回来的规格数量,排列可选规格Button
-     */
-    [self startSortSpecification];
+    
     
     UIColor *color=HCMColor(200, 45, 55,1.0);
-    CGFloat w = self.buyCountView.frame.size.width;
-    CGFloat h = PopViewBaseHeight + self.changeHeight;
+    CGFloat buyviewW = self.buyCountView.frame.size.width;
+    CGFloat buyviewH = PopViewBaseHeight + self.changeHeight;
 
-    //分割线
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(40, baseControlHeight + self.changeHeight, 200, 1)];
-    label.backgroundColor = HCMColor(234, 234, 234,1.0);
-    [self.buyCountView addSubview:label];
-    
-    //减
-    UIButton *subButton = [[UIButton alloc]initWithFrame:CGRectMake(80, baseControlHeight + sides + self.changeHeight, 30, 30)];
-    [subButton setImage:[UIImage imageNamed:@"item-info-buy-choose-min-btn"] forState:UIControlStateNormal];
-    [subButton addTarget:self action:@selector(countSub) forControlEvents:UIControlEventTouchUpInside];
-    [self.buyCountView addSubview:subButton];
-    
-    //加
-    self.addButton = [[UIButton alloc]initWithFrame:CGRectMake(165, baseControlHeight + sides + self.changeHeight, 30, 30)];
-    [self.addButton setImage:[UIImage imageNamed:@"item-info-buy-choose-sum-btn"] forState:UIControlStateNormal];
-    [self.addButton addTarget:self action:@selector(countAdd) forControlEvents:UIControlEventTouchUpInside];
-    [self.buyCountView addSubview:self.addButton];
-    
-    //数目
-    self.countNumLabel.frame = CGRectMake(110, baseControlHeight +sides +2 + self.changeHeight, 56, 26);
-    self.countNumLabel.text = @"1";
-    self.countNumLabel.textAlignment = NSTextAlignmentCenter;
-    self.countNumLabel.backgroundColor = HCMColor(245, 245, 245,1.0);
-    [self.buyCountView addSubview:self.countNumLabel];
-    
-    //确定
-    UIButton *OKButton = [[UIButton alloc]init];//WithFrame:CGRectMake(8, baseControlHeight + 50 + self.changeHeight, 244, 35)];
-    OKButton.x = 17 ;
-    OKButton.y = baseControlHeight + 50 + self.changeHeight;
-    OKButton.size = CGSizeMake(244, 35);
-    
-    [OKButton setBackgroundImage:[UIImage imageNamed:@"button-narrow-red"] forState:UIControlStateNormal];
-    [OKButton setTitle:@"确  定" forState:UIControlStateNormal];
-    [OKButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [OKButton addTarget:self action:@selector(clickOK) forControlEvents:UIControlEventTouchUpInside];
-    [self.buyCountView addSubview:OKButton];
+    if (self.alert) {
+        self.alert=[[JKAlertDialog alloc]initWithTitle:@"购买数量" message:@"" color:color andBoolen:NO AlertsWidth:buyviewW AlertsHeight:buyviewH];
+        
+        self.alert.contentView=self.buyCountView;
+        [self.alert show];
+        HCMLog(@"return");
 
-    //*** 弹出框的大小内容
-    JKAlertDialog *alert=[[JKAlertDialog alloc]initWithTitle:@"购买数量" message:@"" color:color andBoolen:YES AlertsWidth:w AlertsHeight:h];
-    
-    alert.contentView=self.buyCountView;
-    [alert show];
-
-}
-
-/**
- *  根据返回来的规格数量,排列可选规格Button,更新弹出框的高度
- */
--(void)startSortSpecification{
-    
+        return;
+    }
+    HCMLog(@"没return");
     CGFloat newH = 10;
     self.changeHeight = 0;
     
@@ -739,17 +751,17 @@
     CGFloat h = 0;//用来控制button距离父视图的高
     
     
-    [self.buyCountView addSubview:self.priceLabel];
+//    [self.buyCountView addSubview:self.priceLabel];
     
     NSArray *markArr = nil;
     
     for (NSString *str in self.format_nameArr) {
         
-         int i = 0;
+        int i = 0;
         int test = 0;
         
-         NSMutableArray *markArray = [[NSMutableArray alloc]init];
-       
+        NSMutableArray *markArray = [[NSMutableArray alloc]init];
+        
         
         UILabel *label = [[UILabel alloc]init];
         NSMutableArray *format_nameAndPrice_array = [NSMutableArray new];
@@ -774,7 +786,7 @@
             NSString *str_price = dealFormat.price;
             
             if (j==0) {[self.format_id_array addObject:str_id];
-                        [self.allBtnPrice addObject:str_price];}
+                [self.allBtnPrice addObject:str_price];}
             if (j==1) {[self.format_id_arrayOne addObject:str_id];}
             if (j==2) {[self.format_id_arrayTwo addObject:str_id];}
             
@@ -807,13 +819,13 @@
             
             //设置button的frame
             button.frame = CGRectMake(5 + w, h + newH + 25  , length+8, 20);
-//            if (test == 1) {
-//               
-//                h = h + button.frame.size.height + 10;
-//                
-//            }
+            //            if (test == 1) {
+            //
+            //                h = h + button.frame.size.height + 10;
+            //
+            //            }
             
-           if(5 + w + length + 10 > self.buyCountView.frame.size.width){//当button的位置超出屏幕边缘时换行 320 只是button所在父视图的宽度
+            if(5 + w + length + 10 > self.buyCountView.frame.size.width){//当button的位置超出屏幕边缘时换行 320 只是button所在父视图的宽度
                 w = 0; //换行时将w置为0
                 h = h + button.frame.size.height + 8;
                 button.frame = CGRectMake(5 + w, h + newH +25 , length+8, 20);//重设button的frame
@@ -831,9 +843,71 @@
         w = 0;
         j++;
         test++;
-       
+        
     }
 
+    
+    //********************************************************************////
+    buyviewH = PopViewBaseHeight + self.changeHeight;
+
+    //分割线
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(40, baseControlHeight + self.changeHeight, 200, 1)];
+    label.backgroundColor = HCMColor(234, 234, 234,1.0);
+    [self.buyCountView addSubview:label];
+    
+    //减
+    UIButton *subButton = [[UIButton alloc]initWithFrame:CGRectMake(80, baseControlHeight + sides + self.changeHeight, 30, 30)];
+    [subButton setImage:[UIImage imageNamed:@"item-info-buy-choose-min-btn"] forState:UIControlStateNormal];
+    [subButton addTarget:self action:@selector(countSub) forControlEvents:UIControlEventTouchUpInside];
+    [self.buyCountView addSubview:subButton];
+    
+    //加
+    self.addButton = [[UIButton alloc]initWithFrame:CGRectMake(165, baseControlHeight + sides + self.changeHeight, 30, 30)];
+    [self.addButton setImage:[UIImage imageNamed:@"item-info-buy-choose-sum-btn"] forState:UIControlStateNormal];
+    [self.addButton addTarget:self action:@selector(countAdd) forControlEvents:UIControlEventTouchUpInside];
+    [self.buyCountView addSubview:self.addButton];
+    
+    //数目
+    UITextField * countTextField =[[UITextField alloc]init];
+    countTextField.frame = CGRectMake(110, baseControlHeight +sides +2 + self.changeHeight, 56, 26);
+    countTextField.text = @"1";
+    countTextField.backgroundColor = HCMColor(245, 245, 245,1.0);
+    countTextField.textAlignment = NSTextAlignmentCenter;
+    countTextField.keyboardType = UIKeyboardTypeNumberPad;
+    [countTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    self.countTextField = countTextField;
+    [self.buyCountView addSubview:self.countTextField];
+    
+
+    UIButton *countBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    countBtn.frame = CGRectMake(110, baseControlHeight +sides +2 + self.changeHeight, 56, 26);
+    [countBtn setBackgroundColor:[UIColor clearColor]];
+    [countBtn addTarget:self action:@selector(changeTextFieldStatus) forControlEvents:UIControlEventTouchUpInside];
+    [self.buyCountView addSubview:countBtn];
+
+    //确定
+    UIButton *OKButton = [[UIButton alloc]init];//WithFrame:CGRectMake(8, baseControlHeight + 50 + self.changeHeight, 244, 35)];
+    OKButton.x = 17 ;
+    OKButton.y = baseControlHeight + 50 + self.changeHeight;
+    OKButton.size = CGSizeMake(244, 35);
+    
+    [OKButton setBackgroundImage:[UIImage imageNamed:@"button-narrow-red"] forState:UIControlStateNormal];
+    [OKButton setTitle:@"确  定" forState:UIControlStateNormal];
+    [OKButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [OKButton addTarget:self action:@selector(clickOK) forControlEvents:UIControlEventTouchUpInside];
+    [self.buyCountView addSubview:OKButton];
+    
+    //*** 弹出框的大小内容
+    self.alert=[[JKAlertDialog alloc]initWithTitle:@"购买数量" message:@"" color:color andBoolen:NO AlertsWidth:buyviewW AlertsHeight:buyviewH];
+    
+    self.alert.contentView=self.buyCountView;
+    [self.alert show];
+
+}
+
+- (void) textFieldDidChange:(UITextField *) TextField{
+    self.count =  [TextField.text integerValue];
+  
 }
 
 -(void)chooseFormatButton:(UIButton *)btns{
@@ -842,10 +916,18 @@
     for (UIButton *btn in self.btnsArray) {
         btn.selected = NO;
     }
-    //UIButton *btn = (UIButton *)[self.buyCountView viewWithTag:btns.tag];
     btns.selected = YES;
     
-    self.countNumLabel.text = @"1";
+    self.countTextField.text = @"1";
+    if (self.btnsArray.count == 0) {
+        
+        [self.countButton setTitle:[NSString stringWithFormat:@"数量 : %zd",self.count] forState:UIControlStateNormal];
+        return;
+    }else{
+        UIButton *btn =  self.btnsArray[self.tag];
+        [self.countButton setTitle:[NSString stringWithFormat:@"数量:%zd 规格:%@",self.count,btn.titleLabel.text] forState:UIControlStateNormal];
+        
+    }
 
     [self getThePriceForGood:self.markPrice upDownPrice:self.allBtnPrice[self.tag]];
     
@@ -853,7 +935,7 @@
 
 //截取价格字符串 加减价格
 -(void)getThePriceForGood:(NSString *)price upDownPrice:(NSString *)upDownPrice{
-    
+
     NSRange range = [price rangeOfString:@"元"];
     NSUInteger location = range.location;
     
@@ -865,8 +947,8 @@
     floatPriceStr = floatPriceStr + test;
     
     self.shop_price_Top.text = [NSString stringWithFormat:@"￥%.2f元",floatPriceStr];
-    self.priceLabel.text = self.shop_price_Top.text;
-    self.NewPrice_add = floatPriceStr;
+//    self.priceLabel.text = self.shop_price_Top.text;
+//    self.NewPrice_add = floatPriceStr;
     
 }
 
@@ -1080,7 +1162,7 @@
     if (--self.counter <0 ) {
         [self.timer invalidate];
     }else{
-        self.promote_end_date.text = [NSString stringWithFormat:@"%d天%d小时%d分钟%d秒",(self.counter/86400),(self.counter/3600%24),(self.counter/60%60),(self.counter%60)];
+        self.promote_end_date.text = [NSString stringWithFormat:@"%ld天%ld小时%ld分钟%ld秒",(self.counter/86400),(self.counter/3600%24),(self.counter/60%60),(self.counter%60)];
     }
     
 }
@@ -1186,11 +1268,11 @@
         
      }else{///***  有规格信息
          
-         self.priceLabel.textColor = HCMColor(33, 33, 33,1.0);
-         self.priceLabel.frame = CGRectMake(150, 10, 111, 20);
-         self.priceLabel.textColor = [UIColor redColor];
-         self.priceLabel.text = self.shop_price_Top.text;
-         
+//         self.priceLabel.textColor = HCMColor(33, 33, 33,1.0);
+//         self.priceLabel.frame = CGRectMake(160, 10, 111, 20);
+//         self.priceLabel.textColor = [UIColor redColor];
+//         self.priceLabel.text = self.shop_price_Top.text;
+//         
 
          NSMutableArray *mutabNames = [NSMutableArray array];
          NSMutableArray *mutabMsg = [NSMutableArray array];

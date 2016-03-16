@@ -56,7 +56,9 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="cQM-2A-YJN"/>
                             </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="titleEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="imageEdgeInsets" minX="270" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="商品详情" image="accsessory-arrow-right" backgroundImage="body-cont-bg">
                                 <color key="titleColor" red="0.26584201390000001" green="0.26584201390000001" blue="0.26584201390000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -81,7 +83,9 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="2pn-yV-4pa"/>
                             </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="titleEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="imageEdgeInsets" minX="270" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="商品评论" image="accsessory-arrow-right" backgroundImage="body-cont-bg">
                                 <color key="titleColor" red="0.26584201390000001" green="0.26584201390000001" blue="0.26584201390000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -106,8 +110,9 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="c0e-kh-I1d"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="titleEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="imageEdgeInsets" minX="270" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="规格数量" image="accsessory-arrow-right" backgroundImage="body-cont-bg">
                                 <color key="titleColor" red="0.26584201390000001" green="0.26584201390000001" blue="0.26584201390000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -469,7 +474,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="665" y="-712"/>
+            <point key="canvasLocation" x="615" y="-712"/>
         </view>
     </objects>
     <resources>

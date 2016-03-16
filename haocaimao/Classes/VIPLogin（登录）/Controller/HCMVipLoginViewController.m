@@ -143,7 +143,6 @@
  */
 - (IBAction)userLogin:(UIButton *)sender {
     
-    
     if (![self.userName.text length] && ![self.password.text length]) {
         
         [MBProgressHUD showError:@"帐号密码不能为空"];
@@ -153,9 +152,13 @@
         [self.view endEditing:YES];
         [MBProgressHUD showMessage:@"正在登录"];
         
+        //随机生成32位字符串
+//        NSString *IPStr = [self ret32bitString];
+        
         NSMutableDictionary *mutabDict = [NSMutableDictionary dictionary];
         mutabDict[@"name"] = self.userName.text;
         mutabDict[@"password"] = self.password.text;
+//      mutabDict[@"APPIP"] = IPStr;
         
         [[AddressNerworking sharedManager] postUserLogoin:mutabDict successBlock:^(id responseBody) {
         [MBProgressHUD hideHUD];
@@ -213,6 +216,20 @@
         }];
     }
 }
+
+///**
+// *  随机生成32位字符串
+// */
+//-(NSString *)ret32bitString{
+//    
+//    char data[32];
+//    
+//    for (int x=0;x<10;data[x++] = (char)('A' + (arc4random_uniform(26))));
+//    
+//    return [[NSString alloc] initWithBytes:data length:32 encoding:NSUTF8StringEncoding];
+//}
+
+
 
 /**
  *  返回

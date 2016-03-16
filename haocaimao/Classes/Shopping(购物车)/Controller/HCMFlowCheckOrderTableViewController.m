@@ -39,6 +39,11 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *totalPrice; // 总额
 
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *payWayArray;
+
+@property(assign ,nonatomic)NSInteger payTag;
+@property(assign,nonatomic)BOOL MarkPay;
+
 @property (strong, nonatomic)NSDictionary *invDict;
 
 @property (strong, nonatomic)NSString *sid;
@@ -75,6 +80,8 @@ static NSString * const reuseIdentifier = @"MyCell";
 
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    //self.tableView.tableHeaderView.height = 456;
+    self.headerView.height = 467;
    
     
 }
@@ -201,13 +208,7 @@ static NSString * const reuseIdentifier = @"MyCell";
 }
 #pragma  mark -- 各种点击事件
 
-- (IBAction)clickMethodOfPayment:(UIButton *)sender {
-    
-    UIActionSheet *sheet = [[UIActionSheet alloc]initWithTitle:@"支付方式" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"银行汇款/转账",@"支付宝",@"微信支付", nil];
-    
-    [sheet showInView:self.view];
-        
-}
+
 
 //打开发票信息
 - (IBAction)clickLnvoiceType:(UIButton *)sender {
@@ -243,25 +244,44 @@ static NSString * const reuseIdentifier = @"MyCell";
     [self.navigationController pushViewController:userLocationVC animated:YES];
     
 }
+- (IBAction)payWay:(UIButton *)sender {
+
+    for (int i = 0 ; i < self.payWayArray.count; i++) {
+        UIButton *btn = self.payWayArray[i];
+        btn.selected = NO;
+        btn.tag = i;
+    }
+    sender.selected = YES;
+    self.payTag = sender.tag;
+    
+}
 
 //提交订单
 - (IBAction)clickSubmitListing:(UIButton *)sender {
     
-    if ([self.payment.text length] < 1) {
-        
-        [SVProgressHUD showInfoWithStatus:@"请填写支付方式"];
-        
-        return;
-    }
+  
     
-    NSString *pay = [[NSString alloc]init];
-    if (  [self.payment.text isEqualToString:@"支付宝"]) {
+    //检查资料是否完整
+     NSString *pay = [[NSString alloc]init];
+ 
+    if (self.payTag == 0) {//微信支付
+         pay = @"8";
+    }else if (self.payTag == 1){                 //支付宝
         pay = @"6";
-    }else if ([self.payment.text isEqualToString:@"微信支付"]){
-        pay = @"8";
-    }else{  //银行汇款/转账
-        pay = @"2";
+    }else{
+        [SVProgressHUD showInfoWithStatus:@"请选择支付方式"];
     }
+
+
+    
+//   
+//    if (  [self.payment.text isEqualToString:@"支付宝"]) {
+//        
+//    }else if ([self.payment.text isEqualToString:@"微信支付"]){
+//       
+//    }else{  //银行汇款/转账
+//        pay = @"2";
+//    }
     
     NSString *shipping = [self.orderGoods.shipping_list lastObject][@"shipping_id"];
     
@@ -351,14 +371,7 @@ static NSString * const reuseIdentifier = @"MyCell";
     
 }
 
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    self.payment.text = [actionSheet buttonTitleAtIndex:buttonIndex];
-    
-    NSLog(@"%@",self.payment.text);
-    
-    [self.tableView reloadData];
-}
+
 
 -(void)dealloc{
     [HCMNSNotificationCenter removeObserver:self];

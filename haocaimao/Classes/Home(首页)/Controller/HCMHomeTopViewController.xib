@@ -17,10 +17,10 @@
             <rect key="frame" x="0.0" y="0.0" width="400" height="1579"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Pb-5d-O33" userLabel="应用场景">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Pb-5d-O33" userLabel="应用场景">
                     <rect key="frame" x="0.0" y="184" width="400" height="150"/>
                     <subviews>
-                        <button opaque="NO" tag="14" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o5y-uj-JKL">
+                        <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o5y-uj-JKL">
                             <rect key="frame" x="10" y="79" width="88" height="44"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <state key="normal" image="工地">
@@ -51,7 +51,7 @@
                                 <action selector="clickZoneButtons:" destination="-1" eventType="touchUpInside" id="42O-7z-uZN"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="16" contentMode="scaleToFill" verticalHuggingPriority="251" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1vq-NT-nkw">
+                        <button opaque="NO" tag="16" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1vq-NT-nkw">
                             <rect key="frame" x="205" y="79" width="88" height="44"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <state key="normal" image="酒店商场">
@@ -61,7 +61,7 @@
                                 <action selector="clickZoneButtons:" destination="-1" eventType="touchUpInside" id="W5r-EH-GuW"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="12" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whp-F6-luZ">
+                        <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whp-F6-luZ">
                             <rect key="frame" x="205" y="10" width="88" height="46"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <inset key="titleEdgeInsets" minX="-45" minY="45" maxX="0.0" maxY="0.0"/>
@@ -83,7 +83,7 @@
                                 <action selector="clickZoneButtons:" destination="-1" eventType="touchUpInside" id="in0-kr-Unk"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="17" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vjt-dJ-t7D">
+                        <button opaque="NO" tag="17" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vjt-dJ-t7D">
                             <rect key="frame" x="303" y="79" width="87" height="46"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <state key="normal" image="更多">
@@ -111,7 +111,7 @@
                             <color key="textColor" red="0.26584201390000001" green="0.26584201390000001" blue="0.26584201390000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="医院" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="80" translatesAutoresizingMaskIntoConstraints="NO" id="Bp6-oM-veN">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="医院" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="80" translatesAutoresizingMaskIntoConstraints="NO" id="Bp6-oM-veN">
                             <rect key="frame" x="205" y="56" width="88" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="EB9-vm-cz9"/>
@@ -129,7 +129,7 @@
                             <color key="textColor" red="0.26584201390000001" green="0.26584201390000001" blue="0.26584201390000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="工地" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="80" translatesAutoresizingMaskIntoConstraints="NO" id="kvA-gZ-5ZK">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="工地" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="80" translatesAutoresizingMaskIntoConstraints="NO" id="kvA-gZ-5ZK">
                             <rect key="frame" x="10" y="123" width="88" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="U9h-rl-6TR"/>
@@ -147,7 +147,7 @@
                             <color key="textColor" red="0.26584201390000001" green="0.26584201390000001" blue="0.26584201390000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="酒店商场" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="80" translatesAutoresizingMaskIntoConstraints="NO" id="Zyd-1f-rPX">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="酒店商场" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="80" translatesAutoresizingMaskIntoConstraints="NO" id="Zyd-1f-rPX">
                             <rect key="frame" x="205" y="123" width="88" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="K8k-zR-jKr"/>
@@ -156,7 +156,7 @@
                             <color key="textColor" red="0.26584201390000001" green="0.26584201390000001" blue="0.26584201390000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="更多" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="80" translatesAutoresizingMaskIntoConstraints="NO" id="B37-yc-h0Y">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更多" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="80" translatesAutoresizingMaskIntoConstraints="NO" id="B37-yc-h0Y">
                             <rect key="frame" x="302" y="125" width="88" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="ELU-UQ-6de"/>
@@ -232,7 +232,7 @@
                         <constraint firstAttribute="trailing" secondItem="vjt-dJ-t7D" secondAttribute="trailing" constant="10" id="yxK-Oe-hGL"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p4c-I5-a5d" userLabel="版面1">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p4c-I5-a5d" userLabel="版面1">
                     <rect key="frame" x="0.0" y="394" width="400" height="260"/>
                     <subviews>
                         <button opaque="NO" tag="22" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A8F-xa-bZA">
@@ -331,7 +331,7 @@
                         <constraint firstItem="G15-0s-Aju" firstAttribute="leading" secondItem="4sV-Vb-ZWx" secondAttribute="trailing" constant="1" id="w1Y-FB-xcu"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Td-zn-xwU" userLabel="活动专区">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Td-zn-xwU" userLabel="活动专区">
                     <rect key="frame" x="0.0" y="754" width="400" height="160"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  活动专区" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="69u-jj-c5L">
@@ -404,7 +404,7 @@
                         <constraint firstItem="894-Iv-qcc" firstAttribute="leading" secondItem="vOv-ep-CUd" secondAttribute="trailing" id="ss7-UA-ZI4"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="  主题街" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="400" translatesAutoresizingMaskIntoConstraints="NO" id="Sdj-Po-4An">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  主题街" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="400" translatesAutoresizingMaskIntoConstraints="NO" id="Sdj-Po-4An">
                     <rect key="frame" x="0.0" y="922" width="400" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="QBp-bc-nfV"/>
@@ -413,7 +413,7 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" tag="61" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOh-Kt-oq8">
+                <button opaque="NO" tag="61" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOh-Kt-oq8">
                     <rect key="frame" x="0.0" y="947" width="400" height="100"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="100" id="jor-RA-JER"/>
@@ -423,7 +423,7 @@
                         <action selector="Banner:" destination="-1" eventType="touchUpInside" id="0Vw-Of-6PN"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SYW-GQ-ipo" userLabel="九宫格">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SYW-GQ-ipo" userLabel="九宫格">
                     <rect key="frame" x="0.0" y="1047" width="400" height="400"/>
                     <subviews>
                         <button opaque="NO" tag="31" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NPX-2l-aUt" userLabel="Hot Good2">
@@ -546,7 +546,7 @@
                         </mask>
                     </variation>
                 </view>
-                <button opaque="NO" tag="60" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ab-43-eLp">
+                <button opaque="NO" tag="60" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ab-43-eLp">
                     <rect key="frame" x="0.0" y="662" width="400" height="84"/>
                     <state key="normal" backgroundImage="msad3">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -555,7 +555,7 @@
                         <action selector="Banner:" destination="-1" eventType="touchUpInside" id="B5d-14-YaO"/>
                     </connections>
                 </button>
-                <button opaque="NO" tag="62" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZI0-hw-VPh">
+                <button opaque="NO" tag="62" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZI0-hw-VPh">
                     <rect key="frame" x="8" y="1455" width="384" height="90"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="90" id="stN-tn-Z9L"/>
@@ -567,7 +567,7 @@
                         <action selector="Banner:" destination="-1" eventType="touchUpInside" id="W1o-Lz-Q2W"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="  猜你喜欢" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="400" translatesAutoresizingMaskIntoConstraints="NO" id="FhN-ik-nI5">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  猜你喜欢" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="400" translatesAutoresizingMaskIntoConstraints="NO" id="FhN-ik-nI5">
                     <rect key="frame" x="0.0" y="1553" width="400" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="oAK-DI-nbZ"/>
@@ -582,7 +582,7 @@
                         <constraint firstAttribute="height" constant="110" id="YaG-wy-hnu"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kch-eB-foR" userLabel="合伙人申请">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kch-eB-foR" userLabel="合伙人申请">
                     <rect key="frame" x="0.0" y="342" width="400" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="4eW-iK-IVq"/>

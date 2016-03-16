@@ -84,6 +84,7 @@ static NSString * const reuseIdentifier = @"Cell";
     
     //数据生成32位字符串
     //NSLog(@"-----%@",[self ret32bitString]);
+    
     //[self dosomeThing];
     
 }
