@@ -206,11 +206,11 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 -(void)clickLogo{
-   // [self.collectionView setContentOffset:CGPointMake(0, 0) animated:YES];
-    ViewController *vc = [[ViewController alloc]init];
-    vc.goods_id = @"318";
-    [self.navigationController pushViewController:vc animated:YES];
-    [SVProgressHUD show];
+   [self.collectionView setContentOffset:CGPointMake(0, 0) animated:YES];
+//    ViewController *vc = [[ViewController alloc]init];
+//    vc.goods_id = @"318";
+//    [self.navigationController pushViewController:vc animated:YES];
+//    [SVProgressHUD show];
 
 }
 

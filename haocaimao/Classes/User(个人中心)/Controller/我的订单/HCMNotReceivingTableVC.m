@@ -286,8 +286,16 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         timeLabel.text = [NSString stringWithFormat:@"成交时间 %@",orderList.order_time];
         timeLabel.tag = 68;
         
+        //订单详情btn
+        UIButton *orderInfoBtn = [self setButtonRect:CGRectMake(240 , 25, 60, 20) bgImage:@"button-narrow-gray" title:@"订单详情"];
+        [orderInfoBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        [orderInfoBtn addTarget:self action:@selector(orderInfo:) forControlEvents:UIControlEventTouchUpInside];
+       
+        
+        
         headView = headview.view;
         headView.tag = 66;
+        [headview.view addSubview:orderInfoBtn];
         [headview.view addSubview:timeLabel];
         [headview.view addSubview:SNLabel];
         [myHeader.contentView addSubview:headView];
@@ -305,51 +313,50 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
     
     UIView *footer = (UIView *)[myFooter.contentView viewWithTag:80];
     UILabel *totalLabel = (UILabel *)[footer viewWithTag:81];
-   // UILabel *shippingLabel = (UILabel *)[footer viewWithTag:83];
-   // UILabel *bonusLabel = (UILabel *)[footer viewWithTag:82];
-   // UILabel *integralLabel = (UILabel *)[footer viewWithTag:85];
     
     totalLabel.text = orderList.total_fee;
-   // shippingLabel.text = orderList.formated_shipping_fee;
-  //  bonusLabel.text = orderList.formated_bonus;
-   // integralLabel.text = orderList.formated_integral_money;
+
     
     if (footer == nil) {
         
         HCMNoPayFooterview *footerView = [[HCMNoPayFooterview alloc]initWithNibName:@"HCMNoPayFooterview" bundle:nil];
         
-       // CGFloat footerW = [UIScreen mainScreen].bounds.size.width - 125;
-        
         UILabel *total_fee_label = [self setLabelsRect:CGRectMake(60, 13, 110, 20) textAlignment:YES];
         total_fee_label.tag = 81;
         total_fee_label.textColor = [UIColor redColor];
         total_fee_label.text = orderList.total_fee;
-//        
-//        UILabel *bonus_label = [self setLabelsRect:CGRectMake(footerW, 30, 110, 20) textAlignment:NO];
-//        bonus_label.tag = 82;
-//        bonus_label.textColor = [UIColor greenColor];
-//        bonus_label.text = orderList.formated_bonus;
-//        
-//        UILabel *shipping_fee_label = [self setLabelsRect:CGRectMake(footerW, 10, 110, 20) textAlignment:NO];
-//        shipping_fee_label.tag = 83;
-//        shipping_fee_label.textColor = [UIColor redColor];
-//        shipping_fee_label.text = orderList.formated_shipping_fee;
-//        
-//        UILabel *integral_money_label = [self setLabelsRect:CGRectMake(footerW, 50, 110, 20) textAlignment:NO];
-//        integral_money_label.tag = 85;
-//        integral_money_label.textColor = [UIColor greenColor];
-//        integral_money_label.text = orderList.formated_integral_money;
+
         
         footer = footerView.view;
         footer.tag = 80;
         
         [footer addSubview:total_fee_label];
-      //  [footer addSubview:bonus_label];
-      //  [footer addSubview:shipping_fee_label];
-      //  [footer addSubview:integral_money_label];
+
         [myFooter.contentView addSubview:footer];
     }
     return myFooter;
+}
+// 点击订单详情
+-(void)orderInfo:(UIButton *)btn{
+    
+    HCMLogFunc;
+    
+    
+    
+    
+}
+// 抽取代码 设置btn
+- (UIButton *)setButtonRect:(CGRect )rectF bgImage:(NSString *)bgImage title:(NSString *)title{
+    
+    UIButton *btn = [[UIButton alloc]initWithFrame:rectF];
+    
+    btn.titleLabel.font = [UIFont systemFontOfSize:14];
+    
+    [btn setBackgroundImage:[UIImage imageNamed:bgImage] forState:UIControlStateNormal];
+    
+    [btn setTitle:title forState:UIControlStateNormal];
+    
+    return btn;
 }
 
 - (UILabel *)setLabelsRect:(CGRect )rectF textAlignment:(BOOL )isAlignment{

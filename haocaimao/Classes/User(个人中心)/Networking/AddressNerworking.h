@@ -178,6 +178,12 @@ typedef void(^FailureBlock)(NSString *error);
  */
 - (void)postAwaitPayWechatPayURL:(NSDictionary *)userInfo successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
 
+/**
+ *  版本检查更新
+ */
+- (void)postVersionCheckURL:(NSDictionary *)userInfo successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
+
+
 
 
 

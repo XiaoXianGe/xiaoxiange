@@ -292,9 +292,16 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         UIImageView *imageView = [self setImageView:imageRECT bgImage:@"yingzhang"];
         imageView.tag = 69;
         
+        //订单详情btn
+        UIButton *orderInfoBtn = [self setButtonRect:CGRectMake(240 , 25, 60, 20) bgImage:@"button-narrow-gray" title:@"订单详情"];
+        [orderInfoBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        [orderInfoBtn addTarget:self action:@selector(orderInfo:) forControlEvents:UIControlEventTouchUpInside];
+        
+        
+        
         headView = headview.view;
         headView.tag = 66;
-        
+        [headview.view addSubview:orderInfoBtn];
         [headview.view addSubview:timeLabel];
         [headview.view addSubview:SNLabel];
         [headview.view addSubview:imageView];
@@ -327,34 +334,26 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
        
         footer = footerView.view;
         footer.tag = 80;
-       // CGFloat X = footer.bounds.size.width;
-        //CGFloat Y = footer.bounds.size.height - 44;
-        
-//        UIButton *pingJiaBtn = [self setButtonRect:CGRectMake(X - 140 , Y, 60, 25) bgImage:@"pingjia-shaidan" title:@""];
-//        [pingJiaBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-//        [pingJiaBtn addTarget:self action:@selector(pingJiaShaiDan) forControlEvents:UIControlEventTouchUpInside];
-//        
-//        UIButton *payBtn = [self setButtonRect:CGRectMake(X - 70, Y, 60, 25) bgImage:@"zaici-goumai" title:@""];
-//        [payBtn addTarget:self action:@selector(buyAgain) forControlEvents:UIControlEventTouchUpInside];
-//        
+
        
         [footer addSubview:total_fee_label];//总价格
-        //[footer addSubview:payBtn];//支付按钮
-        //[footer addSubview:pingJiaBtn];//取消按钮
+
 
         [myFooter.contentView addSubview:footer];
     }
     return myFooter;
 }
 
+// 点击订单详情
+-(void)orderInfo:(UIButton *)btn{
+    
+    HCMLogFunc;
+    
+    
+    
+    
+}
 
-
-//-(void)pingJiaShaiDan{
-//    NSLog(@"我晒单");
-//}
-//-(void)buyAgain{
-//    NSLog(@"我再买");
-//}
 
 //完成图
 -(UIImageView *)setImageView:(CGRect )rectF bgImage:(NSString *)bgImage{

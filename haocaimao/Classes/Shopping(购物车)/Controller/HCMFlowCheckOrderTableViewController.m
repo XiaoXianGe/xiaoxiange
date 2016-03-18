@@ -81,7 +81,7 @@ static NSString * const reuseIdentifier = @"MyCell";
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     //self.tableView.tableHeaderView.height = 456;
-    self.headerView.height = 467;
+    self.headerView.height = 464;
    
     
 }

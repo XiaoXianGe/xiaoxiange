@@ -201,7 +201,7 @@
     
     [self getInfomationForMyWallet];
     
-    // [self test2];
+     [self isUpdateAPP];
 }
 
 -(void)getInfomationForMyWallet{
@@ -907,18 +907,7 @@
     
 }
 
-////section头部间距
-//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-//{
-//    return 1;//section头部高度
-//}
-////section头部视图
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//    UIView *view=[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 1)];
-//    view.backgroundColor = [UIColor clearColor];
-//    return view;
-//}
+
 //section底部间距
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
@@ -931,7 +920,65 @@
     view.backgroundColor = [UIColor clearColor];
     return view;
 }
+//版本更新提醒
+-(void)isUpdateAPP{
+    
+    //当前的时间戳
+    NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
+    NSTimeInterval a=[dat timeIntervalSince1970];
+    NSString *timeString = [NSString stringWithFormat:@"%.0f", a];
+    
+    //上次的时间戳
+    NSString *LastSecond = [self.defaults objectForKey:@"LastSecond"];
 
+    if (!LastSecond) { //如果没有时间戳，把当前时间戳 存进去
+        
+        HCMLog(@"555  沙盒里面没有这个second");
+        [self.defaults setObject:timeString forKey:@"LastSecond"];
+        [self.defaults synchronize];
+        
+    }else{ //如果有时间戳,判断两个时间
+        HCMLog(@"6666  沙盒里面有这个second");
+
+        NSInteger second = [timeString integerValue] - [LastSecond integerValue];
+        
+        HCMLog(@"%ld",(long)second);
+        
+        if ( second > 60 ) { // second > 一小时
+            
+            //取出当前版本号
+            NSString *key = @"CFBundleShortVersionString";
+            
+            // 当前软件的版本号（从Info.plist中获得）
+            NSString *currentVersion = [NSBundle mainBundle].infoDictionary[key];
+            
+            HCMLog(@"%@",currentVersion);
+            
+            NSMutableDictionary *params = [NSMutableDictionary dictionary];
+            params[@"system"] = @"ios";
+            params[@"version"] = currentVersion;
+            
+            [[AddressNerworking sharedManager]postVersionCheckURL:params successBlock:^(id responseBody) {
+                
+                HCMLog(@"%@",responseBody);
+                
+                
+            } failureBlock:^(NSString *error) {
+                [SVProgressHUD showInfoWithStatus:@"请求失败"];
+            }];
+            
+            
+            
+        }
+        
+        
+      
+            
+        
+    }
+
+    
+}
 
 #pragma  mark - dealloc
 -(void)dealloc{

@@ -23,6 +23,8 @@
 		22E285C61BA6B5FF008B18B4 /* HCMCommentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E285B11BA6B5FF008B18B4 /* HCMCommentTableViewController.m */; };
 		22E285C71BA6B5FF008B18B4 /* HCMCommentTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22E285B21BA6B5FF008B18B4 /* HCMCommentTableViewController.xib */; };
 		22E285EA1BA6BE8E008B18B4 /* HomeNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E285E91BA6BE8E008B18B4 /* HomeNetwork.m */; };
+		2300A9D71C9BA2F4002A3B53 /* HCMOrderInfoTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2300A9D51C9BA2F4002A3B53 /* HCMOrderInfoTableVC.m */; };
+		2300A9D81C9BA2F4002A3B53 /* HCMOrderInfoTableVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2300A9D61C9BA2F4002A3B53 /* HCMOrderInfoTableVC.xib */; };
 		2308B10C1C224F8000430C12 /* HCMGetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2308B10B1C224F8000430C12 /* HCMGetPasswordViewController.m */; };
 		2308B1101C22525500430C12 /* HCMGetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2308B10F1C22525500430C12 /* HCMGetPasswordViewController.xib */; };
 		2308B1151C22B82700430C12 /* HCMModification ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2308B1131C22B82700430C12 /* HCMModification ViewController.m */; };
@@ -392,6 +394,9 @@
 		22E285B21BA6B5FF008B18B4 /* HCMCommentTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HCMCommentTableViewController.xib; sourceTree = "<group>"; };
 		22E285E81BA6BE8E008B18B4 /* HomeNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNetwork.h; sourceTree = "<group>"; };
 		22E285E91BA6BE8E008B18B4 /* HomeNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeNetwork.m; sourceTree = "<group>"; };
+		2300A9D41C9BA2F4002A3B53 /* HCMOrderInfoTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMOrderInfoTableVC.h; sourceTree = "<group>"; };
+		2300A9D51C9BA2F4002A3B53 /* HCMOrderInfoTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMOrderInfoTableVC.m; sourceTree = "<group>"; };
+		2300A9D61C9BA2F4002A3B53 /* HCMOrderInfoTableVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HCMOrderInfoTableVC.xib; sourceTree = "<group>"; };
 		2308B10A1C224F8000430C12 /* HCMGetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMGetPasswordViewController.h; sourceTree = "<group>"; };
 		2308B10B1C224F8000430C12 /* HCMGetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMGetPasswordViewController.m; sourceTree = "<group>"; };
 		2308B10F1C22525500430C12 /* HCMGetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HCMGetPasswordViewController.xib; sourceTree = "<group>"; };
@@ -1254,8 +1259,8 @@
 			children = (
 				2357E20A1C02C8EC00E7FA4B /* Controller */,
 				2357E2761C02C8EC00E7FA4B /* Model */,
-				2357E28A1C02C8EC00E7FA4B /* Networking */,
 				2357E28D1C02C8EC00E7FA4B /* View */,
+				2357E28A1C02C8EC00E7FA4B /* Networking */,
 			);
 			path = "User(个人中心)";
 			sourceTree = "<group>";
@@ -1566,6 +1571,9 @@
 				238FD5DD1C2E790300F95CCD /* HCMWaitForTheDeliveryTableVC.h */,
 				238FD5DE1C2E790300F95CCD /* HCMWaitForTheDeliveryTableVC.m */,
 				238FD5DF1C2E790300F95CCD /* HCMWaitForTheDeliveryTableVC.xib */,
+				2300A9D41C9BA2F4002A3B53 /* HCMOrderInfoTableVC.h */,
+				2300A9D51C9BA2F4002A3B53 /* HCMOrderInfoTableVC.m */,
+				2300A9D61C9BA2F4002A3B53 /* HCMOrderInfoTableVC.xib */,
 			);
 			path = "我的订单";
 			sourceTree = "<group>";
@@ -2418,6 +2426,7 @@
 				23AF71511C8974A6001B51CD /* HCMDealCell.xib in Resources */,
 				2357E2F51C02C8EC00E7FA4B /* HCMUserLocationTableViewControllerTableViewCell.xib in Resources */,
 				236E4C731BD4E90500F49463 /* HCMValidationRegisteredVC.xib in Resources */,
+				2300A9D81C9BA2F4002A3B53 /* HCMOrderInfoTableVC.xib in Resources */,
 				234A44E01BCF8334006910BE /* SceneCollectionViewCell.xib in Resources */,
 				23AF71921C897660001B51CD /* MJRefresh.bundle in Resources */,
 				23DA22091B8EE990001CC7A0 /* MBProgressHUD.bundle in Resources */,
@@ -2655,6 +2664,7 @@
 				238FD6431C2E820600F95CCD /* OutOfGoodsModel.m in Sources */,
 				2357E2E71C02C8EC00E7FA4B /* GoodsListModel.m in Sources */,
 				23E016E31C3CC7E00039440E /* MBProgressHUD+Add.m in Sources */,
+				2300A9D71C9BA2F4002A3B53 /* HCMOrderInfoTableVC.m in Sources */,
 				23C805911B9403470090E285 /* MJExtensionConst.m in Sources */,
 				23B3CD701C02C70A000CC09F /* CartGoodsModel.m in Sources */,
 				23C805941B9403470090E285 /* MJPropertyKey.m in Sources */,

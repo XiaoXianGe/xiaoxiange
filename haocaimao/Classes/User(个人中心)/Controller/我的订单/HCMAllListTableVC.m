@@ -287,10 +287,16 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         timeLabel.text = [NSString stringWithFormat:@"成交时间 %@",orderList.order_time];
         timeLabel.tag = 68;
         
+        //订单详情btn
+        UIButton *orderInfoBtn = [self setButtonRect:CGRectMake(240 , 25, 60, 20) bgImage:@"button-narrow-gray" title:@"订单详情"];
+        [orderInfoBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        [orderInfoBtn addTarget:self action:@selector(orderInfo:) forControlEvents:UIControlEventTouchUpInside];
+       
         
         
         headView = headview.view;
         headView.tag = 66;
+         [headview.view addSubview:orderInfoBtn];
         [headview.view addSubview:timeLabel];
         [headview.view addSubview:SNLabel];
 
@@ -342,7 +348,15 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
     return imageView;
     
 }
-
+// 点击订单详情
+-(void)orderInfo:(UIButton *)btn{
+    
+    HCMLogFunc;
+    
+    
+    
+    
+}
 // 抽取代码 设置btn
 - (UIButton *)setButtonRect:(CGRect )rectF bgImage:(NSString *)bgImage title:(NSString *)title{
     

@@ -295,9 +295,9 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
     UIView *headView = (UIView *)[myHeader.contentView viewWithTag:66];
     UILabel *snlabel = (UILabel *)[headView viewWithTag:67];
     UILabel *timelabel = (UILabel *)[headView viewWithTag:68];
-    UILabel *waitlabel = (UILabel *)[headView viewWithTag:69];
+   // UILabel *orderInfoLabel = (UILabel *)[headView viewWithTag:69];
     
-    waitlabel.text = [NSString stringWithFormat:@"等待付款"];
+   // orderInfoLabel.text = [NSString stringWithFormat:@"订单详情"];
     snlabel.text = [NSString stringWithFormat:@"订单编号 %@",orderList.order_sn];
     timelabel.text = [NSString stringWithFormat:@"成交时间 %@",orderList.order_time];
 
@@ -307,11 +307,11 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         
         CGRect snRECT = CGRectMake(15, 20, 200, 15);
         CGRect timeRECT = CGRectMake(15, 40, 280, 15);
-        CGRect waitRECT = CGRectMake(250, 20, 200, 15);
+//        CGRect waitRECT = CGRectMake(250, 20, 200, 15);
         
-        UILabel *waitlabel = [self setLabelsRect:waitRECT textAlignment:YES];
-        waitlabel.text = [NSString stringWithFormat:@"等待付款"];
-        waitlabel.tag = 69;
+//        UILabel *orderInfoLabel = [self setLabelsRect:waitRECT textAlignment:YES];
+//        orderInfoLabel.text = [NSString stringWithFormat:@"订单详情"];
+//        orderInfoLabel.tag = 69;
         
         UILabel *SNLabel = [self setLabelsRect:snRECT textAlignment:YES];
         SNLabel.text = [NSString stringWithFormat:@"订单编号 %@",orderList.order_sn];
@@ -321,12 +321,18 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         timeLabel.text = [NSString stringWithFormat:@"成交时间 %@",orderList.order_time];
         timeLabel.tag = 68;
         
+#warning 开发中
+        //订单详情btn
+        UIButton *orderInfoBtn = [self setButtonRect:CGRectMake(240 , 25, 60, 20) bgImage:@"button-narrow-gray" title:@"订单详情"];
+        [orderInfoBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        [orderInfoBtn addTarget:self action:@selector(orderInfo:) forControlEvents:UIControlEventTouchUpInside];
+        
         headView = headview.view;
         headView.tag = 66;
-        [headview.view addSubview:waitlabel];
+//        [headview.view addSubview:waitlabel];
         [headview.view addSubview:timeLabel];
         [headview.view addSubview:SNLabel];
-    
+        [headview.view addSubview:orderInfoBtn];
         [myHeader.contentView addSubview:headView];
         
     }
@@ -478,6 +484,16 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         
     }
 
+}
+
+// 点击订单详情
+-(void)orderInfo:(UIButton *)btn{
+    
+    HCMLogFunc;
+    
+    
+    
+    
 }
 // 点击取消支付
 - (void)cancelThePayment:(UIButton *)btn{

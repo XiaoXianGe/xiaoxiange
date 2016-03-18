@@ -209,13 +209,7 @@
     }
     return _allBtnPrice;
 }
-//-(UILabel *)priceLabel{
-//    if (!_priceLabel) {
-//        _priceLabel = [[UILabel alloc]init];
-//        _priceLabel.textAlignment = NSTextAlignmentRight;
-//    }
-//    return _priceLabel;
-//}
+
 
 -(NSMutableArray *)format_nameAndPrice_array{
     if (!_format_nameAndPrice_array) {
@@ -338,8 +332,6 @@
     if (status) {
         
         if ([self.countButton.titleLabel.text isEqualToString:@"规格数量"]) {
-            
-            HCMLog(@"...");
             
             [self PopViewShow:nil];
                 
@@ -661,9 +653,6 @@
  */
 -(void)countAdd{
     
-    [self.countTextField resignFirstResponder];
-
-    
     int buymax = [self.buyMax intValue];
     
     if (self.count == buymax) {
@@ -684,9 +673,6 @@
  *  购买数量  *  减
  */
 -(void)countSub{
-    
-    [self.countTextField resignFirstResponder];
-
     
     self.count = [self.countTextField.text integerValue];
     self.count -= 1;

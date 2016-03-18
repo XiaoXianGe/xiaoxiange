@@ -63,7 +63,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="144"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userNewBg" translatesAutoresizingMaskIntoConstraints="NO" id="da3-Q3-4ZI" userLabel="bgImage">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userController" translatesAutoresizingMaskIntoConstraints="NO" id="da3-Q3-4ZI" userLabel="bgImage">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="144"/>
                     <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -133,7 +133,7 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="260" y="-295"/>
+            <point key="canvasLocation" x="235" y="-391"/>
         </view>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="45" id="sSp-Fw-f8x" userLabel="待付款 发货 评价 反馈">
             <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
@@ -445,7 +445,7 @@
         <image name="moneybag" width="44" height="49"/>
         <image name="myOrder" width="40" height="43"/>
         <image name="profile-refresh-camera-icon" width="48" height="48"/>
-        <image name="userNewBg" width="752" height="333"/>
+        <image name="userController" width="375" height="166"/>
         <image name="user_feedback" width="28" height="28"/>
         <image name="user_loginRegion" width="138" height="135"/>
         <image name="user_wait_for_pay" width="28" height="28"/>

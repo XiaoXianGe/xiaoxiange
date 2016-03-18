@@ -156,6 +156,12 @@ static NSString *const attentionURL = @"http://www.haocaimao.com/ecmobile/index.
  */
 static NSString *const awaitpayWechatpayURL = @"http://www.haocaimao.com/ecmobile/index.php?url=order/awaitpay_wechatpay";
 
+/**
+ *  版本检测更新
+ */
+static NSString *const VersionCheckURL = @"http://www.haocaimao.com/ecmobile/index.php?url=common/versionCheck";
+
+
 
 ///************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 
@@ -847,6 +853,34 @@ static NSString *const awaitpayWechatpayURL = @"http://www.haocaimao.com/ecmobil
     }];
     
 }
+/**
+ *  版本检查更新
+ */
+- (void)postVersionCheckURL:(NSDictionary *)userInfo successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+    
+    
+    AFHTTPRequestOperationManager *manager = [self baseHtppRequest];
+    
+    NSString *urlStr = [VersionCheckURL stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    [manager POST:urlStr parameters:userInfo success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        successBlock(responseObject);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        
+        failureBlock(errorStr);
+        
+    }];
+    
+    
+    
+    
+}
+
+
 
 
 @end
