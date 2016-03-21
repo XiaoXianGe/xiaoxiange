@@ -98,6 +98,7 @@
 		2362C40D1C5B498B00C0F4F2 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2362C40C1C5B498B00C0F4F2 /* CoreBluetooth.framework */; };
 		2362C40F1C5B4B5C00C0F4F2 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2362C40E1C5B4B5C00C0F4F2 /* libsqlite3.dylib */; };
 		2362C4111C5B4B7900C0F4F2 /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2362C4101C5B4B7900C0F4F2 /* libz.1.dylib */; };
+		236332751C9FB7EF00A418BD /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 236332741C9FB7EF00A418BD /* Foundation+Log.m */; };
 		236E4C721BD4E90500F49463 /* HCMValidationRegisteredVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 236E4C671BD4E90500F49463 /* HCMValidationRegisteredVC.m */; };
 		236E4C731BD4E90500F49463 /* HCMValidationRegisteredVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 236E4C681BD4E90500F49463 /* HCMValidationRegisteredVC.xib */; };
 		236E4C741BD4E90500F49463 /* HCMVipLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 236E4C6A1BD4E90500F49463 /* HCMVipLoginViewController.m */; };
@@ -515,6 +516,7 @@
 		2362C40C1C5B498B00C0F4F2 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		2362C40E1C5B4B5C00C0F4F2 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = /usr/lib/libsqlite3.dylib; sourceTree = "<absolute>"; };
 		2362C4101C5B4B7900C0F4F2 /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = /usr/lib/libz.1.dylib; sourceTree = "<absolute>"; };
+		236332741C9FB7EF00A418BD /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 		236E4C661BD4E90500F49463 /* HCMValidationRegisteredVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMValidationRegisteredVC.h; sourceTree = "<group>"; };
 		236E4C671BD4E90500F49463 /* HCMValidationRegisteredVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMValidationRegisteredVC.m; sourceTree = "<group>"; };
 		236E4C681BD4E90500F49463 /* HCMValidationRegisteredVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HCMValidationRegisteredVC.xib; sourceTree = "<group>"; };
@@ -1850,17 +1852,17 @@
 		23D0254C1B8B22200009C7EE /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				23D0255E1B8B22200009C7EE /* Main */,
-				2357E2091C02C8EC00E7FA4B /* User(个人中心) */,
-				231391851C27931D001D5E18 /* 第三方授权登录 */,
-				234EB05E1BE73D7C00B11561 /* Share(分享) */,
-				23DF59B81BDF172E00FBFE2C /* Newfeature(新特性) */,
-				236E4C641BD4E90500F49463 /* VIPLogin（登录） */,
-				23EE215A1C02C25F0053D68C /* Shopping(购物车) */,
-				23D6502A1C101CBC00774848 /* Search(搜索) */,
 				22E285951BA6B5FF008B18B4 /* Home(首页) */,
-				23AF71401C8974A6001B51CD /* 商品详情页（开发中） */,
+				23D6502A1C101CBC00774848 /* Search(搜索) */,
+				23EE215A1C02C25F0053D68C /* Shopping(购物车) */,
+				2357E2091C02C8EC00E7FA4B /* User(个人中心) */,
+				236E4C641BD4E90500F49463 /* VIPLogin（登录） */,
+				234EB05E1BE73D7C00B11561 /* Share(分享) */,
+				231391851C27931D001D5E18 /* 第三方授权登录 */,
 				23AF71971C8A826C001B51CD /* WeChat微信支付 */,
+				23DF59B81BDF172E00FBFE2C /* Newfeature(新特性) */,
+				23AF71401C8974A6001B51CD /* 商品详情页（开发中） */,
+				23D0255E1B8B22200009C7EE /* Main */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1868,10 +1870,10 @@
 		23D0255E1B8B22200009C7EE /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				23D025641B8B22200009C7EE /* Controller */,
 				23E02AEB1C1574950084B57E /* Model */,
 				234F15C51BE858720044375E /* Framework */,
 				23D0255F1B8B22200009C7EE /* Category */,
-				23D025641B8B22200009C7EE /* Controller */,
 				23D0256B1B8B22200009C7EE /* Lib */,
 				23D025B91B8B22210009C7EE /* Other */,
 				23D025BE1B8B22210009C7EE /* VIew */,
@@ -1883,6 +1885,7 @@
 			isa = PBXGroup;
 			children = (
 				230D16931C97B5CA00C2F303 /* NullSafe.m */,
+				236332741C9FB7EF00A418BD /* Foundation+Log.m */,
 				23AF71541C897571001B51CD /* UINavigationBar+Background.h */,
 				23AF71551C897571001B51CD /* UINavigationBar+Background.m */,
 				23D025601B8B22200009C7EE /* UIBarButtonItem+Extension.h */,
@@ -2713,6 +2716,7 @@
 				230D16941C97B5CA00C2F303 /* NullSafe.m in Sources */,
 				236E4C721BD4E90500F49463 /* HCMValidationRegisteredVC.m in Sources */,
 				238FD5E41C2E790300F95CCD /* HCMNotReceivingTableVC.m in Sources */,
+				236332751C9FB7EF00A418BD /* Foundation+Log.m in Sources */,
 				23AF718B1C897660001B51CD /* MJRefreshAutoStateFooter.m in Sources */,
 				22E285C61BA6B5FF008B18B4 /* HCMCommentTableViewController.m in Sources */,
 				238FD6171C2E7EC500F95CCD /* HCMBusinessViewController.m in Sources */,

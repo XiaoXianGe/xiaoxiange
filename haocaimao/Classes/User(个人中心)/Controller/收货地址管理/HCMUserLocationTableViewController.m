@@ -63,6 +63,8 @@
     NSDictionary *mutabDitc = @{@"session":@{@"uid":uid,@"sid":sid}};
     [SVProgressHUD show];
     [[AddressNerworking sharedManager]postaddresslist:mutabDitc successBlock:^(id responseBody) {
+        
+        HCMLog(@"收货地址管理%@",responseBody);
                 
         if (responseBody[@"status"][@"error_code"]) {
             

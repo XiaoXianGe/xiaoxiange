@@ -162,7 +162,7 @@
                     </tabBar>
                 </subviews>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="260" y="-162.5"/>
+            <point key="canvasLocation" x="-146" y="-326.5"/>
         </tableViewCell>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="0.0" id="e81-Nq-lce" userLabel="我的订单">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

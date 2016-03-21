@@ -325,7 +325,7 @@
                 
                 self.vipUserMobel = nil;
                 [self.tableView.header endRefreshing];
-                UIAlertView *aler = [[UIAlertView alloc]initWithTitle:@"登录超时" message:@"登录超时，请您重新登录" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
+                UIAlertView *aler = [[UIAlertView alloc]initWithTitle:@"登录超时" message:@"登录超时，请您重新登录" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
                [aler show];
                return ;
                 
@@ -354,14 +354,17 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if(buttonIndex==0){
+    
+    NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
+    
+    if ([title isEqualToString:@"确定"]) {
         
         [self.defaults setBool:NO forKey:@"status"];
         [self.defaults setObject:nil forKey:@"userName"];
         [self.defaults removeObjectForKey:@"headimgurl"];
         
         [self.defaults removeObjectForKey:@"imgData"];
-
+        
         [self.defaults removeObjectForKey:@"sid"];
         [self.defaults removeObjectForKey:@"uid"];
         [self.defaults removeObjectForKey:@"realName"];
@@ -374,9 +377,18 @@
         for (NSHTTPCookie*cookie in [cookieJar cookies]) {
             [cookieJar deleteCookie:cookie];
         }
+        
+        [self loginLogin];
+        
+    } else if([title isEqualToString:@"去下载"]){
+        
+        HCMLog(@"点点点去下载");
 
-        [self loginLogin];}
-    
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/cn/app/hao-cai-mao/id1050857234"]];
+        
+       
+    }
+
 }
 
 // 设置 tabbar 的badgeValue值
@@ -938,18 +950,21 @@
         [self.defaults synchronize];
         
     }else{ //如果有时间戳,判断两个时间
-        HCMLog(@"6666  沙盒里面有这个second");
 
+        HCMLog(@"6666  沙盒里面有这个second");
+                            // 当前时间戳                  上次时间戳
         NSInteger second = [timeString integerValue] - [LastSecond integerValue];
         
         HCMLog(@"%ld",(long)second);
         
         if ( second > 60 ) { // second > 一小时
+            //将当前的时间戳存到沙盒
+            [self.defaults setObject:timeString forKey:@"LastSecond"];
             
             //取出当前版本号
             NSString *key = @"CFBundleShortVersionString";
             
-            // 当前软件的版本号（从Info.plist中获得）
+            //当前软件的版本号（从Info.plist中获得）
             NSString *currentVersion = [NSBundle mainBundle].infoDictionary[key];
             
             HCMLog(@"%@",currentVersion);
@@ -961,22 +976,24 @@
             [[AddressNerworking sharedManager]postVersionCheckURL:params successBlock:^(id responseBody) {
                 
                 HCMLog(@"%@",responseBody);
-                
-                
-            } failureBlock:^(NSString *error) {
-                [SVProgressHUD showInfoWithStatus:@"请求失败"];
-            }];
-            
-            
-            
-        }
-        
-        
-      
-            
-        
-    }
+                if ([responseBody[@"data"][@"latestVersion"] isEqualToString:@"1"]) {
+                    
+                    NSString *msg = [NSString stringWithFormat:@"好采猫APP已经更新到%@版本！\n立即下载",responseBody[@"data"][@"Version"]];
+                    
+                    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"更新版本提示" message:msg delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"去下载", nil];
+                    
+                    [alert show];
+                    
+                }
 
+            } failureBlock:^(NSString *error) {
+                
+                HCMLog(@"请求失败");
+                [SVProgressHUD showInfoWithStatus:@"请求失败"];
+                
+            }];
+        }
+    }
     
 }
 
