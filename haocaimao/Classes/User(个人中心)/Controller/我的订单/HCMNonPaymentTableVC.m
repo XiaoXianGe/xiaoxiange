@@ -21,6 +21,7 @@
 
 #import "DealViewController.h"
 #import "WeChatPayModel.h"
+#import "HCMOrderInfoTableVC.h"
 
 @interface HCMNonPaymentTableVC ()<WXApiDelegate>
 
@@ -497,35 +498,13 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
 -(void)orderInfo:(UIButton *)btn{
     
     HCMLogFunc;
+    
+    HCMOrderInfoTableVC *vc = [[HCMOrderInfoTableVC alloc]init];
+    
     UILabel *head_orderID = (UILabel *)[btn.superview viewWithTag:69];
-
-    NSDictionary *params = @{@"order_id":head_orderID.text,
-                             @"session":@{@"sid":self.sid,@"uid":self.uid}
-                           };
+    vc.order_id = head_orderID.text;
     
-    HCMLog(@"params %@",params);
-    
-    AFHTTPSessionManager *manager =[AFHTTPSessionManager manager];
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    
-    [manager POST:@"http://www.haocaimao.com/ecmobile/index.php?url=order/details" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
-        
-        NSString *aString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-        HCMLog(@"....%@",aString);
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        HCMLog(@"22222%@",error);
-
-    }];
-
-//    [[AddressNerworking sharedManager] postOrder_detailsURL:params successBlock:^(id responseBody) {
-//        
-//        HCMLog(@"....%@",responseBody);
-//        
-//    } failureBlock:^(NSString *error) {
-//        HCMLog(@"22222%@",error);
-//
-//    }];
-//    
+    [self.navigationController pushViewController:vc animated:YES];
     
 }
 // 点击取消支付

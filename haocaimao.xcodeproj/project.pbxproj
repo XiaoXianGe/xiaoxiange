@@ -63,6 +63,9 @@
 		234F15CD1BE891220044375E /* libSocialQQ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 234F15C91BE891220044375E /* libSocialQQ.a */; };
 		234F15CE1BE891220044375E /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 234F15CA1BE891220044375E /* TencentOpenAPI.framework */; };
 		234F15CF1BE891220044375E /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 234F15CB1BE891220044375E /* TencentOpenApi_IOS_Bundle.bundle */; };
+		2352D67A1C9FEB2E00B9E209 /* HCMOrderInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2352D6791C9FEB2E00B9E209 /* HCMOrderInfoModel.m */; };
+		2352D67E1C9FEFE300B9E209 /* HCMOrderInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2352D67C1C9FEFE300B9E209 /* HCMOrderInfoCell.m */; };
+		2352D67F1C9FEFE300B9E209 /* HCMOrderInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2352D67D1C9FEFE300B9E209 /* HCMOrderInfoCell.xib */; };
 		2357E2A71C02C8EC00E7FA4B /* HCMUserEditTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2357E2121C02C8EC00E7FA4B /* HCMUserEditTableVC.m */; };
 		2357E2A81C02C8EC00E7FA4B /* HCMUserEditTableVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2357E2131C02C8EC00E7FA4B /* HCMUserEditTableVC.xib */; };
 		2357E2BC1C02C8EC00E7FA4B /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2357E2331C02C8EC00E7FA4B /* UserViewController.m */; };
@@ -463,6 +466,11 @@
 		234F15CA1BE891220044375E /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
 		234F15CB1BE891220044375E /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
 		234F15CC1BE891220044375E /* UMSocialQQHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialQQHandler.h; sourceTree = "<group>"; };
+		2352D6781C9FEB2E00B9E209 /* HCMOrderInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMOrderInfoModel.h; sourceTree = "<group>"; };
+		2352D6791C9FEB2E00B9E209 /* HCMOrderInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMOrderInfoModel.m; sourceTree = "<group>"; };
+		2352D67B1C9FEFE300B9E209 /* HCMOrderInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMOrderInfoCell.h; sourceTree = "<group>"; };
+		2352D67C1C9FEFE300B9E209 /* HCMOrderInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMOrderInfoCell.m; sourceTree = "<group>"; };
+		2352D67D1C9FEFE300B9E209 /* HCMOrderInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HCMOrderInfoCell.xib; sourceTree = "<group>"; };
 		2357E2111C02C8EC00E7FA4B /* HCMUserEditTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMUserEditTableVC.h; sourceTree = "<group>"; };
 		2357E2121C02C8EC00E7FA4B /* HCMUserEditTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMUserEditTableVC.m; sourceTree = "<group>"; };
 		2357E2131C02C8EC00E7FA4B /* HCMUserEditTableVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HCMUserEditTableVC.xib; sourceTree = "<group>"; };
@@ -1317,6 +1325,8 @@
 				23A182D31C91730A00BAEE73 /* PartnerIndexModel.m */,
 				23A182D51C9177E400BAEE73 /* PartnerIndex2Model.h */,
 				23A182D61C9177E400BAEE73 /* PartnerIndex2Model.m */,
+				2352D6781C9FEB2E00B9E209 /* HCMOrderInfoModel.h */,
+				2352D6791C9FEB2E00B9E209 /* HCMOrderInfoModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1374,6 +1384,9 @@
 				238FD6361C2E816100F95CCD /* HCMStockoutInfoTableViewCell.h */,
 				238FD6371C2E816100F95CCD /* HCMStockoutInfoTableViewCell.m */,
 				238FD6381C2E816100F95CCD /* HCMStockoutInfoTableViewCell.xib */,
+				2352D67B1C9FEFE300B9E209 /* HCMOrderInfoCell.h */,
+				2352D67C1C9FEFE300B9E209 /* HCMOrderInfoCell.m */,
+				2352D67D1C9FEFE300B9E209 /* HCMOrderInfoCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2487,6 +2500,7 @@
 				234EB0891BE73D7C00B11561 /* UMSCommentInputController.xib in Resources */,
 				234EB08E1BE73D7C00B11561 /* UMSnsAccountViewController.xib in Resources */,
 				234EB08C1BE73D7C00B11561 /* UMShareEditViewControlleriPad.xib in Resources */,
+				2352D67F1C9FEFE300B9E209 /* HCMOrderInfoCell.xib in Resources */,
 				2313918D1C27937F001D5E18 /* HCMWeChatViewController.xib in Resources */,
 				231CF3BD1C560D4400A3899B /* partnerCell.xib in Resources */,
 				234EB0881BE73D7C00B11561 /* UMSCommentDetailController.xib in Resources */,
@@ -2558,6 +2572,7 @@
 				23D025E91B8B22210009C7EE /* AppDelegate.m in Sources */,
 				23C805951B9403470090E285 /* MJPropertyType.m in Sources */,
 				238FD5CB1C2E789C00F95CCD /* HCMUserEnshrineCollectionViewController.m in Sources */,
+				2352D67A1C9FEB2E00B9E209 /* HCMOrderInfoModel.m in Sources */,
 				238FD5E81C2E790300F95CCD /* HCMPayOrderWebViewVC.m in Sources */,
 				22E285C01BA6B5FF008B18B4 /* GoodsCommentFrame.m in Sources */,
 				238FD6191C2E7EC500F95CCD /* HCMChangePasswordViewController.m in Sources */,
@@ -2753,6 +2768,7 @@
 				238FD63B1C2E816100F95CCD /* HCMSaleGoodsTableViewCell.m in Sources */,
 				23D025E81B8B22210009C7EE /* UIView+Extension.m in Sources */,
 				2357E2E91C02C8EC00E7FA4B /* OrderListModel.m in Sources */,
+				2352D67E1C9FEFE300B9E209 /* HCMOrderInfoCell.m in Sources */,
 				23EE221D1C02C2600053D68C /* CartListModel.m in Sources */,
 				2357E2FA1C02C8EC00E7FA4B /* HCMNoPayFooterview.m in Sources */,
 				2357E2F61C02C8EC00E7FA4B /* HCMWebViewController.m in Sources */,

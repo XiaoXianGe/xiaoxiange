@@ -10,4 +10,6 @@
 
 @interface HCMOrderInfoTableVC : UITableViewController
 
+/** 订单id */
+@property(nonatomic,copy) NSString * order_id;
 @end
