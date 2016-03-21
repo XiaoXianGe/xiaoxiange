@@ -117,7 +117,6 @@
 		2374E4551BA81957008BB342 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2374E44F1BA81957008BB342 /* SVProgressHUD.bundle */; };
 		2374E4561BA81957008BB342 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2374E4511BA81957008BB342 /* SVProgressHUD.m */; };
 		2374E4571BA81957008BB342 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2374E4531BA81957008BB342 /* SVRadialGradientLayer.m */; };
-		23798E171C586C2D007D1AD6 /* partner.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 23798E161C586C2D007D1AD6 /* partner.JPG */; };
 		237CA92E1BFB0F73008334B0 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 237CA92D1BFB0F73008334B0 /* NSString+Extension.m */; };
 		2384FDEE1BCB50B800398623 /* NSData+SDDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2384FDDE1BCB50B800398623 /* NSData+SDDataCache.m */; };
 		2384FDEF1BCB50B800398623 /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2384FDE11BCB50B800398623 /* TAAbstractDotView.m */; };
@@ -331,6 +330,7 @@
 		23E016EC1C3CDBF80039440E /* UIImageView+MJWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 23E016EB1C3CDBF80039440E /* UIImageView+MJWebCache.m */; };
 		23E495DB1C49E8BB0064D63B /* weiXinData.m in Sources */ = {isa = PBXBuildFile; fileRef = 23E495D81C49E8BB0064D63B /* weiXinData.m */; };
 		23E495DC1C49E8BB0064D63B /* weiXinLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 23E495DA1C49E8BB0064D63B /* weiXinLoginModel.m */; };
+		23E7FECC1CA02108002A25BD /* HCMOrderInfoCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 23E7FECB1CA02108002A25BD /* HCMOrderInfoCellModel.m */; };
 		23ECEE801C20193A00C377C6 /* HCMUserNumberTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23ECEE7F1C20193A00C377C6 /* HCMUserNumberTableViewController.m */; };
 		23EE22101C02C2600053D68C /* CartNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EE215D1C02C25F0053D68C /* CartNetwork.m */; };
 		23EE22111C02C2600053D68C /* HCMFlowCheckOrderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EE21601C02C25F0053D68C /* HCMFlowCheckOrderTableViewController.m */; };
@@ -550,7 +550,6 @@
 		2374E4511BA81957008BB342 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		2374E4521BA81957008BB342 /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
 		2374E4531BA81957008BB342 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
-		23798E161C586C2D007D1AD6 /* partner.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = partner.JPG; sourceTree = "<group>"; };
 		237CA92C1BFB0F73008334B0 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		237CA92D1BFB0F73008334B0 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		2384FDDD1BCB50B800398623 /* NSData+SDDataCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SDDataCache.h"; sourceTree = "<group>"; };
@@ -941,6 +940,8 @@
 		23E495D81C49E8BB0064D63B /* weiXinData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = weiXinData.m; sourceTree = "<group>"; };
 		23E495D91C49E8BB0064D63B /* weiXinLoginModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = weiXinLoginModel.h; sourceTree = "<group>"; };
 		23E495DA1C49E8BB0064D63B /* weiXinLoginModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = weiXinLoginModel.m; sourceTree = "<group>"; };
+		23E7FECA1CA02108002A25BD /* HCMOrderInfoCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMOrderInfoCellModel.h; sourceTree = "<group>"; };
+		23E7FECB1CA02108002A25BD /* HCMOrderInfoCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMOrderInfoCellModel.m; sourceTree = "<group>"; };
 		23ECEE7E1C20193A00C377C6 /* HCMUserNumberTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMUserNumberTableViewController.h; sourceTree = "<group>"; };
 		23ECEE7F1C20193A00C377C6 /* HCMUserNumberTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMUserNumberTableViewController.m; sourceTree = "<group>"; };
 		23EE215C1C02C25F0053D68C /* CartNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartNetwork.h; sourceTree = "<group>"; };
@@ -1327,6 +1328,8 @@
 				23A182D61C9177E400BAEE73 /* PartnerIndex2Model.m */,
 				2352D6781C9FEB2E00B9E209 /* HCMOrderInfoModel.h */,
 				2352D6791C9FEB2E00B9E209 /* HCMOrderInfoModel.m */,
+				23E7FECA1CA02108002A25BD /* HCMOrderInfoCellModel.h */,
+				23E7FECB1CA02108002A25BD /* HCMOrderInfoCellModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2313,7 +2316,6 @@
 				23D025661B8B22200009C7EE /* AppDelegate.m */,
 				23D0254C1B8B22200009C7EE /* Classes */,
 				23FBE7981B7B282500F8B3AA /* Images.xcassets */,
-				23798E161C586C2D007D1AD6 /* partner.JPG */,
 				23FBE73D1B7B272400F8B3AA /* Supporting Files */,
 			);
 			path = haocaimao;
@@ -2434,7 +2436,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				238FD6221C2E7EC500F95CCD /* HCMStockoutTableViewController.xib in Resources */,
-				23798E171C586C2D007D1AD6 /* partner.JPG in Resources */,
 				2371D6851BF41E3200F61C8E /* sg_pop_images.xcassets in Resources */,
 				23D6505A1C101CBC00774848 /* secondCollectionReusableView.xib in Resources */,
 				238FD5BE1C2E775500F95CCD /* HCMUserLocationTableViewController.xib in Resources */,
@@ -2725,6 +2726,7 @@
 				23B0130B1C7BF62700A87752 /* HCMTabBar.m in Sources */,
 				23E016DD1C3CC5740039440E /* MJPhotoLoadingView.m in Sources */,
 				238FD5BD1C2E775500F95CCD /* HCMUserLocationTableViewController.m in Sources */,
+				23E7FECC1CA02108002A25BD /* HCMOrderInfoCellModel.m in Sources */,
 				23D025EA1B8B22210009C7EE /* HCMnavigationViewController.m in Sources */,
 				23D026081B8B22210009C7EE /* UIImage+MultiFormat.m in Sources */,
 				238FD5EA1C2E790300F95CCD /* HCMWaitForTheDeliveryTableVC.m in Sources */,

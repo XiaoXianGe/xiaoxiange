@@ -10,16 +10,22 @@
                 <outlet property="address" destination="53D-Tv-nTR" id="l9W-6A-lWy"/>
                 <outlet property="bankAccount" destination="l3n-E6-GTR" id="VO2-nK-6dU"/>
                 <outlet property="bankName" destination="GXS-WU-Tct" id="Odq-cJ-grr"/>
+                <outlet property="cancelOrder" destination="EKf-vV-m4T" id="iBE-tz-1fZ"/>
                 <outlet property="consignee" destination="P31-NT-1hj" id="ucF-uH-tSE"/>
+                <outlet property="footerView" destination="1zm-Ok-N7d" id="u3J-iv-X1z"/>
                 <outlet property="goodsAmount" destination="L73-YP-lrJ" id="61C-yb-mJC"/>
+                <outlet property="headerView" destination="6mk-ki-SzK" id="PyX-5K-INh"/>
                 <outlet property="invContent" destination="kZm-1O-hNM" id="vXK-qR-hdr"/>
                 <outlet property="invPayee" destination="AI7-4L-tPQ" id="ItY-aR-tAN"/>
                 <outlet property="mobile" destination="u0g-3V-pgc" id="PzH-sN-aI1"/>
                 <outlet property="orderAmount" destination="Hih-JQ-9vl" id="eX4-U0-hW5"/>
                 <outlet property="orderSN" destination="evi-T0-h0w" id="1H9-jL-LLC"/>
                 <outlet property="orderStatus" destination="p3x-HF-sTl" id="Aj2-O6-Meo"/>
+                <outlet property="orderTime" destination="rGX-eh-39k" id="zcb-up-9RG"/>
+                <outlet property="payOrder" destination="enY-oF-EVx" id="ais-Ng-JkW"/>
                 <outlet property="payStatus" destination="Tgs-ee-nmp" id="jP0-Lg-Y8D"/>
                 <outlet property="paymentName" destination="nDg-hn-Bqs" id="Ghl-6h-oNa"/>
+                <outlet property="postScriptView" destination="oo2-cx-B55" id="PS9-H1-1AK"/>
                 <outlet property="registeredAddress" destination="pNh-Al-uZi" id="eRW-qo-aQH"/>
                 <outlet property="registeredMobile" destination="8cr-RM-LAi" id="hMf-IC-ReE"/>
                 <outlet property="shippingFee" destination="YnH-7J-tfP" id="97B-u0-aCb"/>
@@ -141,7 +147,7 @@
                     <color key="textColor" red="0.27630208333333328" green="0.27630208333333328" blue="0.27630208333333328" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="8" y="8" width="125" height="21"/>
+                        <rect key="frame" x="8" y="8" width="273" height="21"/>
                     </variation>
                 </label>
             </subviews>
@@ -164,170 +170,12 @@
                     <include reference="evi-T0-h0w"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="450" y="70.5"/>
+            <point key="canvasLocation" x="416" y="79.5"/>
         </view>
         <view contentMode="scaleToFill" id="1zm-Ok-N7d" userLabel="尾部视图">
             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oo2-cx-B55" userLabel="增值税View">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发票信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yh-Mb-inB">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.10769791669999999" green="0.10769791669999999" blue="0.10769791669999999" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="8" y="8" width="81" height="21"/>
-                            </variation>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="纳税人识别码:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iro-qR-yWq">
-                            <rect key="frame" x="4" y="44" width="84" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.39167708333333329" green="0.39167708333333329" blue="0.39167708333333329" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="17" y="58" width="84" height="21"/>
-                            </variation>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注册地址:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JRr-XB-Kas">
-                            <rect key="frame" x="12" y="77" width="76" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.39167708333333329" green="0.39167708333333329" blue="0.39167708333333329" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="25" y="81" width="76" height="21"/>
-                            </variation>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="银行账号:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2LV-Wy-YMX">
-                            <rect key="frame" x="12" y="176" width="76" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.39167708333333329" green="0.39167708333333329" blue="0.39167708333333329" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="25" y="151" width="76" height="21"/>
-                            </variation>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="单位名称:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOf-dg-CKM">
-                            <rect key="frame" x="12" y="11" width="76" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.39167708333333329" green="0.39167708333333329" blue="0.39167708333333329" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="25" y="36" width="76" height="21"/>
-                            </variation>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注册电话:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ci2-pt-uyE">
-                            <rect key="frame" x="12" y="110" width="76" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.39167708333333329" green="0.39167708333333329" blue="0.39167708333333329" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="25" y="104" width="76" height="21"/>
-                            </variation>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开户银行:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OL0-RE-w3z">
-                            <rect key="frame" x="12" y="143" width="76" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.39167708333333329" green="0.39167708333333329" blue="0.39167708333333329" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="25" y="127" width="76" height="21"/>
-                            </variation>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8o0-4u-Aro">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.28270833333333334" green="0.28270833333333334" blue="0.28270833333333334" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="109" y="36" width="203" height="21"/>
-                            </variation>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="74b-4Y-kbX">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.2827083333" green="0.2827083333" blue="0.2827083333" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="109" y="58" width="203" height="21"/>
-                            </variation>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNh-Al-uZi">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.2827083333" green="0.2827083333" blue="0.2827083333" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="109" y="78" width="203" height="21"/>
-                            </variation>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cr-RM-LAi">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.2827083333" green="0.2827083333" blue="0.2827083333" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="109" y="104" width="203" height="21"/>
-                            </variation>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXS-WU-Tct">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.2827083333" green="0.2827083333" blue="0.2827083333" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="109" y="127" width="203" height="21"/>
-                            </variation>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l3n-E6-GTR">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.2827083333" green="0.2827083333" blue="0.2827083333" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="109" y="151" width="203" height="21"/>
-                            </variation>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <variation key="default">
-                        <mask key="subviews">
-                            <exclude reference="9yh-Mb-inB"/>
-                            <exclude reference="iro-qR-yWq"/>
-                            <exclude reference="JRr-XB-Kas"/>
-                            <exclude reference="2LV-Wy-YMX"/>
-                            <exclude reference="yOf-dg-CKM"/>
-                            <exclude reference="ci2-pt-uyE"/>
-                            <exclude reference="OL0-RE-w3z"/>
-                            <exclude reference="8o0-4u-Aro"/>
-                            <exclude reference="74b-4Y-kbX"/>
-                            <exclude reference="pNh-Al-uZi"/>
-                            <exclude reference="8cr-RM-LAi"/>
-                            <exclude reference="GXS-WU-Tct"/>
-                            <exclude reference="l3n-E6-GTR"/>
-                        </mask>
-                    </variation>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="0.0" y="140" width="320" height="177"/>
-                        <mask key="subviews">
-                            <include reference="9yh-Mb-inB"/>
-                            <include reference="iro-qR-yWq"/>
-                            <include reference="JRr-XB-Kas"/>
-                            <include reference="2LV-Wy-YMX"/>
-                            <include reference="yOf-dg-CKM"/>
-                            <include reference="ci2-pt-uyE"/>
-                            <include reference="OL0-RE-w3z"/>
-                            <include reference="8o0-4u-Aro"/>
-                            <include reference="74b-4Y-kbX"/>
-                            <include reference="pNh-Al-uZi"/>
-                            <include reference="8cr-RM-LAi"/>
-                            <include reference="GXS-WU-Tct"/>
-                            <include reference="l3n-E6-GTR"/>
-                        </mask>
-                    </variation>
-                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l4F-Ma-dqN" userLabel="乱七八糟视图">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <subviews>
@@ -618,6 +466,9 @@
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="147" id="shH-YA-mB6"/>
+                    </constraints>
                     <variation key="default">
                         <mask key="subviews">
                             <exclude reference="5J1-AL-fDd"/>
@@ -630,9 +481,11 @@
                             <exclude reference="rGX-eh-39k"/>
                             <exclude reference="4v1-0U-s1F"/>
                         </mask>
+                        <mask key="constraints">
+                            <exclude reference="shH-YA-mB6"/>
+                        </mask>
                     </variation>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="0.0" y="231" width="320" height="147"/>
+                    <variation key="widthClass=compact">
                         <mask key="subviews">
                             <include reference="5J1-AL-fDd"/>
                             <include reference="4Nc-vF-wmp"/>
@@ -644,27 +497,203 @@
                             <include reference="rGX-eh-39k"/>
                             <include reference="4v1-0U-s1F"/>
                         </mask>
+                        <mask key="constraints">
+                            <include reference="shH-YA-mB6"/>
+                        </mask>
+                    </variation>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oo2-cx-B55" userLabel="增值税View">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发票信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yh-Mb-inB">
+                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.10769791669999999" green="0.10769791669999999" blue="0.10769791669999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="8" y="8" width="81" height="21"/>
+                            </variation>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="纳税人识别码:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iro-qR-yWq">
+                            <rect key="frame" x="4" y="44" width="84" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.39167708333333329" green="0.39167708333333329" blue="0.39167708333333329" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="14" y="54" width="84" height="21"/>
+                            </variation>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注册地址:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JRr-XB-Kas">
+                            <rect key="frame" x="12" y="77" width="76" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.39167708333333329" green="0.39167708333333329" blue="0.39167708333333329" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="22" y="77" width="76" height="21"/>
+                            </variation>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="银行账号:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2LV-Wy-YMX">
+                            <rect key="frame" x="12" y="176" width="76" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.39167708333333329" green="0.39167708333333329" blue="0.39167708333333329" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="22" y="147" width="76" height="21"/>
+                            </variation>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="单位名称:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOf-dg-CKM">
+                            <rect key="frame" x="12" y="11" width="76" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.39167708333333329" green="0.39167708333333329" blue="0.39167708333333329" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="22" y="32" width="76" height="21"/>
+                            </variation>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注册电话:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ci2-pt-uyE">
+                            <rect key="frame" x="12" y="110" width="76" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.39167708333333329" green="0.39167708333333329" blue="0.39167708333333329" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="22" y="100" width="76" height="21"/>
+                            </variation>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开户银行:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OL0-RE-w3z">
+                            <rect key="frame" x="12" y="143" width="76" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.39167708333333329" green="0.39167708333333329" blue="0.39167708333333329" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="22" y="123" width="76" height="21"/>
+                            </variation>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8o0-4u-Aro" userLabel="单位名称">
+                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.28270833333333334" green="0.28270833333333334" blue="0.28270833333333334" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="106" y="32" width="203" height="21"/>
+                            </variation>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="74b-4Y-kbX" userLabel="纳税人识别码">
+                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.2827083333" green="0.2827083333" blue="0.2827083333" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="106" y="54" width="203" height="21"/>
+                            </variation>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNh-Al-uZi" userLabel="注册地址">
+                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.2827083333" green="0.2827083333" blue="0.2827083333" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="106" y="74" width="203" height="21"/>
+                            </variation>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cr-RM-LAi" userLabel="注册电话">
+                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.2827083333" green="0.2827083333" blue="0.2827083333" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="106" y="100" width="203" height="21"/>
+                            </variation>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXS-WU-Tct" userLabel="开户银行">
+                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.2827083333" green="0.2827083333" blue="0.2827083333" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="106" y="123" width="203" height="21"/>
+                            </variation>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l3n-E6-GTR" userLabel="银行账号">
+                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.2827083333" green="0.2827083333" blue="0.2827083333" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="106" y="147" width="203" height="21"/>
+                            </variation>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <variation key="default">
+                        <mask key="subviews">
+                            <exclude reference="9yh-Mb-inB"/>
+                            <exclude reference="iro-qR-yWq"/>
+                            <exclude reference="JRr-XB-Kas"/>
+                            <exclude reference="2LV-Wy-YMX"/>
+                            <exclude reference="yOf-dg-CKM"/>
+                            <exclude reference="ci2-pt-uyE"/>
+                            <exclude reference="OL0-RE-w3z"/>
+                            <exclude reference="8o0-4u-Aro"/>
+                            <exclude reference="74b-4Y-kbX"/>
+                            <exclude reference="pNh-Al-uZi"/>
+                            <exclude reference="8cr-RM-LAi"/>
+                            <exclude reference="GXS-WU-Tct"/>
+                            <exclude reference="l3n-E6-GTR"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="0.0" y="140" width="320" height="177"/>
+                        <mask key="subviews">
+                            <include reference="9yh-Mb-inB"/>
+                            <include reference="iro-qR-yWq"/>
+                            <include reference="JRr-XB-Kas"/>
+                            <include reference="2LV-Wy-YMX"/>
+                            <include reference="yOf-dg-CKM"/>
+                            <include reference="ci2-pt-uyE"/>
+                            <include reference="OL0-RE-w3z"/>
+                            <include reference="8o0-4u-Aro"/>
+                            <include reference="74b-4Y-kbX"/>
+                            <include reference="pNh-Al-uZi"/>
+                            <include reference="8cr-RM-LAi"/>
+                            <include reference="GXS-WU-Tct"/>
+                            <include reference="l3n-E6-GTR"/>
+                        </mask>
                     </variation>
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="VUN-5z-mQj" secondAttribute="bottom" id="Cff-Hr-pyf"/>
+                <constraint firstAttribute="trailing" secondItem="VUN-5z-mQj" secondAttribute="trailing" id="EbX-wm-7Ti"/>
+                <constraint firstItem="VUN-5z-mQj" firstAttribute="leading" secondItem="1zm-Ok-N7d" secondAttribute="leading" id="rQT-cg-pAx"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
                 <mask key="subviews">
-                    <exclude reference="oo2-cx-B55"/>
                     <exclude reference="l4F-Ma-dqN"/>
                     <exclude reference="VUN-5z-mQj"/>
+                    <exclude reference="oo2-cx-B55"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="Cff-Hr-pyf"/>
+                    <exclude reference="EbX-wm-7Ti"/>
+                    <exclude reference="rQT-cg-pAx"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
                 <mask key="subviews">
-                    <include reference="oo2-cx-B55"/>
                     <include reference="l4F-Ma-dqN"/>
                     <include reference="VUN-5z-mQj"/>
+                    <include reference="oo2-cx-B55"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="Cff-Hr-pyf"/>
+                    <include reference="EbX-wm-7Ti"/>
+                    <include reference="rQT-cg-pAx"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="450" y="396"/>
+            <point key="canvasLocation" x="416" y="452.5"/>
         </view>
     </objects>
     <resources>

@@ -7,9 +7,17 @@
 //  订单详情
 
 #import <UIKit/UIKit.h>
+@class HCMOrderInfoModel;
 
 @interface HCMOrderInfoTableVC : UITableViewController
 
 /** 订单id */
 @property(nonatomic,copy) NSString * order_id;
+
+/** model */
+@property(nonatomic,strong) HCMOrderInfoModel *model;
+
+/** 商品数量 */
+@property(nonatomic,strong)NSArray * goodsArray;
+
 @end

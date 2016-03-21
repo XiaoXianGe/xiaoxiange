@@ -31,7 +31,7 @@
 /** 普通发票 - 明细 */
 @property(nonatomic,copy)NSString * invContent;
 /** 增值税发票 */
-@property(nonatomic,copy)NSString * postscript;
+@property(nonatomic,copy)NSDictionary * postscript;
 /** 增值税发票 -  单位名称 */
 @property(nonatomic,copy)NSString * unitName;
 /** 增值税发票 -  注册号码 */
@@ -50,15 +50,8 @@
 @property(nonatomic,copy)NSString * shippingFee;
 /** 实付款 */
 @property(nonatomic,copy)NSString * orderAmount;
-
-/** 订单商品 */
-@property(nonatomic,copy)NSString * orderGoods;
-
-
-
-
-
-
+/** 下单时间 */
+@property(nonatomic,copy)NSString * addTime;
 
 
 //unitName = 木木的是我自己了！,

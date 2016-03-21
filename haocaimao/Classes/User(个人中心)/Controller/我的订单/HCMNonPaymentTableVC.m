@@ -23,6 +23,10 @@
 #import "WeChatPayModel.h"
 #import "HCMOrderInfoTableVC.h"
 
+#import "HCMOrderInfoModel.h"
+#import "MJExtension.h"
+#import "HCMOrderInfoCellModel.h"
+
 @interface HCMNonPaymentTableVC ()<WXApiDelegate>
 
 @property (strong, nonatomic)NSMutableArray *SectionsCount;
@@ -328,7 +332,6 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         head_orderID.textColor = [UIColor redColor];
         head_orderID.text = orderList.order_id;
         
-#warning 开发中
         //订单详情btn
         UIButton *orderInfoBtn = [self setButtonRect:CGRectMake(240 , 25, 60, 20) bgImage:@"button-narrow-gray" title:@"订单详情"];
         [orderInfoBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
@@ -494,17 +497,42 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
 
 }
 
+
+
+#warning 开发中
 // 点击订单详情
 -(void)orderInfo:(UIButton *)btn{
     
-    HCMLogFunc;
-    
-    HCMOrderInfoTableVC *vc = [[HCMOrderInfoTableVC alloc]init];
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+    [SVProgressHUD show];
     
     UILabel *head_orderID = (UILabel *)[btn.superview viewWithTag:69];
-    vc.order_id = head_orderID.text;
     
-    [self.navigationController pushViewController:vc animated:YES];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    params[@"session"] = @{@"sid":_sid,@"uid":_uid};
+    params[@"order_id"] = head_orderID.text;
+    
+    [[AddressNerworking sharedManager] postOrder_detailsURL:params successBlock:^(id responseBody) {
+        
+        HCMLog(@"%@",responseBody);
+
+        HCMOrderInfoTableVC *vc = [[HCMOrderInfoTableVC alloc]init];
+        
+        vc.model = [HCMOrderInfoModel objectWithKeyValues:responseBody[@"data"]];
+        
+        vc.goodsArray = [HCMOrderInfoCellModel objectArrayWithKeyValuesArray:responseBody[@"data"][@"orderGoods"]];
+        
+        [self.navigationController pushViewController:vc animated:YES];
+        
+        
+    } failureBlock:^(NSString *error) {
+         [SVProgressHUD dismiss];
+        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
+       
+        
+    }];
+  
     
 }
 // 点击取消支付
