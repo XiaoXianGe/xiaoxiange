@@ -42,17 +42,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
-    textAttrs[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
-    
-    NSMutableDictionary *selectTextAttrs = [NSMutableDictionary dictionary];
-    selectTextAttrs[NSForegroundColorAttributeName] = [UIColor whiteColor];
-    
-    UITabBarItem *item = [UITabBarItem appearance];
-    [item setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
-    [item setTitleTextAttributes:selectTextAttrs forState:UIControlStateSelected];
-    
+
     HCMHomeCollectionViewController *Home = [[HCMHomeCollectionViewController alloc]initWithNibName:@"HCMHomeCollectionViewController" bundle:nil];
     [self addchildVc:Home title:@"首页" image:@"tabbar_home" selectedImage:@"tabbar_home"];
     
@@ -88,7 +78,16 @@
     childVc.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImage]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
    // childVc.tabBarItem.imageInsets = UIEdgeInsetsMake(0, 1, 0, -1);
 
-  
+    NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
+    textAttrs[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
+    
+    NSMutableDictionary *selectTextAttrs = [NSMutableDictionary dictionary];
+    selectTextAttrs[NSForegroundColorAttributeName] = [UIColor whiteColor];
+    
+//    UITabBarItem *item = [UITabBarItem appearance];
+    [childVc.tabBarItem setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
+    [childVc.tabBarItem setTitleTextAttributes:selectTextAttrs forState:UIControlStateSelected];
+    
     
     HCMnavigationViewController *nav = [[HCMnavigationViewController alloc]initWithRootViewController:childVc];
     nav.navigationBar.barTintColor = HCMColor(235, 3, 21,1.0);

@@ -119,6 +119,7 @@ static NSString * const reuseIdentifier = @"MyCell";
     
     [[CartNetwork sharedManager]postFlowCheckOrder:dict successBlock:^(id responseBody) {
         
+        HCMLog(@"结算%@",responseBody);
         
         if (responseBody[@"status"][@"error_code"]) {
             

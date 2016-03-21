@@ -268,8 +268,12 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
     UIView *headView = (UIView *)[myHeader.contentView viewWithTag:66];
     UILabel *snlabel = (UILabel *)[headView viewWithTag:67];
     UILabel *timelabel = (UILabel *)[headView viewWithTag:68];
+    UILabel *head_orderID = (UILabel *)[headView viewWithTag:69];
+
     snlabel.text = [NSString stringWithFormat:@"订单编号 %@",orderList.order_sn];
     timelabel.text = [NSString stringWithFormat:@"订单编号 %@",orderList.order_time];
+    head_orderID.text = orderList.order_id;
+
     
     if (headView == nil) {
         
@@ -286,6 +290,11 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         timeLabel.text = [NSString stringWithFormat:@"成交时间 %@",orderList.order_time];
         timeLabel.tag = 68;
         
+        UILabel *head_orderID = [self setLabelsRect:CGRectMake(0, 0, 0, 0) textAlignment:YES];
+        head_orderID.tag = 69;
+        head_orderID.textColor = [UIColor redColor];
+        head_orderID.text = orderList.order_id;
+        
         //订单详情btn
         UIButton *orderInfoBtn = [self setButtonRect:CGRectMake(240 , 25, 60, 20) bgImage:@"button-narrow-gray" title:@"订单详情"];
         [orderInfoBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
@@ -295,6 +304,8 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         
         headView = headview.view;
         headView.tag = 66;
+        
+        [headview.view addSubview:head_orderID];
         [headview.view addSubview:orderInfoBtn];
         [headview.view addSubview:timeLabel];
         [headview.view addSubview:SNLabel];
@@ -341,7 +352,21 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
     
     HCMLogFunc;
     
+    UILabel *head_orderID = (UILabel *)[btn.superview viewWithTag:69];
     
+    NSDictionary *params = @{@"session":@{@"sid":self.sid,@"uid":self.uid},
+                             @"order_id":head_orderID.text};
+    
+    HCMLog(@"params %@",params);
+    
+    [[AddressNerworking sharedManager]postOrder_detailsURL:params successBlock:^(id responseBody) {
+        
+        HCMLog(@"%@",responseBody);
+        
+    } failureBlock:^(NSString *error) {
+        [SVProgressHUD showInfoWithStatus:@"失败"];
+    }];
+
     
     
 }

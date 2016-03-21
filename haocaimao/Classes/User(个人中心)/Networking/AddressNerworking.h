@@ -183,6 +183,10 @@ typedef void(^FailureBlock)(NSString *error);
  */
 - (void)postVersionCheckURL:(NSDictionary *)userInfo successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
 
+/**
+ *  订单详情
+ */
+- (void)postOrder_detailsURL:(NSDictionary *)userInfo successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
 
 
 

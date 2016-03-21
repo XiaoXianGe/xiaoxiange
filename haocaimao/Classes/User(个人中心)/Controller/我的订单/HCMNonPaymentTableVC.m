@@ -295,12 +295,13 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
     UIView *headView = (UIView *)[myHeader.contentView viewWithTag:66];
     UILabel *snlabel = (UILabel *)[headView viewWithTag:67];
     UILabel *timelabel = (UILabel *)[headView viewWithTag:68];
+    UILabel *head_orderID = (UILabel *)[headView viewWithTag:69];
    // UILabel *orderInfoLabel = (UILabel *)[headView viewWithTag:69];
     
    // orderInfoLabel.text = [NSString stringWithFormat:@"订单详情"];
     snlabel.text = [NSString stringWithFormat:@"订单编号 %@",orderList.order_sn];
     timelabel.text = [NSString stringWithFormat:@"成交时间 %@",orderList.order_time];
-
+    head_orderID.text = orderList.order_id;
     if (headView == nil) {
         
         HCMNoPayHeadview *headview = [[HCMNoPayHeadview alloc]initWithNibName:@"HCMNoPayHeadview" bundle:nil];
@@ -321,6 +322,11 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         timeLabel.text = [NSString stringWithFormat:@"成交时间 %@",orderList.order_time];
         timeLabel.tag = 68;
         
+        UILabel *head_orderID = [self setLabelsRect:CGRectMake(0, 0, 0, 0) textAlignment:YES];
+        head_orderID.tag = 69;
+        head_orderID.textColor = [UIColor redColor];
+        head_orderID.text = orderList.order_id;
+        
 #warning 开发中
         //订单详情btn
         UIButton *orderInfoBtn = [self setButtonRect:CGRectMake(240 , 25, 60, 20) bgImage:@"button-narrow-gray" title:@"订单详情"];
@@ -330,6 +336,7 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         headView = headview.view;
         headView.tag = 66;
 //        [headview.view addSubview:waitlabel];
+        [headview.view addSubview:head_orderID];
         [headview.view addSubview:timeLabel];
         [headview.view addSubview:SNLabel];
         [headview.view addSubview:orderInfoBtn];
@@ -490,19 +497,46 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
 -(void)orderInfo:(UIButton *)btn{
     
     HCMLogFunc;
+    UILabel *head_orderID = (UILabel *)[btn.superview viewWithTag:69];
+
+    NSDictionary *params = @{@"order_id":head_orderID.text,
+                             @"session":@{@"sid":self.sid,@"uid":self.uid}
+                           };
     
+    HCMLog(@"params %@",params);
     
+    AFHTTPSessionManager *manager =[AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     
+    [manager POST:@"http://www.haocaimao.com/ecmobile/index.php?url=order/details" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSString *aString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        HCMLog(@"....%@",aString);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        HCMLog(@"22222%@",error);
+
+    }];
+
+//    [[AddressNerworking sharedManager] postOrder_detailsURL:params successBlock:^(id responseBody) {
+//        
+//        HCMLog(@"....%@",responseBody);
+//        
+//    } failureBlock:^(NSString *error) {
+//        HCMLog(@"22222%@",error);
+//
+//    }];
+//    
     
 }
 // 点击取消支付
 - (void)cancelThePayment:(UIButton *)btn{
     
-    UILabel *order_id = (UILabel *)[btn.superview viewWithTag:79];
+    UILabel *head_orderID = (UILabel *)[btn.superview viewWithTag:79];
     
     NSDictionary *dict = @{@"session":@{@"sid":self.sid,@"uid":self.uid},
-                           @"order_id":order_id.text};
+                           @"order_id":head_orderID.text};
     
+    HCMLog(@"取消dict%@",dict);
     [SVProgressHUD show];
     
     [[AddressNerworking sharedManager]postOrderCancel:dict successBlock:^(id responseBody) {

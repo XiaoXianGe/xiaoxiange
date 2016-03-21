@@ -978,7 +978,7 @@
                 HCMLog(@"%@",responseBody);
                 if ([responseBody[@"data"][@"latestVersion"] isEqualToString:@"1"]) {
                     
-                    NSString *msg = [NSString stringWithFormat:@"好采猫APP已经更新到%@版本！\n立即下载",responseBody[@"data"][@"Version"]];
+                    NSString *msg = [NSString stringWithFormat:@"好采猫APP已经更新到%@版本！\n立即下载",responseBody[@"data"][@"versionSN"]];
                     
                     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"更新版本提示" message:msg delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"去下载", nil];
                     
