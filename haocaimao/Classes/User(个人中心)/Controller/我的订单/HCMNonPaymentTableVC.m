@@ -27,6 +27,8 @@
 #import "MJExtension.h"
 #import "HCMOrderInfoCellModel.h"
 
+#import "HCMPayWay.h"
+
 @interface HCMNonPaymentTableVC ()<WXApiDelegate>
 
 @property (strong, nonatomic)NSMutableArray *SectionsCount;
@@ -301,9 +303,9 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
     UILabel *snlabel = (UILabel *)[headView viewWithTag:67];
     UILabel *timelabel = (UILabel *)[headView viewWithTag:68];
     UILabel *head_orderID = (UILabel *)[headView viewWithTag:69];
-   // UILabel *orderInfoLabel = (UILabel *)[headView viewWithTag:69];
+    UILabel *payway = (UILabel *)[headView viewWithTag:65];
     
-   // orderInfoLabel.text = [NSString stringWithFormat:@"订单详情"];
+    payway.text = orderList.pay_code;
     snlabel.text = [NSString stringWithFormat:@"订单编号 %@",orderList.order_sn];
     timelabel.text = [NSString stringWithFormat:@"成交时间 %@",orderList.order_time];
     head_orderID.text = orderList.order_id;
@@ -311,20 +313,18 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         
         HCMNoPayHeadview *headview = [[HCMNoPayHeadview alloc]initWithNibName:@"HCMNoPayHeadview" bundle:nil];
         
-        CGRect snRECT = CGRectMake(15, 20, 200, 15);
-        CGRect timeRECT = CGRectMake(15, 40, 280, 15);
-//        CGRect waitRECT = CGRectMake(250, 20, 200, 15);
-        
-//        UILabel *orderInfoLabel = [self setLabelsRect:waitRECT textAlignment:YES];
-//        orderInfoLabel.text = [NSString stringWithFormat:@"订单详情"];
-//        orderInfoLabel.tag = 69;
+        CGRect snRECT = CGRectMake(15, 8, 200, 15);
+        CGRect timeRECT = CGRectMake(15, 23, 280, 15);
+
         
         UILabel *SNLabel = [self setLabelsRect:snRECT textAlignment:YES];
         SNLabel.text = [NSString stringWithFormat:@"订单编号 %@",orderList.order_sn];
+        SNLabel.font = [UIFont systemFontOfSize:11];
         SNLabel.tag = 67;
         
         UILabel *timeLabel = [self setLabelsRect:timeRECT textAlignment:YES];
         timeLabel.text = [NSString stringWithFormat:@"成交时间 %@",orderList.order_time];
+        timeLabel.font = [UIFont systemFontOfSize:11];
         timeLabel.tag = 68;
         
         UILabel *head_orderID = [self setLabelsRect:CGRectMake(0, 0, 0, 0) textAlignment:YES];
@@ -332,14 +332,20 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         head_orderID.textColor = [UIColor redColor];
         head_orderID.text = orderList.order_id;
         
+        UILabel *payway = [self setLabelsRect:CGRectMake(0, 0, 0, 0) textAlignment:YES];
+        payway.tag = 65;
+        payway.textColor = [UIColor whiteColor];
+        payway.text = orderList.pay_code;
+        
         //订单详情btn
-        UIButton *orderInfoBtn = [self setButtonRect:CGRectMake(240 , 25, 60, 20) bgImage:@"button-narrow-gray" title:@"订单详情"];
+        UIButton *orderInfoBtn = [self setButtonRect:CGRectMake(240 , 13, 60, 20) bgImage:@"button-narrow-gray" title:@"订单详情"];
         [orderInfoBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [orderInfoBtn addTarget:self action:@selector(orderInfo:) forControlEvents:UIControlEventTouchUpInside];
         
         headView = headview.view;
         headView.tag = 66;
-//        [headview.view addSubview:waitlabel];
+        
+        [headview.view addSubview:payway];
         [headview.view addSubview:head_orderID];
         [headview.view addSubview:timeLabel];
         [headview.view addSubview:SNLabel];
@@ -362,10 +368,10 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
     UILabel *totalLabel = (UILabel *)[footer viewWithTag:81];
     UILabel *orderIDLabel = (UILabel *)[footer viewWithTag:79];
     UILabel *payway = (UILabel *)[footer viewWithTag:78];
-    
+    payway.text = orderList.pay_code;
     orderIDLabel.text = orderList.order_id;
     totalLabel.text = orderList.total_fee;
-    payway.text = orderList.pay_code;
+    
     
     if (footer == nil) {
         
@@ -382,7 +388,7 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         order_id.textColor = [UIColor whiteColor];
         order_id.text = orderList.order_id;
         
-        UILabel *total_fee_label = [self setLabelsRect:CGRectMake(60, 13, 110, 20) textAlignment:YES];
+        UILabel *total_fee_label = [self setLabelsRect:CGRectMake(60, 10, 110, 20) textAlignment:YES];
         total_fee_label.tag = 81;
         total_fee_label.textColor = [UIColor redColor];
         total_fee_label.text = orderList.total_fee;
@@ -390,21 +396,13 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         footer = footerView.view;
         footer.tag = 80;
         
-        CGFloat X = footer.bounds.size.width;
-        CGFloat Y = footer.bounds.size.height - 44;
-        
-        UIButton *cancelBtn = [self setButtonRect:CGRectMake(X - 140 , Y, 60, 20) bgImage:@"button-narrow-gray" title:@"取消付款"];
-        [cancelBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-        [cancelBtn addTarget:self action:@selector(cancelThePayment:) forControlEvents:UIControlEventTouchUpInside];
-        
-        UIButton *payBtn = [self setButtonRect:CGRectMake(X - 70, Y, 60, 20) bgImage:@"button-narrow-red" title:@"付  款"];
+        UIButton *payBtn = [self setButtonRect:CGRectMake(240 , 13, 60, 20) bgImage:@"button-narrow-red" title:@"付  款"];
         [payBtn addTarget:self action:@selector(clickPayment:) forControlEvents:UIControlEventTouchUpInside];
         
         [footer addSubview:payway];
         [footer addSubview:order_id];//付款用到的id
         [footer addSubview:total_fee_label];//总价格
         [footer addSubview:payBtn];//支付按钮
-        [footer addSubview:cancelBtn];//取消按钮
         [myFooter.contentView addSubview:footer];
     }
     
@@ -443,43 +441,12 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
     UILabel *order_id = (UILabel *)[btn.superview viewWithTag:79];
     UILabel *payway = (UILabel *)[btn.superview viewWithTag:78];
 
-    HCMLog(@"%@",payway.text);
     
     //<微信支付>
     if ([payway.text isEqualToString:@"wechatpay_unifiedorder"]) {
         
-        self.defaults = [NSUserDefaults  standardUserDefaults];
-        self.uid = [self.defaults objectForKey:@"uid"];
-        self.sid = [self.defaults objectForKey:@"sid"];
+        [HCMPayWay WeChatPayWithorder_id:order_id.text];
         
-        NSDictionary *dict = @{@"session":@{@"uid":self.uid,@"sid":self.sid},
-                               @"order_id":order_id.text};
-        NSLog(@"order_id---%@",order_id.text);
-        [[AddressNerworking sharedManager]postAwaitPayWechatPayURL:dict successBlock:^(id responseBody) {
-            
-            if (responseBody[@"status"][@"error_code"]) {
-                
-                [SVProgressHUD showInfoWithStatus:responseBody[@"status"][@"error_desc"]];
-                return ;
-            }
-            
-            PayReq* req = [[PayReq alloc] init];
-            req.partnerId = responseBody[@"data"][@"partnerid"];  //[dict objectForKey:@"partnerid"];
-            req.prepayId  = responseBody[@"data"][@"prepayid"];   //[dict objectForKey:@"prepayid"];
-            req.nonceStr  = responseBody[@"data"][@"noncestr"];   //[dict objectForKey:@"noncestr"];
-            req.timeStamp = [responseBody[@"data"][@"timestamp"] intValue]; //@"1457331624";
-            req.package   = responseBody[@"data"][@"package"];     //[dict objectForKey:@"package"];
-            req.sign      = responseBody[@"data"][@"sign"];        //[dict objectForKey:@"sign"];
-            [WXApi sendReq:req];
-            
-            NSLog(@"%@",responseBody[@"data"]);
-            
-        } failureBlock:^(NSString *error) {
-            
-            [SVProgressHUD showInfoWithStatus:@"加载失败！"];
-            
-            
-        }];
         return;
         
     }else{  //<支付宝支付>或者<网银支付>
@@ -498,8 +465,6 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
 }
 
 
-
-#warning 开发中
 // 点击订单详情
 -(void)orderInfo:(UIButton *)btn{
     
@@ -507,7 +472,9 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
     [SVProgressHUD show];
     
     UILabel *head_orderID = (UILabel *)[btn.superview viewWithTag:69];
-    
+    UILabel *payway = (UILabel *)[btn.superview viewWithTag:65];
+    HCMLog(@"%@",payway.text);
+
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
     params[@"session"] = @{@"sid":_sid,@"uid":_uid};
@@ -521,12 +488,17 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         
         vc.model = [HCMOrderInfoModel objectWithKeyValues:responseBody[@"data"]];
         
+        vc.order_id = head_orderID.text;
+        
+        vc.payWay = payway.text;
+        
         vc.goodsArray = [HCMOrderInfoCellModel objectArrayWithKeyValuesArray:responseBody[@"data"][@"orderGoods"]];
         
         [self.navigationController pushViewController:vc animated:YES];
         
         
     } failureBlock:^(NSString *error) {
+        
          [SVProgressHUD dismiss];
         [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
        
@@ -535,43 +507,19 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
   
     
 }
-// 点击取消支付
-- (void)cancelThePayment:(UIButton *)btn{
-    
-    UILabel *head_orderID = (UILabel *)[btn.superview viewWithTag:79];
-    
-    NSDictionary *dict = @{@"session":@{@"sid":self.sid,@"uid":self.uid},
-                           @"order_id":head_orderID.text};
-    
-    HCMLog(@"取消dict%@",dict);
-    [SVProgressHUD show];
-    
-    [[AddressNerworking sharedManager]postOrderCancel:dict successBlock:^(id responseBody) {
-        
-        
-        if (responseBody[@"data"]) {
-            [self theDropdownLoadMore];
-        }else{
-            [SVProgressHUD showInfoWithStatus:responseBody[@"status"][@"error_desc"]];
-        }
-        
-    } failureBlock:^(NSString *error) {
-        [SVProgressHUD showInfoWithStatus:@"网络出错"];
-    }];
-    
-}
+
 
 // 设计行高
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 64;
+    return 50;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 60;
+    return 44;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 86;
+    return 68;
 }
 
 -(void)dealloc{

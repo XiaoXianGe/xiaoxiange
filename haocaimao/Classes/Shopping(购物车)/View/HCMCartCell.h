@@ -14,6 +14,7 @@
 @protocol HCMCartCellDelegate <NSObject>
 
 - (void)clickDeleteGoodsCell:(HCMCartCell *)cell redID:(NSString *)redID;
+
 - (void)clickDeleteShopGoodsCell:(HCMCartCell *)cell seller_id:(NSString *)seller_id;
 
 - (void)clickEditGoodsNumberCell:(HCMCartCell *)cell redID:(NSString *)redID number:(int)number;

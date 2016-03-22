@@ -84,7 +84,6 @@ static NSString *const collectDeleteURL = @"http://www.haocaimao.com/ecmobile/?u
  */
 static NSString *const orderListURL = @"http://www.haocaimao.com/ecmobile/?url=order/list";
 
-
 /**
  * 取消未付款URL
  */

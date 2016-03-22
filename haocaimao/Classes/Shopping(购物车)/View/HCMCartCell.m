@@ -56,6 +56,8 @@
     }
     return cell;
 }
+
+
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -70,6 +72,8 @@
             }
     return self;
 }
+
+
 - (void)shopView{
     UIView *goodsView = [[UIView alloc]init];
     goodsView.backgroundColor = [UIColor whiteColor];
@@ -77,31 +81,32 @@
     self.goodsView = goodsView;
     
     
-    
+    //删除button
     UIButton *selectedBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [selectedBtn addTarget:self action:@selector(selectedBtn:) forControlEvents:UIControlEventTouchUpInside];
     [selectedBtn setBackgroundImage:[UIImage imageNamed:@"button-narrow-gray"] forState:UIControlStateNormal];
     [selectedBtn setImage:[UIImage imageNamed:@"item-delete-shanchu"] forState:UIControlStateNormal];
     [selectedBtn setClipsToBounds:YES];
-    selectedBtn.layer.cornerRadius = 15;
+    selectedBtn.layer.cornerRadius = 13;
     
     self.selectedBtn = selectedBtn;
     [goodsView addSubview:selectedBtn];
     
     
-    
+    //商品价格
     UILabel *goods_price = [[UILabel alloc]init];
     self.goods_price = goods_price;
     goods_price.font = HCMgoods_priceFont;
     [goodsView addSubview:goods_price];
     
      
-    
+    //商品图片
     UIImageView *goodsImg = [[UIImageView alloc]init];
     [goodsImg setImage:[UIImage imageNamed:@"searcher-no-result-empty-icon"]];
     [self.goodsView addSubview:goodsImg];
     self.goodsImg = goodsImg;
     
+    //商品名称
     UILabel *goodsNameLabel = [[UILabel alloc]init];
     goodsNameLabel.font = HCMgoodsNameFont;
     goodsNameLabel.numberOfLines = 0;
@@ -110,7 +115,7 @@
     [self.goodsView addSubview:goodsNameLabel];
     self.goodsNameLabel = goodsNameLabel;
     
-    
+    //商品规格
     UILabel *goodsAttrValueLabel = [[UILabel alloc]init];
     goodsAttrValueLabel.font = HCMgoodsNameFont;
     [self.goodsView addSubview:goodsAttrValueLabel];
@@ -118,7 +123,6 @@
     
     
     // 编辑的数量变化的数据
-    
     UIButton *reduceGoods = [[UIButton alloc]init];
     reduceGoods.userInteractionEnabled = YES;
     [reduceGoods setBackgroundImage:[UIImage imageNamed:@"shopping-cart-edit-choose-min-btn"] forState:UIControlStateNormal];
@@ -133,7 +137,7 @@
     self.addGoods = addGoods;
     
     UILabel *numberGoods = [[UILabel alloc]init];
-    numberGoods.backgroundColor = [UIColor whiteColor];
+    numberGoods.backgroundColor = HCMColor(244, 244, 244, 1.0);
     numberGoods.textAlignment = NSTextAlignmentCenter;
     numberGoods.font = [UIFont systemFontOfSize:12];
     [goodsView addSubview:numberGoods];
@@ -144,18 +148,19 @@
 }
 
 - (void)clickDeleteBtn:(NSNotification *)notification{
+    
     UIButton *btn = notification.userInfo[@"clickDeleteBtn"];
     if (!btn.selected) {
         //[self.delegate clickDeleteGoodsCell:self redID:self.goodsID];
         [self.delegate clickDeleteShopGoodsCell:self seller_id:self.seller_id];
     }
 }
-- (void)selectedBtn:(UIButton *)selectedBtn{
-    
 
-    
+- (void)selectedBtn:(UIButton *)selectedBtn{
+
         [self.delegate clickDeleteGoodsCell:self redID:self.goodsID];
-       }
+    
+}
 
 - (void)clickReduceGoods{
     

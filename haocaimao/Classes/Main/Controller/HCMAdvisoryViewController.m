@@ -123,7 +123,6 @@
     [self.actionSheet showInView:self.view];
 }
 
-// Called when a button is clicked. The view will be automatically dismissed after this call returns
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (actionSheet.tag == 1000) {
         NSUInteger sourceType = UIImagePickerControllerSourceTypePhotoLibrary;

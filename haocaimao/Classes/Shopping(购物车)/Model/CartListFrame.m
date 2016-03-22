@@ -22,8 +22,6 @@
 //       good = obj;
 //        
 //    };
-   
-        
     
     CGSize shopSize = [listModel.shopName sizeWithFont:HCMshopNameFont withSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
     

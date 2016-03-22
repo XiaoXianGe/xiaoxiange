@@ -14,11 +14,14 @@
 #import "HCMNoPayHeadview.h"
 
 #import "AddressNerworking.h"
-
+#import "MJExtension.h"
 #import "OrderListModel.h"
 #import "GoodsListModel.h"
 
 #import "DealViewController.h"
+#import "HCMOrderInfoTableVC.h"
+#import "HCMOrderInfoModel.h"
+#import "HCMOrderInfoCellModel.h"
 
 @interface HCMOrderHistoryTableVC ()
 
@@ -267,33 +270,38 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
     UIView *headView = (UIView *)[myHeader.contentView viewWithTag:66];
     UILabel *snlabel = (UILabel *)[headView viewWithTag:67];
     UILabel *timelabel = (UILabel *)[headView viewWithTag:68];
-    UIImageView *imageView = (UIImageView *)[headView viewWithTag:69];
+    UILabel *head_orderID = (UILabel *)[headView viewWithTag:69];
+    
     snlabel.text = [NSString stringWithFormat:@"订单编号 %@",orderList.order_sn];
-
-    timelabel.text = [NSString stringWithFormat:@"成交时间 %@",orderList.order_time];
-    [imageView setImage:[UIImage imageNamed:@"yingzhang"]];
+    timelabel.text = [NSString stringWithFormat:@"订单编号 %@",orderList.order_time];
+    head_orderID.text = orderList.order_id;
+    
     
     if (headView == nil) {
         
         HCMNoPayHeadview *headview = [[HCMNoPayHeadview alloc]initWithNibName:@"HCMNoPayHeadview" bundle:nil];
         
-        CGRect snRECT = CGRectMake(15, 20, 200, 15);
-        CGRect timeRECT = CGRectMake(15, 40, 280, 15);
-        CGRect imageRECT = CGRectMake(240, 15, 70, 55);
-
+        CGRect snRECT = CGRectMake(15, 8, 200, 15);
+        CGRect timeRECT = CGRectMake(15, 23, 280, 15);
+        
         UILabel *SNLabel = [self setLabelsRect:snRECT textAlignment:YES];
         SNLabel.text = [NSString stringWithFormat:@"订单编号 %@",orderList.order_sn];
+        SNLabel.font = [UIFont systemFontOfSize:11];
+        
         SNLabel.tag = 67;
         
         UILabel *timeLabel = [self setLabelsRect:timeRECT textAlignment:YES];
         timeLabel.text = [NSString stringWithFormat:@"成交时间 %@",orderList.order_time];
         timeLabel.tag = 68;
+        timeLabel.font = [UIFont systemFontOfSize:11];
         
-        UIImageView *imageView = [self setImageView:imageRECT bgImage:@"yingzhang"];
-        imageView.tag = 69;
+        UILabel *head_orderID = [self setLabelsRect:CGRectMake(0, 0, 0, 0) textAlignment:YES];
+        head_orderID.tag = 69;
+        head_orderID.textColor = [UIColor redColor];
+        head_orderID.text = orderList.order_id;
         
         //订单详情btn
-        UIButton *orderInfoBtn = [self setButtonRect:CGRectMake(240 , 25, 60, 20) bgImage:@"button-narrow-gray" title:@"订单详情"];
+        UIButton *orderInfoBtn = [self setButtonRect:CGRectMake(240 , 13, 60, 20) bgImage:@"button-narrow-gray" title:@"订单详情"];
         [orderInfoBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [orderInfoBtn addTarget:self action:@selector(orderInfo:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -301,10 +309,11 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         
         headView = headview.view;
         headView.tag = 66;
+        
+        [headview.view addSubview:head_orderID];
         [headview.view addSubview:orderInfoBtn];
         [headview.view addSubview:timeLabel];
         [headview.view addSubview:SNLabel];
-        [headview.view addSubview:imageView];
         [myHeader.contentView addSubview:headView];
         
     }
@@ -313,6 +322,7 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
     
 }
 
+
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     
     UITableViewHeaderFooterView  *myFooter = [tableView dequeueReusableHeaderFooterViewWithIdentifier:footerReuseIdentifier];
@@ -320,24 +330,28 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         
     UIView *footer = (UIView *)[myFooter.contentView viewWithTag:80];
     UILabel *totalLabel = (UILabel *)[footer viewWithTag:81];
-
+    UIImageView *imageView = (UIImageView *)[footer viewWithTag:82];
+    [imageView setImage:[UIImage imageNamed:@"yingzhang"]];
     totalLabel.text = orderList.total_fee;
     
     if (footer == nil) {
         
         HCMNoPayFooterview *footerView = [[HCMNoPayFooterview alloc]initWithNibName:@"HCMNoPayFooterview" bundle:nil];
         
-        UILabel *total_fee_label = [self setLabelsRect:CGRectMake(60, 13, 110, 20) textAlignment:YES];
+        UILabel *total_fee_label = [self setLabelsRect:CGRectMake(60, 10, 110, 20) textAlignment:YES];
         total_fee_label.tag = 81;
         total_fee_label.textColor = [UIColor redColor];
         total_fee_label.text = orderList.total_fee;
        
         footer = footerView.view;
         footer.tag = 80;
-
+        
+         CGRect imageRECT = CGRectMake(240, -20, 70, 55);
+        UIImageView *imageView = [self setImageView:imageRECT bgImage:@"yingzhang"];
+        imageView.tag = 69;
        
         [footer addSubview:total_fee_label];//总价格
-
+        [footer addSubview:imageView];
 
         [myFooter.contentView addSubview:footer];
     }
@@ -349,7 +363,33 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
     
     HCMLogFunc;
     
+    [SVProgressHUD show];
+    UILabel *head_orderID = (UILabel *)[btn.superview viewWithTag:69];
     
+    NSDictionary *params = @{@"session":@{@"sid":self.sid,@"uid":self.uid},
+                             @"order_id":head_orderID.text};
+    
+    HCMLog(@"params %@",params);
+    
+    [[AddressNerworking sharedManager]postOrder_detailsURL:params successBlock:^(id responseBody) {
+        
+        HCMLog(@"%@",responseBody);
+        
+        HCMOrderInfoTableVC *vc = [[HCMOrderInfoTableVC alloc]init];
+        
+        vc.model = [HCMOrderInfoModel objectWithKeyValues:responseBody[@"data"]];
+        
+        vc.order_id = head_orderID.text;
+        
+        vc.goodsArray = [HCMOrderInfoCellModel objectArrayWithKeyValuesArray:responseBody[@"data"][@"orderGoods"]];
+        
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    } failureBlock:^(NSString *error) {
+        [SVProgressHUD showInfoWithStatus:@"失败"];
+    }];
+    
+
     
     
 }
@@ -396,11 +436,11 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 60;
+    return 44;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 80;
+    return 68;
 }
 
 @end

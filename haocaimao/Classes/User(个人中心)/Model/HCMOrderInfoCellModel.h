@@ -18,6 +18,8 @@
 @property(nonatomic,copy)NSString * goodsId;
 /** 商品数量 */
 @property(nonatomic,copy)NSString * goodsNumber;
+/** 商品数量 */
+@property(nonatomic,copy)NSString * goodsThumb;
 
 
 

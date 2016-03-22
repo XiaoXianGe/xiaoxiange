@@ -4,7 +4,7 @@
 //
 //  Created by 好采猫 on 15/8/29.
 //  Copyright (c) 2015年 haocaimao. All rights reserved.
-//  添加一个收货地址
+//  编辑收货地址
 
 #import <UIKit/UIKit.h>
 

@@ -957,9 +957,10 @@
         
         HCMLog(@"%ld",(long)second);
         
-        if ( second > 60 ) { // second > 一小时
+        if ( second > 3600 ) { // second > 一小时
             //将当前的时间戳存到沙盒
             [self.defaults setObject:timeString forKey:@"LastSecond"];
+            [self.defaults synchronize];
             
             //取出当前版本号
             NSString *key = @"CFBundleShortVersionString";

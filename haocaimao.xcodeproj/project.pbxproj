@@ -42,6 +42,7 @@
 		234A44E01BCF8334006910BE /* SceneCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 234A44DE1BCF8334006910BE /* SceneCollectionViewCell.xib */; };
 		234A44E41BCF9E4C006910BE /* HCMChooseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 234A44E21BCF9E4C006910BE /* HCMChooseViewController.m */; };
 		234A44E51BCF9E4C006910BE /* HCMChooseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 234A44E31BCF9E4C006910BE /* HCMChooseViewController.xib */; };
+		234DC6711CA11ADB0034D554 /* HCMPayWay.m in Sources */ = {isa = PBXBuildFile; fileRef = 234DC6701CA11ADB0034D554 /* HCMPayWay.m */; };
 		234EB0861BE73D7C00B11561 /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 234EB0601BE73D7C00B11561 /* UMSocialLocalizable.strings */; };
 		234EB0871BE73D7C00B11561 /* libUMSocial_Sdk_4.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 234EB06E1BE73D7C00B11561 /* libUMSocial_Sdk_4.3.a */; };
 		234EB0881BE73D7C00B11561 /* UMSCommentDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 234EB0701BE73D7C00B11561 /* UMSCommentDetailController.xib */; };
@@ -428,6 +429,8 @@
 		234A44E11BCF9E4C006910BE /* HCMChooseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMChooseViewController.h; sourceTree = "<group>"; };
 		234A44E21BCF9E4C006910BE /* HCMChooseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMChooseViewController.m; sourceTree = "<group>"; };
 		234A44E31BCF9E4C006910BE /* HCMChooseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HCMChooseViewController.xib; sourceTree = "<group>"; };
+		234DC66F1CA11ADB0034D554 /* HCMPayWay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMPayWay.h; sourceTree = "<group>"; };
+		234DC6701CA11ADB0034D554 /* HCMPayWay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMPayWay.m; sourceTree = "<group>"; };
 		234EB0611BE73D7C00B11561 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UMSocialLocalizable.strings; sourceTree = "<group>"; };
 		234EB0631BE73D7C00B11561 /* UMSocial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocial.h; sourceTree = "<group>"; };
 		234EB0641BE73D7C00B11561 /* UMSocialAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialAccountManager.h; sourceTree = "<group>"; };
@@ -1813,6 +1816,8 @@
 			children = (
 				23AF71AD1C8AC741001B51CD /* Model */,
 				23AF71981C8A826C001B51CD /* Controller */,
+				234DC66F1CA11ADB0034D554 /* HCMPayWay.h */,
+				234DC6701CA11ADB0034D554 /* HCMPayWay.m */,
 			);
 			path = "WeChat微信支付";
 			sourceTree = "<group>";
@@ -2761,6 +2766,7 @@
 				23AF71951C897660001B51CD /* UIScrollView+MJRefresh.m in Sources */,
 				2357E2F01C02C8EC00E7FA4B /* AddressNerworking.m in Sources */,
 				237CA92E1BFB0F73008334B0 /* NSString+Extension.m in Sources */,
+				234DC6711CA11ADB0034D554 /* HCMPayWay.m in Sources */,
 				229BF9901B9D618F0047E691 /* JKAlertDialog.m in Sources */,
 				23AF718A1C897660001B51CD /* MJRefreshAutoNormalFooter.m in Sources */,
 				22E285C51BA6B5FF008B18B4 /* HCMCommentCell.m in Sources */,

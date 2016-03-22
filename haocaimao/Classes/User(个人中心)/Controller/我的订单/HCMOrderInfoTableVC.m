@@ -13,7 +13,10 @@
 #import "MJExtension.h"
 #import "HCMOrderInfoCellModel.h"
 
-@interface HCMOrderInfoTableVC ()
+#import "HCMPayOrderWebViewVC.h"
+#import "HCMPayWay.h"
+
+@interface HCMOrderInfoTableVC ()<UIActionSheetDelegate>
 /** 订单号 */
 @property (weak, nonatomic) IBOutlet UILabel *orderSN;
 /** 收件人 */
@@ -78,65 +81,48 @@ static NSString *const orderInfoID = @"orderInfoCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"订单详情";
+    
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickBack) image:@"nav-back" highImage:@"nav-back"];
+
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([HCMOrderInfoCell class]) bundle:nil] forCellReuseIdentifier:orderInfoID];
+   
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, -35, 0);
+    self.tableView.showsVerticalScrollIndicator = NO;
+    self.tableView.backgroundColor = HCMColor(239, 239, 244, 1.0);
+    
+    [self loadOrderInfoWith:self.model];
+    
+    self.headerView.height = 165;
+    self.tableView.tableHeaderView = self.headerView;
+
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    
     [SVProgressHUD dismiss];
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
     
-    self.title = @"订单详情";
-    
-    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([HCMOrderInfoCell class]) bundle:nil] forCellReuseIdentifier:orderInfoID];
-   
-//    [self Networking];
-    [self loadOrderInfoWith:self.model];
-    
-    self.headerView.height = 187;
-    self.tableView.tableHeaderView = self.headerView;
+}
+
+- (void) clickBack {
+        
+    [self.navigationController popViewControllerAnimated:YES];
     
 }
 
-//-(void)Networking{
-//    
-//    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-//    
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    
-//    NSString *sid = [defaults objectForKey:@"sid"];
-//    NSString *uid = [defaults objectForKey:@"uid"];
-//    
-//    params[@"session"] = @{@"sid":sid,@"uid":uid};
-//    params[@"order_id"] = self.order_id;
-//
-//    [[AddressNerworking sharedManager] postOrder_detailsURL:params successBlock:^(id responseBody) {
-//        
-//        HCMLog(@"....%@",responseBody);
-//        
-//        HCMOrderInfoModel *model = [HCMOrderInfoModel objectWithKeyValues:responseBody[@"data"]];
-//        
-//        [self loadOrderInfoWith:model];
-//        
-//        self.goodsArray = [HCMOrderInfoCellModel objectArrayWithKeyValuesArray:responseBody[@"data"][@"orderGoods"]];
-//        
-//        [self.tableView reloadData];
-//        
-//    } failureBlock:^(NSString *error) {
-//        HCMLog(@"22222%@",error);
-//        
-//    }];
-//    
-//}
-
 -(void)loadOrderInfoWith:(HCMOrderInfoModel *)model{
     
-    if (self.model.postscript) {
-      
-    }
     self.postScriptView.hidden = !(BOOL)self.model.postscript;
     
     if (self.postScriptView.hidden == YES) {
-        self.footerView.height = 380;
+        self.footerView.height = 377;
         self.tableView.tableFooterView = self.footerView;
     }
     if (self.postScriptView.hidden == NO) {
-        self.footerView.height = 470;
+        self.footerView.height = 445;
         self.tableView.tableFooterView = self.footerView;
         self.unitName.text = model.postscript[@"unitName"];
         self.taxpayerIDCode.text = model.postscript[@"taxpayerIDCode"];
@@ -152,25 +138,83 @@ static NSString *const orderInfoID = @"orderInfoCell";
     self.address.text = model.address;
     self.payStatus.text = model.payStatus;
     self.orderStatus.text = model.orderStatus;
+    
+    if (![self.orderStatus.text isEqualToString:@"未确定"]) {
+        self.cancelOrder.hidden = YES;
+        self.payOrder.hidden = YES;
+    }
+    
     self.shippingStatus.text = model.shippingStatus;
     self.invPayee.text = model.invPayee;
     self.invContent.text = model.invContent;
     self.goodsAmount.text = [NSString stringWithFormat:@"￥%.2f",([model.orderAmount floatValue] - [model.shippingFee floatValue])];
     self.shippingFee.text = [NSString stringWithFormat:@"￥%@",model.shippingFee];
-    self.orderAmount.text = model.orderAmount;
+    self.orderAmount.text = [NSString stringWithFormat:@"￥%@",model.orderAmount];
     self.orderTime.text = [NSString stringWithFormat:@"下单时间:%@",model.addTime];
     
-   
-    
-    
 
+}
+- (IBAction)gotoPay:(UIButton *)sender {
+    
+    [SVProgressHUD show];
+    
+    //<微信支付>
+    if ([_payWay isEqualToString:@"wechatpay_unifiedorder"]) {
+        
+        [HCMPayWay WeChatPayWithorder_id:self.order_id];
+        return;
+        
+    }else{  //<支付宝支付>或者<网银支付>
+
+        HCMPayOrderWebViewVC *payVC = [[HCMPayOrderWebViewVC alloc]initWithNibName:@"HCMPayOrderWebViewVC" bundle:nil];
+        
+        payVC.orderID = self.order_id;
+        payVC.status = NO;
+        
+        [self.navigationController pushViewController:payVC animated:YES];
+        
+    }
 
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-
+- (IBAction)cancelPay:(UIButton *)sender {
     
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:@"取消订单后，订单降被删除哦。是否继续?" delegate:self cancelButtonTitle:@"否" destructiveButtonTitle:@"是" otherButtonTitles:nil, nil];
+    
+    [actionSheet showInView:self.tableView];
+    
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if (buttonIndex == 0) {
+        //确定删除订单
+//        UILabel *head_orderID = (UILabel *)[btn.superview viewWithTag:79];
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *sid = [defaults objectForKey:@"sid"];
+        NSString *uid = [defaults objectForKey:@"uid"];
+        
+        NSDictionary *dict = @{@"session":@{@"sid":sid,@"uid":uid},
+                               @"order_id":self.order_id};
+    
+        [SVProgressHUD show];
+        
+        [[AddressNerworking sharedManager]postOrderCancel:dict successBlock:^(id responseBody) {
+            
+            if (responseBody[@"status"][@"error_desc"]) {
+                [SVProgressHUD showInfoWithStatus:responseBody[@"status"][@"error_desc"]];
+
+            }
+            
+            [self.navigationController popViewControllerAnimated:YES];
+            
+        } failureBlock:^(NSString *error) {
+            [SVProgressHUD showInfoWithStatus:@"网络出错"];
+        }];
+
+    }
+
 }
 
 #pragma mark - Table view data source
@@ -189,12 +233,15 @@ static NSString *const orderInfoID = @"orderInfoCell";
     cell.goodName.text = model.goodsName;
     cell.goodPrice.text = [NSString stringWithFormat:@"￥%@",model.goodsPrice];
     cell.buyCount.text = [NSString stringWithFormat:@"x %@",model.goodsNumber];
+    [cell.goodImage sd_setImageWithURL:[NSURL URLWithString:model.goodsThumb]];
+    
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 66;
+    return 60;
 }
 
 @end

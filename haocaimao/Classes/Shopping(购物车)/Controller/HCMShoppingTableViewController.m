@@ -487,7 +487,6 @@ static NSString *ID = @"Cell";
     
 }
 // 点击了删除，cell代理方法
-
 - (void)clickDeleteGoodsCell:(HCMCartCell *)cell redID:(NSString *)redID{
     
     self.navigationItem.rightBarButtonItem = nil;

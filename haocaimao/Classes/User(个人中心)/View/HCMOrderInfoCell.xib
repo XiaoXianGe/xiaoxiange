@@ -7,22 +7,16 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="orderInfoCell" rowHeight="66" id="KGk-i7-Jjw" customClass="HCMOrderInfoCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="orderInfoCell" rowHeight="60" id="KGk-i7-Jjw" customClass="HCMOrderInfoCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="head_ portrait" translatesAutoresizingMaskIntoConstraints="NO" id="5lq-DN-btz">
-                        <rect key="frame" x="9" y="7" width="52" height="52"/>
+                        <rect key="frame" x="9" y="7" width="46" height="46"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="看来撒竟陵街道食饭啦就死定了开发建设李开复静安寺开朗大方" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Z5-RK-uXT">
-                        <rect key="frame" x="69" y="8" width="189" height="32"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <color key="textColor" red="0.17146874999999995" green="0.17146874999999995" blue="0.17146874999999995" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="￥699.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0P-Ld-mfm">
                         <rect key="frame" x="258" y="9" width="59" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -30,20 +24,38 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="x 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynk-xQ-zV7">
-                        <rect key="frame" x="69" y="38" width="42" height="19"/>
+                        <rect key="frame" x="69" y="38" width="42" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.39461458333333332" green="0.39461458333333332" blue="0.39461458333333332" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mnE-yY-rHb" userLabel="分割线">
+                        <rect key="frame" x="8" y="0.0" width="304" height="1"/>
+                        <color key="backgroundColor" red="0.92715625000000002" green="0.92715625000000002" blue="0.92715625000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="woN-7K-Ksg"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="看来撒竟陵街道食饭啦就死定了开发建设李开复静安寺开朗大方" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Z5-RK-uXT">
+                        <rect key="frame" x="66" y="7" width="189" height="32"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="0.17146874999999995" green="0.17146874999999995" blue="0.17146874999999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="mnE-yY-rHb" secondAttribute="trailing" constant="8" id="3mw-H0-JCM"/>
+                    <constraint firstItem="mnE-yY-rHb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="5YO-5l-Qbb"/>
+                    <constraint firstItem="mnE-yY-rHb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="cKK-Fu-Git"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="buyCount" destination="ynk-xQ-zV7" id="HmA-Ws-VfP"/>
+                <outlet property="goodImage" destination="5lq-DN-btz" id="10G-20-Zb0"/>
                 <outlet property="goodName" destination="2Z5-RK-uXT" id="l8I-SV-igC"/>
                 <outlet property="goodPrice" destination="M0P-Ld-mfm" id="jYt-Or-CKH"/>
-                <outlet property="image" destination="5lq-DN-btz" id="c58-pJ-kXm"/>
             </connections>
-            <point key="canvasLocation" x="211" y="302"/>
+            <point key="canvasLocation" x="211" y="299"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -20,4 +20,8 @@
 /** 商品数量 */
 @property(nonatomic,strong)NSArray * goodsArray;
 
+/** 支付方式 */
+@property(nonatomic,strong)NSString * payWay;
+
+
 @end

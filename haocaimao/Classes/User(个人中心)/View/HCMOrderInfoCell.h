@@ -10,7 +10,7 @@
 
 @interface HCMOrderInfoCell : UITableViewCell
 /** 商品图片 */
-@property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (weak, nonatomic) IBOutlet UIImageView *goodImage;
 /** 商品名字 */
 @property (weak, nonatomic) IBOutlet UILabel *goodName;
 /** 商品价格 */

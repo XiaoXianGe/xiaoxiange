@@ -5,7 +5,7 @@
 //
 //  Created by 好采猫 on 15/8/29.
 //  Copyright (c) 2015年 haocaimao. All rights reserved.
-//  添加一个收货地址
+//  编辑收货地址
 
 #import "HCMAddLocationTableViewController.h"
 #import "HCMUserLocationTableViewController.h"
@@ -78,7 +78,7 @@
             }
             
             self.name.text = responseBody[@"data"][@"consignee"];
-            self.phone.text = responseBody[@"data"][@"tel"];
+            self.phone.text = responseBody[@"data"][@"mobile"];
             self.emali.text = responseBody[@"data"][@"email"];
             self.address.text = responseBody[@"data"][@"address"];
             self.postcode.text = responseBody[@"data"][@"zipcode"];
@@ -171,7 +171,7 @@
                                          @"district":cityID,
                                          @"consignee":self.name.text,
                                          @"email":self.emali.text,
-                                         @"tel":self.phone.text,
+                                         @"mobile":self.phone.text,
                                          @"address":self.address.text,
                                          @"zipcode":self.postcode.text}};
         [SVProgressHUD show];
