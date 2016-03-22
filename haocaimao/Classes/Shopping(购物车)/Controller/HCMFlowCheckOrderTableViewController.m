@@ -323,7 +323,7 @@ static NSString * const reuseIdentifier = @"MyCell";
     }
     
     
-    
+    HCMLog(@"  ---   %@",doneDict);
     
     [[CartNetwork sharedManager]postflowDone:doneDict successBlock:^(id responseBody) {
 

@@ -257,49 +257,59 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
 }
 
 
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    
     
     UITableViewHeaderFooterView *myHeader = [tableView dequeueReusableHeaderFooterViewWithIdentifier:headerReuseIdentifier];
     OrderListModel *orderList = self.SectionsCount[section];
     
     UIView *headView = (UIView *)[myHeader.contentView viewWithTag:66];
     UILabel *snlabel = (UILabel *)[headView viewWithTag:67];
-
     UILabel *timelabel = (UILabel *)[headView viewWithTag:68];
+    UILabel *head_orderID = (UILabel *)[headView viewWithTag:69];
+    
     snlabel.text = [NSString stringWithFormat:@"订单编号 %@",orderList.order_sn];
-
-    timelabel.text = [NSString stringWithFormat:@"成交时间 %@",orderList.order_time];
+    timelabel.text = [NSString stringWithFormat:@"订单编号 %@",orderList.order_time];
+    head_orderID.text = orderList.order_id;
+    
     
     if (headView == nil) {
         
         HCMNoPayHeadview *headview = [[HCMNoPayHeadview alloc]initWithNibName:@"HCMNoPayHeadview" bundle:nil];
         
-        CGRect timeRECT = CGRectMake(15, 40, 280, 15);
-        CGRect snRECT = CGRectMake(15, 20, 200, 15);
-
+        CGRect snRECT = CGRectMake(15, 8, 200, 15);
+        CGRect timeRECT = CGRectMake(15, 23, 280, 15);
+        
         UILabel *SNLabel = [self setLabelsRect:snRECT textAlignment:YES];
         SNLabel.text = [NSString stringWithFormat:@"订单编号 %@",orderList.order_sn];
-        SNLabel.tag = 67;
+        SNLabel.font = [UIFont systemFontOfSize:11];
         
+        SNLabel.tag = 67;
         
         UILabel *timeLabel = [self setLabelsRect:timeRECT textAlignment:YES];
         timeLabel.text = [NSString stringWithFormat:@"成交时间 %@",orderList.order_time];
         timeLabel.tag = 68;
+        timeLabel.font = [UIFont systemFontOfSize:11];
+        
+        UILabel *head_orderID = [self setLabelsRect:CGRectMake(0, 0, 0, 0) textAlignment:YES];
+        head_orderID.tag = 69;
+        head_orderID.textColor = [UIColor redColor];
+        head_orderID.text = orderList.order_id;
         
         //订单详情btn
-        UIButton *orderInfoBtn = [self setButtonRect:CGRectMake(240 , 25, 60, 20) bgImage:@"button-narrow-gray" title:@"订单详情"];
+        UIButton *orderInfoBtn = [self setButtonRect:CGRectMake(240 , 13, 60, 20) bgImage:@"button-narrow-gray" title:@"订单详情"];
         [orderInfoBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [orderInfoBtn addTarget:self action:@selector(orderInfo:) forControlEvents:UIControlEventTouchUpInside];
-       
+        
         
         
         headView = headview.view;
         headView.tag = 66;
-         [headview.view addSubview:orderInfoBtn];
+        
+        [headview.view addSubview:head_orderID];
+        [headview.view addSubview:orderInfoBtn];
         [headview.view addSubview:timeLabel];
         [headview.view addSubview:SNLabel];
-
         [myHeader.contentView addSubview:headView];
         
     }
@@ -307,6 +317,7 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
     return myHeader;
     
 }
+
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     
@@ -322,10 +333,12 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         
         HCMNoPayFooterview *footerView = [[HCMNoPayFooterview alloc]initWithNibName:@"HCMNoPayFooterview" bundle:nil];
         
-        UILabel *total_fee_label = [self setLabelsRect:CGRectMake(60, 13, 110, 20) textAlignment:YES];
+        UILabel *total_fee_label = [self setLabelsRect:CGRectMake(60, 10, 110, 20) textAlignment:YES];
         total_fee_label.tag = 81;
         total_fee_label.textColor = [UIColor redColor];
         total_fee_label.text = orderList.total_fee;
+        
+        
         
         footer = footerView.view;
         footer.tag = 80;
@@ -382,11 +395,11 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 56;
+    return 50;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 60;
+    return 44;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

@@ -4,7 +4,7 @@
 //
 //  Created by 好采猫 on 15/9/2.
 //  Copyright (c) 2015年 haocaimao. All rights reserved.
-//
+//  历史订单 -- 已完成
 
 #import "HCMOrderHistoryTableVC.h"
 
@@ -83,7 +83,7 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
     
     [super viewDidLoad];
     
-    self.title = @"历史订单";
+    self.title = @"已完成";
     
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickBack) image:@"nav-back" highImage:@"nav-back"];
     
@@ -287,7 +287,6 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         UILabel *SNLabel = [self setLabelsRect:snRECT textAlignment:YES];
         SNLabel.text = [NSString stringWithFormat:@"订单编号 %@",orderList.order_sn];
         SNLabel.font = [UIFont systemFontOfSize:11];
-        
         SNLabel.tag = 67;
         
         UILabel *timeLabel = [self setLabelsRect:timeRECT textAlignment:YES];
@@ -432,7 +431,7 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 56;
+    return 50;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

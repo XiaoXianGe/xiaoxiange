@@ -464,7 +464,7 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 56;
+    return 50;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

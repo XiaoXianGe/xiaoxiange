@@ -380,7 +380,7 @@
         
         [self loginLogin];
         
-    } else if([title isEqualToString:@"去下载"]){
+    } else if([title isEqualToString:@"现在更新"]){
         
         HCMLog(@"点点点去下载");
 
@@ -957,7 +957,7 @@
         
         HCMLog(@"%ld",(long)second);
         
-        if ( second > 3600 ) { // second > 一小时
+        if ( second > (3600 * 24 * 7)) { // second > 一小时
             //将当前的时间戳存到沙盒
             [self.defaults setObject:timeString forKey:@"LastSecond"];
             [self.defaults synchronize];
@@ -977,11 +977,11 @@
             [[AddressNerworking sharedManager]postVersionCheckURL:params successBlock:^(id responseBody) {
                 
                 HCMLog(@"%@",responseBody);
-                if ([responseBody[@"data"][@"latestVersion"] isEqualToString:@"1"]) {
+                if ([responseBody[@"data"][@"latestVersion"] isEqualToString:@"0"]) {
                     
                     NSString *msg = [NSString stringWithFormat:@"好采猫APP已经更新到%@版本！\n立即下载",responseBody[@"data"][@"versionSN"]];
                     
-                    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"更新版本提示" message:msg delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"去下载", nil];
+                    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"更新版本提示" message:msg delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"现在更新", nil];
                     
                     [alert show];
                     
