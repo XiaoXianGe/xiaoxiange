@@ -140,7 +140,7 @@
 //创建scrollView
 -(void)setUpScrollView{
     
-    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+    
     [SVProgressHUD show];
     
     UIScrollView *scrollView = [[UIScrollView alloc]init];

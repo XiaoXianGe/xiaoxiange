@@ -101,10 +101,7 @@ static NSString *const orderInfoID = @"orderInfoCell";
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    
     [SVProgressHUD dismiss];
-    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
-    
 }
 
 - (void) clickBack {
@@ -145,8 +142,8 @@ static NSString *const orderInfoID = @"orderInfoCell";
     }
     
     self.shippingStatus.text = model.shippingStatus;
-    self.invPayee.text = model.invPayee;
-    self.invContent.text = model.invContent;
+    self.invPayee.text = model.invPayee.length ? model.invPayee : @"无";
+    self.invContent.text = model.invContent.length ? model.invContent : @"无";
     self.goodsAmount.text = [NSString stringWithFormat:@"￥%.2f",([model.orderAmount floatValue] - [model.shippingFee floatValue])];
     self.shippingFee.text = [NSString stringWithFormat:@"￥%@",model.shippingFee];
     self.orderAmount.text = [NSString stringWithFormat:@"￥%@",model.orderAmount];

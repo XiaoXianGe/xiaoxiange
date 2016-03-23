@@ -123,6 +123,9 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
     
     
     [[AddressNerworking sharedManager]postOrderList:dict successBlock:^(id responseBody) {
+        
+        HCMLog(@"%@",responseBody);
+        
         self.tableView.footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(toLoadMoreData)];
         
         if (responseBody[@"status"][@"error_code"]) {
@@ -130,7 +133,7 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
             [self.tableView.header endRefreshing];
             [SVProgressHUD showInfoWithStatus:responseBody[@"status"][@"error_desc"]];
             [self.tableView reloadData];
-            
+            [self.navigationController popViewControllerAnimated:YES];
             return ;
         }
 
@@ -305,15 +308,15 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         head_orderID.text = orderList.order_id;
         
         //订单详情btn
-        UIButton *orderInfoBtn = [self setButtonRect:CGRectMake(240 , 13, 60, 20) bgImage:@"button-narrow-gray" title:@"订单详情"];
-        [orderInfoBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        UIButton *orderInfoBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
+        UIButton *orderImageBtn = [self setButtonRect:CGRectMake(240 , 13, 60, 20) bgImage:@"button-narrow-gray" title:@"订单详情"];
+        [orderImageBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [orderInfoBtn addTarget:self action:@selector(orderInfo:) forControlEvents:UIControlEventTouchUpInside];
-        
-        
-        
+
         headView = headview.view;
         headView.tag = 66;
         
+        [headview.view addSubview:orderImageBtn];
         [headview.view addSubview:head_orderID];
         [headview.view addSubview:orderInfoBtn];
         [headview.view addSubview:timeLabel];

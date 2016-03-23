@@ -135,7 +135,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="235" y="-391"/>
         </view>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="45" id="sSp-Fw-f8x" userLabel="待付款 发货 评价 反馈">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="45" id="sSp-Fw-f8x" userLabel="待付款 发货 评价 反馈">
             <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sSp-Fw-f8x" id="OpW-9G-JDK">
@@ -196,7 +196,7 @@
             </tableViewCellContentView>
             <point key="canvasLocation" x="235" y="-258"/>
         </tableViewCell>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="jRp-l8-b7h" userLabel="我的钱包">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="jRp-l8-b7h" userLabel="我的钱包">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jRp-l8-b7h" id="zAn-jY-ijh">
@@ -228,7 +228,7 @@
             </tableViewCellContentView>
             <point key="canvasLocation" x="235" y="-172"/>
         </tableViewCell>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="49" id="Vpn-9w-yLV" userLabel="账户余额">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="49" id="Vpn-9w-yLV" userLabel="账户余额">
             <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vpn-9w-yLV" id="8mJ-AS-Wn4">
@@ -275,7 +275,7 @@
             </tableViewCellContentView>
             <point key="canvasLocation" x="235" y="-80.5"/>
         </tableViewCell>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="37x-Pk-Pht" userLabel="管理地址">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="37x-Pk-Pht" userLabel="管理地址">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="37x-Pk-Pht" id="gfz-7U-JWx">
@@ -307,7 +307,7 @@
             </tableViewCellContentView>
             <point key="canvasLocation" x="235" y="14"/>
         </tableViewCell>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="hhW-Eh-h9r" userLabel="好采猫中心">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="hhW-Eh-h9r" userLabel="好采猫中心">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hhW-Eh-h9r" id="4t4-GN-pLE">
@@ -339,7 +339,7 @@
             </tableViewCellContentView>
             <point key="canvasLocation" x="235" y="180"/>
         </tableViewCell>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="GLa-Gu-kBc" userLabel="客服">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="GLa-Gu-kBc" userLabel="客服">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GLa-Gu-kBc" id="6AZ-Ip-6kZ">
@@ -371,7 +371,7 @@
             </tableViewCellContentView>
             <point key="canvasLocation" x="235" y="265"/>
         </tableViewCell>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="7Vi-Ow-NtY" userLabel="帮助">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="7Vi-Ow-NtY" userLabel="帮助">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Vi-Ow-NtY" id="hQz-QO-v8g">
@@ -403,7 +403,7 @@
             </tableViewCellContentView>
             <point key="canvasLocation" x="235" y="349"/>
         </tableViewCell>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="mtP-8l-QjK" userLabel="合伙人">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="mtP-8l-QjK" userLabel="合伙人">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mtP-8l-QjK" id="GaB-y8-jjb">

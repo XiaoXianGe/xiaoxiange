@@ -74,7 +74,6 @@
     
     NSArray *arr = @[@"132",@"622",@"21",@"16",@"69",@"44"];
     [self.delegate touchClickPrassCategory:self tag:arr[tag] number:sender.tag];
-    
 }
 
 //活动专区
@@ -90,7 +89,7 @@
 //九宫格
 - (IBAction)goods_nineButton:(UIButton *)sender {
     int tag = sender.tag%30;
-     NSArray *arr = @[@"640",@"669",@"629",@"728",@"810",@"933",@"1535",@"1493",@"1601"];
+     NSArray *arr = @[@"640",@"669",@"629",@"742",@"818",@"933",@"1535",@"1493",@"1601"];
                     //安全帽   安全鞋  手套 家庭工具箱  清洁机  梯子   照明     万用表   传感器
     [self.delegate touchClickPrassCategory:self tag:arr[tag] number:sender.tag];
     

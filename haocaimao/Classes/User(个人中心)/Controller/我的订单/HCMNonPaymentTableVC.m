@@ -143,7 +143,7 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
     
     [[AddressNerworking sharedManager]postOrderList:dict successBlock:^(id responseBody) {
         
-//        HCMLog(@"....%@",responseBody);
+        HCMLog(@"....%@",responseBody);
         
         self.tableView.footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(toLoadMoreData)];
         
@@ -152,7 +152,7 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
             [self.tableView.header endRefreshing];
             [SVProgressHUD showInfoWithStatus:responseBody[@"status"][@"error_desc"]];
             [self.tableView reloadData];
-            
+            [self.navigationController popViewControllerAnimated:YES];
             return ;
         }
         
@@ -315,7 +315,6 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         
         CGRect snRECT = CGRectMake(15, 8, 200, 15);
         CGRect timeRECT = CGRectMake(15, 23, 280, 15);
-
         
         UILabel *SNLabel = [self setLabelsRect:snRECT textAlignment:YES];
         SNLabel.text = [NSString stringWithFormat:@"订单编号 %@",orderList.order_sn];
@@ -338,8 +337,9 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         payway.text = orderList.pay_code;
         
         //订单详情btn
-        UIButton *orderInfoBtn = [self setButtonRect:CGRectMake(240 , 13, 60, 20) bgImage:@"button-narrow-gray" title:@"订单详情"];
-        [orderInfoBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        UIButton *orderInfoBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
+        UIButton *orderImageBtn = [self setButtonRect:CGRectMake(240 , 13, 60, 20) bgImage:@"button-narrow-gray" title:@"订单详情"];
+        [orderImageBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [orderInfoBtn addTarget:self action:@selector(orderInfo:) forControlEvents:UIControlEventTouchUpInside];
         
         headView = headview.view;
@@ -349,6 +349,7 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         [headview.view addSubview:head_orderID];
         [headview.view addSubview:timeLabel];
         [headview.view addSubview:SNLabel];
+        [headview.view addSubview:orderImageBtn];
         [headview.view addSubview:orderInfoBtn];
         [myHeader.contentView addSubview:headView];
         
@@ -396,7 +397,7 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         footer = footerView.view;
         footer.tag = 80;
         
-        UIButton *payBtn = [self setButtonRect:CGRectMake(240 , 13, 60, 20) bgImage:@"button-narrow-red" title:@"付  款"];
+        UIButton *payBtn = [self setButtonRect:CGRectMake(240 , 10, 60, 20) bgImage:@"button-narrow-red" title:@"付  款"];
         [payBtn addTarget:self action:@selector(clickPayment:) forControlEvents:UIControlEventTouchUpInside];
         
         [footer addSubview:payway];
@@ -468,7 +469,7 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
 // 点击订单详情
 -(void)orderInfo:(UIButton *)btn{
     
-    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+    
     [SVProgressHUD show];
     
     UILabel *head_orderID = (UILabel *)[btn.superview viewWithTag:69];

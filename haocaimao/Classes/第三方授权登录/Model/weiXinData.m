@@ -61,6 +61,7 @@
         
         [alert show];
         
+        [SVProgressHUD dismiss];
         
         } else {//(微信登录)授权
 

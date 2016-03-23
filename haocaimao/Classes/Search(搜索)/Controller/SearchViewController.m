@@ -101,7 +101,6 @@ static NSString *identifier = @"ID";
     self.searchView = search;
     [self.view addSubview:search];
    
-    
 }
 
 
@@ -146,6 +145,7 @@ static NSString *identifier = @"ID";
         self.searchView.collectionViewModel = cateSubModel;
         self.searchView.collectionHeaderModel = cateModel;
         [self.searchView reloadView];
+        
         
     } failureBlock:^(NSString *error) {
         

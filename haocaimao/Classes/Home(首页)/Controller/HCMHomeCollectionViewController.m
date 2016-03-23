@@ -391,7 +391,9 @@ static NSString * const reuseIdentifier = @"Cell";
     
 }
 
-//申请成为合伙人
+/**
+ * 申请成为合伙人
+ */
 -(void)gotoPartnerCenter:(HCMHomeTopViewController *)delegate{
     
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];

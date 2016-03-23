@@ -719,7 +719,7 @@
         <image name="msad3" width="620" height="150"/>
         <image name="msad5" width="619" height="150"/>
         <image name="nd" width="224" height="98"/>
-        <image name="partnerCenter" width="750" height="100"/>
+        <image name="partnerCenter" width="375" height="51"/>
         <image name="retui" width="640" height="213"/>
         <image name="制造业" width="44" height="44"/>
         <image name="办公" width="44" height="44"/>

@@ -11,18 +11,32 @@
 @interface mainTableViewCell()
 
 
-
 @end
 @implementation mainTableViewCell
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+- (void)awakeFromNib {
+ 
+   
+}
+
+//- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+//    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+//    if (self) {
+//        
+//    }
+//    return self;
+//}
+
+-(instancetype)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
     if (self) {
         
+       
         
     }
     return self;
 }
+
 - (void)showImage:(NSString *)image textTitle:(NSString *)title{
     
     UILabel *label =  self.textLabel;
@@ -38,11 +52,19 @@
     
 }
 
+-(void)setSelected:(BOOL)selected animated:(BOOL)animated{
+    [super setSelected:selected animated:animated];
+    
+    self.textLabel.textColor = selected ? HCMColor(180, 20, 30, 1.0) : HCMColor(88 , 88, 88, 1.0);
+    
+    
+}
 
 - (void)layoutSubviews{
     [super layoutSubviews];
     self.imageView.frame = CGRectMake(2, 7, 30, 30);
-    self.textLabel.frame = CGRectMake(44, 10, 56, 24);
+    self.textLabel.frame = CGRectMake(44, 10, 54, 24);
+    
     
 }
 @end

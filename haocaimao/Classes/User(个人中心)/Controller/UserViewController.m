@@ -149,9 +149,6 @@
     self.userImg.layer.cornerRadius = self.userImg.frame.size.width / 2;
     self.userImg.clipsToBounds = YES;
     
-    [self setCellSelectionStyle];
-    
-    
 }
 
 
@@ -905,21 +902,6 @@
     [self.navigationController pushViewController:vipLoginVC animated:YES];
 }
 
-//设置cell被点没有颜色
--(void)setCellSelectionStyle{
-    
-    self.myOrderCell.selectionStyle = UITableViewCellSelectionStyleNone;
-    self.waitingForDoingCell.selectionStyle = UITableViewCellSelectionStyleNone;
-    self.myWalletCell.selectionStyle = UITableViewCellSelectionStyleNone;;
-    self.BalanceCell.selectionStyle = UITableViewCellSelectionStyleNone;
-    self.addressCell.selectionStyle = UITableViewCellSelectionStyleNone;
-    self.HCMCentreCell.selectionStyle = UITableViewCellSelectionStyleNone;
-    self.AirlinesCell.selectionStyle = UITableViewCellSelectionStyleNone;
-    self.HelpMeCell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-}
-
-
 //section底部间距
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
@@ -967,7 +949,6 @@
             
             //当前软件的版本号（从Info.plist中获得）
             NSString *currentVersion = [NSBundle mainBundle].infoDictionary[key];
-            
             HCMLog(@"%@",currentVersion);
             
             NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -985,6 +966,8 @@
                     
                     [alert show];
                     
+                }else{
+                    HCMLog(@"APP是最新版拉！");
                 }
 
             } failureBlock:^(NSString *error) {

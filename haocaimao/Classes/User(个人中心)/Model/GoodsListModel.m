@@ -26,6 +26,7 @@
         self.goods_number = dataDic[@"goods_number"];
         self.formated_shop_price = dataDic[@"formated_shop_price"];
         self.imgSmall = dataDic[@"img"][@"small"];
+    
         
     }
     return self;

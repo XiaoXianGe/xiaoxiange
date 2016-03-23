@@ -15,8 +15,9 @@
 #import "secondCollectionViewModel.h"
 #import "secondCollectionReusableView.h"
 
+#define markLineColor HCMColor(230, 230, 230, 1.0)
 #define searchViewColor HCMColor(255, 255, 255, 1.0)
-#define searchBackgroudColor HCMColor(240, 240, 240, 1.0)
+#define searchBackgroudColor HCMColor(244, 244, 244, 1.0)
 
 #define BannerHeight 80
 #define FristLabelHeight 25
@@ -47,14 +48,6 @@
 static NSString *const identifier = @"ID";
 static NSString *const headerID = @"CollectionHeaderView";
 
-//-(void)layoutSubviews{
-//    NSInteger selectedIndex = 0;
-//    
-//    NSIndexPath *selectedIndexPath = [NSIndexPath indexPathForRow:selectedIndex inSection:0];
-//    
-//    [self.mainTableView selectRowAtIndexPath:selectedIndexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
-//
-//}
 
 
 - (instancetype)initWithFrame:(CGRect)frame WithDataModel:(NSMutableArray *)data WithTableViewModel:(NSMutableArray *)tableViewModel {
@@ -80,11 +73,11 @@ static NSString *const headerID = @"CollectionHeaderView";
     mainTableView.delegate = self;
     
     self.mainTableView = mainTableView;
-    mainTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-    mainTableView.separatorColor = [UIColor lightGrayColor];
+    mainTableView.separatorStyle = UITableViewCellAccessoryNone;
+//    mainTableView.separatorColor = [UIColor lightGrayColor];
     [self addSubview:mainTableView];
     
-    
+    [self.mainTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
     
 }
 
@@ -97,14 +90,20 @@ static NSString *const headerID = @"CollectionHeaderView";
     HomeCategorySearch *model = _searchData[indexPath.row];
     
     mainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
+   
     if (!cell) {
     
         cell = [[mainTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-       
+        
+        
     }
+    UIView *view = [[UIView alloc]init];
+    view.backgroundColor = markLineColor;
+    view.frame = CGRectMake(0, cell.contentView.height - 1, cell.contentView.width, 1);
+    [cell.contentView addSubview:view];
     
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.contentView.backgroundColor = [UIColor whiteColor];
     cell.textLabel.textColor = [UIColor darkGrayColor];
 
     
@@ -123,12 +122,15 @@ static NSString *const headerID = @"CollectionHeaderView";
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    HCMLog(@"%ld",(long)indexPath.row);
+
     self.selectedNum = indexPath.row;
     
     HomeCategorySearch *model = _searchData[indexPath.row];
     
     mainTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-        
+
+    
     [HCMNSNotificationCenter postNotificationName:@"collectionModel" object:nil userInfo:@{@"indexOfTable":model.cateId}];
     
     cell.contentView.backgroundColor = searchViewColor;

@@ -19,6 +19,11 @@
 #import "GoodsListModel.h"
 #import "DealViewController.h"
 
+#import "HCMOrderInfoTableVC.h"
+#import "MJExtension.h"
+#import "HCMOrderInfoModel.h"
+#import "HCMOrderInfoCellModel.h"
+
 @interface HCMAllListTableVC ()
 
 @property (strong, nonatomic) UIImageView *noDataView;
@@ -30,6 +35,11 @@
 @property (nonatomic, strong)NSString *uid;
 
 @property (nonatomic, strong)NSUserDefaults *defaults;
+
+/** 付款button */
+@property(nonatomic,strong)UIButton * payButton;
+
+
 @end
 
 @implementation HCMAllListTableVC
@@ -117,14 +127,16 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
     //all_list
     [[AddressNerworking sharedManager]postOrderList:dict successBlock:^(id responseBody) {
         
+        HCMLog(@"%@",responseBody);
+        
         self.tableView.footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(toLoadMoreData)];
         
         if (responseBody[@"status"][@"error_code"]) {
             
             [self.tableView.header endRefreshing];
             [SVProgressHUD showInfoWithStatus:responseBody[@"status"][@"error_desc"]];
-            [self.tableView reloadData];
-            
+//            [self.tableView reloadData];
+            [self.navigationController popViewControllerAnimated:YES];
             return ;
         }
         NSMutableArray *dictsArray = [NSMutableArray array];
@@ -297,8 +309,9 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         head_orderID.text = orderList.order_id;
         
         //订单详情btn
-        UIButton *orderInfoBtn = [self setButtonRect:CGRectMake(240 , 13, 60, 20) bgImage:@"button-narrow-gray" title:@"订单详情"];
-        [orderInfoBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        UIButton *orderInfoBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
+        UIButton *orderImageBtn = [self setButtonRect:CGRectMake(240 , 13, 60, 20) bgImage:@"button-narrow-gray" title:@"订单详情"];
+        [orderImageBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [orderInfoBtn addTarget:self action:@selector(orderInfo:) forControlEvents:UIControlEventTouchUpInside];
         
         
@@ -306,6 +319,7 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         headView = headview.view;
         headView.tag = 66;
         
+        [headview.view addSubview:orderImageBtn];
         [headview.view addSubview:head_orderID];
         [headview.view addSubview:orderInfoBtn];
         [headview.view addSubview:timeLabel];
@@ -323,12 +337,13 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
     
     UITableViewHeaderFooterView  *myFooter = [tableView dequeueReusableHeaderFooterViewWithIdentifier:footerReuseIdentifier];
     OrderListModel *orderList = self.SectionsCount[section];
-    
     UIView *footer = (UIView *)[myFooter.contentView viewWithTag:80];
+
     UILabel *totalLabel = (UILabel *)[footer viewWithTag:81];
-    
+    UILabel *order_status_label = (UILabel *)[footer viewWithTag:82];
     totalLabel.text = orderList.total_fee;
-    
+    order_status_label.text =  [NSString stringWithFormat:@"订单状态:%@",orderList.order_status];
+
     if (footer == nil) {
         
         HCMNoPayFooterview *footerView = [[HCMNoPayFooterview alloc]initWithNibName:@"HCMNoPayFooterview" bundle:nil];
@@ -338,15 +353,34 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         total_fee_label.textColor = [UIColor redColor];
         total_fee_label.text = orderList.total_fee;
         
+        UILabel *order_status_label = [self setLabelsRect:CGRectMake(200, 10, 100, 20) textAlignment:YES];
+        order_status_label.textColor = [UIColor lightGrayColor];
+        order_status_label.font = [UIFont systemFontOfSize:11];
+        order_status_label.textAlignment = NSTextAlignmentRight;
+        order_status_label.tag = 82;
+        order_status_label.text = [NSString stringWithFormat:@"订单状态:%@",orderList.order_status];
         
+        
+//        UIButton *payBtn = [self setButtonRect:CGRectMake(240 , 10, 60, 20) bgImage:@"button-narrow-red" title:@"付  款"];
+//        [payBtn addTarget:self action:@selector(clickPayment:) forControlEvents:UIControlEventTouchUpInside];
+//        self.payButton = payBtn;
+//        payBtn.hidden = YES;
         
         footer = footerView.view;
         footer.tag = 80;
         
+//        [footer addSubview:payBtn];
+        [footer addSubview:order_status_label];//订单状态
         [footer addSubview:total_fee_label];//总价格
-        
         [myFooter.contentView addSubview:footer];
     }
+//    if ([orderList.order_status isEqualToString:@"未确定"]) {
+//        self.payButton.hidden = NO;
+//    }else{
+//        self.payButton.hidden = YES;
+//    }
+//    
+
     return myFooter;
 }
 
@@ -361,15 +395,47 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
     return imageView;
     
 }
+
+
 // 点击订单详情
 -(void)orderInfo:(UIButton *)btn{
     
     HCMLogFunc;
     
+    [SVProgressHUD show];
+    
+    UILabel *head_orderID = (UILabel *)[btn.superview viewWithTag:69];
+    
+    NSDictionary *params = @{@"session":@{@"sid":self.sid,@"uid":self.uid},
+                             @"order_id":head_orderID.text};
+    
+    HCMLog(@"params %@",params);
+    
+    [[AddressNerworking sharedManager]postOrder_detailsURL:params successBlock:^(id responseBody) {
+        
+        HCMLog(@"%@",responseBody);
+        
+        HCMOrderInfoTableVC *vc = [[HCMOrderInfoTableVC alloc]init];
+        
+        vc.model = [HCMOrderInfoModel objectWithKeyValues:responseBody[@"data"]];
+        
+        vc.order_id = head_orderID.text;
+        
+        vc.goodsArray = [HCMOrderInfoCellModel objectArrayWithKeyValuesArray:responseBody[@"data"][@"orderGoods"]];
+        
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    } failureBlock:^(NSString *error) {
+        [SVProgressHUD showInfoWithStatus:@"失败"];
+    }];
+    
     
     
     
 }
+
+
+
 // 抽取代码 设置btn
 - (UIButton *)setButtonRect:(CGRect )rectF bgImage:(NSString *)bgImage title:(NSString *)title{
     

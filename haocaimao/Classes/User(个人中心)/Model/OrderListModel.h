@@ -49,6 +49,10 @@
  */
 @property (strong, nonatomic)NSString *pay_code;
 
+/**
+ *  支付状态
+ */
+@property (strong, nonatomic)NSString *order_status;
 
 
 + (id)parseOrderListDict:(NSDictionary *)dict;
