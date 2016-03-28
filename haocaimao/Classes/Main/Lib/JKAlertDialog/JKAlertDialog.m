@@ -146,6 +146,7 @@
 
 -(void)dissMissAction
 {
+    [self endEditing:YES];
     self.hidden=YES;
 }
 

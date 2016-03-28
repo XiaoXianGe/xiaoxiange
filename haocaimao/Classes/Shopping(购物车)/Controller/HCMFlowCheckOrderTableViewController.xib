@@ -239,7 +239,7 @@
                                 <rect key="frame" x="8" y="3" width="304" height="159"/>
                             </variation>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="支付方式" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUo-1h-vVg">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付方式" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUo-1h-vVg">
                             <rect key="frame" x="22" y="138" width="62" height="15"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" red="0.06425096558" green="0.06425096558" blue="0.06425096558" alpha="1" colorSpace="calibratedRGB"/>
@@ -248,7 +248,7 @@
                                 <rect key="frame" x="26" y="13" width="62" height="15"/>
                             </variation>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon-necessary" translatesAutoresizingMaskIntoConstraints="NO" id="sue-b2-Hme" userLabel="必填">
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-necessary" translatesAutoresizingMaskIntoConstraints="NO" id="sue-b2-Hme" userLabel="必填">
                             <rect key="frame" x="89" y="135" width="28" height="23"/>
                             <variation key="widthClass=compact" fixedFrame="YES">
                                 <rect key="frame" x="93" y="10" width="28" height="23"/>
@@ -353,19 +353,19 @@
                                 <action selector="payWay:" destination="-1" eventType="touchUpInside" id="vt2-aT-QSB"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UnionPay" translatesAutoresizingMaskIntoConstraints="NO" id="fRL-pE-0Ha">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="线下转账" translatesAutoresizingMaskIntoConstraints="NO" id="fRL-pE-0Ha">
                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="22" y="125" width="43" height="26"/>
+                                <rect key="frame" x="21" y="124" width="39" height="28"/>
                             </variation>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="银联支付" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1E-tH-ZSy">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="线下转账" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1E-tH-ZSy">
                             <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.24391666670000001" green="0.24391666670000001" blue="0.24391666670000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="73" y="130" width="85" height="16"/>
+                                <rect key="frame" x="65" y="130" width="85" height="16"/>
                             </variation>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUm-Xh-w3G">
@@ -428,7 +428,7 @@
                         </mask>
                     </variation>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Gy-wY-zbO" userLabel="点击地址什么编辑">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Gy-wY-zbO" userLabel="点击地址什么编辑">
                     <rect key="frame" x="10" y="8" width="300" height="112"/>
                     <state key="normal">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -443,31 +443,12 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O4E-aX-Zs0" userLabel="----- 分割线">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <color key="backgroundColor" red="0.92695833329999999" green="0.92695833329999999" blue="0.92695833329999999" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="1" id="WtM-ZI-nlW"/>
-                    </constraints>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="WtM-ZI-nlW"/>
-                        </mask>
-                    </variation>
-                    <variation key="widthClass=compact">
-                        <mask key="constraints">
-                            <include reference="WtM-ZI-nlW"/>
-                        </mask>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="8" y="484" width="304" height="1"/>
                     </variation>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstAttribute="trailing" secondItem="O4E-aX-Zs0" secondAttribute="trailing" id="D9Q-fk-VEg">
-                    <variation key="widthClass=compact" constant="8"/>
-                </constraint>
-                <constraint firstAttribute="bottom" secondItem="O4E-aX-Zs0" secondAttribute="bottom" id="DhD-a6-AG2"/>
-                <constraint firstItem="O4E-aX-Zs0" firstAttribute="leading" secondItem="px4-iR-cqy" secondAttribute="leading" id="hDZ-OP-dde">
-                    <variation key="widthClass=compact" constant="8"/>
-                </constraint>
-            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
@@ -476,11 +457,6 @@
                     <exclude reference="4Gy-wY-zbO"/>
                     <exclude reference="O4E-aX-Zs0"/>
                 </mask>
-                <mask key="constraints">
-                    <exclude reference="D9Q-fk-VEg"/>
-                    <exclude reference="DhD-a6-AG2"/>
-                    <exclude reference="hDZ-OP-dde"/>
-                </mask>
             </variation>
             <variation key="widthClass=compact">
                 <mask key="subviews">
@@ -488,13 +464,8 @@
                     <include reference="4Gy-wY-zbO"/>
                     <include reference="O4E-aX-Zs0"/>
                 </mask>
-                <mask key="constraints">
-                    <include reference="D9Q-fk-VEg"/>
-                    <include reference="DhD-a6-AG2"/>
-                    <include reference="hDZ-OP-dde"/>
-                </mask>
             </variation>
-            <point key="canvasLocation" x="695" y="-235"/>
+            <point key="canvasLocation" x="695" y="-264"/>
         </view>
         <view contentMode="scaleToFill" id="pt4-AE-WJT" userLabel="footerView">
             <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
@@ -635,7 +606,6 @@
         </view>
     </objects>
     <resources>
-        <image name="UnionPay" width="51" height="31"/>
         <image name="WePayLogo按钮标签" width="100" height="43"/>
         <image name="WePayLogo绿色logo" width="328" height="289"/>
         <image name="accsessory-arrow-right" width="6" height="10"/>
@@ -652,5 +622,6 @@
         <image name="shopping-checkout-phone-icon" width="12" height="13"/>
         <image name="shopping-checkout-sub-order-icon" width="21" height="21"/>
         <image name="zhifubaozhifu" width="60" height="60"/>
+        <image name="线下转账" width="39" height="28"/>
     </resources>
 </document>

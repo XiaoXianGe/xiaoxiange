@@ -120,7 +120,8 @@
 @property(strong,nonatomic)UITextField *countTextField;
 
 @property(strong,nonatomic)JKAlertDialog *alert;
-
+@property(assign,nonatomic)NSInteger buyOrCartIndex;
+@property(nonatomic)BOOL markClickBtn;
 @end
 
 
@@ -310,6 +311,12 @@
         return;
     }
     
+    _markClickBtn = YES;
+    
+    NSInteger index = [self.buyNowAndAddCart indexOfObject:sender];
+    
+    self.buyOrCartIndex = index;
+    
     BOOL status = [self.defaults boolForKey:@"status"];
 
     if (status) {
@@ -319,7 +326,6 @@
             [self PopViewShow:nil];
                 
             return;
-            
 
         }        
         
@@ -353,15 +359,13 @@
                                         @"number":self.countTextField.text,
                                         @"goods_id":self.goods_id
                                         };
-        
-        
-        NSInteger index = [self.buyNowAndAddCart indexOfObject:sender];
-        
+
         [[HomeNetwork sharedManager]postBuyNow:dictBuyNow successBlock:^(id responseBody) {
            
             self.myError = responseBody[@"status"][@"error_desc"];
 
             if (index == 0) {//点击立即购买,跳转页面
+
                 if([self.myError isEqualToString:@"您已经达到该商品抢购上限！"]){
                     self.tabBarController.selectedIndex = 2;
                     
@@ -374,6 +378,8 @@
                     [SVProgressHUD showInfoWithStatus:responseBody[@"status"][@"error_desc"]];
                     return ;
                 }
+                
+                
                 
                 self.tabBarController.selectedIndex = 2;
                 if (self.tabBarController.selectedIndex == 2) {
@@ -415,6 +421,7 @@
                     return;
                     
                 }
+
                 [self loadGoods_number];
                 self.receiveBadgeValue= self.goods_list_number;
                 
@@ -435,11 +442,10 @@
         return;
         
     }else{
+        
         HCMVipLoginViewController *login =[[HCMVipLoginViewController alloc]init];
         [self.navigationController presentViewController:login animated:YES completion:nil];
-//        HCMVipLoginViewController *vipLoginVC = [[HCMVipLoginViewController alloc]initWithNibName:@"HCMVipLoginViewController" bundle:nil];
-//        [self animationtype];
-//        [self.navigationController pushViewController:vipLoginVC animated:YES];
+
     }
 
 }
@@ -681,6 +687,8 @@
     
     [self.alert dismiss];
     
+     NSLog(@"----------%ld",(long)self.buyOrCartIndex);
+    
     self.count = [self.countTextField.text integerValue];
     
     [self.countTextField resignFirstResponder];
@@ -696,6 +704,15 @@
     }
     
     [self getThePriceForGood:self.markPrice upDownPrice:self.allBtnPrice[self.tag]];
+
+    if (_markClickBtn) {
+        UIButton *btn = [self.buyNowAndAddCart objectAtIndex:_buyOrCartIndex];
+        
+        [self addCartCreateButton:btn];
+    }
+    
+  
+    
 }
 
 
@@ -714,15 +731,14 @@
     CGFloat buyviewH = PopViewBaseHeight + self.changeHeight;
 
     if (self.alert) {
-        self.alert=[[JKAlertDialog alloc]initWithTitle:@"购买数量" message:@"" color:color andBoolen:NO AlertsWidth:buyviewW AlertsHeight:buyviewH];
-        
+        self.alert=[[JKAlertDialog alloc]initWithTitle:@"购买数量" message:@"" color:color andBoolen:YES AlertsWidth:buyviewW AlertsHeight:buyviewH];
+
         self.alert.contentView=self.buyCountView;
         [self.alert show];
-        HCMLog(@"return");
 
         return;
     }
-    HCMLog(@"没return");
+
     CGFloat newH = 10;
     self.changeHeight = 0;
     
@@ -879,7 +895,7 @@
     [self.buyCountView addSubview:OKButton];
     
     //*** 弹出框的大小内容
-    self.alert=[[JKAlertDialog alloc]initWithTitle:@"购买数量" message:@"" color:color andBoolen:NO AlertsWidth:buyviewW AlertsHeight:buyviewH];
+    self.alert=[[JKAlertDialog alloc]initWithTitle:@"购买数量" message:@"" color:color andBoolen:YES AlertsWidth:buyviewW AlertsHeight:buyviewH];
     
     self.alert.contentView=self.buyCountView;
     [self.alert show];

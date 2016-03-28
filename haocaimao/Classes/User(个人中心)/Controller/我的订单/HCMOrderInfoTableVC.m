@@ -28,7 +28,7 @@
 /** 支付方式 */
 @property(nonatomic,weak)IBOutlet UILabel * paymentName;
 /** 订单状态 */
-@property(nonatomic,weak)IBOutlet UILabel * orderStatus;
+@property(nonatomic,weak)UILabel * orderStatus;
 /** 付款状态 */
 @property(nonatomic,weak)IBOutlet UILabel * payStatus;
 /** 配送状态 */
@@ -115,11 +115,11 @@ static NSString *const orderInfoID = @"orderInfoCell";
     self.postScriptView.hidden = !(BOOL)self.model.postscript;
     
     if (self.postScriptView.hidden == YES) {
-        self.footerView.height = 377;
+        self.footerView.height = 345;
         self.tableView.tableFooterView = self.footerView;
     }
     if (self.postScriptView.hidden == NO) {
-        self.footerView.height = 445;
+        self.footerView.height = 415;
         self.tableView.tableFooterView = self.footerView;
         self.unitName.text = model.postscript[@"unitName"];
         self.taxpayerIDCode.text = model.postscript[@"taxpayerIDCode"];
@@ -133,22 +133,36 @@ static NSString *const orderInfoID = @"orderInfoCell";
     self.consignee.text = model.consignee;
     self.mobile.text = model.mobile;
     self.address.text = model.address;
-    
+    //支付方式
     self.paymentName.text = model.paymentName;
+    //支付状态
     self.payStatus.text = model.payStatus;
+    //订单状态
     self.orderStatus.text = model.orderStatus;
-    
     if (![self.orderStatus.text isEqualToString:@"未确定"]) {
+        //支付按钮是否隐藏
         self.cancelOrder.hidden = YES;
         self.payOrder.hidden = YES;
     }
+    //配送状态
+    if ([model.shippingStatus isEqualToString:@"--"]) {
+        
+        self.shippingStatus.text = @"未发货";
+        
+    }else{
+        self.shippingStatus.text = model.shippingStatus;
+    }
     
-    self.shippingStatus.text = model.shippingStatus;
+    //发票信息
     self.invPayee.text = model.invPayee.length ? model.invPayee : @"无";
     self.invContent.text = model.invContent.length ? model.invContent : @"无";
+    //商品总额
     self.goodsAmount.text = [NSString stringWithFormat:@"￥%.2f",([model.orderAmount floatValue] - [model.shippingFee floatValue])];
+    //订单运费
     self.shippingFee.text = [NSString stringWithFormat:@"￥%@",model.shippingFee];
+    //订单总额
     self.orderAmount.text = [NSString stringWithFormat:@"￥%@",model.orderAmount];
+    //订单时间
     self.orderTime.text = [NSString stringWithFormat:@"下单时间:%@",model.addTime];
     
 
