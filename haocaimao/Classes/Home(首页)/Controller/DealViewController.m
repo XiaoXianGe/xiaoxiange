@@ -4,10 +4,9 @@
 //
 //  Created by 好采猫 on 15/8/24.
 //  Copyright (c) 2015年 haocaimao. All rights reserved.
-//
-/**
- *  商品详情
- */
+//  商品详情页
+//  如果你看到这个商品详情，我估计你会晕掉，建议自己重写！
+
 #define sides 10 //控件间距
 #define baseControlHeight 50 //控件的基本高度
 #define PopViewBaseHeight 150 //没有规格参数的最小的大小
@@ -256,65 +255,49 @@
     
     [super viewDidLoad];
     
-    self.count = 1;
+    //初始化
+    [self setUpController];
     
-    self.title = @"产品信息";
+    //分享到微信
+    [self shareToWeChet];
+    
+    //请求商品详情
+    [self sendDealOfGoodsRequest];
+    
+}
+
+-(void)setUpController{
+    
+    self.count = 1;
     
     self.mainScrollView.delegate = self;
     
     self.Pictures_ScrollVIew.delegate = self;
+    
+    self.title = @"产品信息";
     
     //自动调整滚动视图插图(自动调整scorllview高度)
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickBack) image:@"nav-back" highImage:@"nav-back"];
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickshare) image:@"item-info-header-share-icon-1" highImage:@"item-info-header-share-icon-1"];
+}
+
+//分享到微信
+-(void)shareToWeChet{
     
-    NSString *url = [NSString stringWithFormat:@"http://www.haocaimao.com/mobile/index.php?m=default&c=goods&a=index&id=%@",self.goods_id];
+    NSString *url = [[NSString alloc]init];
+    if (self.status) {//带用户信息的分享
+        NSString *uid = [self.defaults objectForKey:@"uid"];
+        url = [NSString stringWithFormat:@"http://www.haocaimao.com/mobile/index.php?m=default&c=goods&a=index&id=%@&u=%@",self.goods_id,uid];
+    }else{//没登录不带用户信息
+        url = [NSString stringWithFormat:@"http://www.haocaimao.com/mobile/index.php?m=default&c=goods&a=index&id=%@",self.goods_id];
+    }
     [UMSocialWechatHandler setWXAppId:APP_ID appSecret:APP_SECRET url:url];
-    
-    //[self loadButton];
-    
-    [self sendDealOfGoodsRequest];
-    
 }
 
-- (void)loadButton{
-    
-    UIWindow *window = [[UIApplication sharedApplication]keyWindow];
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(270, 310, 45, 35);
-    btn.backgroundColor = [UIColor redColor];
-    
-    [btn addTarget:self action:@selector(screenshot) forControlEvents:UIControlEventTouchUpInside];
-    
-    [window addSubview:btn];
-    
-}
 
--(void)screenshot{
-    //把[view.layer renderInContext:context]改成
-    
-//    [self.navigationController.view.layer renderInContext:context]
-//    要导航栏的话
-
-    CGRect rect = self.view.frame;
-    UIGraphicsBeginImageContext(rect.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    [self.view.layer renderInContext:context];
-    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-
-    UIImageView *imageVeiw = [[UIImageView alloc]init];
-    imageVeiw.frame = CGRectMake(100, 100, 100, 100);
-    [imageVeiw setImage:img];
-    
-    [self.view addSubview:imageVeiw];
-    
-    HCMLogFunc;
-}
 #pragma mark --- 商品详情的toolBar所有控件 ---
-
 /**                 ***
  *  加入购物车 按钮    *  立即购买 按钮
  *                  **/
@@ -361,8 +344,8 @@
             }
         
         
-            NSString *uid = [self.defaults objectForKey:@"uid"];
-            NSString *sid = [self.defaults objectForKey:@"sid"];
+        NSString *uid = [self.defaults objectForKey:@"uid"];
+        NSString *sid = [self.defaults objectForKey:@"sid"];
 
         NSDictionary * dictBuyNow =   @{
                                         @"session":@{@"sid":sid,@"uid":uid},
@@ -379,10 +362,9 @@
             self.myError = responseBody[@"status"][@"error_desc"];
 
             if (index == 0) {//点击立即购买,跳转页面
-                
                 if([self.myError isEqualToString:@"您已经达到该商品抢购上限！"]){
                     self.tabBarController.selectedIndex = 2;
-
+                    
                     return;
                 }
                 
@@ -392,8 +374,12 @@
                     [SVProgressHUD showInfoWithStatus:responseBody[@"status"][@"error_desc"]];
                     return ;
                 }
+                
                 self.tabBarController.selectedIndex = 2;
-               // return;
+                if (self.tabBarController.selectedIndex == 2) {
+                    [self.navigationController popViewControllerAnimated:YES];
+                    
+                }
             }
 
         } failureBlock:^(NSString *error) {
@@ -449,10 +435,11 @@
         return;
         
     }else{
-        
-        HCMVipLoginViewController *vipLoginVC = [[HCMVipLoginViewController alloc]initWithNibName:@"HCMVipLoginViewController" bundle:nil];
-        [self animationtype];
-        [self.navigationController pushViewController:vipLoginVC animated:YES];
+        HCMVipLoginViewController *login =[[HCMVipLoginViewController alloc]init];
+        [self.navigationController presentViewController:login animated:YES completion:nil];
+//        HCMVipLoginViewController *vipLoginVC = [[HCMVipLoginViewController alloc]initWithNibName:@"HCMVipLoginViewController" bundle:nil];
+//        [self animationtype];
+//        [self.navigationController pushViewController:vipLoginVC animated:YES];
     }
 
 }
@@ -511,11 +498,8 @@
         
     }else{
      
-        HCMVipLoginViewController *vipLoginVC = [[HCMVipLoginViewController alloc]initWithNibName:@"HCMVipLoginViewController" bundle:nil];
-        
-        [self animationtype];
-        
-        [self.navigationController pushViewController:vipLoginVC animated:YES];
+        HCMVipLoginViewController *login =[[HCMVipLoginViewController alloc]init];
+        [self.navigationController presentViewController:login animated:YES completion:nil];
     }
 }
 
@@ -523,10 +507,9 @@
  *  购物车
  */
 - (IBAction)cartButton:(UIButton *)sender {
-          BOOL status = [self.defaults boolForKey:@"status"];
-    if (self.tabBarController.selectedIndex == 2) {
-        [self.navigationController popViewControllerAnimated:YES];
-    }
+    
+    
+    BOOL status = [self.defaults boolForKey:@"status"];
     if (status) {
         
         NSString *uid = [self.defaults objectForKey:@"uid"];
@@ -544,7 +527,10 @@
             }
             
             self.tabBarController.selectedIndex = 2;
-            
+            if (self.tabBarController.selectedIndex == 2) {
+                [self.navigationController popViewControllerAnimated:YES];
+                
+            }
         } failureBlock:^(NSString *error) {
             
             [SVProgressHUD showInfoWithStatus:error];
@@ -554,11 +540,8 @@
         
     }else{
         
-        HCMVipLoginViewController *vipLoginVC = [[HCMVipLoginViewController alloc]initWithNibName:@"HCMVipLoginViewController" bundle:nil];
-        
-        [self animationtype];
-        
-        [self.navigationController pushViewController:vipLoginVC animated:YES];
+        HCMVipLoginViewController *login =[[HCMVipLoginViewController alloc]init];
+        [self.navigationController presentViewController:login animated:YES completion:nil];
     }
 }
 
@@ -587,8 +570,9 @@
     
 }
 
-#pragma mark --- 商品评论 ---
 
+
+#pragma mark --- 商品评论 ---
 /**
  *  商品评论按钮
  */
@@ -630,9 +614,11 @@
     
 }
 
+
+
+
+
 #pragma mark --- 购买数量 ---
-
-
 /**
  *  修改购买数量  键盘弹出
  */
@@ -655,10 +641,10 @@
     
     int buymax = [self.buyMax intValue];
     
-    if (self.count == buymax) {
+    if (self.count == buymax && self.countTextField.text.length) {
         
         [SVProgressHUD showInfoWithStatus:@"已是最大购买数量"];
-        
+        self.count = 1;
         return;
     }else{
          self.count = [self.countTextField.text integerValue];
@@ -688,6 +674,11 @@
  */
 -(void)clickOK{
     
+    if (!self.countTextField.text.length) {
+        [SVProgressHUD showInfoWithStatus:@"数量不能为空"];
+        return;
+    }
+    
     [self.alert dismiss];
     
     self.count = [self.countTextField.text integerValue];
@@ -706,6 +697,10 @@
     
     [self getThePriceForGood:self.markPrice upDownPrice:self.allBtnPrice[self.tag]];
 }
+
+
+
+
 
 #pragma mark --- PopView弹出 ---
 /**

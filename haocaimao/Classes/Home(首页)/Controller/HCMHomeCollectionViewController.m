@@ -65,12 +65,9 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.collectionView registerNib:[UINib nibWithNibName:@"CollectionViewCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
-    [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView"];
-    
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    
-    self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, 40, 0);
+    //初始化控制器
+    [self setupController];
+   
     
     //请求首页数据
     [self sendTheMsgToCategoryForCollection];
@@ -81,41 +78,18 @@ static NSString * const reuseIdentifier = @"Cell";
     //添加刷新事件
     self.collectionView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
     
-    
-    //数据生成32位字符串
-    //NSLog(@"-----%@",[self ret32bitString]);
-    
-    //[self dosomeThing];
-    
+
 }
 
--(void)dosomeThing{
-    NSString *string = [[NSString alloc]init];
-    for (int i = 0; i < 32; i++) {
-        int number = arc4random() % 36;
-        if (number < 10) {
-            int figure = arc4random() % 10;
-            NSString *tempString = [NSString stringWithFormat:@"%d", figure];
-            string = [string stringByAppendingString:tempString];
-        }else {
-            int figure = (arc4random() % 26) + 65;
-            char character = figure;
-            NSString *tempString = [NSString stringWithFormat:@"%c", character];
-            string = [string stringByAppendingString:tempString];
-        }
-    }
-    NSLog(@"%@", string);
+//初始化控制器
+-(void)setupController{
+    [self.collectionView registerNib:[UINib nibWithNibName:@"CollectionViewCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
+    [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView"];
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, 40, 0);
 }
-
--(NSString *)ret32bitString{
-    
-    char data[32];
-    
-    for (int x=0;x<32;data[x++] = (char)('A' + (arc4random_uniform(26))));
-    
-    return [[NSString alloc] initWithBytes:data length:32 encoding:NSUTF8StringEncoding];
-}
-
 
 //头部刷新
 -(void)headerRereshing{
@@ -379,6 +353,8 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.navigationController pushViewController:vc animated:YES];
     
 }
+
+
 -(void)keyboardWasShown:(NSNotification *)notification{
     
     CGRect keyBoardFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];

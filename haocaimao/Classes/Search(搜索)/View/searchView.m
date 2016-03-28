@@ -4,7 +4,7 @@
 //
 //  Created by 好采猫 on 15/12/1.
 //  Copyright © 2015年 haocaimao. All rights reserved.
-//
+
 
 #import "searchView.h"
 #import "mainTableViewCell.h"
@@ -33,8 +33,8 @@
 
 /** 选中的位置 */
 @property (assign, nonatomic) NSInteger selectedNum;
-@property (weak, nonatomic) UITableView *mainTableView;
 
+@property (weak, nonatomic) UITableView *mainTableView;
 @property (weak, nonatomic) UICollectionView *secondCollectionView;
 
 @property (weak,nonatomic) UILabel *LineLabel;

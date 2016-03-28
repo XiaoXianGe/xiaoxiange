@@ -22,6 +22,7 @@
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="payWayArray" destination="8qV-Ih-eMD" id="bKZ-i5-UNg"/>
                 <outletCollection property="payWayArray" destination="dqJ-Rr-wcn" id="Xcj-wp-23i"/>
+                <outletCollection property="payWayArray" destination="dUm-Xh-w3G" id="9Rx-ze-1Dd"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -33,103 +34,103 @@
                 <outlet property="dataSource" destination="-1" id="Tng-2m-Rnh"/>
                 <outlet property="delegate" destination="-1" id="9aC-8N-iBw"/>
             </connections>
-            <point key="canvasLocation" x="297" y="247"/>
+            <point key="canvasLocation" x="271" y="-109"/>
         </tableView>
         <view contentMode="scaleToFill" id="px4-iR-cqy" userLabel="headerView">
             <rect key="frame" x="0.0" y="0.0" width="320" height="378"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="body-cont-bg" translatesAutoresizingMaskIntoConstraints="NO" id="X85-8g-81w" userLabel="支付方式背景">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="10" y="128" width="300" height="121"/>
-                    </variation>
-                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shopping-checkout-cont-bg" translatesAutoresizingMaskIntoConstraints="NO" id="cJc-zM-Vvb" userLabel="地址背景">
                     <rect key="frame" x="10" y="10" width="300" height="110"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="10" y="10" width="302" height="97"/>
+                    </variation>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shopping-checkout-phone-icon" translatesAutoresizingMaskIntoConstraints="NO" id="anY-ef-P0y" userLabel="地址电话">
                     <rect key="frame" x="184" y="28" width="24" height="26"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="182" y="22" width="24" height="26"/>
+                    </variation>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="收件人" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFX-yM-7GR">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="收件人:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFX-yM-7GR">
                     <rect key="frame" x="22" y="31" width="55" height="20"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="22" y="25" width="55" height="20"/>
+                    </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sns-jX-Vci" userLabel="省市区">
                     <rect key="frame" x="22" y="68" width="180" height="14"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="22" y="63" width="180" height="14"/>
+                    </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y1e-LZ-Wyv" userLabel="地址">
                     <rect key="frame" x="22" y="90" width="276" height="14"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="22" y="83" width="276" height="14"/>
+                    </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uhf-Vj-bXU" userLabel="电话">
                     <rect key="frame" x="205" y="33" width="100" height="15"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="205" y="28" width="100" height="15"/>
+                    </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i2e-IN-awX" userLabel="收件人姓名">
                     <rect key="frame" x="76" y="31" width="100" height="20"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="支付方式" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUo-1h-vVg">
-                    <rect key="frame" x="22" y="138" width="62" height="15"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" red="0.06425096558" green="0.06425096558" blue="0.06425096558" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="28" y="139" width="62" height="15"/>
+                        <rect key="frame" x="79" y="25" width="100" height="20"/>
                     </variation>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon-necessary" translatesAutoresizingMaskIntoConstraints="NO" id="sue-b2-Hme" userLabel="必填">
-                    <rect key="frame" x="89" y="135" width="28" height="23"/>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="95" y="136" width="28" height="23"/>
-                    </variation>
-                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cell-bg-single" translatesAutoresizingMaskIntoConstraints="NO" id="bdz-W7-WRa" userLabel="配置信息">
                     <rect key="frame" x="10" y="214" width="302" height="35"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="10" y="300" width="302" height="35"/>
+                        <rect key="frame" x="10" y="320" width="302" height="35"/>
                     </variation>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="配送信息" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJo-OP-KBe">
                     <rect key="frame" x="22" y="223" width="69" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" red="0.06425096558" green="0.06425096558" blue="0.06425096558" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.22848958329999999" green="0.22848958329999999" blue="0.22848958329999999" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="22" y="309" width="69" height="17"/>
+                        <rect key="frame" x="22" y="329" width="69" height="17"/>
                     </variation>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cell-bg-single" translatesAutoresizingMaskIntoConstraints="NO" id="rfm-Kn-DXd" userLabel="发票信息">
                     <rect key="frame" x="10" y="171" width="302" height="35"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="10" y="257" width="302" height="35"/>
+                        <rect key="frame" x="10" y="277" width="302" height="35"/>
                     </variation>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cell-bg-single" translatesAutoresizingMaskIntoConstraints="NO" id="E5S-C3-NFl" userLabel="红包">
                     <rect key="frame" x="9" y="257" width="302" height="35"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="9" y="343" width="302" height="35"/>
+                        <rect key="frame" x="9" y="363" width="302" height="35"/>
                     </variation>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="发票信息" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMR-cv-fT1">
                     <rect key="frame" x="22" y="180" width="62" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" red="0.06425096558" green="0.06425096558" blue="0.06425096558" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.22848958329999999" green="0.22848958329999999" blue="0.22848958329999999" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="22" y="266" width="62" height="17"/>
+                        <rect key="frame" x="22" y="286" width="62" height="17"/>
                     </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFO-rY-3Ln" userLabel="发票形式">
@@ -138,7 +139,7 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="135" y="267" width="142" height="15"/>
+                        <rect key="frame" x="135" y="287" width="142" height="15"/>
                     </variation>
                 </label>
                 <button opaque="NO" contentMode="topRight" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6kX-Wv-cmX" userLabel="点击开什么发票">
@@ -148,7 +149,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="15" y="257" width="290" height="35"/>
+                        <rect key="frame" x="15" y="277" width="290" height="35"/>
                     </variation>
                     <connections>
                         <action selector="clickLnvoiceType:" destination="-1" eventType="touchUpInside" id="UXK-Ck-hLl"/>
@@ -160,7 +161,7 @@
                     <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="22" y="353" width="33" height="16"/>
+                        <rect key="frame" x="22" y="373" width="33" height="16"/>
                     </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="本单暂不提供" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vo4-vK-5Wh">
@@ -169,19 +170,19 @@
                     <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="231" y="356" width="74" height="15"/>
+                        <rect key="frame" x="231" y="376" width="74" height="15"/>
                     </variation>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cell-bg-single" translatesAutoresizingMaskIntoConstraints="NO" id="baB-2G-YSJ" userLabel="积分">
                     <rect key="frame" x="10" y="300" width="302" height="35"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="10" y="386" width="302" height="35"/>
+                        <rect key="frame" x="10" y="406" width="302" height="35"/>
                     </variation>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shopping-checkout-body-bg-sm" translatesAutoresizingMaskIntoConstraints="NO" id="vhm-e4-S8D" userLabel="订单详情">
                     <rect key="frame" x="0.0" y="343" width="320" height="35"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="0.0" y="429" width="320" height="35"/>
+                        <rect key="frame" x="0.0" y="449" width="320" height="35"/>
                     </variation>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="积分  " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1dH-XC-LJ2">
@@ -190,7 +191,7 @@
                     <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="22" y="395" width="33" height="16"/>
+                        <rect key="frame" x="22" y="415" width="33" height="16"/>
                     </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="本单暂不提供" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HeW-Hs-hAe">
@@ -199,7 +200,7 @@
                     <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="231" y="398" width="74" height="15"/>
+                        <rect key="frame" x="231" y="418" width="74" height="15"/>
                     </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="订单详情" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8HP-Wk-QZx">
@@ -208,25 +209,16 @@
                     <color key="textColor" red="0.06425096558" green="0.06425096558" blue="0.06425096558" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="15" y="447" width="62" height="13"/>
+                        <rect key="frame" x="15" y="467" width="62" height="13"/>
                     </variation>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Gy-wY-zbO" userLabel="点击地址什么编辑">
-                    <rect key="frame" x="10" y="8" width="300" height="112"/>
-                    <state key="normal">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="clickAddress:" destination="-1" eventType="touchUpInside" id="w7v-tr-Wee"/>
-                    </connections>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="快递" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHR-xz-I9O" userLabel="配送方式">
                     <rect key="frame" x="269" y="224" width="29" height="15"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="269" y="310" width="29" height="15"/>
+                        <rect key="frame" x="269" y="330" width="29" height="15"/>
                     </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="全场满39包邮！" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSL-88-eVf">
@@ -235,138 +227,274 @@
                     <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="87" y="311" width="108" height="13"/>
+                        <rect key="frame" x="87" y="331" width="108" height="13"/>
                     </variation>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WePayLogo绿色logo" translatesAutoresizingMaskIntoConstraints="NO" id="oz8-wt-yHl">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qo2-QV-3kq">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="28" y="165" width="32" height="32"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="body-cont-bg" translatesAutoresizingMaskIntoConstraints="NO" id="X85-8g-81w" userLabel="支付方式背景">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="8" y="3" width="304" height="159"/>
+                            </variation>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="支付方式" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUo-1h-vVg">
+                            <rect key="frame" x="22" y="138" width="62" height="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.06425096558" green="0.06425096558" blue="0.06425096558" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="26" y="13" width="62" height="15"/>
+                            </variation>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon-necessary" translatesAutoresizingMaskIntoConstraints="NO" id="sue-b2-Hme" userLabel="必填">
+                            <rect key="frame" x="89" y="135" width="28" height="23"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="93" y="10" width="28" height="23"/>
+                            </variation>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WePayLogo绿色logo" translatesAutoresizingMaskIntoConstraints="NO" id="oz8-wt-yHl">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="26" y="39" width="28" height="28"/>
+                            </variation>
+                        </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U8O-gg-wKw" userLabel="---- 分割线">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <color key="backgroundColor" red="0.878" green="0.878" blue="0.878" alpha="1" colorSpace="calibratedRGB"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="18" y="32" width="280" height="1"/>
+                            </variation>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hI0-v6-fh0" userLabel="----分割线2">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <color key="backgroundColor" red="0.87149999999999994" green="0.87149999999999994" blue="0.87149999999999994" alpha="1" colorSpace="calibratedRGB"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="18" y="75" width="280" height="1"/>
+                            </variation>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UdH-Kp-Itl" userLabel="----分割线3">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <color key="backgroundColor" red="0.87150000000000005" green="0.87150000000000005" blue="0.87150000000000005" alpha="1" colorSpace="calibratedRGB"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="18" y="119" width="280" height="1"/>
+                            </variation>
+                        </view>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zhifubaozhifu" translatesAutoresizingMaskIntoConstraints="NO" id="HRd-tU-p3l">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="27" y="83" width="26" height="26"/>
+                            </variation>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付宝支付" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZx-aU-Gds">
+                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.24391666666666667" green="0.24391666666666667" blue="0.24391666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="63" y="83" width="85" height="16"/>
+                            </variation>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WePayLogo按钮标签" translatesAutoresizingMaskIntoConstraints="NO" id="4ue-yl-eYs">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="139" y="46" width="38" height="16"/>
+                            </variation>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信支付" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3z-IH-1UJ">
+                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.24391666670000001" green="0.24391666670000001" blue="0.24391666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="63" y="40" width="85" height="17"/>
+                            </variation>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="推荐支付宝用户使用" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90Q-i0-yyo">
+                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <color key="textColor" red="0.58727083333333341" green="0.58727083333333341" blue="0.58727083333333341" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="65" y="99" width="126" height="15"/>
+                            </variation>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信用户使用" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xC5-sP-sYy">
+                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <color key="textColor" red="0.58727083329999996" green="0.58727083329999996" blue="0.58727083329999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="63" y="55" width="126" height="15"/>
+                            </variation>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8qV-Ih-eMD">
+                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <inset key="imageEdgeInsets" minX="240" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" image="oval_unselected"/>
+                            <state key="selected" image="item-info-check"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="18" y="34" width="292" height="41"/>
+                            </variation>
+                            <connections>
+                                <action selector="payWay:" destination="-1" eventType="touchUpInside" id="6w2-lV-1yd"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqJ-Rr-wcn">
+                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <inset key="imageEdgeInsets" minX="240" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" image="oval_unselected"/>
+                            <state key="selected" image="item-info-check"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="18" y="77" width="292" height="41"/>
+                            </variation>
+                            <connections>
+                                <action selector="payWay:" destination="-1" eventType="touchUpInside" id="vt2-aT-QSB"/>
+                            </connections>
+                        </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UnionPay" translatesAutoresizingMaskIntoConstraints="NO" id="fRL-pE-0Ha">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="22" y="125" width="43" height="26"/>
+                            </variation>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="银联支付" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1E-tH-ZSy">
+                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.24391666670000001" green="0.24391666670000001" blue="0.24391666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="73" y="130" width="85" height="16"/>
+                            </variation>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUm-Xh-w3G">
+                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <inset key="imageEdgeInsets" minX="240" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" image="oval_unselected"/>
+                            <state key="selected" image="item-info-check"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="18" y="119" width="292" height="41"/>
+                            </variation>
+                            <connections>
+                                <action selector="payWay:" destination="-1" eventType="touchUpInside" id="2EI-Ad-1Sh"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <variation key="default">
+                        <mask key="subviews">
+                            <exclude reference="X85-8g-81w"/>
+                            <exclude reference="BUo-1h-vVg"/>
+                            <exclude reference="sue-b2-Hme"/>
+                            <exclude reference="oz8-wt-yHl"/>
+                            <exclude reference="U8O-gg-wKw"/>
+                            <exclude reference="hI0-v6-fh0"/>
+                            <exclude reference="UdH-Kp-Itl"/>
+                            <exclude reference="HRd-tU-p3l"/>
+                            <exclude reference="cZx-aU-Gds"/>
+                            <exclude reference="4ue-yl-eYs"/>
+                            <exclude reference="b3z-IH-1UJ"/>
+                            <exclude reference="90Q-i0-yyo"/>
+                            <exclude reference="xC5-sP-sYy"/>
+                            <exclude reference="8qV-Ih-eMD"/>
+                            <exclude reference="dqJ-Rr-wcn"/>
+                            <exclude reference="fRL-pE-0Ha"/>
+                            <exclude reference="a1E-tH-ZSy"/>
+                            <exclude reference="dUm-Xh-w3G"/>
+                        </mask>
                     </variation>
-                </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U8O-gg-wKw" userLabel="支付分割线">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <color key="backgroundColor" red="0.878" green="0.878" blue="0.878" alpha="1" colorSpace="calibratedRGB"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="20" y="158" width="280" height="1"/>
+                        <rect key="frame" x="1" y="108" width="320" height="166"/>
+                        <mask key="subviews">
+                            <include reference="X85-8g-81w"/>
+                            <include reference="BUo-1h-vVg"/>
+                            <include reference="sue-b2-Hme"/>
+                            <include reference="oz8-wt-yHl"/>
+                            <include reference="U8O-gg-wKw"/>
+                            <include reference="hI0-v6-fh0"/>
+                            <include reference="UdH-Kp-Itl"/>
+                            <include reference="HRd-tU-p3l"/>
+                            <include reference="cZx-aU-Gds"/>
+                            <include reference="4ue-yl-eYs"/>
+                            <include reference="b3z-IH-1UJ"/>
+                            <include reference="90Q-i0-yyo"/>
+                            <include reference="xC5-sP-sYy"/>
+                            <include reference="8qV-Ih-eMD"/>
+                            <include reference="dqJ-Rr-wcn"/>
+                            <include reference="fRL-pE-0Ha"/>
+                            <include reference="a1E-tH-ZSy"/>
+                            <include reference="dUm-Xh-w3G"/>
+                        </mask>
                     </variation>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hI0-v6-fh0" userLabel="支付分割线2">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <color key="backgroundColor" red="0.87149999999999994" green="0.87149999999999994" blue="0.87149999999999994" alpha="1" colorSpace="calibratedRGB"/>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Gy-wY-zbO" userLabel="点击地址什么编辑">
+                    <rect key="frame" x="10" y="8" width="300" height="112"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="20" y="201" width="280" height="1"/>
+                        <rect key="frame" x="12" y="10" width="300" height="97"/>
+                    </variation>
+                    <connections>
+                        <action selector="clickAddress:" destination="-1" eventType="touchUpInside" id="w7v-tr-Wee"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O4E-aX-Zs0" userLabel="----- 分割线">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <color key="backgroundColor" red="0.92695833329999999" green="0.92695833329999999" blue="0.92695833329999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="WtM-ZI-nlW"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="WtM-ZI-nlW"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="WtM-ZI-nlW"/>
+                        </mask>
                     </variation>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zhifubaozhifu" translatesAutoresizingMaskIntoConstraints="NO" id="HRd-tU-p3l">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="30" y="209" width="30" height="30"/>
-                    </variation>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付宝支付" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZx-aU-Gds">
-                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" red="0.24391666666666667" green="0.24391666666666667" blue="0.24391666666666667" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="65" y="209" width="85" height="16"/>
-                    </variation>
-                </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WePayLogo按钮标签" translatesAutoresizingMaskIntoConstraints="NO" id="4ue-yl-eYs">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="141" y="172" width="38" height="16"/>
-                    </variation>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信支付" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3z-IH-1UJ">
-                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" red="0.24391666670000001" green="0.24391666670000001" blue="0.24391666670000001" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="65" y="166" width="85" height="17"/>
-                    </variation>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="推荐支付宝用户使用" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90Q-i0-yyo">
-                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                    <color key="textColor" red="0.58727083333333341" green="0.58727083333333341" blue="0.58727083333333341" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="67" y="225" width="126" height="15"/>
-                    </variation>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信用户使用" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xC5-sP-sYy">
-                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                    <color key="textColor" red="0.58727083329999996" green="0.58727083329999996" blue="0.58727083329999996" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="65" y="181" width="126" height="15"/>
-                    </variation>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8qV-Ih-eMD">
-                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                    <inset key="imageEdgeInsets" minX="240" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" image="oval_unselected"/>
-                    <state key="selected" image="item-info-check"/>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="20" y="160" width="292" height="41"/>
-                    </variation>
-                    <connections>
-                        <action selector="payWay:" destination="-1" eventType="touchUpInside" id="6w2-lV-1yd"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqJ-Rr-wcn">
-                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                    <inset key="imageEdgeInsets" minX="240" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" image="oval_unselected"/>
-                    <state key="selected" image="item-info-check"/>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="20" y="203" width="292" height="41"/>
-                    </variation>
-                    <connections>
-                        <action selector="payWay:" destination="-1" eventType="touchUpInside" id="vt2-aT-QSB"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="O4E-aX-Zs0" secondAttribute="trailing" id="D9Q-fk-VEg">
+                    <variation key="widthClass=compact" constant="8"/>
+                </constraint>
+                <constraint firstAttribute="bottom" secondItem="O4E-aX-Zs0" secondAttribute="bottom" id="DhD-a6-AG2"/>
+                <constraint firstItem="O4E-aX-Zs0" firstAttribute="leading" secondItem="px4-iR-cqy" secondAttribute="leading" id="hDZ-OP-dde">
+                    <variation key="widthClass=compact" constant="8"/>
+                </constraint>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
                 <mask key="subviews">
-                    <exclude reference="X85-8g-81w"/>
-                    <exclude reference="oz8-wt-yHl"/>
-                    <exclude reference="U8O-gg-wKw"/>
-                    <exclude reference="hI0-v6-fh0"/>
-                    <exclude reference="HRd-tU-p3l"/>
-                    <exclude reference="cZx-aU-Gds"/>
-                    <exclude reference="4ue-yl-eYs"/>
-                    <exclude reference="b3z-IH-1UJ"/>
-                    <exclude reference="90Q-i0-yyo"/>
-                    <exclude reference="xC5-sP-sYy"/>
-                    <exclude reference="8qV-Ih-eMD"/>
-                    <exclude reference="dqJ-Rr-wcn"/>
+                    <exclude reference="Qo2-QV-3kq"/>
+                    <exclude reference="4Gy-wY-zbO"/>
+                    <exclude reference="O4E-aX-Zs0"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="D9Q-fk-VEg"/>
+                    <exclude reference="DhD-a6-AG2"/>
+                    <exclude reference="hDZ-OP-dde"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
                 <mask key="subviews">
-                    <include reference="X85-8g-81w"/>
-                    <include reference="oz8-wt-yHl"/>
-                    <include reference="U8O-gg-wKw"/>
-                    <include reference="hI0-v6-fh0"/>
-                    <include reference="HRd-tU-p3l"/>
-                    <include reference="cZx-aU-Gds"/>
-                    <include reference="4ue-yl-eYs"/>
-                    <include reference="b3z-IH-1UJ"/>
-                    <include reference="90Q-i0-yyo"/>
-                    <include reference="xC5-sP-sYy"/>
-                    <include reference="8qV-Ih-eMD"/>
-                    <include reference="dqJ-Rr-wcn"/>
+                    <include reference="Qo2-QV-3kq"/>
+                    <include reference="4Gy-wY-zbO"/>
+                    <include reference="O4E-aX-Zs0"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="D9Q-fk-VEg"/>
+                    <include reference="DhD-a6-AG2"/>
+                    <include reference="hDZ-OP-dde"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="704" y="-95"/>
+            <point key="canvasLocation" x="695" y="-235"/>
         </view>
         <view contentMode="scaleToFill" id="pt4-AE-WJT" userLabel="footerView">
             <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
@@ -377,54 +505,72 @@
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shopping-cart-body-bg-02" translatesAutoresizingMaskIntoConstraints="NO" id="cWh-QI-Pfw">
                     <rect key="frame" x="0.0" y="90" width="320" height="80"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="0.0" y="90" width="320" height="66"/>
+                    </variation>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="运输费" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LYT-cj-386">
                     <rect key="frame" x="15" y="13" width="42" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.22848958333333336" green="0.22848958333333336" blue="0.22848958333333336" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+ 0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="foc-nb-BA6">
                     <rect key="frame" x="201" y="13" width="101" height="16"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="206" y="13" width="101" height="16"/>
+                    </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="- 0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="38k-dr-Fb2">
                     <rect key="frame" x="201" y="37" width="101" height="16"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="206" y="37" width="101" height="16"/>
+                    </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="- 0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7e-l2-zH4">
                     <rect key="frame" x="201" y="61" width="101" height="16"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="206" y="61" width="101" height="16"/>
+                    </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="红包" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAT-o6-TAO">
                     <rect key="frame" x="15" y="37" width="31" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.22848958333333336" green="0.22848958333333336" blue="0.22848958333333336" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="积分" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OAf-8N-Hh9">
                     <rect key="frame" x="15" y="61" width="31" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.22848958333333336" green="0.22848958333333336" blue="0.22848958333333336" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="总额：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOI-fm-7dZ">
                     <rect key="frame" x="15" y="113" width="55" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="15" y="104" width="55" height="21"/>
+                    </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzP-90-C3V">
                     <rect key="frame" x="62" y="116" width="104" height="15"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="62" y="107" width="104" height="15"/>
+                    </variation>
                 </label>
                 <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPF-9m-Sw0">
                     <rect key="frame" x="182" y="104" width="120" height="40"/>
@@ -432,18 +578,64 @@
                     <state key="normal" title="提交订单" image="shopping-checkout-sub-order-icon" backgroundImage="shopping-cart-acc-btn-red">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="195" y="99" width="101" height="31"/>
+                    </variation>
                     <connections>
                         <action selector="clickSubmitListing:" destination="-1" eventType="touchUpInside" id="QvB-d8-hxU"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ma8-7m-4gp" userLabel="-----  分割线">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <color key="backgroundColor" red="0.92695833329999999" green="0.92695833329999999" blue="0.92695833329999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="fi8-lr-mMR"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="fi8-lr-mMR"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="fi8-lr-mMR"/>
+                        </mask>
+                    </variation>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Ma8-7m-4gp" firstAttribute="top" secondItem="pt4-AE-WJT" secondAttribute="top" id="3vf-bJ-XOw"/>
+                <constraint firstItem="Ma8-7m-4gp" firstAttribute="leading" secondItem="pt4-AE-WJT" secondAttribute="leading" constant="8" id="5gG-I9-6w5"/>
+                <constraint firstAttribute="trailing" secondItem="Ma8-7m-4gp" secondAttribute="trailing" constant="8" id="mIs-yh-S7Y"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="801" y="448"/>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="Ma8-7m-4gp"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="3vf-bJ-XOw"/>
+                    <exclude reference="5gG-I9-6w5"/>
+                    <exclude reference="mIs-yh-S7Y"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="Ma8-7m-4gp"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="3vf-bJ-XOw"/>
+                    <include reference="5gG-I9-6w5"/>
+                    <include reference="mIs-yh-S7Y"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="695" y="137"/>
         </view>
     </objects>
     <resources>
+        <image name="UnionPay" width="51" height="31"/>
         <image name="WePayLogo按钮标签" width="100" height="43"/>
         <image name="WePayLogo绿色logo" width="328" height="289"/>
         <image name="accsessory-arrow-right" width="6" height="10"/>

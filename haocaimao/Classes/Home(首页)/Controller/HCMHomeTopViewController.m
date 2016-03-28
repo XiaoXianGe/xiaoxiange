@@ -128,14 +128,24 @@
   
     CGRect frame = [[UIScreen mainScreen]bounds];
     
+    // 情景一：采用本地图片实现
+//    NSArray *images = @[[UIImage imageNamed:@"h1.jpg"],
+//                        [UIImage imageNamed:@"h2.jpg"],
+//                        [UIImage imageNamed:@"h3.jpg"]
+//                        ];
+    
+    // 本地加载 --- 创建不带标题的图片轮播器
+//    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 20, frame.size.width, 160) imagesGroup:images];
+
+    
     //网络加载 --- 创建带标题的图片轮播器
     SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 20, frame.size.width, 160) imageURLStringsGroup:imageArray]; // 模拟网络延时情景
     
-    cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
+    cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
     cycleScrollView.delegate = self;
     
     cycleScrollView.placeholderImage = [UIImage imageNamed:@"Placeholder_ Advertise"];
-    
+    cycleScrollView.dotColor = HCMColor(230, 30, 30, 0.2);
     [self.view addSubview:cycleScrollView];
 }
 

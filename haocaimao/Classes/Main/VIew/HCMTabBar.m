@@ -52,7 +52,8 @@
         [consultingBtn setBackgroundImage:[UIImage imageNamed:@"我要询价"] forState:UIControlStateNormal];
         [consultingBtn setBackgroundImage:[UIImage imageNamed:@"我要询价"] forState:UIControlStateHighlighted];
         [consultingBtn addTarget:self action:@selector(goToconsulting) forControlEvents:UIControlEventTouchUpInside];
-        consultingBtn.size = consultingBtn.currentBackgroundImage.size;
+//        consultingBtn.size = consultingBtn.currentBackgroundImage.size;
+        consultingBtn.size = CGSizeMake(50, 47);
        
         self.consultingBtn = consultingBtn;
         
@@ -98,6 +99,7 @@
     
 }
 
+//我要咨询
 -(void)goToconsulting{
     
     self.status = [self.defaults boolForKey:@"status"];

@@ -114,8 +114,9 @@ static NSString *identifier = @"ID";
 
 /** 子搜索请求 */
 - (void)loadData:(NSString *)cateId{
-    
 
+    
+    
     NSDictionary *sub = @{@"cateId":cateId};
 
     [[SearchNetwork sharedManager]postCategorySubSearch:sub successBlock:^(id responseSub) {

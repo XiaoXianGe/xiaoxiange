@@ -80,10 +80,8 @@ static NSString * const reuseIdentifier = @"MyCell";
 
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    //self.tableView.tableHeaderView.height = 456;
-    self.headerView.height = 464;
-   
-    
+    self.headerView.height = 484;
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, -44, 0);
 }
 
 - (void)clickBack{
@@ -222,7 +220,7 @@ static NSString * const reuseIdentifier = @"MyCell";
     
 }
 #pragma mark -invContentListVCDelegate
-
+//发票信息
 - (void)setInvContent:(invContentListVC *)invContent dictData:(NSDictionary *)dict{
     
     self.invDict = dict;
@@ -274,6 +272,8 @@ static NSString * const reuseIdentifier = @"MyCell";
                 pay = @"8";
             }else if (self.payTag == 1){//支付宝
                 pay = @"6";
+            }else{
+                pay = @"2";
             }
             
         }

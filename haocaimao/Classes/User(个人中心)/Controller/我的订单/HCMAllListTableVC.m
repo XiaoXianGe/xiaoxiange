@@ -360,26 +360,14 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         order_status_label.tag = 82;
         order_status_label.text = [NSString stringWithFormat:@"订单状态:%@",orderList.order_status];
         
-        
-//        UIButton *payBtn = [self setButtonRect:CGRectMake(240 , 10, 60, 20) bgImage:@"button-narrow-red" title:@"付  款"];
-//        [payBtn addTarget:self action:@selector(clickPayment:) forControlEvents:UIControlEventTouchUpInside];
-//        self.payButton = payBtn;
-//        payBtn.hidden = YES;
-        
+
         footer = footerView.view;
         footer.tag = 80;
-        
-//        [footer addSubview:payBtn];
+
         [footer addSubview:order_status_label];//订单状态
         [footer addSubview:total_fee_label];//总价格
         [myFooter.contentView addSubview:footer];
     }
-//    if ([orderList.order_status isEqualToString:@"未确定"]) {
-//        self.payButton.hidden = NO;
-//    }else{
-//        self.payButton.hidden = YES;
-//    }
-//    
 
     return myFooter;
 }

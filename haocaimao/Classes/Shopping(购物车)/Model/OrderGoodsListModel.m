@@ -22,7 +22,7 @@
         
         self.consignee = dataDic[@"consignee"][@"consignee"];
         self.address = dataDic[@"consignee"][@"address"];
-        self.tel = dataDic[@"consignee"][@"tel"];
+        self.tel = dataDic[@"consignee"][@"mobile"];
         self.country_name = dataDic[@"consignee"][@"country_name"];
         self.province_name = dataDic[@"consignee"][@"province_name"];
         self.district_name = dataDic[@"consignee"][@"district_name"];

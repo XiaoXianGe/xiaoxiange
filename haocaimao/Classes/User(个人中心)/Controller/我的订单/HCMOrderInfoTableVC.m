@@ -133,6 +133,8 @@ static NSString *const orderInfoID = @"orderInfoCell";
     self.consignee.text = model.consignee;
     self.mobile.text = model.mobile;
     self.address.text = model.address;
+    
+    self.paymentName.text = model.paymentName;
     self.payStatus.text = model.payStatus;
     self.orderStatus.text = model.orderStatus;
     
