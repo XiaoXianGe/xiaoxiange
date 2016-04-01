@@ -290,7 +290,7 @@
     NSString *url = [[NSString alloc]init];
     if (self.status) {//带用户信息的分享
         NSString *uid = [self.defaults objectForKey:@"uid"];
-        url = [NSString stringWithFormat:@"http://www.haocaimao.com/mobile/index.php?m=default&c=goods&a=index&id=%@&u=%@",self.goods_id,uid];
+        url = [NSString stringWithFormat:@"http://www.haocaimao.com/mobile/index.php?u=%@&m=default&c=goods&a=index&id=%@",uid,self.goods_id];
     }else{//没登录不带用户信息
         url = [NSString stringWithFormat:@"http://www.haocaimao.com/mobile/index.php?m=default&c=goods&a=index&id=%@",self.goods_id];
     }
@@ -334,9 +334,9 @@
             //判读是否有sepc(规格)数据再取数据
             if (self.format_id_array.count == 0) {
                 dict[@"spec"] = @"";
-                HCMLog(@"...");
+   
               }else{
-                  HCMLog(@"...");
+
                 NSMutableArray *arr = [[NSMutableArray alloc]init];
                 
                 [arr addObject:self.format_id_array[self.tag]];
@@ -378,9 +378,7 @@
                     [SVProgressHUD showInfoWithStatus:responseBody[@"status"][@"error_desc"]];
                     return ;
                 }
-                
-                
-                
+
                 self.tabBarController.selectedIndex = 2;
                 if (self.tabBarController.selectedIndex == 2) {
                     [self.navigationController popViewControllerAnimated:YES];
@@ -620,10 +618,6 @@
     
 }
 
-
-
-
-
 #pragma mark --- 购买数量 ---
 /**
  *  修改购买数量  键盘弹出
@@ -687,8 +681,6 @@
     
     [self.alert dismiss];
     
-     NSLog(@"----------%ld",(long)self.buyOrCartIndex);
-    
     self.count = [self.countTextField.text integerValue];
     
     [self.countTextField resignFirstResponder];
@@ -696,28 +688,25 @@
     if (self.btnsArray.count == 0) {
         
         [self.countButton setTitle:[NSString stringWithFormat:@"数量 : %zd",self.count] forState:UIControlStateNormal];
-        return;
+        
     }else{
         UIButton *btn =  self.btnsArray[self.tag];
         [self.countButton setTitle:[NSString stringWithFormat:@"数量:%zd 规格:%@",self.count,btn.titleLabel.text] forState:UIControlStateNormal];
         
     }
     
-    [self getThePriceForGood:self.markPrice upDownPrice:self.allBtnPrice[self.tag]];
+//    [self getThePriceForGood:self.markPrice upDownPrice:self.allBtnPrice[self.tag]];
 
     if (_markClickBtn) {
+
         UIButton *btn = [self.buyNowAndAddCart objectAtIndex:_buyOrCartIndex];
-        
+
         [self addCartCreateButton:btn];
     }
     
   
     
 }
-
-
-
-
 
 #pragma mark --- PopView弹出 ---
 /**
@@ -926,28 +915,27 @@
         
     }
 
-    [self getThePriceForGood:self.markPrice upDownPrice:self.allBtnPrice[self.tag]];
+//    [self getThePriceForGood:self.markPrice upDownPrice:self.allBtnPrice[self.tag]];
     
 }
 
 //截取价格字符串 加减价格
--(void)getThePriceForGood:(NSString *)price upDownPrice:(NSString *)upDownPrice{
-
-    NSRange range = [price rangeOfString:@"元"];
-    NSUInteger location = range.location;
-    
-    NSString *priceC = [[NSString alloc]initWithFormat:@"%@",[price substringToIndex:location]];
-    float floatPriceStr = [priceC floatValue];//原价
-
-    float test =  [upDownPrice floatValue];
-    
-    floatPriceStr = floatPriceStr + test;
-    
-    self.shop_price_Top.text = [NSString stringWithFormat:@"￥%.2f元",floatPriceStr];
-//    self.priceLabel.text = self.shop_price_Top.text;
-//    self.NewPrice_add = floatPriceStr;
-    
-}
+//-(void)getThePriceForGood:(NSString *)price upDownPrice:(NSString *)upDownPrice{
+//
+//    NSRange range = [price rangeOfString:@"元"];
+//    NSUInteger location = range.location;
+//    
+//    NSString *priceC = [[NSString alloc]initWithFormat:@"%@",[price substringToIndex:location]];
+//    float floatPriceStr = [priceC floatValue];//原价
+//
+//    float test =  [upDownPrice floatValue];
+//    
+//    floatPriceStr = floatPriceStr + test;
+//    
+//    self.shop_price_Top.text = [NSString stringWithFormat:@"￥%.2f元",floatPriceStr];
+//
+//    
+//}
 
 -(void)chooseFormatButtonOne:(UIButton *)btns{
      self.tagOne = btns.tag;
@@ -966,8 +954,35 @@
 }
 
 -(void)clickshare{
+
+    if (!self.status) {
+
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"你尚未登录，合伙人登录分享 才有收益噢!" delegate:self cancelButtonTitle:@"不登录分享" otherButtonTitles:@"先登录", nil];
+        
+        [alert show];
+    }else{
+        
+        [self shareGoodsAndSomeInfo];
+        
+    }
     
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
+    if (buttonIndex == 0) {
+        
+        [self shareGoodsAndSomeInfo];
+    }else{
+        
+        HCMVipLoginViewController *vc = [[HCMVipLoginViewController alloc]init];
+        
+        [self presentViewController:vc animated:YES completion:nil];
+
+    }
+}
+
+-(void)shareGoodsAndSomeInfo{
     UIImageView *imageView = [self.shareImageArray firstObject];
     
     [UMSocialSnsService presentSnsIconSheetView:self
@@ -976,9 +991,6 @@
                                      shareImage:imageView.image
                                 shareToSnsNames:[NSArray arrayWithObjects:UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,nil]
                                        delegate:self];
-    
-    
-    
 }
 
 -(void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response

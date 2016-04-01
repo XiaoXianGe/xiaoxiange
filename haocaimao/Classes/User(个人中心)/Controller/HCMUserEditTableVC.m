@@ -20,6 +20,7 @@
 
 @property (strong, nonatomic)NSUserDefaults *defaults;
 
+@property (weak, nonatomic) IBOutlet UILabel *appVersion;
 @property (assign, nonatomic)NSUInteger cacheSize;
 @end
 
@@ -40,6 +41,8 @@
     
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickBack) image:@"nav-back" highImage:@"nav-back"];
     
+    [self getTheInfoFromAPP];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -59,6 +62,18 @@
     [self.tableView reloadData];
     
     self.tabBarController.tabBar.hidden = YES;
+
+}
+
+//获取版本信息
+-(void)getTheInfoFromAPP{
+    
+    NSDictionary *infoDic = [[NSBundle mainBundle] infoDictionary];
+    
+    // 获取App的版本号
+    NSString *appVersion = [infoDic objectForKey:@"CFBundleShortVersionString"];
+
+    self.appVersion.text = appVersion;
 
 }
 

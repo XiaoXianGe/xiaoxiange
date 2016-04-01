@@ -117,8 +117,7 @@ static NSString *const orderInfoID = @"orderInfoCell";
     if (self.postScriptView.hidden == YES) {
         self.footerView.height = 345;
         self.tableView.tableFooterView = self.footerView;
-    }
-    if (self.postScriptView.hidden == NO) {
+    }else{
         self.footerView.height = 415;
         self.tableView.tableFooterView = self.footerView;
         self.unitName.text = model.postscript[@"unitName"];
@@ -128,7 +127,7 @@ static NSString *const orderInfoID = @"orderInfoCell";
         self.bankName.text = model.postscript[@"bankName"];
         self.bankAccount.text = model.postscript[@"bankAccount"];
     }
-    
+    //订单号，收件人，电话，地址
     self.orderSN.text = [NSString stringWithFormat:@"订单号:%@",model.orderSN];
     self.consignee.text = model.consignee;
     self.mobile.text = model.mobile;
@@ -138,8 +137,7 @@ static NSString *const orderInfoID = @"orderInfoCell";
     //支付状态
     self.payStatus.text = model.payStatus;
     //订单状态
-    self.orderStatus.text = model.orderStatus;
-    if (![self.orderStatus.text isEqualToString:@"未确定"]) {
+    if (![model.orderStatus isEqualToString:@"未确定"]) {
         //支付按钮是否隐藏
         self.cancelOrder.hidden = YES;
         self.payOrder.hidden = YES;

@@ -96,7 +96,7 @@
     
     if (self.invAdded.hidden) {//普通发票 的情况
          HCMLog(@"普通发票");
-        if (self.invTitel.text.length > 5 ) {
+        if (self.invTitel.text.length > 0 ) {
             
             NSString *inv_type = @"普通发票";
             NSString *inv_payee = self.invTitel.text;

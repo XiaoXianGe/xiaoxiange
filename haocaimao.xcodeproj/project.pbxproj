@@ -190,9 +190,6 @@
 		238FD6511C2E82E300F95CCD /* HCMHelpTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 238FD64B1C2E82E300F95CCD /* HCMHelpTableViewController.xib */; };
 		238FD6521C2E82E300F95CCD /* UserClassitfTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 238FD64D1C2E82E300F95CCD /* UserClassitfTableViewController.m */; };
 		239214261BE9A17900CC1BCE /* HCMAdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 239214251BE9A17900CC1BCE /* HCMAdVC.m */; };
-		23929F6E1CA3EF30009D4A23 /* h2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 23929F6D1CA3EF30009D4A23 /* h2.jpg */; };
-		23929F721CA3F205009D4A23 /* h3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 23929F701CA3F205009D4A23 /* h3.jpg */; };
-		23929F741CA4CF35009D4A23 /* h1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 23929F731CA4CF35009D4A23 /* h1.jpg */; };
 		239F0F2C1BFC0FCF00A2CF6E /* TouchEventForTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 239F0F2B1BFC0FCF00A2CF6E /* TouchEventForTableView.m */; };
 		23A0155C1BB0F4D700B18EE1 /* UIImage+Circle.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A0155B1BB0F4D700B18EE1 /* UIImage+Circle.m */; };
 		23A182C71C910F8A00BAEE73 /* HCMPartnerInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A182C61C910F8A00BAEE73 /* HCMPartnerInfoModel.m */; };
@@ -672,9 +669,6 @@
 		238FD64D1C2E82E300F95CCD /* UserClassitfTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserClassitfTableViewController.m; sourceTree = "<group>"; };
 		239214241BE9A17900CC1BCE /* HCMAdVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMAdVC.h; sourceTree = "<group>"; };
 		239214251BE9A17900CC1BCE /* HCMAdVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMAdVC.m; sourceTree = "<group>"; };
-		23929F6D1CA3EF30009D4A23 /* h2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = h2.jpg; sourceTree = "<group>"; };
-		23929F701CA3F205009D4A23 /* h3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = h3.jpg; sourceTree = "<group>"; };
-		23929F731CA4CF35009D4A23 /* h1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = h1.jpg; sourceTree = "<group>"; };
 		239F0F2A1BFC0FCF00A2CF6E /* TouchEventForTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchEventForTableView.h; sourceTree = "<group>"; };
 		239F0F2B1BFC0FCF00A2CF6E /* TouchEventForTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchEventForTableView.m; sourceTree = "<group>"; };
 		23A0155A1BB0F4D700B18EE1 /* UIImage+Circle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Circle.h"; sourceTree = "<group>"; };
@@ -2327,9 +2321,6 @@
 				23D025661B8B22200009C7EE /* AppDelegate.m */,
 				23D0254C1B8B22200009C7EE /* Classes */,
 				23FBE7981B7B282500F8B3AA /* Images.xcassets */,
-				23929F701CA3F205009D4A23 /* h3.jpg */,
-				23929F6D1CA3EF30009D4A23 /* h2.jpg */,
-				23929F731CA4CF35009D4A23 /* h1.jpg */,
 				23FBE73D1B7B272400F8B3AA /* Supporting Files */,
 			);
 			path = haocaimao;
@@ -2449,7 +2440,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23929F721CA3F205009D4A23 /* h3.jpg in Resources */,
 				238FD6221C2E7EC500F95CCD /* HCMStockoutTableViewController.xib in Resources */,
 				2371D6851BF41E3200F61C8E /* sg_pop_images.xcassets in Resources */,
 				23D6505A1C101CBC00774848 /* secondCollectionReusableView.xib in Resources */,
@@ -2462,7 +2452,6 @@
 				234A44E01BCF8334006910BE /* SceneCollectionViewCell.xib in Resources */,
 				23AF71921C897660001B51CD /* MJRefresh.bundle in Resources */,
 				23DA22091B8EE990001CC7A0 /* MBProgressHUD.bundle in Resources */,
-				23929F741CA4CF35009D4A23 /* h1.jpg in Resources */,
 				238FD5EB1C2E790300F95CCD /* HCMWaitForTheDeliveryTableVC.xib in Resources */,
 				238FD5CC1C2E789C00F95CCD /* HCMUserEnshrineCollectionViewController.xib in Resources */,
 				238FD5F51C2E7B0B00F95CCD /* HCMTakeOutMoneyTableViewCell.xib in Resources */,
@@ -2502,7 +2491,6 @@
 				236E4C751BD4E90500F49463 /* HCMVipLoginViewController.xib in Resources */,
 				2357E2FD1C02C8EC00E7FA4B /* HCMNoPayHeadview.xib in Resources */,
 				23EE22121C02C2600053D68C /* HCMFlowCheckOrderTableViewController.xib in Resources */,
-				23929F6E1CA3EF30009D4A23 /* h2.jpg in Resources */,
 				23CDA4F11C23A99900F96E4A /* HCMNewPasswordController.xib in Resources */,
 				2357E2F21C02C8EC00E7FA4B /* HCMEnshrineCell.xib in Resources */,
 				238FD6511C2E82E300F95CCD /* HCMHelpTableViewController.xib in Resources */,

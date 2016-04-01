@@ -30,10 +30,19 @@
 @property (strong, nonatomic) NSMutableArray *cateModel;
 @property (strong, nonatomic)NSMutableArray *cateSubModel ;
 @property (strong, nonatomic)UIButton *TouchButton;
+
+@property(strong,nonatomic)NSMutableDictionary *params;
 @end
 
 @implementation SearchViewController
 static NSString *identifier = @"ID";
+
+-(NSMutableDictionary *)params{
+    if (!_params) {
+        _params = [NSMutableDictionary dictionary];
+    }
+    return _params;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -115,11 +124,14 @@ static NSString *identifier = @"ID";
 /** 子搜索请求 */
 - (void)loadData:(NSString *)cateId{
 
-    
-    
-    NSDictionary *sub = @{@"cateId":cateId};
-
-    [[SearchNetwork sharedManager]postCategorySubSearch:sub successBlock:^(id responseSub) {
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"cateId"]= cateId;
+    self.params = params;
+    [[SearchNetwork sharedManager]postCategorySubSearch:params successBlock:^(id responseSub) {
+        
+        if (self.params != params) return ;
+        
+        HCMLog(@"搜索是否重复发送请求");
         
         [self.cateModel removeAllObjects];
         [self.cateSubModel removeAllObjects];
@@ -128,7 +140,6 @@ static NSString *identifier = @"ID";
         
             NSMutableArray *cateSubModel = [NSMutableArray array];
 
-        
         for (NSDictionary *dict in responseSub[@"data"][@"cateInfo2"]) {
             
             secondCollectionViewModel *model = [secondCollectionViewModel parsesecondCollectionViewModel:dict];
@@ -149,7 +160,7 @@ static NSString *identifier = @"ID";
         
         
     } failureBlock:^(NSString *error) {
-        
+        if (self.params != params) return ;
         [SVProgressHUD showInfoWithStatus:error];
         
     }];
