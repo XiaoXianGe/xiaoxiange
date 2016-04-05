@@ -155,11 +155,12 @@ static NSString *const orderInfoID = @"orderInfoCell";
     self.invPayee.text = model.invPayee.length ? model.invPayee : @"无";
     self.invContent.text = model.invContent.length ? model.invContent : @"无";
     //商品总额
-    self.goodsAmount.text = [NSString stringWithFormat:@"￥%.2f",([model.orderAmount floatValue] - [model.shippingFee floatValue])];
+    self.goodsAmount.text = [NSString stringWithFormat:@"￥%@",model.goodsAmount];
     //订单运费
     self.shippingFee.text = [NSString stringWithFormat:@"￥%@",model.shippingFee];
     //订单总额
-    self.orderAmount.text = [NSString stringWithFormat:@"￥%@",model.orderAmount];
+    self.orderAmount.text = [NSString stringWithFormat:@"￥%.2f",([model.goodsAmount floatValue] + [model.shippingFee floatValue])];
+    
     //订单时间
     self.orderTime.text = [NSString stringWithFormat:@"下单时间:%@",model.addTime];
     
