@@ -1077,6 +1077,7 @@
             
             //发送购物车
             [self loadGoods_number];
+            
         }else{
             
             NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
@@ -1088,8 +1089,7 @@
                     NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
                 
                     [self parseJsonData:jsonDic];
-                        
-                        
+                
                     return ;
             
              } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -1100,7 +1100,6 @@
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
         
         self.timer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(clickBack) userInfo:nil repeats:NO];
         
@@ -1113,6 +1112,7 @@
 }
 
 - (void)loadGoods_number{
+    
     NSDictionary * dictBuyNow = @{@"session":@{@"sid":self.sid,@"uid":self.uid}};
     
     /*得到购物车信息 */
@@ -1129,6 +1129,7 @@
     }];
 
 }
+
 //倒计时
 -(void)promoteEndDate:(NSString *)inputTime{
     
@@ -1171,13 +1172,15 @@
     if (--self.counter <0 ) {
         [self.timer invalidate];
     }else{
-        self.promote_end_date.text = [NSString stringWithFormat:@"%ld天%ld小时%ld分钟%ld秒",(self.counter/86400),(self.counter/3600%24),(self.counter/60%60),(self.counter%60)];
+        self.promote_end_date.text = [NSString stringWithFormat:@"%d天%d小时%d分钟%d秒",(self.counter/86400),(self.counter/3600%24),(self.counter/60%60),(self.counter%60)];
     }
-    
 }
 
 //解析
 -(void)parseJsonData:(NSDictionary *)jsonDict{
+    
+    
+    NSLog(@"%@",jsonDict);
     
     ///判断是否重复
     if (jsonDict[@"status"][@"error_code"]) {
@@ -1189,6 +1192,7 @@
     
     //商品详情
     self.dealModel = [DealModel GoodsDealWithJSON:jsonDict];
+    
     self.passGoodsDeal_id_Str = self.dealModel.goods_id;
     if ([self.dealModel.promote_price isEqual:@0]) {
         
@@ -1202,19 +1206,26 @@
         [self promoteEndDate:str];
         self.residueTime.hidden = NO;
         self.promote_end_date.hidden = NO;
-        
     }
     
     self.app_app = self.dealModel.app_app;
-    
     self.market_price.text = self.dealModel.market_price;
     self.goods_number.text = self.dealModel.goods_number;
     self.goods_name.text = self.dealModel.goods_name;
-    
     self.buyMax = self.dealModel.buyMax;
-    if ([self.shop_price_Top.text integerValue]>=39) {
-        self.Freight.text = @"运费:包邮";
+    
+    if ([self.dealModel.is_shipping isEqualToString:@"1"]) {
+        self.Freight.text = @"邮费:  包邮";
     }
+    if (self.shop_price_Top.text) {
+        NSString *str = self.dealModel.shop_price;
+        NSRange range = NSMakeRange(0, (str.length -1));
+        str = [str substringWithRange:range];
+        if (str.floatValue >= 39.0) {
+            self.Freight.text = @"运费:  包邮";
+        }
+    }
+   
     //shopping.tabBarItem.badgeValue = @"26";
     
     //判断是否已经收藏

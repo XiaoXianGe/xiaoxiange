@@ -31,6 +31,7 @@
     self.formated_promote_price = GoodsDealJson[@"data"][@"formated_promote_price"];
     self.promote_price = GoodsDealJson[@"data"][@"promote_price"];
     self.promote_end_date = GoodsDealJson[@"data"][@"promote_end_date"];
+    self.is_shipping = GoodsDealJson[@"data"][@"is_shipping"];
     
     self.app_app = GoodsDealJson[@"data"][@"app_app"];
     self.mgoods_desc = GoodsDealJson[@"data"][@"mgoods_desc"];

@@ -18,6 +18,7 @@
 @property(nonatomic,copy)NSString *market_price;
 @property(nonatomic,copy)NSString *shop_price;
 @property(nonatomic,copy)NSString * goods_number;
+@property(nonatomic,copy)NSString * is_shipping;
 
 @property(nonatomic,copy)NSString *small_img_URL;
 @property(nonatomic,copy)NSString *thumb_pictures_URL;

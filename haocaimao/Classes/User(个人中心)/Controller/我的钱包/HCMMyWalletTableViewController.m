@@ -83,11 +83,12 @@
                 [SVProgressHUD showInfoWithStatus:responseBody[@"status"][@"error_desc"]];
                 return ;
             }
+            
             self.dic = responseBody;
             self.MaoDou.text =  [NSString stringWithFormat:@"%@ 豆",[responseBody[@"data"][@"point"] description]];
             
             self.money.text =[NSString stringWithFormat:@"%@ 元",[responseBody[@"data"][@"money"] description]];
-            self.youHuiJuan.text = [NSString stringWithFormat:@"%@ 卷",[responseBody[@"data"][@"coupon"] description]];
+            self.youHuiJuan.text = [NSString stringWithFormat:@"%@ 券",[responseBody[@"data"][@"coupon"] description]];
             
         } failureBlock:^(NSString *error) {
             

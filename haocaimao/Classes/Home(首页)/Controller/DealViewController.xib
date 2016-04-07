@@ -471,7 +471,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="615" y="-712"/>
+            <point key="canvasLocation" x="632" y="-757"/>
         </view>
     </objects>
     <resources>
