@@ -195,6 +195,12 @@ static NSString * const url = @"http://www.haocaimao.com/mobile/index.php?c=topi
     return reusableview;
     
 }
+/* 定义每个UICollectionView 的大小 */
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat width =(HCMScreenWidth -30)/2;
+    return CGSizeMake(width, 210*width/145);
+}
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
     
@@ -208,8 +214,6 @@ static NSString * const url = @"http://www.haocaimao.com/mobile/index.php?c=topi
         }else{
             return CGSizeMake(cellW, 180);
         }
-        
-        
     }
     
     return CGSizeMake(cellW, 30);

@@ -22,6 +22,7 @@
 #define BannerHeight 80
 #define FristLabelHeight 25
 #define sectionHeaderName [UIFont systemFontOfSize:12]
+#define tableViewWidth 115
 
 @interface searchView()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>;
 
@@ -66,15 +67,25 @@ static NSString *const headerID = @"CollectionHeaderView";
 //加载tableView 13分类
 - (void)setupLeftTableView{
     
-    UITableView *mainTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 100, HCMScreenHeight-104) style:UITableViewStylePlain];
+    
+    CGRect frame;
+    
+    if (HCMScreenWidth == 414.0) {
+        frame = CGRectMake(0, 0, tableViewWidth, HCMScreenHeight-110);
+    }else{
+        frame = CGRectMake(0, 0, 100, HCMScreenHeight-110);
+    }
+    
+    UITableView *mainTableView = [[UITableView alloc]initWithFrame:frame style:UITableViewStylePlain];
+    
     mainTableView.showsVerticalScrollIndicator = NO;
     mainTableView.backgroundColor = searchBackgroudColor;
+    
     mainTableView.dataSource = self;
     mainTableView.delegate = self;
     
     self.mainTableView = mainTableView;
     mainTableView.separatorStyle = UITableViewCellAccessoryNone;
-//    mainTableView.separatorColor = [UIColor lightGrayColor];
     [self addSubview:mainTableView];
     
     [self.mainTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
@@ -95,17 +106,15 @@ static NSString *const headerID = @"CollectionHeaderView";
     
         cell = [[mainTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         
-        
     }
-    UIView *view = [[UIView alloc]init];
-    view.backgroundColor = markLineColor;
-    view.frame = CGRectMake(0, cell.contentView.height - 1, cell.contentView.width, 1);
-    [cell.contentView addSubview:view];
+//    UIView *view = [[UIView alloc]init];
+//    view.backgroundColor = markLineColor;
+//    view.frame = CGRectMake(0, cell.height-1, cell.contentView.width, 1);
+//    [cell.contentView addSubview:view];
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.contentView.backgroundColor = [UIColor whiteColor];
     cell.textLabel.textColor = [UIColor darkGrayColor];
-
     
     [cell showImage:model.cateLogo textTitle:model.cateName];
     
@@ -150,24 +159,34 @@ static NSString *const headerID = @"CollectionHeaderView";
     
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    if (HCMScreenWidth == 414.0 ) {
+        return 50;
+    }
     return 44;
 }
 
 //* cell的分割线向左移动  *//
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        [cell setSeparatorInset:UIEdgeInsetsZero];
-    }
-    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-        [cell setLayoutMargins:UIEdgeInsetsZero];
-    }
-}
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+//    
+//    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+//        [cell setSeparatorInset:UIEdgeInsetsZero];
+//    }
+//    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+//        [cell setLayoutMargins:UIEdgeInsetsZero];
+//    }
+//}
 
 
 
 //////////////////////////////   collection View //////////////////////////////////
+//////////////////////////////   collection View //////////////////////////////////
+//////////////////////////////   collection View //////////////////////////////////
+//////////////////////////////   collection View //////////////////////////////////
+//////////////////////////////   collection View //////////////////////////////////
+//////////////////////////////   collection View //////////////////////////////////
+//////////////////////////////   collection View //////////////////////////////////
+//////////////////////////////   collection View //////////////////////////////////
+
 
 
 //提前注册collection的cell，注册头视图
@@ -176,7 +195,15 @@ static NSString *const headerID = @"CollectionHeaderView";
     fLayout.minimumInteritemSpacing = 10.0f;
     fLayout.minimumLineSpacing = 10.0f;
     
-    UICollectionView *secondCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake( 100, 0, HCMScreenWidth - 100, HCMScreenHeight-104) collectionViewLayout:fLayout];
+    CGRect frame;
+    
+    if (HCMScreenWidth == 414.0) {
+        frame = CGRectMake(tableViewWidth, 0, HCMScreenWidth - tableViewWidth, HCMScreenHeight-110);
+    }else{
+        frame = CGRectMake( 100, 0, HCMScreenWidth - 100, HCMScreenHeight-110);
+    }
+    
+    UICollectionView *secondCollectionView = [[UICollectionView alloc]initWithFrame:frame collectionViewLayout:fLayout];
     secondCollectionView.showsVerticalScrollIndicator = NO;
     secondCollectionView.backgroundColor = searchViewColor;
     secondCollectionView.delegate = self;
@@ -185,8 +212,11 @@ static NSString *const headerID = @"CollectionHeaderView";
     [secondCollectionView registerClass:[secondCollectionViewCell class] forCellWithReuseIdentifier:identifier];
     
     UINib *nib = [UINib nibWithNibName:@"secondCollectionReusableView" bundle:nil];
+    
     [secondCollectionView registerNib:nib forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerID];
+    
     [secondCollectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"TopHeaderView"];
+    
     [self addSubview:secondCollectionView];
 }
 
@@ -205,6 +235,7 @@ static NSString *const headerID = @"CollectionHeaderView";
     cell.goods_image = model.cateLogo;
     return cell;
 }
+
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
     
     UICollectionReusableView *reusableview = nil;
@@ -215,7 +246,7 @@ static NSString *const headerID = @"CollectionHeaderView";
         UICollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"TopHeaderView" forIndexPath:indexPath];
         
         if (!self.Btn) {
-            UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(10, 0, headerView.width - 20, BannerHeight)];
+            UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(10, 0, headerView.width - 20, HCMScreenWidth * BannerHeight /320)];
             
             [btn sd_setBackgroundImageWithURL:[NSURL URLWithString:model.cateBanner]  forState:UIControlStateNormal];
             btn.tag = [model.cateId integerValue];
@@ -223,12 +254,13 @@ static NSString *const headerID = @"CollectionHeaderView";
             self.Btn = btn;
             [headerView addSubview:self.Btn];
         }else{
-            
+            self.Btn.tag = [model.cateId integerValue];
             [self.Btn sd_setBackgroundImageWithURL:[NSURL URLWithString:model.cateBanner]  forState:UIControlStateNormal];
+            
         }
         
         if (!self.HeaderLabel) {
-            UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, BannerHeight,headerView.width, FristLabelHeight)];
+            UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, HCMScreenWidth * BannerHeight /320,headerView.width, FristLabelHeight)];
             label.backgroundColor = [UIColor whiteColor];
             label.font = sectionHeaderName;
             label.text = [NSString stringWithFormat:@"    %@",model.cateName2];
@@ -237,7 +269,6 @@ static NSString *const headerID = @"CollectionHeaderView";
         }else{
              self.HeaderLabel.text = [NSString stringWithFormat:@"    %@",model.cateName2];
         }
-        
         
         reusableview = headerView;
     }else{
@@ -260,8 +291,15 @@ static NSString *const headerID = @"CollectionHeaderView";
 
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    CGFloat width;
+    if (HCMScreenWidth ==414.0) {
+        width =(HCMScreenWidth - tableViewWidth - 40)/3;
+    }else{
+        width =(HCMScreenWidth - 100 - 40)/3;
+    }
     
-    return CGSizeMake(60, 80);
+    CGFloat height = width * 80 / 60;
+    return CGSizeMake(width,height);
 }
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     return UIEdgeInsetsMake(0, 10, 0, 10);
@@ -272,7 +310,7 @@ static NSString *const headerID = @"CollectionHeaderView";
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
     if (section == 0) {
     
-        return CGSizeMake(self.secondCollectionView.width, BannerHeight + FristLabelHeight);
+        return CGSizeMake(self.secondCollectionView.width, HCMScreenWidth * BannerHeight /320 + FristLabelHeight);
     }
     CGSize size={self.secondCollectionView.frame.size.width,34};
     return size;

@@ -65,6 +65,7 @@ static NSString *const reuseIdentifier = @"Cell";
     
     [self sendTheOutGoodsList];
     
+    self.tableView.tableFooterView = [[UIView alloc]init];
     
 }
 
@@ -202,7 +203,7 @@ static NSString *const reuseIdentifier = @"Cell";
         
         UIImageView *imageView =[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"yudingzhong"]];
         
-        imageView.frame = CGRectMake(270, 12, 50, 50);
+        imageView.frame = CGRectMake(HCMScreenWidth-80, 12, 50, 50);
         
         [cell addSubview:imageView];
         

@@ -267,5 +267,18 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.navigationController pushViewController:dealVC animated:YES];
     
 }
+/* 定义每个UICollectionView 的大小 */
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat width =(HCMScreenWidth -30)/2;
+    return CGSizeMake(width, 195*width/145);
+}
+
+
+/* 定义每个UICollectionView 的边缘 */
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake(10, 10, 0, 10);//上 左 下 右
+}
 
 @end

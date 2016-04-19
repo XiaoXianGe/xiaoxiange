@@ -9,6 +9,7 @@
 #import "HCMNoPayFooterview.h"
 
 @interface HCMNoPayFooterview ()
+@property (weak, nonatomic) IBOutlet UIImageView *footerView;
 
 @end
 
@@ -18,6 +19,9 @@
 - (void)viewDidLoad{
     
     [super viewDidLoad];
+    
+    self.footerView.frame = CGRectMake(0, 0, HCMScreenWidth, 44);
+    
 }
 
 @end

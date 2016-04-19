@@ -42,7 +42,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cell-bg-header-small" translatesAutoresizingMaskIntoConstraints="NO" id="F5O-N4-7iX">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell-bg-header-small" translatesAutoresizingMaskIntoConstraints="NO" id="F5O-N4-7iX">
                         <rect key="frame" x="8" y="0.0" width="304" height="43"/>
                     </imageView>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="收货姓名（必填）" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NNS-O8-sZI">
@@ -54,6 +54,12 @@
                         </connections>
                     </textField>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="F5O-N4-7iX" firstAttribute="top" secondItem="HCv-yx-YeT" secondAttribute="top" id="9ks-BH-CYu"/>
+                    <constraint firstItem="F5O-N4-7iX" firstAttribute="leading" secondItem="HCv-yx-YeT" secondAttribute="leading" constant="8" id="VIF-nf-QJv"/>
+                    <constraint firstAttribute="bottom" secondItem="F5O-N4-7iX" secondAttribute="bottom" id="VrA-9k-xDJ"/>
+                    <constraint firstAttribute="trailing" secondItem="F5O-N4-7iX" secondAttribute="trailing" constant="8" id="obd-VG-vua"/>
+                </constraints>
             </tableViewCellContentView>
             <point key="canvasLocation" x="503" y="45"/>
         </tableViewCell>
@@ -64,7 +70,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cell-bg-content-small" translatesAutoresizingMaskIntoConstraints="NO" id="Rgo-xy-YAQ">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell-bg-content-small" translatesAutoresizingMaskIntoConstraints="NO" id="Rgo-xy-YAQ">
                         <rect key="frame" x="8" y="0.0" width="304" height="43"/>
                     </imageView>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号码（必填）" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="F3q-V6-oMS">
@@ -76,6 +82,12 @@
                         </connections>
                     </textField>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Rgo-xy-YAQ" secondAttribute="trailing" constant="8" id="Nrc-Qe-32o"/>
+                    <constraint firstAttribute="bottom" secondItem="Rgo-xy-YAQ" secondAttribute="bottom" id="Y1V-Tg-7R0"/>
+                    <constraint firstItem="Rgo-xy-YAQ" firstAttribute="top" secondItem="roG-lO-MuX" secondAttribute="top" id="aSV-lI-DeR"/>
+                    <constraint firstItem="Rgo-xy-YAQ" firstAttribute="leading" secondItem="roG-lO-MuX" secondAttribute="leading" constant="8" id="jvh-L1-GTd"/>
+                </constraints>
             </tableViewCellContentView>
             <point key="canvasLocation" x="503" y="132"/>
         </tableViewCell>
@@ -86,7 +98,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cell-bg-content-small" translatesAutoresizingMaskIntoConstraints="NO" id="rcR-rc-3Me">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell-bg-content-small" translatesAutoresizingMaskIntoConstraints="NO" id="rcR-rc-3Me">
                         <rect key="frame" x="8" y="0.0" width="304" height="43"/>
                     </imageView>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="邮箱（必填）" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oux-6Z-6Wu">
@@ -98,6 +110,12 @@
                         </connections>
                     </textField>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="rcR-rc-3Me" firstAttribute="leading" secondItem="eBk-PE-KRu" secondAttribute="leading" constant="8" id="dP4-pG-cEK"/>
+                    <constraint firstAttribute="trailing" secondItem="rcR-rc-3Me" secondAttribute="trailing" constant="8" id="dy0-BW-BmU"/>
+                    <constraint firstAttribute="bottom" secondItem="rcR-rc-3Me" secondAttribute="bottom" id="k1Z-e2-oWC"/>
+                    <constraint firstItem="rcR-rc-3Me" firstAttribute="top" secondItem="eBk-PE-KRu" secondAttribute="top" id="ogc-7y-fLy"/>
+                </constraints>
             </tableViewCellContentView>
             <point key="canvasLocation" x="503" y="214"/>
         </tableViewCell>
@@ -108,11 +126,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cell-bg-content-small" translatesAutoresizingMaskIntoConstraints="NO" id="edQ-Wg-A56">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell-bg-content-small" translatesAutoresizingMaskIntoConstraints="NO" id="edQ-Wg-A56">
                         <rect key="frame" x="8" y="0.0" width="304" height="43"/>
                     </imageView>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="邮编所在地" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YeX-Id-fpL">
-                        <rect key="frame" x="15" y="8" width="299" height="27"/>
+                        <rect key="frame" x="13" y="8" width="299" height="27"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         <connections>
@@ -120,6 +138,12 @@
                         </connections>
                     </textField>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="edQ-Wg-A56" firstAttribute="leading" secondItem="t1g-qu-i04" secondAttribute="leading" constant="8" id="11g-9S-g0p"/>
+                    <constraint firstAttribute="bottom" secondItem="edQ-Wg-A56" secondAttribute="bottom" id="Hr4-gL-zhb"/>
+                    <constraint firstAttribute="trailing" secondItem="edQ-Wg-A56" secondAttribute="trailing" constant="8" id="jgq-Te-FLo"/>
+                    <constraint firstItem="edQ-Wg-A56" firstAttribute="top" secondItem="t1g-qu-i04" secondAttribute="top" id="vbh-vW-TKo"/>
+                </constraints>
             </tableViewCellContentView>
             <point key="canvasLocation" x="503" y="300"/>
         </tableViewCell>
@@ -130,7 +154,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cell-bg-content-small" translatesAutoresizingMaskIntoConstraints="NO" id="M5v-h5-azN">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell-bg-content-small" translatesAutoresizingMaskIntoConstraints="NO" id="M5v-h5-azN">
                         <rect key="frame" x="8" y="0.0" width="304" height="43"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="所在地区" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wy0-VY-htg">
@@ -148,8 +172,12 @@
                         <color key="textColor" red="0.40784313729999999" green="0.40784313729999999" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GY9-Lg-SWG" userLabel="点击选择">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GY9-Lg-SWG" userLabel="点击选择">
                         <rect key="frame" x="192" y="7" width="120" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="3qP-Pz-Otx"/>
+                            <constraint firstAttribute="width" constant="120" id="Ya1-hx-tox"/>
+                        </constraints>
                         <state key="normal">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
@@ -158,6 +186,14 @@
                         </connections>
                     </button>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="M5v-h5-azN" firstAttribute="leading" secondItem="kiH-Kq-u3h" secondAttribute="leading" constant="8" id="85z-l6-Qt3"/>
+                    <constraint firstAttribute="trailing" secondItem="GY9-Lg-SWG" secondAttribute="trailing" constant="8" id="No6-gl-TyB"/>
+                    <constraint firstItem="M5v-h5-azN" firstAttribute="top" secondItem="kiH-Kq-u3h" secondAttribute="top" id="RUW-Mk-nBO"/>
+                    <constraint firstAttribute="trailing" secondItem="M5v-h5-azN" secondAttribute="trailing" constant="8" id="kz8-uz-Uic"/>
+                    <constraint firstAttribute="bottom" secondItem="M5v-h5-azN" secondAttribute="bottom" id="tCS-bp-vlv"/>
+                    <constraint firstItem="GY9-Lg-SWG" firstAttribute="top" secondItem="kiH-Kq-u3h" secondAttribute="top" constant="7" id="uw1-ZQ-lC6"/>
+                </constraints>
             </tableViewCellContentView>
             <point key="canvasLocation" x="503" y="386"/>
         </tableViewCell>
@@ -168,7 +204,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cell-bg-footer-small" translatesAutoresizingMaskIntoConstraints="NO" id="N7J-hy-tud">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell-bg-footer-small" translatesAutoresizingMaskIntoConstraints="NO" id="N7J-hy-tud">
                         <rect key="frame" x="8" y="0.0" width="304" height="43"/>
                     </imageView>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="详细地址（必填）" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hXa-IH-itJ">
@@ -180,6 +216,12 @@
                         </connections>
                     </textField>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="N7J-hy-tud" firstAttribute="top" secondItem="7Qp-I0-1fG" secondAttribute="top" id="2NC-3R-KdZ"/>
+                    <constraint firstAttribute="trailing" secondItem="N7J-hy-tud" secondAttribute="trailing" constant="8" id="StS-6S-Dtz"/>
+                    <constraint firstItem="N7J-hy-tud" firstAttribute="leading" secondItem="7Qp-I0-1fG" secondAttribute="leading" constant="8" id="ZWL-ys-sCG"/>
+                    <constraint firstAttribute="bottom" secondItem="N7J-hy-tud" secondAttribute="bottom" id="nqM-Fa-NuK"/>
+                </constraints>
             </tableViewCellContentView>
             <point key="canvasLocation" x="503" y="472"/>
         </tableViewCell>

@@ -919,24 +919,6 @@
     
 }
 
-//截取价格字符串 加减价格
-//-(void)getThePriceForGood:(NSString *)price upDownPrice:(NSString *)upDownPrice{
-//
-//    NSRange range = [price rangeOfString:@"元"];
-//    NSUInteger location = range.location;
-//    
-//    NSString *priceC = [[NSString alloc]initWithFormat:@"%@",[price substringToIndex:location]];
-//    float floatPriceStr = [priceC floatValue];//原价
-//
-//    float test =  [upDownPrice floatValue];
-//    
-//    floatPriceStr = floatPriceStr + test;
-//    
-//    self.shop_price_Top.text = [NSString stringWithFormat:@"￥%.2f元",floatPriceStr];
-//
-//    
-//}
-
 -(void)chooseFormatButtonOne:(UIButton *)btns{
      self.tagOne = btns.tag;
     for (UIButton *btn in self.btnArr) {

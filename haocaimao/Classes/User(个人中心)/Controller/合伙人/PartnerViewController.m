@@ -54,6 +54,10 @@
         btn.selected = YES;
         self.MarkSex = YES;
     }
+    
+//    [self.view updateConstraints];
+    [self.view updateConstraintsIfNeeded];
+    
 }
 
 - (void)viewDidLoad {
@@ -78,7 +82,13 @@
  * 初始化控制器
  */
 -(void)setupController{
+
     self.title = @"个人资料";
+    
+    self.VView.frame = CGRectMake(0, 0, HCMScreenWidth, HCMScreenHeight);
+//    [self.VView updateFocusIfNeeded];
+//    [self.VView updateConstraintsIfNeeded];
+    
     
     self.navigationController.navigationBarHidden = NO;
     self.tabBarController.tabBar.hidden = YES;

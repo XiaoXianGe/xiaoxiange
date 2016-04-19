@@ -304,8 +304,8 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         head_orderID.text = orderList.order_id;
         
         //订单详情btn
-        UIButton *orderInfoBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
-        UIButton *orderImageBtn = [self setButtonRect:CGRectMake(240 , 13, 60, 20) bgImage:@"button-narrow-gray" title:@"订单详情"];
+        UIButton *orderInfoBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, HCMScreenWidth, 44)];
+        UIButton *orderImageBtn = [self setButtonRect:CGRectMake(HCMScreenWidth -80 , 13, 60, 20) bgImage:@"button-narrow-gray" title:@"订单详情"];
         [orderImageBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [orderInfoBtn addTarget:self action:@selector(orderInfo:) forControlEvents:UIControlEventTouchUpInside];
 

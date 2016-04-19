@@ -20,6 +20,9 @@
 
 @property (weak, nonatomic) IBOutlet UIView *HotGoodsZone;
 @property (strong , nonatomic) NSArray *receiveGoodsIDArray;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *headerForLayout;
+
 @end
 
 @implementation HCMHomeTopViewController
@@ -31,6 +34,8 @@
     
     //头部广告请求
     [self sendHomeAdvertisementRequest];
+    
+    self.headerForLayout.constant =HCMScreenWidth/2 + 24*HCMScreenWidth/320;
     
     [HCMNSNotificationCenter addObserver:self selector:@selector(test:) name:@"RereshHearView" object:nil];
 }
@@ -126,7 +131,7 @@
     NSArray * imageArray = dic[@"small"];
     self.receiveGoodsIDArray = dic[@"goods_id"];
   
-    CGRect frame = [[UIScreen mainScreen]bounds];
+//    CGRect frame = [[UIScreen mainScreen]bounds];
     
     // 情景一：采用本地图片实现
 //    NSArray *images = @[[UIImage imageNamed:@"h1.jpg"],
@@ -139,7 +144,7 @@
 
     
     //网络加载 --- 创建带标题的图片轮播器
-    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 20, frame.size.width, 160) imageURLStringsGroup:imageArray]; // 模拟网络延时情景
+    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 20, HCMScreenWidth, HCMScreenWidth/2) imageURLStringsGroup:imageArray]; // 模拟网络延时情景
     
     cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
     cycleScrollView.delegate = self;

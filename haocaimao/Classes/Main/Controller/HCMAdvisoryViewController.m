@@ -83,14 +83,14 @@
 -(void)setUpPhotosImageViewAndButton{
     
     _PhotosImageView = [[UIImageView alloc]init];
-    _PhotosImageView.frame = CGRectMake(90, 339, 130, 130);
+    _PhotosImageView.frame = CGRectMake((HCMScreenWidth-130)/2, 339, 130, 130);
     
     _PhotosImageViewOut = [[UIImageView alloc]init];
-    _PhotosImageViewOut.frame = CGRectMake(70, 320, 170, 170);
+    _PhotosImageViewOut.frame = CGRectMake((HCMScreenWidth-170)/2, 320, 170, 170);
     [_PhotosImageViewOut setImage:[UIImage imageNamed:@"图片显示框"]];
     
     _updateImageBtn = [[UIButton alloc]init];
-    _updateImageBtn.frame = CGRectMake(210, 320, 30, 30);
+    _updateImageBtn.frame = CGRectMake((HCMScreenWidth-30)/2 + 70, 320, 30, 30);
     [_updateImageBtn addTarget:self action:@selector(deleteImage) forControlEvents:UIControlEventTouchUpInside];
     [_updateImageBtn setImage:[UIImage imageNamed:@"按钮"] forState:UIControlStateNormal];
     

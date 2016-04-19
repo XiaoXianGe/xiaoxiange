@@ -36,6 +36,7 @@
 		2319DA8D1C8D748F0071322F /* WXApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2319DA8C1C8D748F0071322F /* WXApiManager.m */; };
 		231CF3BC1C560D4400A3899B /* partnerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 231CF3BA1C560D4400A3899B /* partnerCell.m */; };
 		231CF3BD1C560D4400A3899B /* partnerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 231CF3BB1C560D4400A3899B /* partnerCell.xib */; };
+		23251A581CC2023000E894E0 /* HCMSortTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 23251A571CC2023000E894E0 /* HCMSortTool.m */; };
 		234A44DA1BCF7DB1006910BE /* CategoryGoods.m in Sources */ = {isa = PBXBuildFile; fileRef = 234A44D71BCF7DB1006910BE /* CategoryGoods.m */; };
 		234A44DB1BCF7DB1006910BE /* RegionNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 234A44D91BCF7DB1006910BE /* RegionNetworking.m */; };
 		234A44DF1BCF8334006910BE /* SceneCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 234A44DD1BCF8334006910BE /* SceneCollectionViewCell.m */; };
@@ -419,6 +420,8 @@
 		231CF3B91C560D4400A3899B /* partnerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = partnerCell.h; sourceTree = "<group>"; };
 		231CF3BA1C560D4400A3899B /* partnerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = partnerCell.m; sourceTree = "<group>"; };
 		231CF3BB1C560D4400A3899B /* partnerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = partnerCell.xib; sourceTree = "<group>"; };
+		23251A561CC2023000E894E0 /* HCMSortTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMSortTool.h; sourceTree = "<group>"; };
+		23251A571CC2023000E894E0 /* HCMSortTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMSortTool.m; sourceTree = "<group>"; };
 		234A44D61BCF7DB1006910BE /* CategoryGoods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryGoods.h; sourceTree = "<group>"; };
 		234A44D71BCF7DB1006910BE /* CategoryGoods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryGoods.m; sourceTree = "<group>"; };
 		234A44D81BCF7DB1006910BE /* RegionNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionNetworking.h; sourceTree = "<group>"; };
@@ -2110,6 +2113,8 @@
 				23D650391C101CBC00774848 /* SortBarndPrice.m */,
 				23D6503A1C101CBC00774848 /* SortBrandFiltrate.h */,
 				23D6503B1C101CBC00774848 /* SortBrandFiltrate.m */,
+				23251A561CC2023000E894E0 /* HCMSortTool.h */,
+				23251A571CC2023000E894E0 /* HCMSortTool.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2694,6 +2699,7 @@
 				23C805941B9403470090E285 /* MJPropertyKey.m in Sources */,
 				23EE221C1C02C2600053D68C /* CartListFrame.m in Sources */,
 				23D026041B8B22210009C7EE /* SDWebImageManager.m in Sources */,
+				23251A581CC2023000E894E0 /* HCMSortTool.m in Sources */,
 				2384FDF01BCB50B800398623 /* TAAnimatedDotView.m in Sources */,
 				2384FDF11BCB50B800398623 /* TADotView.m in Sources */,
 				238FD5E01C2E790300F95CCD /* HCMAllListTableVC.m in Sources */,

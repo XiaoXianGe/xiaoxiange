@@ -116,8 +116,10 @@ static NSString *ID = @"Cell";
 - (void)loadMoneyView{
     UIWindow *window = [[UIApplication sharedApplication]keyWindow];
     self.window = window;
-        self.footerView.frame = CGRectMake(0, HCMScreenHeight - 80, HCMScreenWidth, 35);
-    self.deleteFootView.frame = CGRectMake(0, HCMScreenHeight - 80, HCMScreenWidth, 35);
+    
+    self.footerView.frame = CGRectMake(0, HCMScreenHeight - 84, HCMScreenWidth, 35);
+    self.deleteFootView.frame = CGRectMake(0, HCMScreenHeight - 84, HCMScreenWidth, 35);
+    
     [window addSubview:self.deleteFootView];
     self.deleteFootView.hidden = YES;
     

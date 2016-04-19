@@ -72,7 +72,7 @@
 -(void)addchildVc:(UIViewController *)childVc title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage{
     
     childVc.title = title;
-    childVc.tabBarItem.titlePositionAdjustment = UIOffsetMake(0, -2);
+//    childVc.tabBarItem.titlePositionAdjustment = UIOffsetMake(0, -2);
 
     childVc.tabBarItem.image = [UIImage imageNamed:image];
     childVc.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImage]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];

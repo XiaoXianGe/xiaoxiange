@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,16 +15,23 @@
                 <rect key="frame" x="0.0" y="0.0" width="145" height="195"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="searcher-no-result-empty-icon" translatesAutoresizingMaskIntoConstraints="NO" id="oyf-fK-GBz" userLabel="商品图片">
+                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="searcher-no-result-empty-icon" translatesAutoresizingMaskIntoConstraints="NO" id="oyf-fK-GBz" userLabel="商品图片">
                         <rect key="frame" x="0.0" y="0.0" width="145" height="145"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="oyf-fK-GBz" secondAttribute="height" multiplier="1:1" id="IS4-A1-NFe"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="140" translatesAutoresizingMaskIntoConstraints="NO" id="mup-Ac-KXm">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="140" translatesAutoresizingMaskIntoConstraints="NO" id="mup-Ac-KXm">
                         <rect key="frame" x="5" y="145" width="140" height="30"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H6h-mN-3FB" userLabel="点击删除">
+                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H6h-mN-3FB" userLabel="点击删除">
                         <rect key="frame" x="126" y="0.0" width="19" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="c3U-uq-su1"/>
+                            <constraint firstAttribute="width" constant="19" id="e73-a2-4Pq"/>
+                        </constraints>
                         <state key="normal" backgroundImage="item-faverites-edit-close-btn">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
@@ -31,8 +39,11 @@
                             <action selector="clickDelete:" destination="xHz-bj-3V1" eventType="touchUpInside" id="VFm-Ly-2ao"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="价格" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zkr-p5-TB3" userLabel="Commodity Cost Price">
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="价格" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zkr-p5-TB3" userLabel="Commodity Cost Price">
                         <rect key="frame" x="5" y="175" width="132" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="aDg-ZE-dRh"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.72593118690000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -41,6 +52,20 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Zkr-p5-TB3" firstAttribute="top" secondItem="mup-Ac-KXm" secondAttribute="bottom" id="01J-bg-1kc"/>
+                <constraint firstItem="H6h-mN-3FB" firstAttribute="top" secondItem="xHz-bj-3V1" secondAttribute="top" id="62x-az-Vll"/>
+                <constraint firstItem="mup-Ac-KXm" firstAttribute="top" secondItem="oyf-fK-GBz" secondAttribute="bottom" id="6qb-IE-nZL"/>
+                <constraint firstAttribute="trailing" secondItem="mup-Ac-KXm" secondAttribute="trailing" id="Jni-WX-gcd"/>
+                <constraint firstItem="oyf-fK-GBz" firstAttribute="top" secondItem="xHz-bj-3V1" secondAttribute="top" id="OGj-rr-XW9"/>
+                <constraint firstItem="mup-Ac-KXm" firstAttribute="leading" secondItem="xHz-bj-3V1" secondAttribute="leading" constant="5" id="Pub-1o-bQi"/>
+                <constraint firstAttribute="trailing" secondItem="Zkr-p5-TB3" secondAttribute="trailing" constant="8" id="QIw-Xt-n78"/>
+                <constraint firstAttribute="bottom" secondItem="Zkr-p5-TB3" secondAttribute="bottom" constant="2" id="dQ0-a9-4If"/>
+                <constraint firstItem="oyf-fK-GBz" firstAttribute="leading" secondItem="xHz-bj-3V1" secondAttribute="leading" id="gzF-XM-Hy5"/>
+                <constraint firstItem="oyf-fK-GBz" firstAttribute="width" secondItem="xHz-bj-3V1" secondAttribute="width" id="nb7-hx-JWm"/>
+                <constraint firstAttribute="trailing" secondItem="H6h-mN-3FB" secondAttribute="trailing" id="tbR-em-ZXq"/>
+                <constraint firstItem="Zkr-p5-TB3" firstAttribute="leading" secondItem="xHz-bj-3V1" secondAttribute="leading" constant="5" id="zQ8-0S-Gbs"/>
+            </constraints>
             <size key="customSize" width="145" height="193"/>
             <connections>
                 <outlet property="cilckDlete" destination="H6h-mN-3FB" id="kk9-kl-nYF"/>

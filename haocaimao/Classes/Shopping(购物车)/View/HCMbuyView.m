@@ -87,11 +87,18 @@
     self.headerView.width = HCMScreenWidth;
     self.headerView.height = HCMScreenHeight/2 - 100  ;
     
-    self.backgroundImage.x = (HCMScreenWidth - 160)/2 ;
-    self.backgroundImage.y = 0;
-    self.backgroundImage.width = 160;
-    self.backgroundImage.height = 140;
-    
+    if (HCMScreenWidth == 414.0) {
+        self.backgroundImage.x = (HCMScreenWidth - 250)/2 ;
+        self.backgroundImage.y = 10;
+        self.backgroundImage.width = 250;
+        self.backgroundImage.height = 200;
+    }else{
+        self.backgroundImage.x = (HCMScreenWidth - 160)/2 ;
+        self.backgroundImage.y = 0;
+        self.backgroundImage.width = 160;
+        self.backgroundImage.height = 140;
+    }
+
     self.actBtn.x = HCMBtnX;
     self.actBtn.height = HCMBtnH;
     self.actBtn.width = HCMBtnW;
@@ -101,10 +108,6 @@
     self.attBtn.height = HCMBtnH;
     self.attBtn.width = HCMBtnW;
     self.attBtn.y = self.headerView.height- HCMBtn;
-    
-    
-    
-    
-    
+
 }
 @end

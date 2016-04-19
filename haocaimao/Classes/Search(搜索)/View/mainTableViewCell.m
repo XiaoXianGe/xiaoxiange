@@ -40,30 +40,44 @@
 - (void)showImage:(NSString *)image textTitle:(NSString *)title{
     
     UILabel *label =  self.textLabel;
+    
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:image] placeholderImage: [UIImage imageNamed:@"head_ portrait"]];
 
     CALayer *imageViewLayer = self.imageView.layer;
     [imageViewLayer setMasksToBounds:YES];
     [imageViewLayer setCornerRadius:6.0];
     label.text = title;
-    label.font = [UIFont systemFontOfSize:9];
+    if (HCMScreenWidth == 414.0) {
+        label.font = [UIFont systemFontOfSize:11];
+
+    }else{
+        label.font = [UIFont systemFontOfSize:9];
+
+    }
     label.numberOfLines = 0;
- 
-    
+
 }
 
 -(void)setSelected:(BOOL)selected animated:(BOOL)animated{
     [super setSelected:selected animated:animated];
     
     self.textLabel.textColor = selected ? HCMColor(180, 20, 30, 1.0) : HCMColor(88 , 88, 88, 1.0);
-    
-    
+
 }
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-    self.imageView.frame = CGRectMake(2, 7, 30, 30);
-    self.textLabel.frame = CGRectMake(44, 10, 54, 24);
+    
+    
+    if (HCMScreenWidth == 414.0) {
+        self.imageView.frame = CGRectMake(2, 9, 33, 33);
+         self.textLabel.frame = CGRectMake(44, 10, 67, 30);
+    }else{
+         self.textLabel.frame = CGRectMake(44, 10, 54, 24);
+        self.imageView.frame = CGRectMake(2, 7, 30, 30);
+    }
+    
+   
     
     
 }

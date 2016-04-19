@@ -54,6 +54,7 @@
 
 @property(assign)BOOL status;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *top_heightConstraint;
 
 @end
 
@@ -143,17 +144,22 @@
     
     [SVProgressHUD show];
     
+    self.VView.frame = CGRectMake(0, 0, HCMScreenWidth, 9999);
+    
     UIScrollView *scrollView = [[UIScrollView alloc]init];
-    self.scrollView = scrollView;
+//    self.scrollView = scrollView;
     
     // 设定scrollView的可显示区域窗口的大小
-    scrollView.frame = self.view.frame;
+    scrollView.frame = CGRectMake(0, 0, HCMScreenWidth, HCMScreenHeight);
     
     // 设定scrollView的可滚动区域的大小
-    scrollView.contentSize = CGSizeMake(320, 600);
+    scrollView.contentSize = CGSizeMake(HCMScreenWidth, HCMScreenHeight);
     scrollView.showsVerticalScrollIndicator = NO;
     scrollView.delegate = self;
     [scrollView addSubview:self.VView];
+    
+    [self.VView updateConstraintsIfNeeded];
+    [self.view updateConstraints];
     
     self.scrollView = scrollView;
     [self.view addSubview:scrollView];
@@ -170,17 +176,23 @@
         return count1;
     }else{
         
-        self.headGreenView.y = self.headRedVIew.y + self.headRedVIew.height + CellHeight * count1 + 15;
+//        self.headGreenView.y = self.headRedVIew.y + self.headRedVIew.height + CellHeight * count1 + 15;
+//        
+//        self.orderNumberTableView.y = self.headGreenView.y + self.headGreenView.height;
+//        
+//        self.orderNumberTableView.height = CellHeight * (self.indexArray.count? self.indexArray.count : 1 );
+//        
+//        self.shareFaceToFace.y = self.orderNumberTableView.y + self.orderNumberTableView.height + 30;
+//        
+//        self.shareWeChat.y = self.shareFaceToFace.y;
+//        
+//        _scrollView.contentSize = CGSizeMake(320, self.orderNumberTableView.y + self.orderNumberTableView.height + 100);
         
-        self.orderNumberTableView.y = self.headGreenView.y + self.headGreenView.height;
+//        if (HCMScreenWidth == 320.0) {
+//            self.top_heightConstraint.constant = 0;
+//        }
         
-        self.orderNumberTableView.height = CellHeight * (self.indexArray.count? self.indexArray.count : 1 ) ;
-        
-        self.shareFaceToFace.y = self.orderNumberTableView.y + self.orderNumberTableView.height + 30;
-        
-        self.shareWeChat.y = self.shareFaceToFace.y;
-        
-        _scrollView.contentSize = CGSizeMake(320, self.orderNumberTableView.y + self.orderNumberTableView.height + 100);
+        self.top_heightConstraint.constant = CellHeight * (self.indexArray.count? self.indexArray.count : 1 );
         
         
         return self.indexArray.count ? self.indexArray.count : 1 ;
@@ -239,6 +251,7 @@
                                        delegate:self];
     
 }
+ 
 
 -(void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response
 {
@@ -254,7 +267,7 @@
     if (self.status) {
         
         if (self.QRCodeView)  {
-            [self.VView addSubview:self.QRCodeView];
+            [self.view addSubview:self.QRCodeView];
             return;
         }
        [SVProgressHUD show];
@@ -279,10 +292,13 @@
     UIView *view = [[UIView alloc]init];
     view.backgroundColor = HCMColor(30, 30, 30, 0.7);
     view.frame = [UIScreen mainScreen].bounds;
-    [self.VView addSubview:view];
+    [self.view addSubview:view];
     
     UIImageView *imageView = [[UIImageView alloc]init];
-    imageView.frame = CGRectMake(50, 100, 220, 220);
+    imageView.y = 150;
+    imageView.x = (HCMScreenWidth-220) /2;
+    HCMLog(@"%f",HCMScreenHeight);
+    imageView.size = CGSizeMake(220, 220);
     [imageView sd_setImageWithURL:responseBody[@"data"][@"shareImages"]];
     [view addSubview:imageView];
     

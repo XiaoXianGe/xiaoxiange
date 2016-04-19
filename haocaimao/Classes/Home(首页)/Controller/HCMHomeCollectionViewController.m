@@ -88,7 +88,7 @@ static NSString * const reuseIdentifier = @"Cell";
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, 40, 0);
+    self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, 60, 0);
 }
 
 //头部刷新
@@ -104,19 +104,21 @@ static NSString * const reuseIdentifier = @"Cell";
 //自定义头部的导航栏
 -(void)setNavigationBar{
     
-    self.diyNavView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 50)];
+    self.diyNavView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, HCMScreenWidth, 50*HCMScreenWidth/320)];
     self.diyNavView.backgroundColor = [UIColor colorWithHue:222 saturation:32 brightness:32 alpha:0.2];
     
-    UIButton *logoBtn = [[UIButton alloc]initWithFrame:CGRectMake(2, 22, 40, 25)];
+    CGFloat changeH = self.diyNavView.height/50;
+    
+    UIButton *logoBtn = [[UIButton alloc]initWithFrame:CGRectMake(2, 22*changeH, 40*HCMScreenWidth/320, 25*HCMScreenWidth/320)];
     [logoBtn setBackgroundImage:[UIImage imageNamed:@"logo-icon"] forState:UIControlStateNormal];
     [logoBtn addTarget:self action:@selector(clickLogo) forControlEvents:UIControlEventTouchUpInside];
     
-    UIButton *btnSearch = [[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width - 45  , 22, 40, 25)];
+    UIButton *btnSearch = [[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width - (45 *HCMScreenWidth/320) , 22*changeH, 40*HCMScreenWidth/320, 25*HCMScreenWidth/320)];
     [btnSearch setBackgroundImage:[UIImage imageNamed:@"nav_search"] forState:UIControlStateNormal];
     [btnSearch addTarget:self action:@selector(gotoTheSearch) forControlEvents:UIControlEventTouchUpInside];
     
     self.searchBar = [HWSearchBar searchBar];
-    self.searchBar.frame = CGRectMake(48, 22, self.view.frame.size.width - 100, 25);
+    self.searchBar.frame = CGRectMake(48*HCMScreenWidth/320, 22*changeH, HCMScreenWidth - 2*btnSearch.width-30, 25*HCMScreenWidth/320);
     [self.searchBar addTarget:self action:@selector(gotoTheSearch) forControlEvents:UIControlEventEditingDidEndOnExit];
     
     [self.view addSubview:self.diyNavView];
@@ -272,6 +274,22 @@ static NSString * const reuseIdentifier = @"Cell";
     
     [self.navigationController pushViewController:dealVc animated:YES];
 }
+
+/* 定义每个UICollectionView 的大小 */
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat width =(HCMScreenWidth -30)/2;
+    return CGSizeMake(width, 210*width/145);
+}
+
+
+/* 定义每个UICollectionView 的边缘 */
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake(0, 10, 0, 10);//上 左 下 右
+}
+
+
 //为collection插入头视图
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
     
@@ -283,7 +301,20 @@ static NSString * const reuseIdentifier = @"Cell";
         reusableview = self.headerView;
     }
     
-    self.homeTop.view.frame = CGRectMake(0, -20, self.view.frame.size.width, 1495);
+    if (HCMScreenWidth == 414.0) {
+        //6p
+        self.homeTop.view.frame = CGRectMake(0, -20, self.view.frame.size.width, 1820);
+        
+    }else if(HCMScreenWidth == 375.0){
+        //6
+        self.homeTop.view.frame = CGRectMake(0, -20, self.view.frame.size.width, 1685);
+        
+    }else{
+        //5
+        self.homeTop.view.frame = CGRectMake(0, -20, self.view.frame.size.width, 1500);
+        
+    }
+    
     self.homeTop.delegate = self;
     self.homeTop.view.clipsToBounds = YES;
     [reusableview addSubview:self.homeTop.view];
@@ -292,6 +323,25 @@ static NSString * const reuseIdentifier = @"Cell";
 
 }
 
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
+    
+    CGFloat cellH = 0;
+    
+    if (HCMScreenWidth == 414.0) {
+        //6p
+        cellH = 1790;
+        
+    }else if(HCMScreenWidth == 375.0){
+        //6
+        cellH = 1655;
+        
+    }else if(HCMScreenWidth == 320.0){
+        //5
+        cellH = 1470;
+        
+    }
+    return CGSizeMake(HCMScreenWidth, cellH);
+}
 
 #pragma mark --- 协议
 -(void)touchClickPrassCategory:(HCMHomeTopViewController *)mothed tag:(NSString *)tag number:(NSInteger)number{

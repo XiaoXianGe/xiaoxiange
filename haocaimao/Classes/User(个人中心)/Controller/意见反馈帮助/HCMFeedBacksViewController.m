@@ -4,7 +4,7 @@
 //
 //  Created by 好采猫 on 15/11/12.
 //  Copyright © 2015年 haocaimao. All rights reserved.
-//
+//  提意见
 
 #import "HCMFeedBacksViewController.h"
 #import "AddressNerworking.h"
@@ -68,7 +68,7 @@
 - (IBAction)chooseFeedBack:(UIButton *)sender {
     [self.textField resignFirstResponder];
     [self.titleTextField resignFirstResponder];
-    CGPoint p = CGPointMake(180, 150);
+    CGPoint p = CGPointMake(HCMScreenWidth-100, 170);
     [self.popView showFromView:self.view atPoint:p animated:YES];
     
 }

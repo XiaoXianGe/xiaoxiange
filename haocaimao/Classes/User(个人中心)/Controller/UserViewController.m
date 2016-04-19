@@ -138,7 +138,11 @@
     self.tabbar.tintColor = HCMColor(144, 144, 144, 1.0);
     self.nameLabel.text = @"登录/注册";
     
+    [self updateLoginViewHeight];
+    
     self.UserTableVIew.tableHeaderView = self.UserLoginView;
+    
+    
     
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickEdit) image:@"profile-refresh-site-icon" highImage:@"profile-refresh-site-icon"];
     
@@ -146,8 +150,35 @@
     
     [self setTabbarImage];
     
-    self.userImg.layer.cornerRadius = self.userImg.frame.size.width / 2;
-    self.userImg.clipsToBounds = YES;
+    
+    
+}
+
+//适配
+-(void)updateLoginViewHeight{
+    
+    if (HCMScreenWidth == 414.0) {
+         HCMLog(@"%f",HCMScreenWidth);
+        self.UserLoginView.height = 186.3;
+        self.UserTableVIew.tableHeaderView.height = 186.3;
+        self.userImg.layer.cornerRadius = self.userImg.width / 2 - 1;
+        self.userImg.clipsToBounds = YES;
+        [self.UserTableVIew reloadData];
+    }else if (HCMScreenWidth == 375.0) {
+         HCMLog(@"%f",HCMScreenWidth);
+        self.UserLoginView.height = 168.5;
+        self.UserTableVIew.tableHeaderView.height = 168.5;
+        self.userImg.layer.cornerRadius = self.userImg.width / 2 - 4;
+        self.userImg.clipsToBounds = YES;
+        [self.UserTableVIew reloadData];
+    }else if(HCMScreenWidth == 320.0){
+        HCMLog(@"%f",HCMScreenWidth);
+        self.UserLoginView.height = 144;
+        self.UserTableVIew.tableHeaderView.height = 144;
+        self.userImg.layer.cornerRadius = self.userImg.width / 2 - 6;
+        self.userImg.clipsToBounds = YES;
+        [self.UserTableVIew reloadData];
+    }
     
 }
 

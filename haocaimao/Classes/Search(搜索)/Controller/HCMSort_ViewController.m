@@ -11,14 +11,17 @@
 #import "UIBarButtonItem+Extension.h"
 #import "HCMEnshrineCell.h"
 #import "DealViewController.h"
+
 #import "HomeNetwork.h"
 #import "SearchNetwork.h"
 #import "UserEnshrine.h"
 #import "MJRefresh.h"
+
 #import "SVProgressHUD.h"
 #import "SortBrandFiltrate.h"
 #import "BrandViewController.h"
 #import "UIView+Extension.h"
+#import "HCMSortTool.h"
 
 @interface HCMSort_ViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIView *sortClickView;
@@ -57,6 +60,19 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //初始化控制器
+    [self setupViewController];
+    
+    //第一次加载
+    [self loadGoodsFrist];
+    
+    //监听牌子的筛选
+    [HCMNSNotificationCenter addObserver:self selector:@selector(updataSearchVC) name:@"searchMessage" object:nil];
+    
+}
+
+//初始化控制器
+-(void)setupViewController{
     self.triangleIMG_ONE.hidden =NO;
     self.triangleIMG_TWO.hidden =YES;
     self.triangleIMG_THR.hidden =YES;
@@ -80,7 +96,7 @@ static NSString * const reuseIdentifier = @"Cell";
     self.searchBar = [HWSearchBar searchBar];
     [self.searchBar addTarget:self action:@selector(gotoTheSearch) forControlEvents:UIControlEventEditingDidEndOnExit];
     
-    self.searchBar.frame = CGRectMake(0, 0, 150, 30);
+    self.searchBar.frame = CGRectMake(0, 0, 250, 30);
     self.navigationItem.titleView = self.searchBar;
     //self.passwordTextfield.returnKeyType = UIReturnKeyDone;
     
@@ -96,17 +112,11 @@ static NSString * const reuseIdentifier = @"Cell";
     
     self.sortClickView.frame = CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, 40);
     self.collectView.frame = CGRectMake(0, 104, self.sortClickView.frame.size.width, [UIScreen mainScreen].bounds.size.height - 104);
-
+    
     self.sortClickView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"item-grid-filter-bg"]];
     
     self.collectView.footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreGoods)];
     self.sortWay = @"is_hot";
-    //第一次加载
-    [self loadGoodsFrist];
-    
-    //监听牌子的筛选
-    [HCMNSNotificationCenter addObserver:self selector:@selector(updataSearchVC) name:@"searchMessage" object:nil];
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -166,51 +176,8 @@ static NSString * const reuseIdentifier = @"Cell";
     self.tabBarController.tabBar.hidden = NO;
     
     [self.navigationController popViewControllerAnimated:YES];
-}
-
-
-/**
- *  判断是从哪里 跳进 排序VIew
- */
--(NSDictionary *)inputWayOfTheSort{
     
-    NSDictionary *dict = [NSMutableDictionary dictionary];
-    if (self.brand_id) {
-    dict=@{@"filter":@{@"sort_by":self.sortWay,@"brand_id":@(self.brand_id)},@"pagination":@{@"count":@"20",@"page":@(self.page)}};
-        
-        
-    }
-    if (self.keyWords) {
-        dict = @{@"filter":@{@"sort_by":self.sortWay,@"keywords":self.keyWords},@"pagination":@{@"count":@"20",@"page":@(self.page)}};
-    }
-    if (self.category_id) {
-        dict = @{@"filter":@{@"sort_by":self.sortWay,@"category_id":self.category_id},@"pagination":@{@"count":@"20",@"page":@(self.page)}};
-    }
-    
-    if (self.category_id && self.brand_id) {
-        dict = @{@"filter":@{@"sort_by":self.sortWay,@"category_id":self.category_id,@"brand_id":@(self.brand_id)},@"pagination":@{@"count":@"20",@"page":@(self.page)}};
-
-    }
-    
-    if (self.category_id && self.keyWords) {
-        dict = @{@"filter":@{@"sort_by":self.sortWay,@"category_id":self.category_id,@"keywords":self.keyWords},@"pagination":@{@"count":@"20",@"page":@(self.page)}};
-    }
-    
-    if (self.brand_id && self.keyWords) {
-        dict = @{@"filter":@{@"sort_by":self.sortWay,@"brand_id":@(self.brand_id),@"keywords":self.keyWords},@"pagination":@{@"count":@"20",@"page":@(self.page)}};
-    }
-    
-    if(self.brand_id && self.keyWords && self.category_id){
-         dict =  @{@"filter":@{@"sort_by":self.sortWay,@"category_id":self.category_id,@"keywords":self.keyWords,@"brand_id":@(self.brand_id)},@"pagination":@{@"count":@"20",@"page":@(self.page)}};
-        
-    }
-    if(self.category_id && self.brand_id && self.price_min && self.price_max){
-        dict = @{@"filter":@{@"price_range":@{@"price_max":self.price_max,@"price_min":self.price_min},@"brand_id":@(self.brand_id),@"category_id":self.category_id,@"sort_by":self.sortWay},@"pagination":@{@"count":@"20",@"page":@(self.page)}};
-    }
-    
-   
-    return dict;
-    
+    [self.view endEditing:YES];
 }
 
 /**
@@ -220,7 +187,8 @@ static NSString * const reuseIdentifier = @"Cell";
     
     [SVProgressHUD showWithStatus:@"加载中"];
     
-    NSDictionary *dict = [self inputWayOfTheSort];
+    NSDictionary *dict = [HCMSortTool sortWithDictBrand_id:_brand_id keyWords:_keyWords category_id:_category_id price_min:_price_min price_max:_price_max page:_page sortWay:_sortWay];
+    
     [[SearchNetwork sharedManager]postSubSearch:dict successBlock:^(id responseBody) {
         
         NSMutableArray *array = [NSMutableArray array];
@@ -258,8 +226,7 @@ static NSString * const reuseIdentifier = @"Cell";
     
     self.page = 1;
     
-    NSDictionary *dict = [self inputWayOfTheSort];
-    
+    NSDictionary *dict = [HCMSortTool sortWithDictBrand_id:_brand_id keyWords:_keyWords category_id:_category_id price_min:_price_min price_max:_price_max page:_page sortWay:_sortWay];
     [[SearchNetwork sharedManager]postSubSearch:dict successBlock:^(id responseBody) {
         
         //筛选商品的总数
@@ -309,7 +276,7 @@ static NSString * const reuseIdentifier = @"Cell";
         
         self.page++;
         
-        NSDictionary *dict = [self inputWayOfTheSort];
+        NSDictionary *dict =[HCMSortTool sortWithDictBrand_id:_brand_id keyWords:_keyWords category_id:_category_id price_min:_price_min price_max:_price_max page:_page sortWay:_sortWay];
         
         [[SearchNetwork sharedManager]postSubSearch:dict successBlock:^(id responseBody) {
             
@@ -465,6 +432,22 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.navigationController pushViewController:dealVc animated:YES];
     
 }
+
+/* 定义每个UICollectionView 的大小 */
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat width =(HCMScreenWidth -30)/2;
+    return CGSizeMake(width, 195*width/145);
+}
+
+
+/* 定义每个UICollectionView 的边缘 */
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake(0, 10, 0, 10);//上 左 下 右
+}
+
+
 
 -(void)dealloc{
     [HCMNSNotificationCenter removeObserver:self];

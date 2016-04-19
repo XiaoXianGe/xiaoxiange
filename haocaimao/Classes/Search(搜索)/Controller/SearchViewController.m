@@ -28,7 +28,7 @@
 @property (strong, nonatomic) NSMutableArray *array;
 @property (strong, nonatomic) searchView *searchView;
 @property (strong, nonatomic) NSMutableArray *cateModel;
-@property (strong, nonatomic)NSMutableArray *cateSubModel ;
+@property (strong, nonatomic)NSMutableArray *cateSubModel;
 @property (strong, nonatomic)UIButton *TouchButton;
 
 @property(strong,nonatomic)NSMutableDictionary *params;
@@ -48,7 +48,7 @@ static NSString *identifier = @"ID";
     [super viewDidLoad];
     
     self.searchBar = [HWSearchBar searchBar];
-    self.searchBar.frame = CGRectMake(-50, 0, 250, 30);
+    self.searchBar.frame = CGRectMake(0, 0, 250, 30);
     [self.searchBar addTarget:self action:@selector(gotoTheSearch) forControlEvents:UIControlEventEditingDidEndOnExit];
     
     self.navigationItem.titleView = self.searchBar;
@@ -56,6 +56,7 @@ static NSString *identifier = @"ID";
     [SVProgressHUD showWithStatus:@"加载中"];
     
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(gotoTheSearch) image:@"nav_search" highImage:@"nav_search"];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:nil image:@"logo-icon" highImage:@"logo-icon"];
     self.view.backgroundColor = [UIColor whiteColor];
     
     
@@ -67,16 +68,22 @@ static NSString *identifier = @"ID";
     CGRect keyBoardFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
     
     UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 64, HCMScreenWidth, HCMScreenHeight - 64 - keyBoardFrame.size.height)];
+    
     [btn addTarget:self action:@selector(TouchEvent) forControlEvents:UIControlEventTouchUpInside];
+    
     btn.backgroundColor = [UIColor clearColor];
+    
     self.TouchButton = btn;
+    
     [self.view addSubview:self.TouchButton];
     
 }
+
 -(void)TouchEvent{
     [self.TouchButton removeFromSuperview];
     [self.searchBar resignFirstResponder];
 }
+
 -(void)keyboardWillBeHidden:(NSNotification*)aNotification
 {
     [self.TouchButton removeFromSuperview];

@@ -293,7 +293,7 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
     
 }
 
-// 头视图复用代码
+// 头视图
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
     UITableViewHeaderFooterView *myHeader = [tableView dequeueReusableHeaderFooterViewWithIdentifier:headerReuseIdentifier];
@@ -337,8 +337,8 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         payway.text = orderList.pay_code;
         
         //订单详情btn
-        UIButton *orderInfoBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
-        UIButton *orderImageBtn = [self setButtonRect:CGRectMake(240 , 13, 60, 20) bgImage:@"button-narrow-gray" title:@"订单详情"];
+        UIButton *orderInfoBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, HCMScreenWidth, 44)];
+        UIButton *orderImageBtn = [self setButtonRect:CGRectMake(HCMScreenWidth - 80 , 13, 60, 20) bgImage:@"button-narrow-gray" title:@"订单详情"];
         [orderImageBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [orderInfoBtn addTarget:self action:@selector(orderInfo:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -359,7 +359,7 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
     
 }
 
-// 尾视图 复用代码
+// 尾视图
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
         
     UITableViewHeaderFooterView  *myFooter = [tableView dequeueReusableHeaderFooterViewWithIdentifier:footerReuseIdentifier];
@@ -397,7 +397,7 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         footer = footerView.view;
         footer.tag = 80;
         
-        UIButton *payBtn = [self setButtonRect:CGRectMake(240 , 10, 60, 20) bgImage:@"button-narrow-red" title:@"付  款"];
+        UIButton *payBtn = [self setButtonRect:CGRectMake((HCMScreenWidth-80) , 10, 60, 20) bgImage:@"button-narrow-red" title:@"付  款"];
         [payBtn addTarget:self action:@selector(clickPayment:) forControlEvents:UIControlEventTouchUpInside];
         
         [footer addSubview:payway];

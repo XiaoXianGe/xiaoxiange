@@ -10,6 +10,8 @@
 
 @interface HCMNoPayHeadview ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *testView;
+
 @end
 
 @implementation HCMNoPayHeadview
@@ -17,7 +19,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.testView.frame = CGRectMake(0, 0, HCMScreenWidth, 44);
+    
 }
+
 
 
 @end

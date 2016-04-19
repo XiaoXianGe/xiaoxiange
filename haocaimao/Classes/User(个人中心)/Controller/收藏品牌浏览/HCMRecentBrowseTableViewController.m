@@ -224,8 +224,17 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    CGFloat cellHeight;
+    if (HCMScreenWidth == 320.0) {
+        cellHeight = 117;
+    }else if(HCMScreenWidth == 375.0){
+        cellHeight = 137;
+    }else if(HCMScreenWidth == 414.0){
+        cellHeight = 150;
+    }
     
-    return 117;
+    return cellHeight;
+    
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
