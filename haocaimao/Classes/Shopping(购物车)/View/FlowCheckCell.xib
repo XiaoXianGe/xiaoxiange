@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -15,10 +16,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shopping-cart-body-bg-04" translatesAutoresizingMaskIntoConstraints="NO" id="iI4-jt-MG4">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <rect key="frame" x="1" y="0.0" width="318" height="49"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="197" translatesAutoresizingMaskIntoConstraints="NO" id="F3e-fM-i0l">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="197" translatesAutoresizingMaskIntoConstraints="NO" id="F3e-fM-i0l">
                         <rect key="frame" x="12" y="2" width="197" height="47"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="197" id="FxB-Xv-6dN"/>
+                            <constraint firstAttribute="height" constant="47" id="xtn-Jm-642"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -29,8 +34,12 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kK-Q3-SZN">
-                        <rect key="frame" x="229" y="15" width="83" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kK-Q3-SZN">
+                        <rect key="frame" x="224" y="14" width="83" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="83" id="5tO-oU-ULZ"/>
+                            <constraint firstAttribute="height" constant="21" id="BGW-Kk-bpD"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -41,9 +50,14 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="iI4-jt-MG4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="30p-P2-xOH"/>
-                    <constraint firstItem="iI4-jt-MG4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="FR3-16-GJ2"/>
+                    <constraint firstItem="iI4-jt-MG4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="1" id="FR3-16-GJ2"/>
+                    <constraint firstItem="7kK-Q3-SZN" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="GQt-wW-E6d"/>
+                    <constraint firstItem="F3e-fM-i0l" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="Xax-Rv-Siv"/>
                     <constraint firstItem="iI4-jt-MG4" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="aMj-tl-Ofu"/>
-                    <constraint firstAttribute="trailing" secondItem="iI4-jt-MG4" secondAttribute="trailing" id="stP-Z0-MSq"/>
+                    <constraint firstItem="7kK-Q3-SZN" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-5" id="ltm-wG-gr4"/>
+                    <constraint firstAttribute="bottom" secondItem="F3e-fM-i0l" secondAttribute="bottom" id="ro8-TZ-a1P"/>
+                    <constraint firstAttribute="trailing" secondItem="iI4-jt-MG4" secondAttribute="trailing" constant="1" id="stP-Z0-MSq"/>
+                    <constraint firstItem="F3e-fM-i0l" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="wTz-Yq-0hv"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

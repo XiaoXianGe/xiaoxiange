@@ -303,15 +303,15 @@ static NSString * const reuseIdentifier = @"Cell";
     
     if (HCMScreenWidth == 414.0) {
         //6p
-        self.homeTop.view.frame = CGRectMake(0, -20, self.view.frame.size.width, 1820);
+        self.homeTop.view.frame = CGRectMake(0, -20, self.view.frame.size.width, 1910);
         
     }else if(HCMScreenWidth == 375.0){
         //6
-        self.homeTop.view.frame = CGRectMake(0, -20, self.view.frame.size.width, 1685);
+        self.homeTop.view.frame = CGRectMake(0, -20, self.view.frame.size.width, 1780);
         
     }else{
         //5
-        self.homeTop.view.frame = CGRectMake(0, -20, self.view.frame.size.width, 1500);
+        self.homeTop.view.frame = CGRectMake(0, -20, self.view.frame.size.width, 1590);
         
     }
     
@@ -329,15 +329,15 @@ static NSString * const reuseIdentifier = @"Cell";
     
     if (HCMScreenWidth == 414.0) {
         //6p
-        cellH = 1790;
+        cellH = 1880;
         
     }else if(HCMScreenWidth == 375.0){
         //6
-        cellH = 1655;
+        cellH = 1750;
         
     }else if(HCMScreenWidth == 320.0){
         //5
-        cellH = 1470;
+        cellH = 1560;
         
     }
     return CGSizeMake(HCMScreenWidth, cellH);
@@ -382,6 +382,16 @@ static NSString * const reuseIdentifier = @"Cell";
 -(void)touchClickToBanner:(HCMHomeTopViewController *)delegate goodsID:(NSString *)goodsID{
     
     [self.searchBar resignFirstResponder];
+    
+    if ([goodsID isEqualToString:@"69"]) {
+        
+        HCMSubCollectionViewController *subCOllVC = [[HCMSubCollectionViewController alloc]initWithNibName:@"HCMSubCollectionViewController" bundle:nil];
+        
+        subCOllVC.urlStr = @"24";
+        
+        [self.navigationController pushViewController:subCOllVC animated:YES];
+        return;
+    }
     
     DealViewController *vc = [[DealViewController alloc]initWithNibName:@"DealViewController" bundle:nil];
     

@@ -35,7 +35,8 @@
     //头部广告请求
     [self sendHomeAdvertisementRequest];
     
-    self.headerForLayout.constant =HCMScreenWidth/2 + 24*HCMScreenWidth/320;
+    //计算轮播图与分类大图标的距离
+    self.headerForLayout.constant =HCMScreenWidth/2 + 24*HCMScreenWidth/320 + 40;
     
     [HCMNSNotificationCenter addObserver:self selector:@selector(test:) name:@"RereshHearView" object:nil];
 }
@@ -53,7 +54,7 @@
     
     int tag = sender.tag%60;
     
-    NSArray * arr = @[@"256",@"142",@"7244"];
+    NSArray * arr = @[@"256",@"69",@"143"];
     [self.delegate touchClickToBanner:self goodsID:arr[tag]];
 }
 
@@ -94,8 +95,11 @@
 //九宫格
 - (IBAction)goods_nineButton:(UIButton *)sender {
     int tag = sender.tag%30;
-     NSArray *arr = @[@"640",@"669",@"629",@"742",@"818",@"933",@"1535",@"1493",@"1601"];
+//    NSArray *arr = @[@"640",@"669",@"629",@"742",@"818",@"933",@"1535",@"1493",@"1601"];
                     //安全帽   安全鞋  手套 家庭工具箱  清洁机  梯子   照明     万用表   传感器
+    
+    NSArray *arr = @[@"681", @"631", @"1535",   @"215", @"21", @"1961",  @"629", @"624", @"625"];
+                    //消防器材 足部防护  节能照明   物料搬运  工具装备  家具日用  手部防护   呼吸防护   头部防护
     [self.delegate touchClickPrassCategory:self tag:arr[tag] number:sender.tag];
     
 }

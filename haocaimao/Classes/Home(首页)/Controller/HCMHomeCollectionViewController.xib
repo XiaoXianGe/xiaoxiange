@@ -17,7 +17,7 @@
             <color key="backgroundColor" red="0.9560645517676768" green="0.9560645517676768" blue="0.9560645517676768" alpha="1" colorSpace="calibratedRGB"/>
             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="c7k-ch-oGk">
                 <size key="itemSize" width="145" height="210"/>
-                <size key="headerReferenceSize" width="0.0" height="1745"/>
+                <size key="headerReferenceSize" width="0.0" height="1845"/>
                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
                 <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="10"/>
             </collectionViewFlowLayout>

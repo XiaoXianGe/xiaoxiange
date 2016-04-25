@@ -52,7 +52,6 @@ static NSString *const PartnerFormURL = @"http://www.haocaimao.com/ecmobile/?url
  */
 static NSString *const PartnerApplyURL = @"http://www.haocaimao.com/ecmobile/?url=user/salesPartnerApply";
 
-
 /**
  * 合伙人信息接入URL
  */

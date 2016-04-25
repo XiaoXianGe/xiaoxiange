@@ -172,9 +172,9 @@ static NSString * const url = @"http://www.haocaimao.com/mobile/index.php?c=topi
         
         UIImageView * ima = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, cellW, 180)];
         
-        //特殊高度
-        if([self.urlStr isEqualToString:@"30"]){
-            ima.height = 250;
+        //特殊高度@"30 ,"@"14",@"16",@"18"
+        if([self.urlStr isEqualToString:@"30"]||[self.urlStr isEqualToString:@"14"]||[self.urlStr isEqualToString:@"16"]||[self.urlStr isEqualToString:@"18"]){
+            ima.height = 300;
         }
         
         [ima sd_setImageWithURL:[NSURL URLWithString:self.topic_img_str] placeholderImage:[UIImage imageNamed:@"Placeholder_ Advertise"]];
@@ -209,8 +209,8 @@ static NSString * const url = @"http://www.haocaimao.com/mobile/index.php?c=topi
     if (section == 0) {
         
         //特殊高度
-        if([self.urlStr isEqualToString:@"30"]){
-            return CGSizeMake(cellW, 250);
+        if([self.urlStr isEqualToString:@"30"]||[self.urlStr isEqualToString:@"14"]||[self.urlStr isEqualToString:@"16"]||[self.urlStr isEqualToString:@"18"]){
+            return CGSizeMake(cellW, 300);
         }else{
             return CGSizeMake(cellW, 180);
         }

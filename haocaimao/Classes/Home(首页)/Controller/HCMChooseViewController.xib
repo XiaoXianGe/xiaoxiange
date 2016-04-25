@@ -119,6 +119,10 @@
                         </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="320" id="mEY-ns-Nmm"/>
+                        <constraint firstAttribute="height" constant="300" id="zR9-Y4-yHl"/>
+                    </constraints>
                     <variation key="default">
                         <mask key="subviews">
                             <exclude reference="lDq-T6-EQX"/>
@@ -132,9 +136,12 @@
                             <exclude reference="dnc-6N-2rq"/>
                             <exclude reference="kEJ-dK-Oip"/>
                         </mask>
+                        <mask key="constraints">
+                            <exclude reference="mEY-ns-Nmm"/>
+                            <exclude reference="zR9-Y4-yHl"/>
+                        </mask>
                     </variation>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="0.0" y="100" width="320" height="300"/>
+                    <variation key="widthClass=compact">
                         <mask key="subviews">
                             <include reference="lDq-T6-EQX"/>
                             <include reference="t55-tM-aIr"/>
@@ -147,19 +154,35 @@
                             <include reference="dnc-6N-2rq"/>
                             <include reference="kEJ-dK-Oip"/>
                         </mask>
+                        <mask key="constraints">
+                            <include reference="mEY-ns-Nmm"/>
+                            <include reference="zR9-Y4-yHl"/>
+                        </mask>
                     </variation>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="I9s-ZU-cGj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="Pot-u8-aDB"/>
+                <constraint firstItem="I9s-ZU-cGj" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Q8J-p9-GUE"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <variation key="default">
                 <mask key="subviews">
                     <exclude reference="I9s-ZU-cGj"/>
                 </mask>
+                <mask key="constraints">
+                    <exclude reference="Pot-u8-aDB"/>
+                    <exclude reference="Q8J-p9-GUE"/>
+                </mask>
             </variation>
             <variation key="widthClass=compact">
                 <mask key="subviews">
                     <include reference="I9s-ZU-cGj"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="Pot-u8-aDB"/>
+                    <include reference="Q8J-p9-GUE"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="277" y="314"/>
