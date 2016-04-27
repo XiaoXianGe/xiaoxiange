@@ -10,7 +10,7 @@
 #import "AddressNerworking.h"
 #import "SGPopSelectView.h"
 
-@interface HCMFeedBacksViewController ()<UITextFieldDelegate>
+@interface HCMFeedBacksViewController ()<UITextFieldDelegate,UIAlertViewDelegate>
 @property (nonatomic, strong) NSArray *selections;
 @property (nonatomic, strong) SGPopSelectView *popView;
 @property (weak, nonatomic) IBOutlet UILabel *chooseLabel;
@@ -81,25 +81,46 @@
 
 - (IBAction)clickOK {
     if ([self.textField.text length]>=10) {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        if (_count == 2||_count==3) {
-            ++_count;
-        }
-        NSDictionary *dic = @{@"session":@{@"uid":[defaults objectForKey:@"uid"]
-                                           ,@"sid":[defaults objectForKey:@"sid"]},@"msg_type":[NSString stringWithFormat:@"%lu",(long)_count],@"msg_title":self.titleTextField.text,@"msg_content":self.textField.text
-                              };
-               [[AddressNerworking sharedManager]postServiceOut:dic successBlock:^(id responseBody) {
-            [SVProgressHUD showSuccessWithStatus:@"感谢您的反馈"];
-            [self.navigationController popViewControllerAnimated:YES];
-        } failureBlock:^(NSString *error) {
-            [SVProgressHUD showInfoWithStatus:error];
-        }];
         
-
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"马上提交" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"提交", nil];
+        
+        [alert show];
+        
+        
     }else{
         [SVProgressHUD showInfoWithStatus:@"反馈内容不少于10个字"];
     }
    
 }
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if (buttonIndex==1) {
+        [self pushFeedBacks];
+    }
+    
+    
+}
+
+//提交反馈的意见
+-(void)pushFeedBacks{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if (_count == 2||_count==3) {
+        ++_count;
+    }
+    NSDictionary *dic = @{@"session":@{@"uid":[defaults objectForKey:@"uid"]
+                                       ,@"sid":[defaults objectForKey:@"sid"]},@"msg_type":[NSString stringWithFormat:@"%lu",(long)_count],@"msg_title":self.titleTextField.text,@"msg_content":self.textField.text
+                          };
+    [[AddressNerworking sharedManager]postServiceOut:dic successBlock:^(id responseBody) {
+        [SVProgressHUD showSuccessWithStatus:@"感谢您的反馈"];
+        [self.navigationController popViewControllerAnimated:YES];
+    } failureBlock:^(NSString *error) {
+        [SVProgressHUD showInfoWithStatus:error];
+    }];
+    
+
+}
+
+
 
 @end

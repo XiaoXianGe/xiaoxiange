@@ -23,7 +23,7 @@
                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DiH-ST-kfJ">
                     <rect key="frame" x="0.0" y="64" width="320" height="45"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhY-Kc-KaP">
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhY-Kc-KaP">
                             <rect key="frame" x="0.0" y="3" width="90" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="105" id="TMy-W4-GKo"/>
@@ -51,7 +51,7 @@
                                 <action selector="popularitySort:" destination="-1" eventType="touchUpInside" id="HUO-12-EVe"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FdH-Ym-UAE">
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FdH-Ym-UAE">
                             <rect key="frame" x="98" y="3" width="106" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="105" id="Kw0-Pa-N24"/>
@@ -79,7 +79,7 @@
                                 <action selector="minPriceSort:" destination="-1" eventType="touchUpInside" id="16e-KY-A1c"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="item-grid-filter-sanjiao-icon" translatesAutoresizingMaskIntoConstraints="NO" id="YD7-B2-pLw">
+                        <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="item-grid-filter-sanjiao-icon" translatesAutoresizingMaskIntoConstraints="NO" id="YD7-B2-pLw">
                             <rect key="frame" x="42" y="36" width="20" height="10"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="10" id="01e-k3-RBU"/>
@@ -98,7 +98,7 @@
                                 </mask>
                             </variation>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="item-grid-filter-sanjiao-icon" translatesAutoresizingMaskIntoConstraints="NO" id="6E2-5W-0hE">
+                        <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="item-grid-filter-sanjiao-icon" translatesAutoresizingMaskIntoConstraints="NO" id="6E2-5W-0hE">
                             <rect key="frame" x="148" y="36" width="20" height="10"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="20" id="C6M-0W-YtR"/>
@@ -117,7 +117,7 @@
                                 </mask>
                             </variation>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="item-grid-filter-sanjiao-icon" translatesAutoresizingMaskIntoConstraints="NO" id="3Gc-9o-eUm">
+                        <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="item-grid-filter-sanjiao-icon" translatesAutoresizingMaskIntoConstraints="NO" id="3Gc-9o-eUm">
                             <rect key="frame" x="254" y="36" width="20" height="10"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="20" id="7mr-zh-pYM"/>
@@ -136,7 +136,7 @@
                                 </mask>
                             </variation>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iW0-qy-6Kb">
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iW0-qy-6Kb">
                             <rect key="frame" x="212" y="5" width="108" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="108" id="ibd-pS-hkU"/>
@@ -224,11 +224,11 @@
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Vxg-Ui-pnO">
                     <rect key="frame" x="0.0" y="109" width="320" height="459"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="10" id="GoP-IY-GEj">
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GoP-IY-GEj">
                         <size key="itemSize" width="145" height="195"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="headerReferenceSize" width="0.0" height="5"/>
                         <size key="footerReferenceSize" width="0.0" height="20"/>
-                        <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="0.0"/>
+                        <inset key="sectionInset" minX="10" minY="12" maxX="10" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
             </subviews>

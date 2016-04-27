@@ -10,6 +10,7 @@
                 <outlet property="EntityName" destination="kwX-xi-mTV" id="3OG-aM-0AW"/>
                 <outlet property="INVHeart" destination="kWX-Gp-eRd" id="v0s-iC-NKO"/>
                 <outlet property="INVView" destination="agV-kj-VA4" id="8nk-AN-dO1"/>
+                <outlet property="InvCommonBtn" destination="fZo-qn-BlU" id="VO5-pW-Tt0"/>
                 <outlet property="bank" destination="O7Q-ZL-ddA" id="7iB-CP-B9q"/>
                 <outlet property="bankNumber" destination="IbS-3x-gsy" id="IOj-Rf-uec"/>
                 <outlet property="careFulView" destination="2lF-an-eZX" id="88o-VJ-eqO"/>
@@ -32,20 +33,20 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="2yP-Jq-dyU">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell-bg-single" id="I6e-on-KQ2">
                             <rect key="frame" x="6" y="27" width="308" height="36"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell-bg-single" id="vjI-Dk-Shr">
                             <rect key="frame" x="6" y="71" width="308" height="36"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="普通发票" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jC8-ce-xbR">
                             <rect key="frame" x="15" y="36" width="60" height="18"/>
@@ -63,15 +64,15 @@
                         </label>
                         <imageView hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="accsessory-check" id="ntX-kv-MCF" userLabel="增值税icon">
                             <rect key="frame" x="282" y="77" width="23" height="24"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <imageView hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="accsessory-check" id="JtH-OW-XCQ" userLabel="普通发票icon">
                             <rect key="frame" x="282" y="33" width="23" height="24"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fZo-qn-BlU" userLabel="普通btn">
                             <rect key="frame" x="5" y="27" width="310" height="36"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <state key="normal">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -81,7 +82,7 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cTd-VU-Wz5" userLabel="增值税btn">
                             <rect key="frame" x="5" y="71" width="310" height="36"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <state key="normal">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -196,11 +197,11 @@
                         </view>
                         <view contentMode="scaleToFill" id="2lF-an-eZX" userLabel="底部明细View">
                             <rect key="frame" x="0.0" y="155" width="320" height="45"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell-bg-single" id="wU4-ew-9SM">
                                     <rect key="frame" x="5" y="3" width="309" height="36"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="明细" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="p60-Al-7vo">
                                     <rect key="frame" x="15" y="12" width="30" height="18"/>
@@ -211,7 +212,7 @@
                                 </label>
                                 <imageView hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="accsessory-check" id="mKi-Eu-buf" userLabel="明细icon">
                                     <rect key="frame" x="282" y="9" width="23" height="24"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="frb-sT-wU3" userLabel="明细btn">
                                     <rect key="frame" x="5" y="3" width="310" height="36"/>

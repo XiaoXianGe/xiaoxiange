@@ -22,7 +22,6 @@
                         <rect key="frame" x="12" y="2" width="197" height="47"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="197" id="FxB-Xv-6dN"/>
-                            <constraint firstAttribute="height" constant="47" id="xtn-Jm-642"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -66,7 +65,7 @@
                 <outlet property="priceLabel" destination="7kK-Q3-SZN" id="uQ3-Oh-mBn"/>
                 <outlet property="titelLbale" destination="F3e-fM-i0l" id="ZT9-ne-Lox"/>
             </connections>
-            <point key="canvasLocation" x="257" y="308"/>
+            <point key="canvasLocation" x="593" y="382"/>
         </tableViewCell>
     </objects>
     <resources>

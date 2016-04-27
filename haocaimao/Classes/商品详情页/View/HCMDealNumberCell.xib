@@ -114,7 +114,7 @@
             <connections>
                 <outlet property="numberText" destination="9Z2-1w-zeK" id="qlQ-JL-VWW"/>
             </connections>
-            <point key="canvasLocation" x="608" y="359"/>
+            <point key="canvasLocation" x="489" y="359"/>
         </tableViewCell>
     </objects>
 </document>

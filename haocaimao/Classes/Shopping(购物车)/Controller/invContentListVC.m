@@ -51,7 +51,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *inv_bank;
 /** 银行帐号 */
 @property (weak, nonatomic) IBOutlet UITextField *inv_bankuser;
-
+/** 普通发票按钮 */
+@property (weak, nonatomic) IBOutlet UIButton *InvCommonBtn;
 
 
 
@@ -65,28 +66,36 @@
     
     self.title = @"发票";
     
+    [self setupController];
+    
+    [self setUpScrollView];
+
+}
+
+-(void)setupController{
+    
     self.invTitel.delegate = self;
     self.scrollView.delegate = self;
-    [self setUpScrollView];
+    
+//    self.InvCommonBtn.selected = YES;
+    
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickBack) image:@"nav-back" highImage:@"nav-back"];
     
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickSave) image:@"nav-complete" highImage:@"nav-complete"];
-    
 }
 
 -(void)setUpScrollView{
     
-    _scrollView.frame = CGRectMake(0, 0, 320, 600);
-    _scrollView.contentSize = CGSizeMake(320, 666);
-    //_scrollView.bounces = NO; // 去除弹簧效果
-    //_scrollView.showsHorizontalScrollIndicator = NO;
-    //scrollView.delegate = self;
+    _scrollView.frame = CGRectMake(0, 0, HCMScreenWidth, 800);
+    _scrollView.contentSize = CGSizeMake(HCMScreenWidth, 900);
+    _scrollView.showsHorizontalScrollIndicator = NO;
+
     
 }
 
 //发票选项
 - (void)clickSave{
-    
+    [self.view endEditing:YES];
     if (self.invCommonImg.hidden && self.invAdded.hidden) {
         [SVProgressHUD showInfoWithStatus:@"请选择发票类型"];
         return;
@@ -128,17 +137,9 @@
             [SVProgressHUD showInfoWithStatus:@"请完整填写发票信息"];
             return;
         }
-        
-        
-        
+
     }
-    
-    //NSString *inv_type = self.invCommonImg.hidden ? @"1" : @"0";
-    //NSString *inv_content = self.invCommonImg.hidden ? @"0" : @"明细";
-   // NSString *inv_payee = self.invTitel.text;
-    
-    //NSDictionary *dict = @{@"inv_type":inv_type,@"inv_content":inv_content,@"inv_payee":inv_payee};
-    
+
     [self.delegate setInvContent:self dictData:dict];
     
     [self.navigationController popViewControllerAnimated:YES];
@@ -148,9 +149,11 @@
 - (void)clickBack{
     
     [self.navigationController popViewControllerAnimated:YES];
+    [self.view endEditing:YES];
     
 }
 
+//普通发票按钮
 - (IBAction)clickInvCommonBtn:(UIButton *)sender {
  
     if (self.invCommonImg.hidden) {
@@ -167,6 +170,8 @@
     }
     
 }
+
+//增值税发票按钮
 - (IBAction)clickInvAddedBtn:(UIButton *)sender {
     
     if (self.invAdded.hidden) {
@@ -183,11 +188,11 @@
         [self INVViewHidden];
     }
 }
+
+//明细按钮
 - (IBAction)clickCarefuBtn:(UIButton *)sender {
     
-//    self.carefulImg.hidden = sender.selected;
-//    
-//    sender.selected = !sender.selected;
+
 }
 
 -(void)INVViewHidden{
@@ -198,7 +203,7 @@
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:0.5 animations:^{
             self.INVHeart.alpha = 1;
-             self.careFulView.frame = CGRectMake(0, 155, 320, 90);
+             self.careFulView.frame = CGRectMake(0, 155, HCMScreenWidth, 90);
         }];
         
     }];
@@ -208,7 +213,7 @@
 -(void)INVViewAppear{
     [UIView animateWithDuration:0.5 animations:^{
          self.INVHeart.alpha= 0;
-          self.careFulView.frame = CGRectMake(0, 316, 320, 90);
+          self.careFulView.frame = CGRectMake(0, 316, HCMScreenWidth, 90);
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:0.2 animations:^{
              self.INVView.alpha = 1;
@@ -220,9 +225,17 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
     // 这个方法是UITextFieldDelegate协议里面的
-    
-    [theTextField resignFirstResponder]; //这句代码可以隐藏 键盘
+    [theTextField resignFirstResponder];
     
     return YES;
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    
+    [self clickInvCommonBtn:self.InvCommonBtn];
+    
+    
 }
 @end

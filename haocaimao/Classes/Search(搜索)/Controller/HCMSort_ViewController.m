@@ -96,7 +96,12 @@ static NSString * const reuseIdentifier = @"Cell";
     self.searchBar = [HWSearchBar searchBar];
     [self.searchBar addTarget:self action:@selector(gotoTheSearch) forControlEvents:UIControlEventEditingDidEndOnExit];
     
-    self.searchBar.frame = CGRectMake(0, 0, 250, 30);
+    CGFloat searchBarW = 0;
+    if (HCMScreenWidth == 414.0) searchBarW = 240;
+    if (HCMScreenWidth == 375.0) searchBarW = 210;
+    if (HCMScreenWidth == 320.0) searchBarW = 160;
+    
+    self.searchBar.frame = CGRectMake(0, 0, searchBarW, 30);
     self.navigationItem.titleView = self.searchBar;
     //self.passwordTextfield.returnKeyType = UIReturnKeyDone;
     
@@ -110,8 +115,8 @@ static NSString * const reuseIdentifier = @"Cell";
     
     self.navigationItem.rightBarButtonItems = rightBtns;
     
-    self.sortClickView.frame = CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, 40);
-    self.collectView.frame = CGRectMake(0, 104, self.sortClickView.frame.size.width, [UIScreen mainScreen].bounds.size.height - 104);
+//    self.sortClickView.frame = CGRectMake(0, 64, HCMScreenWidth, 40);
+//    self.collectView.frame = CGRectMake(0, 104, HCMScreenWidth, HCMScreenHeight - 104);
     
     self.sortClickView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"item-grid-filter-bg"]];
     

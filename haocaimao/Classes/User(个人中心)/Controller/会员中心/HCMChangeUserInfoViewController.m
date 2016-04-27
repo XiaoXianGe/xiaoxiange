@@ -67,7 +67,7 @@
    
     // 创建警告框实例
     //  3.设置self为alertView的代理方
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"" message:@"是否立刻提交" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"YES",nil];
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"" message:@"是否立刻提交" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"修改",nil];
     //设置alertview的样式
     // alert.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
     // 显示警告框
@@ -83,7 +83,7 @@
     //根据点击的按钮的index，获取这个按钮的标题
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     
-    if ([title isEqualToString:@"Cancel"]) {
+    if ([title isEqualToString:@"取消"]) {
         
     } else{
         

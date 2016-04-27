@@ -672,7 +672,7 @@
 /**
  *  购买数量  *  确定
  */
--(void)clickOK{
+-(void)clickOOKK{
     
     if (!self.countTextField.text.length) {
         [SVProgressHUD showInfoWithStatus:@"数量不能为空"];
@@ -695,8 +695,6 @@
         
     }
     
-//    [self getThePriceForGood:self.markPrice upDownPrice:self.allBtnPrice[self.tag]];
-
     if (_markClickBtn) {
 
         UIButton *btn = [self.buyNowAndAddCart objectAtIndex:_buyOrCartIndex];
@@ -880,11 +878,11 @@
     [OKButton setBackgroundImage:[UIImage imageNamed:@"button-narrow-red"] forState:UIControlStateNormal];
     [OKButton setTitle:@"确  定" forState:UIControlStateNormal];
     [OKButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [OKButton addTarget:self action:@selector(clickOK) forControlEvents:UIControlEventTouchUpInside];
+    [OKButton addTarget:self action:@selector(clickOOKK) forControlEvents:UIControlEventTouchUpInside];
     [self.buyCountView addSubview:OKButton];
     
     //*** 弹出框的大小内容
-    self.alert=[[JKAlertDialog alloc]initWithTitle:@"购买数量" message:@"" color:color andBoolen:YES AlertsWidth:buyviewW AlertsHeight:buyviewH];
+    self.alert=[[JKAlertDialog alloc]initWithTitle:@"购买数量" message:nil color:color andBoolen:YES AlertsWidth:buyviewW AlertsHeight:buyviewH];
     
     self.alert.contentView=self.buyCountView;
     [self.alert show];

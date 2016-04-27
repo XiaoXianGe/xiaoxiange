@@ -1679,14 +1679,14 @@
 			path = fmdb;
 			sourceTree = "<group>";
 		};
-		23AF71401C8974A6001B51CD /* 商品详情页（开发中） */ = {
+		23AF71401C8974A6001B51CD /* 商品详情页（学习开发中） */ = {
 			isa = PBXGroup;
 			children = (
 				23AF71411C8974A6001B51CD /* Controller */,
 				23AF71441C8974A6001B51CD /* Model */,
 				23AF71471C8974A6001B51CD /* View */,
 			);
-			name = "商品详情页（开发中）";
+			name = "商品详情页（学习开发中）";
 			path = "商品详情页";
 			sourceTree = "<group>";
 		};
@@ -1885,7 +1885,7 @@
 				231391851C27931D001D5E18 /* 第三方授权登录 */,
 				23AF71971C8A826C001B51CD /* WeChat微信支付 */,
 				23DF59B81BDF172E00FBFE2C /* Newfeature(新特性) */,
-				23AF71401C8974A6001B51CD /* 商品详情页（开发中） */,
+				23AF71401C8974A6001B51CD /* 商品详情页（学习开发中） */,
 				23D0255E1B8B22200009C7EE /* Main */,
 			);
 			path = Classes;

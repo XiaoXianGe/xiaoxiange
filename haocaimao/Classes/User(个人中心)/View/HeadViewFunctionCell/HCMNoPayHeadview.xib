@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HCMNoPayHeadview">
             <connections>
+                <outlet property="_view" destination="ofw-qs-Yb2" id="f9T-MD-rr9"/>
                 <outlet property="testView" destination="un4-fs-9NT" id="Ra0-tt-MLs"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -27,7 +28,7 @@
                 </view>
             </subviews>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="828" y="-938"/>
+            <point key="canvasLocation" x="978" y="-917"/>
         </view>
     </objects>
     <resources>

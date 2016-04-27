@@ -21,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="beijing" translatesAutoresizingMaskIntoConstraints="NO" id="Ue0-lr-Ecn">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="beijing" translatesAutoresizingMaskIntoConstraints="NO" id="Ue0-lr-Ecn">
                     <rect key="frame" x="22" y="58" width="290" height="264"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="264" id="51K-bl-21G"/>
@@ -40,7 +40,7 @@
                         </mask>
                     </variation>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EjK-jz-2Dm">
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EjK-jz-2Dm">
                     <rect key="frame" x="260" y="166" width="43" height="36"/>
                     <color key="backgroundColor" red="0.97200520830000003" green="0.97200520830000003" blue="0.97200520830000003" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -66,7 +66,7 @@
                         <action selector="Networking" destination="-1" eventType="touchUpInside" id="HnH-PB-Ydu"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shuru" translatesAutoresizingMaskIntoConstraints="NO" id="tVo-s8-TKp">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="shuru" translatesAutoresizingMaskIntoConstraints="NO" id="tVo-s8-TKp">
                     <rect key="frame" x="58" y="137" width="175" height="33"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="175" id="gFk-nh-I58"/>
@@ -85,7 +85,7 @@
                         </mask>
                     </variation>
                 </imageView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入你的手机号码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CJH-cs-Tws">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入你的手机号码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CJH-cs-Tws">
                     <rect key="frame" x="69" y="140" width="159" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="6DB-Ky-tLG"/>
@@ -106,16 +106,16 @@
                         </mask>
                     </variation>
                 </textField>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pCM-IF-0OF">
+                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pCM-IF-0OF">
                     <rect key="frame" x="63" y="173" width="165" height="58"/>
                     <subviews>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LIg-hg-xmh">
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LIg-hg-xmh">
                             <rect key="frame" x="1" y="1" width="163" height="56"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                         </textView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="输入你要描述的内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8u-DF-Dgo">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="输入你要描述的内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8u-DF-Dgo">
                             <rect key="frame" x="8" y="6" width="125" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="KHh-Qq-IxC"/>
@@ -174,7 +174,7 @@
                         </mask>
                     </variation>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnH-Se-iV6">
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnH-Se-iV6">
                     <rect key="frame" x="127" y="239" width="42" height="45"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="46" id="Ghy-eD-0pp"/>
@@ -200,13 +200,13 @@
                         <action selector="addPhoto" destination="-1" eventType="touchUpInside" id="Bfv-K1-7l1"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mRq-0T-hUq">
+                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mRq-0T-hUq">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iconfont-guanbi" translatesAutoresizingMaskIntoConstraints="NO" id="8df-ad-dXA">
                             <rect key="frame" x="9" y="19" width="24" height="25"/>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ah-TR-SBi">
+                        <button opaque="NO" contentMode="scaleAspectFit" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ah-TR-SBi">
                             <rect key="frame" x="1" y="8" width="56" height="41"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
@@ -254,7 +254,7 @@
                         </mask>
                     </variation>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我要咨询" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2j2-Jg-ZwK">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="我要咨询" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2j2-Jg-ZwK">
                     <rect key="frame" x="125" y="24" width="71" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="e3h-TV-hNI"/>
@@ -304,18 +304,18 @@
                     <exclude reference="nin-SE-e4L"/>
                     <exclude reference="ayX-Ed-qAs"/>
                     <exclude reference="lXF-LG-qnW"/>
+                    <exclude reference="RI2-Wu-tib"/>
+                    <exclude reference="hUh-yi-SvP"/>
                     <exclude reference="8EX-VK-0mi"/>
                     <exclude reference="Yew-15-sUC"/>
                     <exclude reference="drN-Aa-nMN"/>
-                    <exclude reference="RI2-Wu-tib"/>
-                    <exclude reference="hUh-yi-SvP"/>
                     <exclude reference="7lC-NQ-2HS"/>
                     <exclude reference="G00-ik-C8n"/>
                     <exclude reference="xMW-GC-p0P"/>
-                    <exclude reference="bHk-Ka-ktJ"/>
-                    <exclude reference="dQB-ZW-nH7"/>
                     <exclude reference="nPR-JQ-QFD"/>
                     <exclude reference="slJ-wA-d05"/>
+                    <exclude reference="bHk-Ka-ktJ"/>
+                    <exclude reference="dQB-ZW-nH7"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
@@ -325,18 +325,18 @@
                     <include reference="nin-SE-e4L"/>
                     <include reference="ayX-Ed-qAs"/>
                     <include reference="lXF-LG-qnW"/>
+                    <include reference="RI2-Wu-tib"/>
+                    <include reference="hUh-yi-SvP"/>
                     <include reference="8EX-VK-0mi"/>
                     <include reference="Yew-15-sUC"/>
                     <include reference="drN-Aa-nMN"/>
-                    <include reference="RI2-Wu-tib"/>
-                    <include reference="hUh-yi-SvP"/>
                     <include reference="7lC-NQ-2HS"/>
                     <include reference="G00-ik-C8n"/>
                     <include reference="xMW-GC-p0P"/>
-                    <include reference="bHk-Ka-ktJ"/>
-                    <include reference="dQB-ZW-nH7"/>
                     <include reference="nPR-JQ-QFD"/>
                     <include reference="slJ-wA-d05"/>
+                    <include reference="bHk-Ka-ktJ"/>
+                    <include reference="dQB-ZW-nH7"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="-39" y="194"/>
@@ -347,17 +347,71 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dengdai" translatesAutoresizingMaskIntoConstraints="NO" id="wWo-As-oBQ">
                     <rect key="frame" x="37" y="8" width="247" height="265"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="265" id="24M-T9-okG"/>
+                        <constraint firstAttribute="width" constant="247" id="Q34-Nq-OoB"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="24M-T9-okG"/>
+                            <exclude reference="Q34-Nq-OoB"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="24M-T9-okG"/>
+                            <include reference="Q34-Nq-OoB"/>
+                        </mask>
+                    </variation>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XP5-qv-RdH">
                     <rect key="frame" x="79" y="127" width="163" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="163" id="6uR-Sk-E1y"/>
+                        <constraint firstAttribute="height" constant="45" id="ZKd-8J-PFU"/>
+                    </constraints>
                     <state key="normal" backgroundImage="gengduo"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="6uR-Sk-E1y"/>
+                            <exclude reference="ZKd-8J-PFU"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="6uR-Sk-E1y"/>
+                            <include reference="ZKd-8J-PFU"/>
+                        </mask>
+                    </variation>
                     <connections>
                         <action selector="checkMoreGoods" destination="-1" eventType="touchUpInside" id="rDu-kv-akd"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.94483901520000002" green="0.94483901520000002" blue="0.94483901520000002" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="wWo-As-oBQ" firstAttribute="top" secondItem="KFn-90-OhR" secondAttribute="top" constant="8" id="8Xd-3I-mbX"/>
+                <constraint firstItem="XP5-qv-RdH" firstAttribute="centerX" secondItem="KFn-90-OhR" secondAttribute="centerX" id="B8h-e5-3Qy"/>
+                <constraint firstItem="XP5-qv-RdH" firstAttribute="top" secondItem="KFn-90-OhR" secondAttribute="top" constant="127" id="Gcn-eu-mRb"/>
+                <constraint firstItem="wWo-As-oBQ" firstAttribute="centerX" secondItem="KFn-90-OhR" secondAttribute="centerX" id="g00-aI-cID"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="8Xd-3I-mbX"/>
+                    <exclude reference="g00-aI-cID"/>
+                    <exclude reference="B8h-e5-3Qy"/>
+                    <exclude reference="Gcn-eu-mRb"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="constraints">
+                    <include reference="8Xd-3I-mbX"/>
+                    <include reference="g00-aI-cID"/>
+                    <include reference="B8h-e5-3Qy"/>
+                    <include reference="Gcn-eu-mRb"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="447" y="220.5"/>
         </view>
     </objects>

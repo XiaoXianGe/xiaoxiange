@@ -46,7 +46,7 @@ typedef void (^goodsBlock)(BOOL obj);
 @property (copy, nonatomic) goodsBlock goods;
 
 @property (strong, nonatomic) CartDoodsListModel *listModel;
-#define HCMgoodsNameFont [UIFont systemFontOfSize:10]
+#define HCMgoodsNameFont [UIFont systemFontOfSize:12]
 #define HCMshopNameFont  [UIFont systemFontOfSize:13]
 #define HCMgoods_priceFont [UIFont systemFontOfSize:13]
 @end

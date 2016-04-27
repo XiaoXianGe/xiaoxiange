@@ -957,20 +957,16 @@
     NSString *LastSecond = [self.defaults objectForKey:@"LastSecond"];
 
     if (!LastSecond) { //如果没有时间戳，把当前时间戳 存进去
-        
-        HCMLog(@"555  沙盒里面没有这个second");
+
         [self.defaults setObject:timeString forKey:@"LastSecond"];
         [self.defaults synchronize];
         
     }else{ //如果有时间戳,判断两个时间
 
-        HCMLog(@"6666  沙盒里面有这个second");
                             // 当前时间戳                  上次时间戳
         NSInteger second = [timeString integerValue] - [LastSecond integerValue];
         
-        HCMLog(@"%ld",(long)second);
-        
-        if ( second > (3600 * 24 * 7)) { // second > 一小时
+        if ( second > 10 ) { // second > 一小时(3600 * 24 * 7)
             //将当前的时间戳存到沙盒
             [self.defaults setObject:timeString forKey:@"LastSecond"];
             [self.defaults synchronize];
@@ -987,8 +983,7 @@
             params[@"version"] = currentVersion;
             
             [[AddressNerworking sharedManager]postVersionCheckURL:params successBlock:^(id responseBody) {
-                
-                HCMLog(@"%@",responseBody);
+
                 if ([responseBody[@"data"][@"latestVersion"] isEqualToString:@"0"]) {
                     
                     NSString *msg = [NSString stringWithFormat:@"好采猫APP已经更新到%@版本！\n立即下载",responseBody[@"data"][@"versionSN"]];
@@ -1009,6 +1004,14 @@
             }];
         }
     }
+    
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+    [self.tableView.header endRefreshing];
+    
     
 }
 

@@ -27,7 +27,7 @@
 #import "FootPopView.h"
 
 #import "DealViewController.h"
-@interface HCMShoppingTableViewController ()<HCMCartCellDelegate>
+@interface HCMShoppingTableViewController ()<HCMCartCellDelegate,UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *goodsNum;
 
 @property (strong, nonatomic) IBOutlet UIView *deleteFootView;
@@ -131,6 +131,7 @@ static NSString *ID = @"Cell";
     [self.deleteFootView removeFromSuperview];
     self.animaBtn.selected = NO;
     self.popView.fool.alpha = 1;
+    [self.tableView.header endRefreshing];
 
 }
 
@@ -185,13 +186,17 @@ static NSString *ID = @"Cell";
     [popBtn setImage:[UIImage imageNamed:@"item-info-popView"] forState:UIControlStateSelected];
     
     if (self.status) {
+        //
+        
         if (popBtn.selected) {
+            
             [UIView animateWithDuration:0.5 animations:^{
-                self.popView.frame = CGRectMake(0, self.scrollViewPoint.y +452, HCMScreenWidth, 230);
+                self.popView.frame = CGRectMake(0,  self.scrollViewPoint.y +HCMScreenHeight - 90 -35, HCMScreenWidth, 230);
                 self.popView.fool.alpha = 0;
             }];
             
         }else{
+            
             [UIView animateWithDuration:0.5 animations:^{
                 self.tableView.tableFooterView = self.popView;
                 self.popView.fool.alpha = 1;
@@ -201,13 +206,16 @@ static NSString *ID = @"Cell";
         }
 
     }else{
+        
         if (popBtn.selected) {
+            
             [UIView animateWithDuration:0.5 animations:^{
-                self.popView.frame = CGRectMake(0,  self.scrollViewPoint.y +HCMScreenHeight-80, HCMScreenWidth, 230);
+                self.popView.frame = CGRectMake(0,  self.scrollViewPoint.y +HCMScreenHeight-90, HCMScreenWidth, 230);
                 self.popView.fool.alpha = 0;
             }];
             
         }else{
+            
             [UIView animateWithDuration:0.5 animations:^{
                 self.tableView.tableFooterView = self.popView;
                 self.popView.fool.alpha = 1;
@@ -490,6 +498,26 @@ static NSString *ID = @"Cell";
 // 点击了删除，cell代理方法
 - (void)clickDeleteGoodsCell:(HCMCartCell *)cell redID:(NSString *)redID{
     
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"确定删除该商品?" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    
+    alert.tag = [redID integerValue];
+    
+    [alert show];
+    
+   }
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
+    
+    if ([buttonTitle isEqualToString:@"确定"]) {
+        NSString * redID = [NSString stringWithFormat:@"%ld",alertView.tag];
+        [self deleteShoppingGoods:redID];
+    }
+
+}
+
+-(void)deleteShoppingGoods:(NSString *)redID{
     self.navigationItem.rightBarButtonItem = nil;
     NSDictionary *dict = @{@"session":@{@"sid":self.sid,@"uid":self.uid},
                            @"rec_id":redID};
@@ -507,8 +535,9 @@ static NSString *ID = @"Cell";
         [self network];
         
     } failureBlock:^(NSString *error) {
-         [SVProgressHUD showInfoWithStatus:@"网络链接失败"];
+        [SVProgressHUD showInfoWithStatus:@"网络链接失败"];
     }];
+
 }
 
 //点击删除店铺

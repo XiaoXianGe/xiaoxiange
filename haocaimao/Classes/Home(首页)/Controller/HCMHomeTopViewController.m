@@ -165,5 +165,32 @@
 
 }
 
+#pragma 获取首页界面图片
+
+//加载8个大分类图标
+-(void)load8Png{
+    
+}
+
+//加载6个分类图标（六宫格）
+-(void)load6Png{
+    
+}
+
+//加载活动专区4图
+-(void)load4Activity{
+    
+}
+
+//加载9宫图
+-(void)load9Png{
+    
+}
+
+//加载广告横幅
+-(void)load3Banner{
+    
+}
+
 
 @end

@@ -11,6 +11,9 @@
 @interface HCMNoPayHeadview ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *testView;
+/** 分割线 */
+@property (weak, nonatomic) IBOutlet UIView *_view;
+
 
 @end
 
@@ -20,7 +23,7 @@
     [super viewDidLoad];
     
     self.testView.frame = CGRectMake(0, 0, HCMScreenWidth, 44);
-    
+    self._view.frame = CGRectMake(15, 43, HCMScreenWidth - 30, 1);
 }
 
 

@@ -26,6 +26,8 @@
 #import "HCMPartnerInfoModel.h"
 #import "MJExtension.h"
 #import "HCMPartnerCenterViewController.h"
+#import "UIButton+WebCache.h"
+
 
 @interface HCMHomeCollectionViewController ()<HCMHomeTopViewControllerDelegate>
 
@@ -42,6 +44,10 @@
 @end
 
 @implementation HCMHomeCollectionViewController
+
+#define HCM320ViewH 1510
+#define HCM375ViewH 1725
+#define HCM414ViewH 1875
 
 static NSString * const reuseIdentifier = @"Cell";
 
@@ -183,10 +189,10 @@ static NSString * const reuseIdentifier = @"Cell";
 
 -(void)clickLogo{
    [self.collectionView setContentOffset:CGPointMake(0, 0) animated:YES];
-//    ViewController *vc = [[ViewController alloc]init];
-//    vc.goods_id = @"318";
-//    [self.navigationController pushViewController:vc animated:YES];
-//    [SVProgressHUD show];
+    ViewController *vc = [[ViewController alloc]init];
+    vc.goods_id = @"318";
+    [self.navigationController pushViewController:vc animated:YES];
+    [SVProgressHUD show];
 
 }
 
@@ -303,15 +309,15 @@ static NSString * const reuseIdentifier = @"Cell";
     
     if (HCMScreenWidth == 414.0) {
         //6p
-        self.homeTop.view.frame = CGRectMake(0, -20, self.view.frame.size.width, 1910);
+        self.homeTop.view.frame = CGRectMake(0, -20, self.view.frame.size.width, HCM414ViewH + 30);
         
     }else if(HCMScreenWidth == 375.0){
         //6
-        self.homeTop.view.frame = CGRectMake(0, -20, self.view.frame.size.width, 1780);
+        self.homeTop.view.frame = CGRectMake(0, -20, self.view.frame.size.width, HCM375ViewH + 30);
         
     }else{
         //5
-        self.homeTop.view.frame = CGRectMake(0, -20, self.view.frame.size.width, 1590);
+        self.homeTop.view.frame = CGRectMake(0, -20, self.view.frame.size.width, HCM320ViewH + 30);
         
     }
     
@@ -329,15 +335,15 @@ static NSString * const reuseIdentifier = @"Cell";
     
     if (HCMScreenWidth == 414.0) {
         //6p
-        cellH = 1880;
+        cellH = HCM414ViewH;
         
     }else if(HCMScreenWidth == 375.0){
         //6
-        cellH = 1750;
+        cellH = HCM375ViewH;
         
     }else if(HCMScreenWidth == 320.0){
         //5
-        cellH = 1560;
+        cellH = HCM320ViewH;
         
     }
     return CGSizeMake(HCMScreenWidth, cellH);

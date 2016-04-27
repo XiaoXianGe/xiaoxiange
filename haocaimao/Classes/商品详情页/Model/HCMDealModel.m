@@ -61,7 +61,6 @@
         
     }
     
-    
     if (self.cellHeights) {
          return self.cellHeights + 100 +20;
     }else{

@@ -11,7 +11,7 @@
 #define HCMTen 10
 #define HCMTwenty 20
 #define HCMfive 5
-#define HCMtextWidth 180
+#define HCMtextWidth HCMScreenWidth-140
 #define HCMthirty 30
 
 @implementation CartListFrame
@@ -62,11 +62,11 @@
     
     self.goods_priceF = CGRectMake(goodsNameLabelX, reduceGoodsY, goods_priceSize.width, goods_priceSize.height);
     
-    self.reduceGoodsF = CGRectMake(HCMScreenWidth - 85,reduceGoodsY , HCMTwenty, HCMTwenty);
+    self.reduceGoodsF = CGRectMake(HCMScreenWidth - 85,reduceGoodsY + 5 , HCMTwenty, HCMTwenty);
     
-    self.numberGoodsF = CGRectMake(CGRectGetMaxX(self.reduceGoodsF), reduceGoodsY, HCMthirty, HCMTwenty);
+    self.numberGoodsF = CGRectMake(CGRectGetMaxX(self.reduceGoodsF), reduceGoodsY+ 5 , HCMthirty, HCMTwenty);
     
-    self.addGoodsF = CGRectMake(CGRectGetMaxX(self.numberGoodsF), reduceGoodsY, HCMTwenty, HCMTwenty);
+    self.addGoodsF = CGRectMake(CGRectGetMaxX(self.numberGoodsF), reduceGoodsY+ 5 , HCMTwenty, HCMTwenty);
     
     self.goodsViewF = CGRectMake(0, 0, HCMScreenWidth, CGRectGetMaxY(self.goodsImgF)+HCMTen);
     
