@@ -50,10 +50,10 @@
 -(void)setUpPhotosImageViewAndButton{
     
     self.PhotosImageView = [[UIImageView alloc]init];
-    _PhotosImageView.frame = CGRectMake(75, 300, 120, 120);
+    _PhotosImageView.frame = CGRectMake(105, 300, 120, 120);
     
     self.updateImageBtn = [[UIButton alloc]init];
-    _updateImageBtn.frame = CGRectMake(170, 295, 30, 30);
+    _updateImageBtn.frame = CGRectMake(200, 295, 30, 30);
     [_updateImageBtn addTarget:self action:@selector(updateImage:) forControlEvents:UIControlEventTouchUpInside];
     [_updateImageBtn setImage:[UIImage imageNamed:@"iconfont-gengxin"] forState:UIControlStateNormal];
     
@@ -120,6 +120,7 @@
     //[self.photosView addPhoto:image];
     
     [self setUpDeleteBtn:image];
+    self.updateImageBtn.hidden = NO;
 }
 
 
@@ -133,6 +134,8 @@
 
 -(void)updateImage:(UIButton *)btn{
     [self.PhotosImageView removeFromSuperview];
+    [self openAlbum];
+    self.updateImageBtn.hidden = YES;
     
 }
 

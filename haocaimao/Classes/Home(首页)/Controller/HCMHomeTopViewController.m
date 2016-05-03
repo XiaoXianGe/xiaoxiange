@@ -69,7 +69,7 @@
 - (IBAction)clickZoneButtons:(UIButton *)sender {
     
     int tag = sender.tag%10;
-     NSArray *arr = @[@"20",@"24",@"26",@"25",@"21",@"27",@"28",@"29"];
+     NSArray *arr = @[@"20",@"21",@"28",@"25",@"27",@"22",@"24",@"29"];
     [self.delegate touchClickToScene:self url:arr[tag]];
     
 }

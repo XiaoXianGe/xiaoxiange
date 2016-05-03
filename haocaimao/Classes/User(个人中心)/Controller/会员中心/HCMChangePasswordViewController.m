@@ -40,11 +40,11 @@
     self.setPassWord.secureTextEntry = YES;
     self.setPassWord2.secureTextEntry = YES;
 
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickBack) image:@"nav-back" highImage:@"nav-back"];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickBackto) image:@"nav-back" highImage:@"nav-back"];
     
 }
 
-- (void)clickBack
+- (void)clickBackto
 {
     [self.navigationController popViewControllerAnimated:YES];
 }

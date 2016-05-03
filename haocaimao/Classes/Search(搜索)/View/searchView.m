@@ -107,10 +107,6 @@ static NSString *const headerID = @"CollectionHeaderView";
         cell = [[mainTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         
     }
-//    UIView *view = [[UIView alloc]init];
-//    view.backgroundColor = markLineColor;
-//    view.frame = CGRectMake(0, cell.height-1, cell.contentView.width, 1);
-//    [cell.contentView addSubview:view];
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.contentView.backgroundColor = [UIColor whiteColor];

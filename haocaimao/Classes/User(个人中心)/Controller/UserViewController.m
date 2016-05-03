@@ -479,8 +479,6 @@
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     
-   // UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             return self.myOrderCell;
@@ -499,14 +497,6 @@
         if (indexPath.row == 0) {
             return self.addressCell;
         }else if(indexPath.row == 1){
-//            if (self.nib == nil) {
-//                self.nib = [UINib nibWithNibName:@"partnerCell" bundle:nil];
-//                [self.tableView registerNib:self.nib forCellReuseIdentifier:@"Cell"];
-//            }
-//            
-//            partnerCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell"];
-//            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//            return cell;
           return self.partnerCell;
         }else{
             return self.HCMCentreCell;
@@ -564,12 +554,6 @@
         return;
     }
     
-    /*
-     self.userClassVC = [[UserClassitfTableViewController alloc]initWithStyle:UITableViewStyleGrouped];
-     self.userClassVC.className = self.userArray[indexPath.section];
-     
-     [self.navigationController pushViewController:self.userClassVC animated:YES];
-     */
 }
 
 

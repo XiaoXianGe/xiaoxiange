@@ -47,9 +47,21 @@ static NSString *identifier = @"ID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setupSearchBar];
+    
+    [self setupController];
+    
+
+}
+
+-(void)setupSearchBar{
     self.searchBar = [HWSearchBar searchBar];
     self.searchBar.frame = CGRectMake(0, 0, 250, 30);
     [self.searchBar addTarget:self action:@selector(gotoTheSearch) forControlEvents:UIControlEventEditingDidEndOnExit];
+    
+}
+
+-(void)setupController{
     
     self.navigationItem.titleView = self.searchBar;
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -59,8 +71,6 @@ static NSString *identifier = @"ID";
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:nil image:@"logo-icon" highImage:@"logo-icon"];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    
-
 }
 
 -(void)keyboardWasShown:(NSNotification *)notification{
@@ -69,7 +79,7 @@ static NSString *identifier = @"ID";
     
     UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 64, HCMScreenWidth, HCMScreenHeight - 64 - keyBoardFrame.size.height)];
     
-    [btn addTarget:self action:@selector(TouchEvent) forControlEvents:UIControlEventTouchUpInside];
+    [btn addTarget:self action:@selector(TouchEvent) forControlEvents:UIControlEventTouchDown];
     
     btn.backgroundColor = [UIColor clearColor];
     
@@ -80,6 +90,7 @@ static NSString *identifier = @"ID";
 }
 
 -(void)TouchEvent{
+//    [self.view endEditing:YES];
     [self.TouchButton removeFromSuperview];
     [self.searchBar resignFirstResponder];
 }

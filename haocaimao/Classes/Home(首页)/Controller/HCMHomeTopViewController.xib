@@ -821,6 +821,9 @@
                         <button opaque="NO" tag="33" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbF-pj-koR" userLabel="Hot Good4">
                             <rect key="frame" x="0.0" y="134" width="133" height="133"/>
                             <state key="normal" backgroundImage="001_04"/>
+                            <variation key="widthClass=compact" misplaced="YES">
+                                <rect key="frame" x="0.0" y="135" width="133" height="132"/>
+                            </variation>
                             <connections>
                                 <action selector="goods_nineButton:" destination="-1" eventType="touchUpInside" id="jW9-Qy-yaS"/>
                             </connections>
@@ -828,6 +831,9 @@
                         <button opaque="NO" tag="34" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Tb-Hy-DQC" userLabel="Hot Good5">
                             <rect key="frame" x="134" y="134" width="132" height="133"/>
                             <state key="normal" backgroundImage="001_05"/>
+                            <variation key="widthClass=compact" misplaced="YES">
+                                <rect key="frame" x="134" y="135" width="132" height="132"/>
+                            </variation>
                             <connections>
                                 <action selector="goods_nineButton:" destination="-1" eventType="touchUpInside" id="ssU-6x-BcZ"/>
                             </connections>
@@ -835,6 +841,9 @@
                         <button opaque="NO" tag="35" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xxv-iP-5jd" userLabel="Hot Good6">
                             <rect key="frame" x="267" y="134" width="133" height="133"/>
                             <state key="normal" backgroundImage="001_06"/>
+                            <variation key="widthClass=compact" misplaced="YES">
+                                <rect key="frame" x="267" y="135" width="133" height="132"/>
+                            </variation>
                             <connections>
                                 <action selector="goods_nineButton:" destination="-1" eventType="touchUpInside" id="Hgx-X8-nLH"/>
                             </connections>
@@ -863,6 +872,9 @@
                         <button opaque="NO" tag="31" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NPX-2l-aUt" userLabel="Hot Good2">
                             <rect key="frame" x="134" y="1" width="132" height="132"/>
                             <state key="normal" backgroundImage="001_02"/>
+                            <variation key="widthClass=compact" misplaced="YES">
+                                <rect key="frame" x="134" y="1" width="132" height="133"/>
+                            </variation>
                             <connections>
                                 <action selector="goods_nineButton:" destination="-1" eventType="touchUpInside" id="p1x-w4-Wvb"/>
                             </connections>
@@ -870,6 +882,9 @@
                         <button opaque="NO" tag="32" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRT-DB-H2x" userLabel="Hot Good3">
                             <rect key="frame" x="267" y="1" width="133" height="132"/>
                             <state key="normal" backgroundImage="001_03"/>
+                            <variation key="widthClass=compact" misplaced="YES">
+                                <rect key="frame" x="267" y="1" width="133" height="133"/>
+                            </variation>
                             <connections>
                                 <action selector="goods_nineButton:" destination="-1" eventType="touchUpInside" id="OdW-qs-Y8p"/>
                             </connections>
@@ -877,6 +892,9 @@
                         <button opaque="NO" tag="30" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7rs-Hp-LiT">
                             <rect key="frame" x="0.0" y="1" width="133" height="132"/>
                             <state key="normal" backgroundImage="001_01"/>
+                            <variation key="widthClass=compact" misplaced="YES">
+                                <rect key="frame" x="0.0" y="1" width="133" height="133"/>
+                            </variation>
                             <connections>
                                 <action selector="goods_nineButton:" destination="-1" eventType="touchUpInside" id="Vv5-aq-Js9"/>
                             </connections>
@@ -1122,10 +1140,10 @@
                     <exclude reference="kW3-tl-I1i"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="uza-8u-ctL"/>
                     <exclude reference="8Y7-Vk-d71"/>
                     <exclude reference="bvh-jl-scn"/>
                     <exclude reference="syO-b3-2hW"/>
+                    <exclude reference="uza-8u-ctL"/>
                     <exclude reference="kuA-dk-fYp"/>
                     <exclude reference="nld-pu-xN7"/>
                     <exclude reference="wo9-Z6-yJS"/>
@@ -1145,10 +1163,10 @@
                     <include reference="kW3-tl-I1i"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="uza-8u-ctL"/>
                     <include reference="8Y7-Vk-d71"/>
                     <include reference="bvh-jl-scn"/>
                     <include reference="syO-b3-2hW"/>
+                    <include reference="uza-8u-ctL"/>
                     <include reference="kuA-dk-fYp"/>
                     <include reference="nld-pu-xN7"/>
                     <include reference="wo9-Z6-yJS"/>

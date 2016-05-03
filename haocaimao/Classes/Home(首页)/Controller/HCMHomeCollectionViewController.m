@@ -157,10 +157,10 @@ static NSString * const reuseIdentifier = @"Cell";
     
     self.navigationController.navigationBarHidden = YES;
     
-    //注册键盘出现的通知
-    [HCMNSNotificationCenter addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardWillShowNotification object:nil];
-    //注册键盘隐藏的通知
-    [HCMNSNotificationCenter addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
+//    //注册键盘出现的通知
+//    [HCMNSNotificationCenter addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardWillShowNotification object:nil];
+//    //注册键盘隐藏的通知
+//    [HCMNSNotificationCenter addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
    
     
 }
@@ -188,11 +188,12 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 -(void)clickLogo{
+    
    [self.collectionView setContentOffset:CGPointMake(0, 0) animated:YES];
-    ViewController *vc = [[ViewController alloc]init];
-    vc.goods_id = @"318";
-    [self.navigationController pushViewController:vc animated:YES];
-    [SVProgressHUD show];
+//    ViewController *vc = [[ViewController alloc]init];
+//    vc.goods_id = @"318";
+//    [self.navigationController pushViewController:vc animated:YES];
+//    [SVProgressHUD show];
 
 }
 
@@ -235,7 +236,7 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     [self.searchBar resignFirstResponder];
-    
+//    [self.view endEditing:YES];
     CGFloat alphaValue = scrollView.contentOffset.y;
     if (scrollView.contentOffset.y > 15 && scrollView.contentOffset.y <= 150) {
         
@@ -421,18 +422,6 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 
--(void)keyboardWasShown:(NSNotification *)notification{
-    
-    CGRect keyBoardFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    
-    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 64, HCMScreenWidth, HCMScreenHeight - 64 - keyBoardFrame.size.height)];
-    [btn addTarget:self action:@selector(TouchEvent) forControlEvents:UIControlEventTouchUpInside];
-    btn.backgroundColor = [UIColor clearColor];
-    self.TouchButton = btn;
-    [self.view addSubview:self.TouchButton];
-    
-}
-
 /**
  * 申请成为合伙人
  */
@@ -514,15 +503,28 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.navigationController pushViewController:vipLoginVC animated:YES];
 }
 
--(void)TouchEvent{
-    [self.TouchButton removeFromSuperview];
-    [self.searchBar endEditing:YES];
-}
--(void)keyboardWillBeHidden:(NSNotification*)aNotification
-{
-    [self.TouchButton removeFromSuperview];
-    
-}
+//-(void)keyboardWasShown:(NSNotification *)notification{
+//    
+//    CGRect keyBoardFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+//    
+//    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 64, HCMScreenWidth, HCMScreenHeight - 64 - keyBoardFrame.size.height)];
+//    [btn addTarget:self action:@selector(TouchEvent) forControlEvents:UIControlEventTouchUpInside];
+//    btn.backgroundColor = [UIColor clearColor];
+//    self.TouchButton = btn;
+//    [self.view addSubview:self.TouchButton];
+//    
+//    
+//}
+//-(void)TouchEvent{
+//    [self.searchBar endEditing:YES];
+//    [self.TouchButton removeFromSuperview];
+//    
+//}
+//-(void)keyboardWillBeHidden:(NSNotification*)aNotification
+//{
+//    [self.TouchButton removeFromSuperview];
+//    
+//}
 
 -(void)dealloc{
     [HCMNSNotificationCenter removeObserver:self];

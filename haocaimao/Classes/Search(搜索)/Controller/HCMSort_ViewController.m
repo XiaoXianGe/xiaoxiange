@@ -99,13 +99,13 @@ static NSString * const reuseIdentifier = @"Cell";
     CGFloat searchBarW = 0;
     if (HCMScreenWidth == 414.0) searchBarW = 240;
     if (HCMScreenWidth == 375.0) searchBarW = 210;
-    if (HCMScreenWidth == 320.0) searchBarW = 160;
+    if (HCMScreenWidth == 320.0) searchBarW = 150;
     
     self.searchBar.frame = CGRectMake(0, 0, searchBarW, 30);
     self.navigationItem.titleView = self.searchBar;
     //self.passwordTextfield.returnKeyType = UIReturnKeyDone;
     
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickBack) image:@"nav-back" highImage:@"nav-back"];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickBackHome) image:@"nav-back" highImage:@"nav-back"];
     
     UIBarButtonItem *barSearchBtn=[UIBarButtonItem itemWithTarget:self action:@selector(clickSearchBrand) image:@"nav_choose" highImage:@"nav_choose"];
     
@@ -174,7 +174,9 @@ static NSString * const reuseIdentifier = @"Cell";
 /**
  *  返回
  */
--(void)clickBack{
+-(void)clickBackHome{
+    
+    [self.searchBar resignFirstResponder];
     
     [SVProgressHUD dismiss];
     
@@ -182,7 +184,6 @@ static NSString * const reuseIdentifier = @"Cell";
     
     [self.navigationController popViewControllerAnimated:YES];
     
-    [self.view endEditing:YES];
 }
 
 /**
