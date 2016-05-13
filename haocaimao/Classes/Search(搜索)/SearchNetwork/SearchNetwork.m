@@ -27,6 +27,9 @@ static NSString *const CategorySubURL = @"http://www.haocaimao.com/ecmobile/?url
  */
 static NSString *const SubSearchURL = @"http://www.haocaimao.com/ecmobile/?url=search";
 
+
+//static NSString *const SubSear
+chURL = @"http://192.168.10.162/ecmobile/?url=search";
 /**
  * 牌子筛选URL
  */

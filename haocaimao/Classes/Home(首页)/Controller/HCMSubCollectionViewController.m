@@ -173,7 +173,7 @@ static NSString * const url = @"http://www.haocaimao.com/mobile/index.php?c=topi
         UIImageView * ima = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, cellW, 180)];
         
         //特殊高度@"30 ,"@"14",@"16",@"18"
-        if([self.urlStr isEqualToString:@"30"]||[self.urlStr isEqualToString:@"14"]||[self.urlStr isEqualToString:@"16"]||[self.urlStr isEqualToString:@"18"]){
+        if([self.urlStr isEqualToString:@"30"]||[self.urlStr isEqualToString:@"40"]||[self.urlStr isEqualToString:@"16"]||[self.urlStr isEqualToString:@"41"]){
             ima.height = 270;
         }
         
@@ -209,7 +209,7 @@ static NSString * const url = @"http://www.haocaimao.com/mobile/index.php?c=topi
     if (section == 0) {
         
         //特殊高度
-        if([self.urlStr isEqualToString:@"30"]||[self.urlStr isEqualToString:@"14"]||[self.urlStr isEqualToString:@"16"]||[self.urlStr isEqualToString:@"18"]){
+        if([self.urlStr isEqualToString:@"30"]||[self.urlStr isEqualToString:@"40"]||[self.urlStr isEqualToString:@"16"]||[self.urlStr isEqualToString:@"41"]){
             return CGSizeMake(cellW, 270);
         }else{
             return CGSizeMake(cellW, 180);

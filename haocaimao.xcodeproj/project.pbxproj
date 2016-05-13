@@ -120,6 +120,7 @@
 		2374E4561BA81957008BB342 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2374E4511BA81957008BB342 /* SVProgressHUD.m */; };
 		2374E4571BA81957008BB342 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2374E4531BA81957008BB342 /* SVRadialGradientLayer.m */; };
 		237CA92E1BFB0F73008334B0 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 237CA92D1BFB0F73008334B0 /* NSString+Extension.m */; };
+		2381FCDF1CE067FA00696A63 /* LCQrcodeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2381FCDE1CE067FA00696A63 /* LCQrcodeUtil.m */; };
 		2384FDEE1BCB50B800398623 /* NSData+SDDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2384FDDE1BCB50B800398623 /* NSData+SDDataCache.m */; };
 		2384FDEF1BCB50B800398623 /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2384FDE11BCB50B800398623 /* TAAbstractDotView.m */; };
 		2384FDF01BCB50B800398623 /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2384FDE31BCB50B800398623 /* TAAnimatedDotView.m */; };
@@ -558,6 +559,8 @@
 		2374E4531BA81957008BB342 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
 		237CA92C1BFB0F73008334B0 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		237CA92D1BFB0F73008334B0 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		2381FCDD1CE067FA00696A63 /* LCQRCodeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCQRCodeUtil.h; sourceTree = "<group>"; };
+		2381FCDE1CE067FA00696A63 /* LCQrcodeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCQrcodeUtil.m; sourceTree = "<group>"; };
 		2384FDDD1BCB50B800398623 /* NSData+SDDataCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SDDataCache.h"; sourceTree = "<group>"; };
 		2384FDDE1BCB50B800398623 /* NSData+SDDataCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SDDataCache.m"; sourceTree = "<group>"; };
 		2384FDE01BCB50B800398623 /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
@@ -1512,6 +1515,15 @@
 			path = "合伙人";
 			sourceTree = "<group>";
 		};
+		2381FCDC1CE067E900696A63 /* 二维码（开发中） */ = {
+			isa = PBXGroup;
+			children = (
+				2381FCDD1CE067FA00696A63 /* LCQRCodeUtil.h */,
+				2381FCDE1CE067FA00696A63 /* LCQrcodeUtil.m */,
+			);
+			path = "二维码（开发中）";
+			sourceTree = "<group>";
+		};
 		2384FDDC1BCB50B800398623 /* SDCycleScrollView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1886,6 +1898,7 @@
 				23AF71971C8A826C001B51CD /* WeChat微信支付 */,
 				23DF59B81BDF172E00FBFE2C /* Newfeature(新特性) */,
 				23AF71401C8974A6001B51CD /* 商品详情页（学习开发中） */,
+				2381FCDC1CE067E900696A63 /* 二维码（开发中） */,
 				23D0255E1B8B22200009C7EE /* Main */,
 			);
 			path = Classes;
@@ -2556,6 +2569,7 @@
 				23D026071B8B22210009C7EE /* UIImage+GIF.m in Sources */,
 				23AF718E1C897660001B51CD /* MJRefreshBackStateFooter.m in Sources */,
 				2357E2F41C02C8EC00E7FA4B /* HCMUserLocationTableViewControllerTableViewCell.m in Sources */,
+				2381FCDF1CE067FA00696A63 /* LCQrcodeUtil.m in Sources */,
 				238FD5EF1C2E79A500F95CCD /* HCMRecentBrowseTableViewCell.m in Sources */,
 				23D025EC1B8B22210009C7EE /* AFHTTPRequestOperation.m in Sources */,
 				23E016E61C3CC8090039440E /* SDWebImageManager+MJ.m in Sources */,
@@ -2865,7 +2879,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -2902,7 +2916,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

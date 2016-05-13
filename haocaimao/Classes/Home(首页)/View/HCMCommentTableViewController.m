@@ -33,6 +33,7 @@
         
         UIImageView * noDataView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"no-comments"]];
         [self.view addSubview:noDataView];
+        noDataView.frame = CGRectMake((HCMScreenWidth - 300 )/2, 60, 300, 300);
         //[noDataView autoCenterInSuperview];
         _noDataView = noDataView;
     }

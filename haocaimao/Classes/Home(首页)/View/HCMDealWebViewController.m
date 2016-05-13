@@ -58,6 +58,8 @@
         
         NSString *webPath = responseBody[@"data"];
         
+        HCMLog(@"webPath %@",webPath);
+        
         [self.DealwebView loadHTMLString:webPath baseURL:nil];
         
         [MBProgressHUD hideHUD];

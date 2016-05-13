@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -1261,24 +1261,24 @@
         <image name="hcmLogo" width="42" height="38"/>
         <image name="nd" width="224" height="98"/>
         <image name="五金工具" width="250" height="330"/>
-        <image name="企业政府5" width="120" height="151"/>
-        <image name="制造业1" width="121" height="150"/>
-        <image name="办公室7" width="120" height="151"/>
+        <image name="企业政府5" width="121" height="160"/>
+        <image name="制造业1" width="121" height="160"/>
+        <image name="办公室7" width="121" height="160"/>
         <image name="办公用品" width="250" height="330"/>
         <image name="办公用品banner" width="750" height="222"/>
         <image name="劳保PPE" width="250" height="330"/>
         <image name="口罩banner" width="750" height="200"/>
         <image name="合伙人BANNER" width="750" height="125"/>
-        <image name="家庭个人4" width="121" height="150"/>
-        <image name="建筑工地2" width="120" height="150"/>
-        <image name="更多8" width="120" height="151"/>
+        <image name="家庭个人4" width="121" height="160"/>
+        <image name="建筑工地2" width="121" height="160"/>
+        <image name="更多8" width="121" height="160"/>
         <image name="机械电气" width="250" height="330"/>
         <image name="消防安全" width="250" height="330"/>
         <image name="消防面具" width="750" height="200"/>
         <image name="清洁设备" width="250" height="330"/>
-        <image name="物业管理6" width="120" height="151"/>
+        <image name="物业管理6" width="121" height="160"/>
         <image name="科技潮品专区" width="205" height="173"/>
-        <image name="酒店式商场3" width="120" height="150"/>
+        <image name="酒店式商场3" width="121" height="160"/>
         <image name="风扇专区" width="409" height="173"/>
     </resources>
 </document>

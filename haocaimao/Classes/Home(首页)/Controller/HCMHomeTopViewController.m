@@ -69,7 +69,7 @@
 - (IBAction)clickZoneButtons:(UIButton *)sender {
     
     int tag = sender.tag%10;
-     NSArray *arr = @[@"20",@"21",@"28",@"25",@"27",@"22",@"24",@"29"];
+     NSArray *arr = @[@"20",@"21",@"28",@"38",@"27",@"22",@"24",@"29"];
     [self.delegate touchClickToScene:self url:arr[tag]];
     
 }
@@ -78,7 +78,7 @@
 - (IBAction)category_six_Button:(UIButton *)sender {
     int tag = sender.tag%20;
     
-    NSArray *arr = @[@"132",@"622",@"21",@"16",@"69",@"44"];
+    NSArray *arr = @[@"132",@"622",@"21",@"16",@"69",@"21"];
     [self.delegate touchClickPrassCategory:self tag:arr[tag] number:sender.tag];
 }
 
@@ -86,7 +86,7 @@
 - (IBAction)activityVPN:(UIButton *)sender {
     int tag = sender.tag%50;
     
-    NSArray *arr = @[@"30",@"14",@"16",@"18"];
+    NSArray *arr = @[@"30",@"40",@"16",@"41"];
     
     [self.delegate touchClickToScene:self url:arr[tag]];
     

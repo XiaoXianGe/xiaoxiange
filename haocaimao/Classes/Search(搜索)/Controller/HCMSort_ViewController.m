@@ -233,7 +233,11 @@ static NSString * const reuseIdentifier = @"Cell";
     self.page = 1;
     
     NSDictionary *dict = [HCMSortTool sortWithDictBrand_id:_brand_id keyWords:_keyWords category_id:_category_id price_min:_price_min price_max:_price_max page:_page sortWay:_sortWay];
+    
     [[SearchNetwork sharedManager]postSubSearch:dict successBlock:^(id responseBody) {
+        
+        HCMLog(@"-----------=====------------%@",dict);
+        HCMLog(@"-----------=====------------%@",responseBody);
         
         //筛选商品的总数
         self.total = [responseBody[@"paginated"][@"total"] integerValue];
@@ -267,6 +271,8 @@ static NSString * const reuseIdentifier = @"Cell";
     } failureBlock:^(NSString *error) {
         
         [SVProgressHUD showInfoWithStatus:error];
+        HCMLog(@"-----------=====------------%@",error);
+
         
     }];
     

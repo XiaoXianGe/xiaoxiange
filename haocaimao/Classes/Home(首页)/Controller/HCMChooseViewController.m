@@ -44,7 +44,7 @@
     HCMSubCollectionViewController *vc = [[HCMSubCollectionViewController alloc]initWithNibName:@"HCMSubCollectionViewController" bundle:nil];
     
     vc.urlStr = arr[tag];
-    
+    HCMLog(@"%@",vc.urlStr);
     [self.navigationController pushViewController:vc animated:YES];
     
     

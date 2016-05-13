@@ -51,18 +51,40 @@ static NSString *identifier = @"ID";
     
     [self setupController];
     
+    
+    [HCMNSNotificationCenter addObserver:self selector:@selector(searchSortView:) name:@"HCMSort_ViewController" object:nil];
+    
+    [HCMNSNotificationCenter addObserver:self selector:@selector(collectionModel:) name:@"collectionModel" object:nil];
+    
+    //注册键盘出现的通知
+    [HCMNSNotificationCenter addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardWillShowNotification object:nil];
+    //注册键盘隐藏的通知
+    [HCMNSNotificationCenter addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
+    
+    //从前台退出后台时，删除键盘按钮
+    [HCMNSNotificationCenter addObserver:self selector:@selector(deleteBtn) name:@"deleteBtn" object:nil];
+    
+   
 
 }
 
--(void)setupSearchBar{
+-(void)deleteBtn
+{
+    [self.searchBar resignFirstResponder];
+    
+    [self keyboardWillBeHidden:nil];
+}
+
+-(void)setupSearchBar
+{
     self.searchBar = [HWSearchBar searchBar];
     self.searchBar.frame = CGRectMake(0, 0, 250, 30);
     [self.searchBar addTarget:self action:@selector(gotoTheSearch) forControlEvents:UIControlEventEditingDidEndOnExit];
     
 }
 
--(void)setupController{
-    
+-(void)setupController
+{
     self.navigationItem.titleView = self.searchBar;
     self.automaticallyAdjustsScrollViewInsets = NO;
     [SVProgressHUD showWithStatus:@"加载中"];
@@ -73,7 +95,12 @@ static NSString *identifier = @"ID";
     
 }
 
--(void)keyboardWasShown:(NSNotification *)notification{
+-(void)keyboardWasShown:(NSNotification *)notification
+{
+    if (self.TouchButton) {
+        [self.view addSubview:self.TouchButton];
+        return;
+    }
     
     CGRect keyBoardFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
     
@@ -89,7 +116,8 @@ static NSString *identifier = @"ID";
     
 }
 
--(void)TouchEvent{
+-(void)TouchEvent
+{
 //    [self.view endEditing:YES];
     [self.TouchButton removeFromSuperview];
     [self.searchBar resignFirstResponder];
@@ -102,7 +130,8 @@ static NSString *identifier = @"ID";
 }
 
 
-- (void)searchSortView:(NSNotification *)notification{
+- (void)searchSortView:(NSNotification *)notification
+{
     HCMSort_ViewController *HCMSortVC = [[HCMSort_ViewController alloc]initWithNibName:@"HCMSort_ViewController" bundle:nil];
     
     HCMSortVC.category_id = notification.userInfo[@"cateId3"];
@@ -110,7 +139,8 @@ static NSString *identifier = @"ID";
     [self.navigationController pushViewController:HCMSortVC animated:YES];
 }
 
--(void)addAnimation{
+-(void)addAnimation
+{
     CATransition *animation = [CATransition animation];
     animation.duration = 1;
     animation.timingFunction = UIViewAnimationCurveEaseInOut;
@@ -121,8 +151,8 @@ static NSString *identifier = @"ID";
     
 }
 
-- (void)loadSearchView{
-    
+- (void)loadSearchView
+{
     searchView *search = [[searchView alloc]initWithFrame:CGRectMake(0, 64, HCMScreenWidth, HCMScreenHeight) WithDataModel:self.mainCategoryArray WithTableViewModel:self.array];
     
     self.searchView = search;
@@ -131,8 +161,8 @@ static NSString *identifier = @"ID";
 }
 
 
-- (void)collectionModel:(NSNotification *)notification{
-    
+- (void)collectionModel:(NSNotification *)notification
+{
     NSString *cateId = notification.userInfo[@"indexOfTable"];
     [self loadData:cateId];
 }
@@ -140,8 +170,8 @@ static NSString *identifier = @"ID";
 
 
 /** 子搜索请求 */
-- (void)loadData:(NSString *)cateId{
-
+- (void)loadData:(NSString *)cateId
+{
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"cateId"]= cateId;
     self.params = params;
@@ -186,8 +216,8 @@ static NSString *identifier = @"ID";
 }
 
 
--(void)gotoTheSearch{
-    
+-(void)gotoTheSearch
+{
     [self.searchBar resignFirstResponder];
     
     HCMSort_ViewController *passKeyWords = [[HCMSort_ViewController alloc]initWithNibName:@"HCMSort_ViewController" bundle:nil];
@@ -198,8 +228,8 @@ static NSString *identifier = @"ID";
 }
 
 
--(void)sendTheMainCategorySearchRequest{
-    
+-(void)sendTheMainCategorySearchRequest
+{
     [[SearchNetwork sharedManager]postCategorySearch:nil successBlock:^(id responseBody) {
         
         NSMutableArray *mutabMainCategoryArray  = [NSMutableArray array];
@@ -228,8 +258,8 @@ static NSString *identifier = @"ID";
     
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    
+-(void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear:animated];
     
     if (self.TouchButton) {
@@ -242,32 +272,26 @@ static NSString *identifier = @"ID";
     }
     
     self.navigationController.navigationBarHidden = NO;
-    
-    [HCMNSNotificationCenter addObserver:self selector:@selector(searchSortView:) name:@"HCMSort_ViewController" object:nil];
-    //注册键盘出现的通知
-    [HCMNSNotificationCenter addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardWillShowNotification object:nil];
-    //注册键盘隐藏的通知
-    [HCMNSNotificationCenter addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
-    
-     [HCMNSNotificationCenter addObserver:self selector:@selector(collectionModel:) name:@"collectionModel" object:nil];
 
     self.tabBarController.tabBar.hidden = NO;
 }
 
--(void)viewWillDisappear:(BOOL)animated{
+-(void)viewWillDisappear:(BOOL)animated
+{
     [super viewWillDisappear:animated];
-    if (self.TouchButton) {
-        [self.TouchButton removeFromSuperview];
-        
-    }
-    [HCMNSNotificationCenter removeObserver:self];
-    [self.view endEditing:YES];
     
+    [self.searchBar resignFirstResponder];
+    
+    if (self.TouchButton) [self.TouchButton removeFromSuperview];
+   
 }
 
--(void)dealloc{
+-(void)dealloc
+{
     [HCMNSNotificationCenter removeObserver:self];
+    [self.TouchButton removeFromSuperview];
 }
+
 
 /**
  *  secondCollectionViewshow

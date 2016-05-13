@@ -137,6 +137,21 @@
     
 }
 
+-(void)applicationWillEnterForeground:(UIApplication *)application{
+    
+    HCMLog(@"进入前台");
+}
+- (void)applicationDidEnterBackground:(UIApplication *)application
+{
+    //通知删除《分类搜索》的键盘退出按钮
+    [HCMNSNotificationCenter postNotificationName:@"deleteBtn" object:nil];
+    HCMLog(@"进入后台");
+    
+}
+
+-(void)dealloc{
+    [HCMNSNotificationCenter removeObserver:self];
+}
 
 /*********************************
  *********************************

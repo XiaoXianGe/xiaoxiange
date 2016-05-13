@@ -277,25 +277,25 @@
                             <exclude reference="xl8-K4-OHj"/>
                         </mask>
                         <mask key="constraints">
-                            <exclude reference="2jk-WZ-eiW"/>
-                            <exclude reference="l2f-Da-lWj"/>
+                            <exclude reference="FhR-jK-eaU"/>
+                            <exclude reference="rAb-t1-ozu"/>
+                            <exclude reference="0fc-PW-LAa"/>
+                            <exclude reference="2R4-rh-rEG"/>
+                            <exclude reference="l9g-Gc-RZs"/>
+                            <exclude reference="nIT-Fe-iFv"/>
+                            <exclude reference="9Xl-9a-BWC"/>
+                            <exclude reference="qiz-br-bjA"/>
                             <exclude reference="E16-c7-QRi"/>
                             <exclude reference="hvM-LR-Fxo"/>
                             <exclude reference="43a-4b-Joh"/>
                             <exclude reference="XhB-dR-5AE"/>
-                            <exclude reference="FhR-jK-eaU"/>
-                            <exclude reference="rAb-t1-ozu"/>
+                            <exclude reference="2jk-WZ-eiW"/>
+                            <exclude reference="l2f-Da-lWj"/>
+                            <exclude reference="94C-Ss-eCe"/>
+                            <exclude reference="XTp-pm-osp"/>
                             <exclude reference="ajr-lA-Y2U"/>
                             <exclude reference="gai-pd-CSN"/>
                             <exclude reference="wWc-7X-V3S"/>
-                            <exclude reference="9Xl-9a-BWC"/>
-                            <exclude reference="qiz-br-bjA"/>
-                            <exclude reference="94C-Ss-eCe"/>
-                            <exclude reference="XTp-pm-osp"/>
-                            <exclude reference="l9g-Gc-RZs"/>
-                            <exclude reference="nIT-Fe-iFv"/>
-                            <exclude reference="0fc-PW-LAa"/>
-                            <exclude reference="2R4-rh-rEG"/>
                         </mask>
                     </variation>
                     <variation key="widthClass=compact">
@@ -311,25 +311,25 @@
                             <include reference="xl8-K4-OHj"/>
                         </mask>
                         <mask key="constraints">
-                            <include reference="2jk-WZ-eiW"/>
-                            <include reference="l2f-Da-lWj"/>
+                            <include reference="FhR-jK-eaU"/>
+                            <include reference="rAb-t1-ozu"/>
+                            <include reference="0fc-PW-LAa"/>
+                            <include reference="2R4-rh-rEG"/>
+                            <include reference="l9g-Gc-RZs"/>
+                            <include reference="nIT-Fe-iFv"/>
+                            <include reference="9Xl-9a-BWC"/>
+                            <include reference="qiz-br-bjA"/>
                             <include reference="E16-c7-QRi"/>
                             <include reference="hvM-LR-Fxo"/>
                             <include reference="43a-4b-Joh"/>
                             <include reference="XhB-dR-5AE"/>
-                            <include reference="FhR-jK-eaU"/>
-                            <include reference="rAb-t1-ozu"/>
+                            <include reference="2jk-WZ-eiW"/>
+                            <include reference="l2f-Da-lWj"/>
+                            <include reference="94C-Ss-eCe"/>
+                            <include reference="XTp-pm-osp"/>
                             <include reference="ajr-lA-Y2U"/>
                             <include reference="gai-pd-CSN"/>
                             <include reference="wWc-7X-V3S"/>
-                            <include reference="9Xl-9a-BWC"/>
-                            <include reference="qiz-br-bjA"/>
-                            <include reference="94C-Ss-eCe"/>
-                            <include reference="XTp-pm-osp"/>
-                            <include reference="l9g-Gc-RZs"/>
-                            <include reference="nIT-Fe-iFv"/>
-                            <include reference="0fc-PW-LAa"/>
-                            <include reference="2R4-rh-rEG"/>
                         </mask>
                     </variation>
                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
