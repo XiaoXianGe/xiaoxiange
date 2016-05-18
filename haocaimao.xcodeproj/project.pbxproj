@@ -129,6 +129,8 @@
 		2384FDF31BCB50B800398623 /* SDCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2384FDE91BCB50B800398623 /* SDCollectionViewCell.m */; };
 		2384FDF41BCB50B800398623 /* SDCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2384FDEB1BCB50B800398623 /* SDCycleScrollView.m */; };
 		2384FDF51BCB50B800398623 /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2384FDED1BCB50B800398623 /* UIView+SDExtension.m */; };
+		238FBC2D1CEC010D00AE0A0B /* GBTopLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 238FBC2A1CEC010D00AE0A0B /* GBTopLineView.m */; };
+		238FBC2E1CEC010D00AE0A0B /* GBTopLineViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 238FBC2C1CEC010D00AE0A0B /* GBTopLineViewModel.m */; };
 		238FD5B91C2E775500F95CCD /* EcmobileRegionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 238FD5B11C2E775500F95CCD /* EcmobileRegionVC.m */; };
 		238FD5BA1C2E775500F95CCD /* EcmobileRegionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 238FD5B21C2E775500F95CCD /* EcmobileRegionVC.xib */; };
 		238FD5BB1C2E775500F95CCD /* HCMAddLocationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 238FD5B41C2E775500F95CCD /* HCMAddLocationTableViewController.m */; };
@@ -577,6 +579,10 @@
 		2384FDEB1BCB50B800398623 /* SDCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCycleScrollView.m; sourceTree = "<group>"; };
 		2384FDEC1BCB50B800398623 /* UIView+SDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDExtension.h"; sourceTree = "<group>"; };
 		2384FDED1BCB50B800398623 /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
+		238FBC291CEC010D00AE0A0B /* GBTopLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBTopLineView.h; sourceTree = "<group>"; };
+		238FBC2A1CEC010D00AE0A0B /* GBTopLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBTopLineView.m; sourceTree = "<group>"; };
+		238FBC2B1CEC010D00AE0A0B /* GBTopLineViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBTopLineViewModel.h; sourceTree = "<group>"; };
+		238FBC2C1CEC010D00AE0A0B /* GBTopLineViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBTopLineViewModel.m; sourceTree = "<group>"; };
 		238FD5B01C2E775500F95CCD /* EcmobileRegionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EcmobileRegionVC.h; sourceTree = "<group>"; };
 		238FD5B11C2E775500F95CCD /* EcmobileRegionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EcmobileRegionVC.m; sourceTree = "<group>"; };
 		238FD5B21C2E775500F95CCD /* EcmobileRegionVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EcmobileRegionVC.xib; sourceTree = "<group>"; };
@@ -1555,6 +1561,17 @@
 			path = PageControl;
 			sourceTree = "<group>";
 		};
+		238FBC281CEC010D00AE0A0B /* GBTopLineView */ = {
+			isa = PBXGroup;
+			children = (
+				238FBC291CEC010D00AE0A0B /* GBTopLineView.h */,
+				238FBC2A1CEC010D00AE0A0B /* GBTopLineView.m */,
+				238FBC2B1CEC010D00AE0A0B /* GBTopLineViewModel.h */,
+				238FBC2C1CEC010D00AE0A0B /* GBTopLineViewModel.m */,
+			);
+			path = GBTopLineView;
+			sourceTree = "<group>";
+		};
 		238FD5AF1C2E775500F95CCD /* 收货地址管理 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2082,6 +2099,7 @@
 		23D025BE1B8B22210009C7EE /* VIew */ = {
 			isa = PBXGroup;
 			children = (
+				238FBC281CEC010D00AE0A0B /* GBTopLineView */,
 				23D025BF1B8B22210009C7EE /* HWSearchBar.h */,
 				23D025C01B8B22210009C7EE /* HWSearchBar.m */,
 				23B013091C7BF62700A87752 /* HCMTabBar.h */,
@@ -2630,9 +2648,11 @@
 				238FD6521C2E82E300F95CCD /* UserClassitfTableViewController.m in Sources */,
 				2308B1151C22B82700430C12 /* HCMModification ViewController.m in Sources */,
 				23D026051B8B22210009C7EE /* SDWebImagePrefetcher.m in Sources */,
+				238FBC2D1CEC010D00AE0A0B /* GBTopLineView.m in Sources */,
 				22E285B91BA6B5FF008B18B4 /* DealViewController.m in Sources */,
 				238FD5C81C2E789C00F95CCD /* HCMHotGoodsTableViewController.m in Sources */,
 				23E016DF1C3CC5740039440E /* MJPhotoToolbar.m in Sources */,
+				238FBC2E1CEC010D00AE0A0B /* GBTopLineViewModel.m in Sources */,
 				22E285EA1BA6BE8E008B18B4 /* HomeNetwork.m in Sources */,
 				23D650581C101CBC00774848 /* searchView.m in Sources */,
 				238FD63D1C2E816100F95CCD /* HCMStockoutInfoTableViewCell.m in Sources */,

@@ -95,6 +95,7 @@
     
     //商品价格
     UILabel *goods_price = [[UILabel alloc]init];
+    goods_price.textColor = [UIColor redColor];
     self.goods_price = goods_price;
     goods_price.font = HCMgoods_priceFont;
     [goodsView addSubview:goods_price];
@@ -216,8 +217,9 @@
     self.reduceGoods.frame = cartGoods.reduceGoodsF;
     self.addGoods.frame = cartGoods.addGoodsF;
     self.goodsView.frame = cartGoods.goodsViewF;
-       self.goods_price.frame = cartGoods.goods_priceF;
-    self.goods_price.text = listModel.goods_price;
+    
+    self.goods_price.frame = cartGoods.goods_priceF;
+    self.goods_price.text = [NSString stringWithFormat:@"￥%@",listModel.goods_price];
     self.selectedBtn.frame = cartGoods.selectedBtnF;
     
     }

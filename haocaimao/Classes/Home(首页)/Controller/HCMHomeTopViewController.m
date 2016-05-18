@@ -15,6 +15,7 @@
 
 #import "DealViewController.h"
 #import "HomeNetwork.h"
+#import "GBTopLineView.h"
 
 @interface HCMHomeTopViewController ()<SDCycleScrollViewDelegate>
 
@@ -22,6 +23,9 @@
 @property (strong , nonatomic) NSArray *receiveGoodsIDArray;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *headerForLayout;
+
+@property(nonatomic,strong)NSMutableArray*dataArr;
+@property (nonatomic,strong) GBTopLineView *TopLineView;
 
 @end
 
@@ -32,6 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _dataArr=[[NSMutableArray alloc]init];
     //头部广告请求
     [self sendHomeAdvertisementRequest];
     
@@ -39,7 +44,62 @@
     self.headerForLayout.constant =HCMScreenWidth/2 + 24*HCMScreenWidth/320 + 40;
     
     [HCMNSNotificationCenter addObserver:self selector:@selector(test:) name:@"RereshHearView" object:nil];
+    [self createTopLineView];
 }
+
+#pragma mark-创建头条视图
+-(void)createTopLineView{
+    
+    _TopLineView = [[GBTopLineView alloc]initWithFrame:CGRectMake(0, 0, 260, 30)];
+    
+    _TopLineView.center = CGPointMake(HCMScreenWidth/2.0+40, [self GBTopLineViewHeight]);
+    
+    _TopLineView.backgroundColor = [UIColor whiteColor];
+    
+    __weak __typeof(self)weakSelf = self;
+    
+    _TopLineView.clickBlock = ^(NSInteger index){
+        
+        GBTopLineViewModel *model = weakSelf.dataArr[index];
+        
+        NSLog(@"%@,%@",model.type,model.title);
+        
+    };
+    
+    [self.view addSubview:_TopLineView];
+    [self getData];
+    
+}
+#pragma mark-获取数据
+- (void)getData
+{
+    NSArray *arr2 = @[@"企业政府阳光采购电商平台",@"  正品 低价 高效 阳光",@"以电商化实现采购阳光化",@"   对公采购 上好采猫 "];
+    
+    for (int i=0; i<arr2.count; i++) {
+        
+        GBTopLineViewModel *model = [[GBTopLineViewModel alloc]init];
+
+        model.title = arr2[i];
+
+        [_dataArr addObject:model];
+    }
+    
+    [_TopLineView setVerticalShowDataArr:_dataArr];
+}
+
+-(NSInteger)GBTopLineViewHeight{
+    
+    NSInteger height = 0;
+    
+    if (HCMScreenWidth == 320.0) height = 198;
+    if (HCMScreenWidth == 375.0) height = 230;
+    if (HCMScreenWidth == 414.0) height = 252;
+    
+    return height;
+    
+}
+
+
 
 //刷新广告
 -(void)test:(NSNotification *)notification{

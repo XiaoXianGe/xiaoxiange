@@ -47,9 +47,10 @@
     self.backgroundImage = imagaView;
     [headerView addSubview:imagaView];
    
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0){
-        [self setupButtonWithView:headerView];
-    }
+//    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)[self setupButtonWithView:headerView];
+
+    if (HCMScreenHeight > 480) [self setupButtonWithView:headerView];
+    
     
 }
 

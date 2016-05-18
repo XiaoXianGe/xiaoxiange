@@ -19,7 +19,7 @@
 @end
 @implementation FootCollectionView
 +(instancetype)loadCollectionView{
-    FootCollectionView *fool = [[FootCollectionView alloc]initWithFrame:CGRectMake(0, 20 ,HCMScreenWidth,  200) collectionViewLayout:[[FootCollectionFlowLayout alloc]init]];
+    FootCollectionView *fool = [[FootCollectionView alloc]initWithFrame:CGRectMake(0, 35 ,HCMScreenWidth,  200) collectionViewLayout:[[FootCollectionFlowLayout alloc]init]];
     fool.backgroundColor = [UIColor whiteColor];
     fool.showsHorizontalScrollIndicator= YES;
         [fool registerNib:[UINib nibWithNibName:@"FootCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"Cell"];

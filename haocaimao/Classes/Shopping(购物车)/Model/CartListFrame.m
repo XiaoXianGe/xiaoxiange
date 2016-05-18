@@ -60,7 +60,7 @@
     
     CGFloat reduceGoodsY = CGRectGetMaxY(self.goodsAttrValueLabelF)+HCMfive;
     
-    self.goods_priceF = CGRectMake(goodsNameLabelX, reduceGoodsY, goods_priceSize.width, goods_priceSize.height);
+    self.goods_priceF = CGRectMake(goodsNameLabelX, reduceGoodsY+5, goods_priceSize.width+60, goods_priceSize.height);
     
     self.reduceGoodsF = CGRectMake(HCMScreenWidth - 85,reduceGoodsY + 5 , HCMTwenty, HCMTwenty);
     

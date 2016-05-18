@@ -87,6 +87,8 @@ static NSString *ID = @"Cell";
     self.title = @"购物车";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ID];
     
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 35, 0);
+    
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"index-body-bg"]];
     
     [HCMNSNotificationCenter addObserver:self selector:@selector(pop:) name:@"pop" object:self.popView];
@@ -152,7 +154,7 @@ static NSString *ID = @"Cell";
         self.deleteFootView.hidden = YES;
     }
     
-}//rightItem kong
+}
 
 //猜你喜欢
 - (void)setupView{
@@ -354,7 +356,7 @@ static NSString *ID = @"Cell";
     
    
     if (self.status) {
-        //[self.popView showFoolView];
+        
         [self setupNavi];
         [self loadMoneyView];
         return [self.cartListFrame[section]count] ;
@@ -511,7 +513,7 @@ static NSString *ID = @"Cell";
     NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
     
     if ([buttonTitle isEqualToString:@"确定"]) {
-        NSString * redID = [NSString stringWithFormat:@"%ld",alertView.tag];
+        NSString * redID = [NSString stringWithFormat:@"%ld",(long)alertView.tag];
         [self deleteShoppingGoods:redID];
     }
 
