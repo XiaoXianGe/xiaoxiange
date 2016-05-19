@@ -17,6 +17,8 @@
 #import "HomeNetwork.h"
 #import "GBTopLineView.h"
 
+#import "UIButton+WebCache.h"
+
 @interface HCMHomeTopViewController ()<SDCycleScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *HotGoodsZone;
@@ -26,6 +28,46 @@
 
 @property(nonatomic,strong)NSMutableArray*dataArr;
 @property (nonatomic,strong) GBTopLineView *TopLineView;
+
+
+@property (weak, nonatomic) IBOutlet UIButton *eightLogo1;
+@property (weak, nonatomic) IBOutlet UIButton *eightLogo2;
+@property (weak, nonatomic) IBOutlet UIButton *eightLogo3;
+@property (weak, nonatomic) IBOutlet UIButton *eightLogo4;
+@property (weak, nonatomic) IBOutlet UIButton *eightLogo5;
+@property (weak, nonatomic) IBOutlet UIButton *eightLogo6;
+@property (weak, nonatomic) IBOutlet UIButton *eightLogo7;
+@property (weak, nonatomic) IBOutlet UIButton *eightLogo8;
+
+
+@property (weak, nonatomic) IBOutlet UIButton *sixLogo1;
+@property (weak, nonatomic) IBOutlet UIButton *sixLogo2;
+@property (weak, nonatomic) IBOutlet UIButton *sixLogo3;
+@property (weak, nonatomic) IBOutlet UIButton *sixLogo4;
+@property (weak, nonatomic) IBOutlet UIButton *sixLogo5;
+@property (weak, nonatomic) IBOutlet UIButton *sixLogo6;
+
+
+@property (weak, nonatomic) IBOutlet UIButton *Banner1;
+@property (weak, nonatomic) IBOutlet UIButton *Banner2;
+@property (weak, nonatomic) IBOutlet UIButton *Banner3;
+@property (weak, nonatomic) IBOutlet UIButton *Banner4;
+
+@property (weak, nonatomic) IBOutlet UIButton *Activity1;
+@property (weak, nonatomic) IBOutlet UIButton *Activity2;
+@property (weak, nonatomic) IBOutlet UIButton *Activity3;
+@property (weak, nonatomic) IBOutlet UIButton *Activity4;
+
+@property (weak, nonatomic) IBOutlet UIButton *nineLogo1;
+@property (weak, nonatomic) IBOutlet UIButton *nineLogo2;
+@property (weak, nonatomic) IBOutlet UIButton *nineLogo3;
+@property (weak, nonatomic) IBOutlet UIButton *nineLogo4;
+@property (weak, nonatomic) IBOutlet UIButton *nineLogo5;
+@property (weak, nonatomic) IBOutlet UIButton *nineLogo6;
+@property (weak, nonatomic) IBOutlet UIButton *nineLogo7;
+@property (weak, nonatomic) IBOutlet UIButton *nineLogo8;
+@property (weak, nonatomic) IBOutlet UIButton *nineLogo9;
+
 
 @end
 
@@ -45,6 +87,9 @@
     
     [HCMNSNotificationCenter addObserver:self selector:@selector(test:) name:@"RereshHearView" object:nil];
     [self createTopLineView];
+    
+    [self loadAllPic];
+    
 }
 
 #pragma mark-创建头条视图
@@ -105,6 +150,8 @@
 -(void)test:(NSNotification *)notification{
     
     [self sendHomeAdvertisementRequest];
+    
+    
 }
 
 
@@ -178,6 +225,8 @@
     
     [[HomeNetwork sharedManager]postHomeAdvertisement:nil successBlock:^(id responseBody) {
         
+        [self loadAllPic];
+        
         [self updateAdvertisingOfDic:responseBody];
         
     } failureBlock:^(NSString *error) {
@@ -216,6 +265,7 @@
     cycleScrollView.placeholderImage = [UIImage imageNamed:@"Placeholder_ Advertise"];
     cycleScrollView.dotColor = HCMColor(230, 30, 30, 0.2);
     [self.view addSubview:cycleScrollView];
+
 }
 
 #pragma mark --- SDCycleScrollViewDelegate
@@ -227,30 +277,84 @@
 
 #pragma 获取首页界面图片
 
+-(void)loadAllPic{
+    
+    [self load8Png];
+    
+    [self load6Png];
+    
+    [self load4Banner];
+    
+    [self load4Activity];
+    
+    [self load9Png];
+    
+}
+
 //加载8个大分类图标
 -(void)load8Png{
     
+    [_eightLogo1 sd_setImageWithURL:[self loadPic:@"2.png"] forState:UIControlStateNormal];
+    [_eightLogo2 sd_setImageWithURL:[self loadPic:@"3.png"] forState:UIControlStateNormal];
+    [_eightLogo3 sd_setImageWithURL:[self loadPic:@"4.png"] forState:UIControlStateNormal];
+    [_eightLogo4 sd_setImageWithURL:[self loadPic:@"5.png"] forState:UIControlStateNormal];
+    [_eightLogo5 sd_setImageWithURL:[self loadPic:@"6.png"] forState:UIControlStateNormal];
+    [_eightLogo6 sd_setImageWithURL:[self loadPic:@"7.png"] forState:UIControlStateNormal];
+    [_eightLogo7 sd_setImageWithURL:[self loadPic:@"8.png"] forState:UIControlStateNormal];
+    [_eightLogo8 sd_setImageWithURL:[self loadPic:@"9.png"] forState:UIControlStateNormal];
 }
 
 //加载6个分类图标（六宫格）
 -(void)load6Png{
-    
+    [_sixLogo1 sd_setImageWithURL:[self loadPic:@"11.jpg"] forState:UIControlStateNormal];
+    [_sixLogo2 sd_setImageWithURL:[self loadPic:@"12.jpg"] forState:UIControlStateNormal];
+    [_sixLogo3 sd_setImageWithURL:[self loadPic:@"13.jpg"] forState:UIControlStateNormal];
+    [_sixLogo4 sd_setImageWithURL:[self loadPic:@"14.jpg"] forState:UIControlStateNormal];
+    [_sixLogo5 sd_setImageWithURL:[self loadPic:@"15.jpg"] forState:UIControlStateNormal];
+    [_sixLogo6 sd_setImageWithURL:[self loadPic:@"16.jpg"] forState:UIControlStateNormal];
 }
 
 //加载活动专区4图
 -(void)load4Activity{
-    
+    [_Activity1 sd_setBackgroundImageWithURL:[self loadPic:@"18.jpg"] forState:UIControlStateNormal];
+    [_Activity2 sd_setBackgroundImageWithURL:[self loadPic:@"19.jpg"] forState:UIControlStateNormal];
+    [_Activity3 sd_setBackgroundImageWithURL:[self loadPic:@"20.jpg"] forState:UIControlStateNormal];
+    [_Activity4 sd_setBackgroundImageWithURL:[self loadPic:@"21.jpg"] forState:UIControlStateNormal];
 }
 
 //加载9宫图
 -(void)load9Png{
     
-}
-
-//加载广告横幅
--(void)load3Banner{
+    [_nineLogo1 sd_setBackgroundImageWithURL:[self loadPic:@"23.jpg"] forState:UIControlStateNormal];
+    [_nineLogo2 sd_setBackgroundImageWithURL:[self loadPic:@"24.jpg"] forState:UIControlStateNormal];
+    [_nineLogo3 sd_setBackgroundImageWithURL:[self loadPic:@"25.jpg"] forState:UIControlStateNormal];
+    [_nineLogo4 sd_setBackgroundImageWithURL:[self loadPic:@"26.jpg"] forState:UIControlStateNormal];
+    [_nineLogo5 sd_setBackgroundImageWithURL:[self loadPic:@"27.jpg"] forState:UIControlStateNormal];
+    [_nineLogo6 sd_setBackgroundImageWithURL:[self loadPic:@"28.jpg"] forState:UIControlStateNormal];
+    [_nineLogo7 sd_setBackgroundImageWithURL:[self loadPic:@"29.jpg"] forState:UIControlStateNormal];
+    [_nineLogo8 sd_setBackgroundImageWithURL:[self loadPic:@"30.jpg"] forState:UIControlStateNormal];
+    [_nineLogo9 sd_setBackgroundImageWithURL:[self loadPic:@"31.jpg"] forState:UIControlStateNormal];
+    
     
 }
 
+//加载广告横幅
+-(void)load4Banner{
+    
+    [_Banner1 sd_setBackgroundImageWithURL:[self loadPic:@"10.jpg"] forState:UIControlStateNormal];
+    [_Banner2 sd_setBackgroundImageWithURL:[self loadPic:@"17.jpg"] forState:UIControlStateNormal];
+    [_Banner3 sd_setBackgroundImageWithURL:[self loadPic:@"22.jpg"] forState:UIControlStateNormal];
+    [_Banner4 sd_setBackgroundImageWithURL:[self loadPic:@"32.jpg"] forState:UIControlStateNormal];
+    
+}
 
+-(NSURL *)loadPic:(NSString *)PicName{
+    
+    NSString *URLa = @"http://www.haocaimao.com/ios/";
+    NSString *urlStr = [URLa stringByAppendingString:PicName];
+    
+    NSURL *URL = [NSURL URLWithString:urlStr];
+    
+    return URL;
+}
 @end
