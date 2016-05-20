@@ -83,7 +83,7 @@
     [self sendHomeAdvertisementRequest];
     
     //计算轮播图与分类大图标的距离
-    self.headerForLayout.constant =HCMScreenWidth/2 + 24*HCMScreenWidth/320 + 40;
+    self.headerForLayout.constant =HCMScreenWidth/2+22;//+ 24*HCMScreenWidth/320
     
     [HCMNSNotificationCenter addObserver:self selector:@selector(test:) name:@"RereshHearView" object:nil];
     [self createTopLineView];
@@ -97,7 +97,7 @@
     
     _TopLineView = [[GBTopLineView alloc]initWithFrame:CGRectMake(0, 0, 260, 30)];
     
-    _TopLineView.center = CGPointMake(HCMScreenWidth/2.0+40, [self GBTopLineViewHeight]);
+    _TopLineView.center = CGPointMake(HCMScreenWidth/2.0+43, [self GBTopLineViewHeight]);
     
     _TopLineView.backgroundColor = [UIColor whiteColor];
     
@@ -109,9 +109,12 @@
         
         NSLog(@"%@,%@",model.type,model.title);
         
+        [weakSelf test];
+        
     };
     
     [self.view addSubview:_TopLineView];
+    
     [self getData];
     
 }
@@ -132,13 +135,39 @@
     [_TopLineView setVerticalShowDataArr:_dataArr];
 }
 
+
+-(void)test{
+    
+    UIViewController *vc = [[UIViewController alloc]init];
+
+    UIWebView *webView = [[UIWebView alloc]initWithFrame:CGRectMake(0,20, HCMScreenWidth,HCMScreenHeight)];
+    
+//    NSString *url = @"http://www.haocaimao.com/culture.html";
+    
+    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.baidu.com"]]];
+    
+    vc.view.backgroundColor = HCMColor(222, 222, 222, 1.0);
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(20, 30, 60, 30);
+    [btn setBackgroundColor:[UIColor lightGrayColor]];
+    [btn setTitle:@"关闭" forState:UIControlStateNormal];
+    
+
+    
+    [vc.view addSubview:webView];
+    
+    [self presentViewController:vc animated:YES completion:nil];
+    
+}
+
 -(NSInteger)GBTopLineViewHeight{
     
     NSInteger height = 0;
     
-    if (HCMScreenWidth == 320.0) height = 198;
-    if (HCMScreenWidth == 375.0) height = 230;
-    if (HCMScreenWidth == 414.0) height = 252;
+    if (HCMScreenWidth == 320.0) height = 198+162;
+    if (HCMScreenWidth == 375.0) height = 230+158;
+    if (HCMScreenWidth == 414.0) height = 252+155;
     
     return height;
     
