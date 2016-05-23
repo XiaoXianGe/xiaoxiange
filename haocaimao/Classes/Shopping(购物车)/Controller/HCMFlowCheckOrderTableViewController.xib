@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HCMFlowCheckOrderTableViewController">
@@ -15,7 +15,11 @@
                 <outlet property="freeMoney" destination="foc-nb-BA6" id="hAh-BZ-X7i"/>
                 <outlet property="headerView" destination="px4-iR-cqy" id="le0-mt-4YK"/>
                 <outlet property="integral" destination="q7e-l2-zH4" id="Jzc-SK-JX6"/>
+                <outlet property="integralLable" destination="ozL-bV-6Uz" id="ZTd-bm-95A"/>
+                <outlet property="integralOFF" destination="QJB-lw-pXx" id="Bsc-Yo-KGC"/>
+                <outlet property="integralState" destination="HeW-Hs-hAe" id="bjA-pC-PB1"/>
                 <outlet property="invContent" destination="hFO-rY-3Ln" id="8Hj-n7-Jgr"/>
+                <outlet property="jiFenH" destination="PmR-Kz-h5F" id="1UQ-d7-zRR"/>
                 <outlet property="shipping" destination="uHR-xz-I9O" id="fJQ-Fp-ca0"/>
                 <outlet property="tel" destination="uhf-Vj-bXU" id="vph-Bn-dG3"/>
                 <outlet property="totalPrice" destination="dzP-90-C3V" id="jbP-bt-2NC"/>
@@ -34,7 +38,7 @@
                 <outlet property="dataSource" destination="-1" id="Tng-2m-Rnh"/>
                 <outlet property="delegate" destination="-1" id="9aC-8N-iBw"/>
             </connections>
-            <point key="canvasLocation" x="271" y="-109"/>
+            <point key="canvasLocation" x="273" y="-395"/>
         </tableView>
         <view contentMode="scaleToFill" id="px4-iR-cqy" userLabel="headerView">
             <rect key="frame" x="0.0" y="0.0" width="320" height="378"/>
@@ -103,7 +107,7 @@
                         <constraint firstAttribute="height" constant="14" id="SBK-qV-eK7"/>
                         <constraint firstAttribute="width" constant="180" id="eae-Op-juk"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                     <variation key="default">
@@ -125,7 +129,7 @@
                         <constraint firstAttribute="width" constant="276" id="7EG-dU-2Dm"/>
                         <constraint firstAttribute="height" constant="14" id="GdT-aM-1DZ"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                     <variation key="default">
@@ -147,7 +151,7 @@
                         <constraint firstAttribute="height" constant="15" id="MB1-YX-zmX"/>
                         <constraint firstAttribute="width" constant="100" id="yab-tO-mCS"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                     <variation key="default">
@@ -169,7 +173,7 @@
                         <constraint firstAttribute="height" constant="20" id="dbP-Xi-8Yt"/>
                         <constraint firstAttribute="width" constant="100" id="lVX-NU-Dmw"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                     <variation key="default">
@@ -277,7 +281,7 @@
                         </mask>
                     </variation>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFO-rY-3Ln" userLabel="发票形式">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFO-rY-3Ln" userLabel="发票形式">
                     <rect key="frame" x="135" y="181" width="142" height="15"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="15" id="8dM-Ca-HKy"/>
@@ -1095,6 +1099,34 @@
                         <action selector="clickAddress:" destination="-1" eventType="touchUpInside" id="w7v-tr-Wee"/>
                     </connections>
                 </button>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="可用1000猫豆积分抵￥10.00元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozL-bV-6Uz">
+                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.1660625" green="0.1660625" blue="0.1660625" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="21" y="442" width="211" height="21"/>
+                    </variation>
+                </label>
+                <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QJB-lw-pXx">
+                    <rect key="frame" x="-25" y="-15" width="51" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="49" id="Gzq-6w-M6C"/>
+                        <constraint firstAttribute="height" constant="31" id="Pi1-KG-9Od"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Gzq-6w-M6C"/>
+                            <exclude reference="Pi1-KG-9Od"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="Gzq-6w-M6C"/>
+                            <include reference="Pi1-KG-9Od"/>
+                        </mask>
+                    </variation>
+                </switch>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
@@ -1106,6 +1138,7 @@
                 <constraint firstAttribute="trailing" secondItem="hFO-rY-3Ln" secondAttribute="trailing" constant="47" id="3x8-kJ-8K4"/>
                 <constraint firstItem="lJo-OP-KBe" firstAttribute="leading" secondItem="px4-iR-cqy" secondAttribute="leading" constant="22" id="6mk-iI-I2f"/>
                 <constraint firstItem="6kX-Wv-cmX" firstAttribute="leading" secondItem="px4-iR-cqy" secondAttribute="leading" constant="15" id="8S2-B3-s7h"/>
+                <constraint firstAttribute="trailing" secondItem="QJB-lw-pXx" secondAttribute="trailing" constant="22" id="8uX-gL-SgO"/>
                 <constraint firstItem="anY-ef-P0y" firstAttribute="centerY" secondItem="uhf-Vj-bXU" secondAttribute="centerY" id="91w-bG-fd0"/>
                 <constraint firstAttribute="trailing" secondItem="O4E-aX-Zs0" secondAttribute="trailing" constant="8" id="9aN-Cu-9Y7"/>
                 <constraint firstItem="rfm-Kn-DXd" firstAttribute="top" secondItem="Qo2-QV-3kq" secondAttribute="bottom" constant="3" id="BYn-vP-alA"/>
@@ -1131,6 +1164,7 @@
                 <constraint firstItem="1dH-XC-LJ2" firstAttribute="top" secondItem="E5S-C3-NFl" secondAttribute="bottom" constant="17" id="U4K-7Y-O6b"/>
                 <constraint firstItem="uhf-Vj-bXU" firstAttribute="leading" secondItem="anY-ef-P0y" secondAttribute="trailing" constant="2" id="UBQ-YA-Dmh"/>
                 <constraint firstItem="uHR-xz-I9O" firstAttribute="top" secondItem="6kX-Wv-cmX" secondAttribute="bottom" constant="18" id="UaL-cQ-3Lm"/>
+                <constraint firstItem="QJB-lw-pXx" firstAttribute="top" secondItem="HeW-Hs-hAe" secondAttribute="bottom" constant="4" id="Vj0-4e-L4q"/>
                 <constraint firstItem="baB-2G-YSJ" firstAttribute="leading" secondItem="px4-iR-cqy" secondAttribute="leading" constant="10" id="Ydf-MW-ysF"/>
                 <constraint firstAttribute="trailing" secondItem="6kX-Wv-cmX" secondAttribute="trailing" constant="15" id="Zdx-Ew-Vjl"/>
                 <constraint firstItem="8HP-Wk-QZx" firstAttribute="leading" secondItem="px4-iR-cqy" secondAttribute="leading" constant="15" id="aiW-HZ-YFj"/>
@@ -1168,6 +1202,8 @@
                     <exclude reference="Qo2-QV-3kq"/>
                     <exclude reference="O4E-aX-Zs0"/>
                     <exclude reference="4Gy-wY-zbO"/>
+                    <exclude reference="ozL-bV-6Uz"/>
+                    <exclude reference="QJB-lw-pXx"/>
                 </mask>
                 <mask key="constraints">
                     <exclude reference="2Kt-Uw-H0L"/>
@@ -1232,6 +1268,8 @@
                     <exclude reference="9aN-Cu-9Y7"/>
                     <exclude reference="Mw7-UB-dop"/>
                     <exclude reference="gjt-qD-b9H"/>
+                    <exclude reference="8uX-gL-SgO"/>
+                    <exclude reference="Vj0-4e-L4q"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
@@ -1239,6 +1277,8 @@
                     <include reference="Qo2-QV-3kq"/>
                     <include reference="O4E-aX-Zs0"/>
                     <include reference="4Gy-wY-zbO"/>
+                    <include reference="ozL-bV-6Uz"/>
+                    <include reference="QJB-lw-pXx"/>
                 </mask>
                 <mask key="constraints">
                     <include reference="2Kt-Uw-H0L"/>
@@ -1303,9 +1343,11 @@
                     <include reference="9aN-Cu-9Y7"/>
                     <include reference="Mw7-UB-dop"/>
                     <include reference="gjt-qD-b9H"/>
+                    <include reference="8uX-gL-SgO"/>
+                    <include reference="Vj0-4e-L4q"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="695" y="-294"/>
+            <point key="canvasLocation" x="684" y="-490.5"/>
         </view>
         <view contentMode="scaleToFill" id="pt4-AE-WJT" userLabel="footerView">
             <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
@@ -1663,7 +1705,7 @@
                     <include reference="gXQ-Z5-duM"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="695" y="85"/>
+            <point key="canvasLocation" x="684" y="-68"/>
         </view>
     </objects>
     <resources>

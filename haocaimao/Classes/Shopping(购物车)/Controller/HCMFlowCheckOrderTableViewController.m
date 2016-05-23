@@ -52,6 +52,14 @@
 
 @property (strong, nonatomic)OrderGoodsListModel *orderGoods;
 @property (strong,nonatomic)WeChatPayModel *wechatmmodel;
+//改变积分图片约束的高度
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *jiFenH;
+//可用1000猫豆积分抵￥10.00元Lable
+@property (weak, nonatomic) IBOutlet UILabel *integralLable;
+//积分  本单暂不提供
+@property (weak, nonatomic) IBOutlet UILabel *integralState;
+@property (weak, nonatomic) IBOutlet UISwitch *integralOFF;
+
 
 @end
 
@@ -79,8 +87,10 @@ static NSString * const reuseIdentifier = @"MyCell";
     [self.tableView registerNib:[UINib nibWithNibName:@"FlowCheckCell" bundle:nil] forCellReuseIdentifier:reuseIdentifier];
 
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+   
+    [self network];
     
-    self.headerView.height = 484;
+    
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, -44, 0);
 }
 
@@ -105,7 +115,33 @@ static NSString * const reuseIdentifier = @"MyCell";
     [HCMNSNotificationCenter addObserver:self selector:@selector(clickBack) name:@"WX_PayFailure" object:nil];
 
     
+    
 }
+
+-(void)maodou{
+    
+    _jiFenH.constant = 70;
+    _integralState.hidden = YES;
+    _integralLable.hidden = NO;
+    _integralOFF.hidden = NO;
+    self.headerView.height = 484 +35;
+    
+    //allow_use_integral     1/0    是否可以使用积分抵扣
+    //order_max_integral     抵扣最大上限。。
+    //your_integral         用户目前积分
+    //可用1000猫豆积分抵￥10.00元
+    int your_integral = 2000;
+    int order_max_integral = 654;
+    if (your_integral > order_max_integral) {
+        CGFloat pay = order_max_integral / 100.0;
+        
+        NSString *integralStr = [NSString stringWithFormat:@"可用%d猫豆积分抵￥%0.2f元",order_max_integral,pay];
+        _integralLable.text = integralStr;
+    }
+    
+}
+
+
 
 - (void)network{
         
@@ -144,6 +180,13 @@ static NSString * const reuseIdentifier = @"MyCell";
         
         self.tableView.tableHeaderView = self.headerView;
         self.tableView.tableFooterView = self.footerView;
+        self.headerView.height = 484;
+        
+        HCMLog(@"allow_use_integral----====------%@",responseBody[@"allow_use_integral"]);
+        
+//        if ([responseBody[@"allow_use_integral"] isEqualToString:@"1"])[self maodou];
+        
+        [self maodou];
         
         [self.tableView reloadData];
         
