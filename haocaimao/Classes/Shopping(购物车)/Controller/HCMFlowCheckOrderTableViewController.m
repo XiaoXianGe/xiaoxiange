@@ -58,7 +58,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *integralLable;
 //积分  本单暂不提供
 @property (weak, nonatomic) IBOutlet UILabel *integralState;
-@property (weak, nonatomic) IBOutlet UISwitch *integralOFF;
+//积分lbale + 输入框 = View
+@property (weak, nonatomic) IBOutlet UIView *integralView;
+
+@property(nonatomic)NSInteger your_integral;
+@property(nonatomic)NSInteger order_max_integral;
+/** 记录积分总额 */
+@property(nonatomic)CGFloat totalPriceMark;
+@property(nonatomic,strong)NSString * integralMark;
 
 
 @end
@@ -90,7 +97,6 @@ static NSString * const reuseIdentifier = @"MyCell";
    
     [self network];
     
-    
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, -44, 0);
 }
 
@@ -118,30 +124,66 @@ static NSString * const reuseIdentifier = @"MyCell";
     
 }
 
--(void)maodou{
+//使用猫豆
+-(void)maodou:(id)model{
     
-    _jiFenH.constant = 70;
+    _jiFenH.constant = 95;
     _integralState.hidden = YES;
     _integralLable.hidden = NO;
-    _integralOFF.hidden = NO;
-    self.headerView.height = 484 +35;
+    _integralView.hidden = NO;
+    self.headerView.height = 484 +( _jiFenH.constant - 35);
+
+    _your_integral = [model[@"data"][@"your_integral"] integerValue];
+    _order_max_integral = [model[@"data"][@"order_max_integral"] integerValue];
     
-    //allow_use_integral     1/0    是否可以使用积分抵扣
-    //order_max_integral     抵扣最大上限。。
-    //your_integral         用户目前积分
-    //可用1000猫豆积分抵￥10.00元
-    int your_integral = 2000;
-    int order_max_integral = 654;
-    if (your_integral > order_max_integral) {
-        CGFloat pay = order_max_integral / 100.0;
+    if (_your_integral > _order_max_integral) {
         
-        NSString *integralStr = [NSString stringWithFormat:@"可用%d猫豆积分抵￥%0.2f元",order_max_integral,pay];
+        NSString *integralStr = [NSString stringWithFormat:@"你当前的可用积分为:%ld猫豆，本单最多可以使用%ld猫豆",(long)_your_integral,(long)_order_max_integral];
+        _integralLable.text = integralStr;
+    }else{
+        NSString *integralStr = [NSString stringWithFormat:@"你当前的可用积分为:%ld猫豆，本单最多可以使用%ld猫豆",(long)_your_integral,(long)_your_integral];
         _integralLable.text = integralStr;
     }
     
 }
 
+//判断输入的是否为纯数字
+- (BOOL)isPureInt:(NSString*)string{
+    NSScanner* scan = [NSScanner scannerWithString:string];
+    int val;
+    return[scan scanInt:&val] && [scan isAtEnd];
+}
 
+//积分 （确认输入）
+- (IBAction)integralOK:(UITextField *)sender {
+    
+    if([sender.text isEqual: @""])
+    {
+        sender.text = @"0";
+    }
+    if( ![self isPureInt:sender.text] )
+    {
+        [SVProgressHUD showInfoWithStatus:@"警告:含非法字符，请输入纯数字！"];
+        return;
+    }
+
+     NSInteger text = [sender.text integerValue];
+    if (text>_order_max_integral) {
+        [SVProgressHUD showInfoWithStatus:@"猫豆不能大于订单的猫豆"];
+        return;
+    }
+    if (text>_your_integral) {
+        [SVProgressHUD showInfoWithStatus:@"猫豆不能大于拥有的猫豆"];
+        return;
+    }
+    [SVProgressHUD showSuccessWithStatus:@"使用猫豆成功"];
+    
+    _integral.text = [NSString stringWithFormat:@"- %0.2f元",text/100.0];
+    _integralMark = sender.text;
+    HCMLog(@"%@",_integralMark);
+    _totalPrice.text = [NSString stringWithFormat:@"%.2f 元",_totalPriceMark - text/100.0];
+    
+}
 
 - (void)network{
         
@@ -158,8 +200,8 @@ static NSString * const reuseIdentifier = @"MyCell";
         if (responseBody[@"status"][@"error_code"]) {
             
             [SVProgressHUD showInfoWithStatus:responseBody[@"status"][@"error_desc"]];
-            self.tableView.tableHeaderView = self.headerView;
-            self.tableView.tableFooterView = self.footerView;
+            [self.navigationController popViewControllerAnimated:YES];
+           
             return ;
         }
         
@@ -182,11 +224,10 @@ static NSString * const reuseIdentifier = @"MyCell";
         self.tableView.tableFooterView = self.footerView;
         self.headerView.height = 484;
         
-        HCMLog(@"allow_use_integral----====------%@",responseBody[@"allow_use_integral"]);
+        //判断是否能实用积分
+        if ([responseBody[@"data"][@"allow_use_integral"] integerValue]==1)[self maodou:responseBody];
         
-//        if ([responseBody[@"allow_use_integral"] isEqualToString:@"1"])[self maodou];
-        
-        [self maodou];
+        HCMLog(@"%@",responseBody[@"data"][@"allow_use_integral"]);
         
         [self.tableView reloadData];
         
@@ -217,10 +258,13 @@ static NSString * const reuseIdentifier = @"MyCell";
     
     float total = [self.total floatValue];
     float fee = [strFee floatValue];
-    
+
     NSString *totalAddFee = [NSString stringWithFormat:@"%.2f 元",total + fee];
     
-    self.totalPrice.text = totalAddFee;
+    _totalPrice.text = totalAddFee;
+    
+    float totalPriceM = total + fee;
+    _totalPriceMark = totalPriceM;
     
 }
 #pragma mark - Table view data source
@@ -341,7 +385,9 @@ static NSString * const reuseIdentifier = @"MyCell";
                          @"inv_type":self.invDict[@"inv_type"],
                          @"inv_payee":self.invDict[@"inv_payee"],
                          @"inv_content":self.invDict[@"inv_content"],
-                         @"shipping_id":shipping};
+                         @"shipping_id":shipping,
+                        @"integral ":_integralMark
+                         };
         }else{//增值税发票
             
             doneDict = @{@"session":@{@"sid":self.sid,@"uid":self.uid},
@@ -354,15 +400,19 @@ static NSString * const reuseIdentifier = @"MyCell";
                          @"inv_tel":self.invDict[@"inv_tel"],
                          @"inv_bank":self.invDict[@"inv_bank"],
                          @"inv_bankuser":self.invDict[@"inv_bankuser"],
-                         @"shipping_id":shipping};
+                         @"shipping_id":shipping,
+                         @"integral ":_integralMark
+                         };
         }
         
         
     }else{
         
         doneDict = @{@"session":@{@"sid":self.sid,@"uid":self.uid},
-                               @"pay_id":pay,
-                               @"shipping_id":shipping};
+                    @"pay_id":pay,
+                    @"shipping_id":shipping,
+                    @"integral ":_integralMark
+                };
     }
     
     
