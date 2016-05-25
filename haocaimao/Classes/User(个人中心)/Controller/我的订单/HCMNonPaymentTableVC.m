@@ -118,7 +118,7 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
      [self.tableView.header beginRefreshing];
 }
 
-// 上啦刷新
+// 上拉刷新
 - (void)theDropdownLoadMore{
     
     [self.SectionsCount removeAllObjects];
@@ -233,9 +233,7 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
     [HCMNSNotificationCenter addObserver:self selector:@selector(WX_PayInfo) name:@"WX_PayFailure" object:nil];
 }
 
-- (void)clickBack
-
-{   [SVProgressHUD dismiss];
+- (void)clickBack{   [SVProgressHUD dismiss];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

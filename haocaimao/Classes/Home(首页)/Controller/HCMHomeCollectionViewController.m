@@ -152,10 +152,12 @@ static NSString * const reuseIdentifier = @"Cell";
     [SVProgressHUD dismiss];
     
     self.tabBarController.tabBar.hidden = NO;
+    self.navigationController.navigationBarHidden = YES;
+
+    
     self.collectionView.delegate = self;
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     
-    self.navigationController.navigationBarHidden = YES;
     
 //    //注册键盘出现的通知
 //    [HCMNSNotificationCenter addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardWillShowNotification object:nil];
@@ -351,6 +353,33 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 #pragma mark --- 协议
+-(void)touchGBTopLineView:(id)type title:(id)title{
+    
+    self.tabBarController.tabBar.hidden = YES;
+    self.navigationController.navigationBarHidden = NO;
+    
+    UIViewController *vc = [[UIViewController alloc]init];
+    
+    UIWebView *webView = [[UIWebView alloc]initWithFrame:CGRectMake(0,0, HCMScreenWidth,HCMScreenHeight)];
+
+//    NSString *url = @"http://www.haocaimao.com/culture.html";
+
+    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.haocaimao.com/culture.html"]]];
+    
+    vc.title = @"好采猫头条";
+    vc.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickBack) image:@"nav-back" highImage:@"nav-back"];
+
+    [vc.view addSubview:webView];
+
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
+
+-(void)clickBack{
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 -(void)touchClickPrassCategory:(HCMHomeTopViewController *)mothed tag:(NSString *)tag number:(NSInteger)number{
     
     [self.searchBar resignFirstResponder];

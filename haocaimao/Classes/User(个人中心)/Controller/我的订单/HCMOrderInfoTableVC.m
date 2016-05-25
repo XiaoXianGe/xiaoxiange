@@ -10,9 +10,10 @@
 #import "HCMOrderInfoModel.h"
 #import "HCMOrderInfoCell.h"
 #import "AddressNerworking.h"
+#import "DealViewController.h"
+
 #import "MJExtension.h"
 #import "HCMOrderInfoCellModel.h"
-
 #import "HCMPayOrderWebViewVC.h"
 #import "HCMPayWay.h"
 
@@ -69,8 +70,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *cancelOrder;
 /** 去付款button */
 @property (weak, nonatomic) IBOutlet UIButton *payOrder;
-
-
+/** 红包 */
+@property (weak, nonatomic) IBOutlet UILabel *redBonus;
+/** 积分 */
+@property (weak, nonatomic) IBOutlet UILabel *integral;
 
 @end
 
@@ -110,15 +113,16 @@ static NSString *const orderInfoID = @"orderInfoCell";
     
 }
 
+//初始化订单头部尾部的 数据信息
 -(void)loadOrderInfoWith:(HCMOrderInfoModel *)model{
     
     self.postScriptView.hidden = !(BOOL)self.model.postscript;
     
     if (self.postScriptView.hidden == YES) {
-        self.footerView.height = 345;
+        self.footerView.height = 345 + 33;
         self.tableView.tableFooterView = self.footerView;
     }else{
-        self.footerView.height = 415;
+        self.footerView.height = 415 + 33;
         self.tableView.tableFooterView = self.footerView;
         self.unitName.text = model.postscript[@"unitName"];
         self.taxpayerIDCode.text = model.postscript[@"taxpayerIDCode"];
@@ -140,16 +144,13 @@ static NSString *const orderInfoID = @"orderInfoCell";
     if (![model.orderStatus isEqualToString:@"未确定"]) {
         //支付按钮是否隐藏
         self.cancelOrder.hidden = YES;
-        self.payOrder.hidden = YES;
-    }
+        self.payOrder.hidden = YES; }
+    
     //配送状态
     if ([model.shippingStatus isEqualToString:@"--"]) {
-        
-        self.shippingStatus.text = @"未发货";
-        
-    }else{
-        self.shippingStatus.text = model.shippingStatus;
-    }
+        self.shippingStatus.text = @"未发货";}
+    else{
+        self.shippingStatus.text = model.shippingStatus;  }
     
     //发票信息
     self.invPayee.text = model.invPayee.length ? model.invPayee : @"无";
@@ -158,14 +159,16 @@ static NSString *const orderInfoID = @"orderInfoCell";
     self.goodsAmount.text = [NSString stringWithFormat:@"￥%@",model.goodsAmount];
     //订单运费
     self.shippingFee.text = [NSString stringWithFormat:@"￥%@",model.shippingFee];
+    //积分
+    self.integral.text = [NSString stringWithFormat:@"￥%@",model.integralMoney];
     //订单总额
-    self.orderAmount.text = [NSString stringWithFormat:@"￥%.2f",([model.goodsAmount floatValue] + [model.shippingFee floatValue])];
+    self.orderAmount.text = [NSString stringWithFormat:@"￥%.2f",([model.goodsAmount floatValue] + [model.shippingFee floatValue] - [model.integralMoney floatValue])];
     
     //订单时间
     self.orderTime.text = [NSString stringWithFormat:@"下单时间:%@",model.addTime];
     
-
 }
+
 - (IBAction)gotoPay:(UIButton *)sender {
     
     [SVProgressHUD show];
@@ -250,6 +253,18 @@ static NSString *const orderInfoID = @"orderInfoCell";
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    HCMOrderInfoCellModel *model = self.goodsArray[indexPath.row];
+    
+    DealViewController *vc = [[DealViewController alloc]init];
+    
+    vc.goods_id = model.goodsId;
+    
+    [self.navigationController pushViewController:vc animated:YES];
+    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

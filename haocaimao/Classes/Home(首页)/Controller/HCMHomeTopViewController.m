@@ -109,8 +109,8 @@
         
         NSLog(@"%@,%@",model.type,model.title);
         
-        [weakSelf test];
-        
+        [weakSelf testGBTopLineViewModel:(GBTopLineViewModel *)model];
+    
     };
     
     [self.view addSubview:_TopLineView];
@@ -136,30 +136,14 @@
 }
 
 
--(void)test{
+-(void)testGBTopLineViewModel:(GBTopLineViewModel *)model{
     
-    UIViewController *vc = [[UIViewController alloc]init];
-
-    UIWebView *webView = [[UIWebView alloc]initWithFrame:CGRectMake(0,20, HCMScreenWidth,HCMScreenHeight)];
+    [self.delegate touchGBTopLineView:model.type title:model.title];
     
-//    NSString *url = @"http://www.haocaimao.com/culture.html";
     
-    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.baidu.com"]]];
-    
-    vc.view.backgroundColor = HCMColor(222, 222, 222, 1.0);
-    
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(20, 30, 60, 30);
-    [btn setBackgroundColor:[UIColor lightGrayColor]];
-    [btn setTitle:@"关闭" forState:UIControlStateNormal];
-    
-
-    
-    [vc.view addSubview:webView];
-    
-    [self presentViewController:vc animated:YES completion:nil];
     
 }
+
 
 -(NSInteger)GBTopLineViewHeight{
     

@@ -225,7 +225,7 @@ static NSString * const reuseIdentifier = @"MyCell";
         self.headerView.height = 484;
         
         //判断是否能实用积分
-        if ([responseBody[@"data"][@"allow_use_integral"] integerValue]==1)[self maodou:responseBody];
+        if ([responseBody[@"data"][@"order_max_integral"] integerValue]>0)[self maodou:responseBody];
         
         HCMLog(@"%@",responseBody[@"data"][@"allow_use_integral"]);
         
@@ -386,7 +386,7 @@ static NSString * const reuseIdentifier = @"MyCell";
                          @"inv_payee":self.invDict[@"inv_payee"],
                          @"inv_content":self.invDict[@"inv_content"],
                          @"shipping_id":shipping,
-                        @"integral ":_integralMark
+                        @"integral":_integralMark
                          };
         }else{//增值税发票
             
@@ -401,7 +401,7 @@ static NSString * const reuseIdentifier = @"MyCell";
                          @"inv_bank":self.invDict[@"inv_bank"],
                          @"inv_bankuser":self.invDict[@"inv_bankuser"],
                          @"shipping_id":shipping,
-                         @"integral ":_integralMark
+                         @"integral":_integralMark
                          };
         }
         
@@ -411,7 +411,7 @@ static NSString * const reuseIdentifier = @"MyCell";
         doneDict = @{@"session":@{@"sid":self.sid,@"uid":self.uid},
                     @"pay_id":pay,
                     @"shipping_id":shipping,
-                    @"integral ":_integralMark
+                    @"integral":_integralMark
                 };
     }
     
@@ -420,6 +420,7 @@ static NSString * const reuseIdentifier = @"MyCell";
     
     [[CartNetwork sharedManager]postflowDone:doneDict successBlock:^(id responseBody) {
 
+        HCMLog(@"postflowDone-=-=-=-=-=-=-=-=-=-=-=-==-=-=%@",responseBody);
         
         if (responseBody[@"status"][@"error_code"]) {
             

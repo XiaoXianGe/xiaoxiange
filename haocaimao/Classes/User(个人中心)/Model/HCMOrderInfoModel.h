@@ -48,6 +48,8 @@
 @property(nonatomic,copy)NSString * goodsAmount;
 /** 运费 */
 @property(nonatomic,copy)NSString * shippingFee;
+/** 运费 */
+@property(nonatomic,copy)NSString * integralMoney;
 /** 实付款 */
 @property(nonatomic,copy)NSString * orderAmount;
 /** 下单时间 */

@@ -21,6 +21,8 @@
 /** 申请成为合伙人 button */
 -(void)gotoPartnerCenter:(HCMHomeTopViewController *)delegate;
 
+-(void)touchGBTopLineView:(id)type title:(id)title;
+
 @end
 
 @interface HCMHomeTopViewController : UIViewController
