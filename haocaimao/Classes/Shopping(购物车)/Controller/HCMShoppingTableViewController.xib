@@ -24,7 +24,7 @@
                 <outlet property="dataSource" destination="-1" id="Tng-2m-Rnh"/>
                 <outlet property="delegate" destination="-1" id="9aC-8N-iBw"/>
             </connections>
-            <point key="canvasLocation" x="-8" y="283"/>
+            <point key="canvasLocation" x="404" y="293"/>
         </tableView>
         <view contentMode="scaleToFill" id="q7i-RR-3gA">
             <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
@@ -46,22 +46,22 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="总额：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i01-Zk-foJ">
-                    <rect key="frame" x="73" y="9" width="40" height="18"/>
+                    <rect key="frame" x="73" y="9" width="48" height="18"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="40" id="6JA-av-Xzn"/>
+                        <constraint firstAttribute="width" constant="48" id="6JA-av-Xzn"/>
                         <constraint firstAttribute="height" constant="18" id="SSg-Fw-Ry1"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥10000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oT3-Me-Xd3">
-                    <rect key="frame" x="112" y="7" width="100" height="21"/>
+                    <rect key="frame" x="113" y="7" width="100" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="Dmc-TX-i8b"/>
                         <constraint firstAttribute="height" constant="21" id="qOL-23-0eI"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -86,7 +86,7 @@
                 <constraint firstAttribute="bottom" secondItem="hxa-6H-5XU" secondAttribute="bottom" constant="2" id="RKh-6u-dLU"/>
                 <constraint firstAttribute="bottom" secondItem="Q8g-CX-ReQ" secondAttribute="bottom" constant="7" id="Tzh-Gc-NLK"/>
                 <constraint firstItem="Q8g-CX-ReQ" firstAttribute="top" secondItem="q7i-RR-3gA" secondAttribute="top" constant="7" id="bLU-KP-U0H"/>
-                <constraint firstItem="oT3-Me-Xd3" firstAttribute="leading" secondItem="Q8g-CX-ReQ" secondAttribute="trailing" constant="47" id="hee-Eq-Pyu"/>
+                <constraint firstItem="oT3-Me-Xd3" firstAttribute="leading" secondItem="Q8g-CX-ReQ" secondAttribute="trailing" constant="48" id="hee-Eq-Pyu"/>
                 <constraint firstItem="hxa-6H-5XU" firstAttribute="top" secondItem="q7i-RR-3gA" secondAttribute="top" constant="3" id="kjh-rV-u8h"/>
                 <constraint firstItem="hxa-6H-5XU" firstAttribute="centerY" secondItem="q7i-RR-3gA" secondAttribute="centerY" id="pD8-sc-fg1"/>
                 <constraint firstItem="Q8g-CX-ReQ" firstAttribute="leading" secondItem="q7i-RR-3gA" secondAttribute="leading" constant="8" id="sA3-EA-jXj"/>
@@ -99,7 +99,7 @@
                     <exclude reference="RKh-6u-dLU"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="843" y="167.5"/>
+            <point key="canvasLocation" x="806" y="155.5"/>
         </view>
         <view contentMode="scaleToFill" id="TGL-Y3-Dxy" userLabel="secondFooter View">
             <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
@@ -122,7 +122,7 @@
                         <constraint firstAttribute="height" constant="21" id="Ueq-c7-uvE"/>
                         <constraint firstAttribute="width" constant="152" id="hGZ-ZH-G6k"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -144,7 +144,7 @@
                     <exclude reference="BcJ-NW-G6Y"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="843" y="260.5"/>
+            <point key="canvasLocation" x="806" y="232.5"/>
         </view>
     </objects>
     <resources>

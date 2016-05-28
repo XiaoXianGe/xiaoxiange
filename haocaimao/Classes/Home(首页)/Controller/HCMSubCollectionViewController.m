@@ -191,7 +191,6 @@ static NSString * const url = @"http://www.haocaimao.com/mobile/index.php?c=topi
     }
     
     //reusableview.backgroundColor = [UIColor blueColor];
-    
     return reusableview;
     
 }
