@@ -82,8 +82,7 @@ static NSString *ID = @"Cell";
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
-    self.status = NO;
+
     self.title = @"购物车";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ID];
     
@@ -338,7 +337,7 @@ static NSString *ID = @"Cell";
         [self.tableView.header endRefreshing];
         [SVProgressHUD showInfoWithStatus:@"网络有问题"];
     }];}
-    
+     [self.tableView.header endRefreshing];
 }
 
 #pragma mark - Table view data source

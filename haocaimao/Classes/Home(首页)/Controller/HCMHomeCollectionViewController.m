@@ -366,7 +366,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
     [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.haocaimao.com/culture.html"]]];
     
-    vc.title = @"好采猫头条";
+    vc.title = @"企业简介";
     vc.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickBack) image:@"nav-back" highImage:@"nav-back"];
 
     [vc.view addSubview:webView];
