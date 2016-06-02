@@ -128,14 +128,14 @@
             [WXApi handleOpenURL:url delegate:[weiXinData alloc]];
 }
 
-- (void)applicationWillTerminate:(UIApplication *)application {
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setBool:NO forKey:@"status"];
-    [defaults setObject:nil forKey:@"userName"];
-    [defaults synchronize];
-    
-}
+//- (void)applicationWillTerminate:(UIApplication *)application {
+//    
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    [defaults setBool:NO forKey:@"status"];
+//    [defaults setObject:nil forKey:@"userName"];
+//    [defaults synchronize];
+//    
+//}
 
 -(void)applicationWillEnterForeground:(UIApplication *)application{
     
