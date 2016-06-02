@@ -214,8 +214,7 @@
         
         index++;
     }
-    //[self.tabbar setBackgroundColor:[UIColor whiteColor]];
-    // [self.tabbar setBackgroundImage:[UIImage imageNamed:@"body-cont-bg"]];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -297,27 +296,32 @@
     
     if (self.status) {
         
-        //判断是否为合伙人
-        if( [[self.defaults objectForKey:@"realName"] isEqualToString:@""] ){
-            self.partnerInfoLabel.text = @"申请合伙人>";
-        }else{
-            self.partnerInfoLabel.text = @"进入合伙人中心>";
-        }
-        
-        [self networking];
-        self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(networking)];
-        
-        //[self.tableView addHeaderWithTarget:self action:@selector(networking)];
-        
-        NSData *imgData = [self.defaults objectForKey:@"imgData"];
-        if (imgData == nil) {
-            [self.userImg sd_setImageWithURL:[NSURL URLWithString:[self.defaults objectForKey:@"headimgurl"]] placeholderImage:[UIImage imageNamed:@"profile-no-avatar-icon"]];
-        }else{
-            UIImage *img = [UIImage imageWithData:imgData];
-            [self.userImg setImage:img];
-        }
+        HCMLog(@"self.status");
+            //判断是否为合伙人
+            if( [[self.defaults objectForKey:@"realName"] isEqualToString:@""] ){
+                
+                self.partnerInfoLabel.text = @"申请合伙人>";
+            }else{
+                self.partnerInfoLabel.text = @"进入合伙人中心>";
+            }
+            
+            [self networking];
+            
+            self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(networking)];
+            
+            //[self.tableView addHeaderWithTarget:self action:@selector(networking)];
+            
+            NSData *imgData = [self.defaults objectForKey:@"imgData"];
+            if (imgData == nil) {
+                [self.userImg sd_setImageWithURL:[NSURL URLWithString:[self.defaults objectForKey:@"headimgurl"]] placeholderImage:[UIImage imageNamed:@"profile-no-avatar-icon"]];
+            }else{
+                UIImage *img = [UIImage imageWithData:imgData];
+                [self.userImg setImage:img];
+            }
         
     }else{
+         HCMLog(@"no == self.status");
+        
         self.vipUserMobel = nil;
         [self.tableView.header endRefreshing];
         [self.userImg setImage:[UIImage imageNamed:@"user_loginRegion"]];
@@ -328,7 +332,42 @@
         self.userImage.hidden = YES;
         self.clickLogin.enabled = YES;
         self.partnerInfoLabel.text = @"申请合伙人>";
+        
+        [self weakUpLogin];
     }
+}
+
+//登录提醒
+-(void)weakUpLogin{
+   
+    //当前的时间戳
+    NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
+    NSTimeInterval a=[dat timeIntervalSince1970];
+    NSString *timeString = [NSString stringWithFormat:@"%.0f", a];
+    
+    //上次的时间戳
+    NSString *LastSecond = [self.defaults objectForKey:@"LastSecond_login"];
+    
+    if (!LastSecond) { //如果没有时间戳，把当前时间戳 存进去
+        
+        [self.defaults setObject:timeString forKey:@"LastSecond_login"];
+        [self.defaults synchronize];
+        
+    }else{ //如果有时间戳,判断两个时间
+        
+        // 当前时间戳                  上次时间戳
+        NSInteger second = [timeString integerValue] - [LastSecond integerValue];
+        
+        if ( second > 3600) {
+            
+            self.vipUserMobel = nil;
+            [self.tableView.header endRefreshing];
+            UIAlertView *aler = [[UIAlertView alloc]initWithTitle:@"登录超时" message:@"登录超时，请您重新登录" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+            [aler show];
+
+        }
+    }
+
 }
 
 - (void)networking{
@@ -950,7 +989,7 @@
                             // 当前时间戳                  上次时间戳
         NSInteger second = [timeString integerValue] - [LastSecond integerValue];
         
-        if ( second > 10 ) { // second > 一小时(3600 * 24 * 7)
+        if ( second > 3600* 24 * 3) { // second > 一小时(3600 * 24 * 7)
             //将当前的时间戳存到沙盒
             [self.defaults setObject:timeString forKey:@"LastSecond"];
             [self.defaults synchronize];

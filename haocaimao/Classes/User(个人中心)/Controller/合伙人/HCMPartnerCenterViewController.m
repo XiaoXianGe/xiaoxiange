@@ -243,12 +243,15 @@
     NSString *url = [NSString stringWithFormat:@"http://www.haocaimao.com/mobile/index.php?u=%@",self.uid];
     [UMSocialWechatHandler setWXAppId:APP_ID appSecret:APP_SECRET url:url];
     
+    
+    
     [UMSocialSnsService presentSnsIconSheetView:self
                                          appKey:@"5636fa51e0f55af8bf004172"
                                       shareText:@"0元创业,立刻成为好采猫合伙人，领只招财猫回家！"
                                      shareImage:[UIImage imageNamed:@"partnerLogo"]
                                 shareToSnsNames:[NSArray arrayWithObjects:UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,nil]
                                        delegate:self];
+    
     
 }
  

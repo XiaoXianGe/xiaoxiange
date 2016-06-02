@@ -317,46 +317,14 @@
     [self.navigationController pushViewController:getPassword animated:YES];
 }
 
+//微信登录按钮
 - (IBAction)weixin:(id)sender
 {
-    
-    
+
     [self sendAuthReq];
-    
-    
-    
-    
-    
+
 }
 //微信授权登陆
-/*
- - (BOOL)loadAccess_token{
-   __block NSString *errmsg = nil;
-   __block NSString *errcode = nil;
-    NSString *loadAccess_token = [NSString stringWithFormat:@"https://api.weixin.qq.com/sns/auth?access_token=%@&openid=%@",self.model.access_token,self.model.openid];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSURL *url = [NSURL URLWithString:loadAccess_token];
-        NSString *dataStr = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
-        NSData *data = [dataStr dataUsingEncoding:NSUTF8StringEncoding];
-dispatch_async(dispatch_get_main_queue(), ^{
-    if (data) {
-         NSMutableDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-        errmsg = dic[@"errmsg"];
-        errcode = dic[@"errcode"];
-    }
-   
-    
-});
-    });
-    if ([errmsg isEqualToString:@"ok" ]&&[errcode isEqualToString:@"0"]) {
-        if (errmsg!=nil&&errcode != nil) {
-            return NO;
-        }
-        
-    }
-    return YES;
-    
-}//刷新Access_token;*/
 - (void)sendAuthReq
 {
    

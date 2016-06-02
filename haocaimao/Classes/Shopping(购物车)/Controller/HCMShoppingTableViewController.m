@@ -244,6 +244,15 @@ static NSString *ID = @"Cell";
 
     self.tabBarController.tabBar.hidden = NO;
     
+    HCMLog(@"%d---",[self.defaults boolForKey:@"status"]);
+    HCMLog(@"%@---",[self.defaults objectForKey:@"userName"]);
+    HCMLog(@"%@---",[self.defaults objectForKey:@"headimgurl"]);
+    HCMLog(@"%@---",[self.defaults objectForKey:@"imgData"]);
+    HCMLog(@"%@---",[self.defaults objectForKey:@"unionid"]);
+    HCMLog(@"%@---",[self.defaults objectForKey:@"realName"]);
+    HCMLog(@"%@---",[self.defaults objectForKey:@"sid"]);
+    HCMLog(@"%@---",[self.defaults objectForKey:@"uid"]);
+    
     if (![self.defaults boolForKey:@"status"]){
         
         [self.cartListFrame removeAllObjects];
@@ -252,34 +261,38 @@ static NSString *ID = @"Cell";
         [self.tableView reloadData];
         [self.tableView.header endRefreshing];
         
-        [self network];
-        
+//        [self network];
+        [self setUPcontroller];
         //[SVProgressHUD showInfoWithStatus:@"请先登录"];
         
         return;
     }
+    
     self.tableView.header  = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        
-        [self network];
+    [self setUPcontroller];
+    [self network];
         
     }];
     [self.tableView.header beginRefreshing];
      
 }
 
-- (void)network{
+-(void)setUPcontroller{
     if (!self.status) {
-    if (self.buyView ==nil) {
-         [self loadBackgroundView];
-    }}else{
+        if (self.buyView ==nil) [self loadBackgroundView];
+    }else{
         self.footerView.hidden = NO;
         self.deleteFootView.hidden = YES;
     }
     if (self.popView == nil) {
         [self setupView];
         self.tableView.tableFooterView = self.popView;
-
+        
     }
+}
+
+- (void)network{
+    
     self.uid = [self.defaults objectForKey:@"uid"];
     self.sid = [self.defaults objectForKey:@"sid"];
     if (self.uid&&self.sid) {

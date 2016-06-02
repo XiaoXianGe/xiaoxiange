@@ -34,10 +34,15 @@
 }
 
 //发送微信授权请求（微信支付请求）+（微信登录请求）
+//先判断用户的操作是什么！ 支付 or 登录 //
+
 - (void)onResp:(BaseResp *)resp{
     
     if ([resp isKindOfClass:[PayResp class]]) {
-        
+        //微信支付请求
+        //微信支付请求
+        //微信支付请求
+        //微信支付请求
         PayResp*response=(PayResp*)resp;
         // 微信终端返回给第三方的关于支付结果的结构体
         //支付返回结果，实际支付结果需要去微信服务器端查询
@@ -63,8 +68,12 @@
         
         [SVProgressHUD dismiss];
         
-        } else {//(微信登录)授权
-
+        } else {
+            //(微信登录)授权
+            //(微信登录)授权
+            //(微信登录)授权
+            //(微信登录)授权
+            //(微信登录)授权
         SendAuthResp *aresp = (SendAuthResp *)resp;
         
         if (aresp.errCode == 0) {
