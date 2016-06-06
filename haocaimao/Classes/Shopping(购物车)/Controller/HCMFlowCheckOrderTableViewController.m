@@ -97,6 +97,8 @@ static NSString * const reuseIdentifier = @"MyCell";
    
     [self network];
     
+    _integralMark = @"";
+    
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, -44, 0);
 }
 
