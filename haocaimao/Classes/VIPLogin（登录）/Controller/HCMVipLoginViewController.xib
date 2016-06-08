@@ -257,7 +257,7 @@
                 <constraint firstItem="Vjc-cW-abz" firstAttribute="top" secondItem="uI8-s7-3Hw" secondAttribute="bottom" constant="17" id="zK9-2U-fDy"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="238" y="128"/>
+            <point key="canvasLocation" x="491" y="106"/>
         </view>
     </objects>
     <resources>

@@ -165,6 +165,11 @@ static NSString *const VersionCheckURL = @"http://www.haocaimao.com/ecmobile/ind
  */
 static NSString *const Order_detailsURL = @"http://www.haocaimao.com/ecmobile/index.php?url=order/details";
 
+/**
+ *  物流信息
+ */
+static NSString *const Order_expressURL = @"http://www.haocaimao.com/ecmobile/index.php?url=order/express";
+
 ///************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 
 +(AddressNerworking *)sharedManager{
@@ -909,6 +914,26 @@ static NSString *const Order_detailsURL = @"http://www.haocaimao.com/ecmobile/in
 }
 
 
+/**
+ *  物流信息
+ */
+- (void)postOrder_expressURL:(NSDictionary *)userInfo successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+    AFHTTPRequestOperationManager *manager = [self baseHtppRequest];
+    
+    NSString *urlStr = [Order_expressURL stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    [manager POST:urlStr parameters:userInfo success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        successBlock(responseObject);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        
+        failureBlock(errorStr);
+        
+    }];
+}
 
 
 

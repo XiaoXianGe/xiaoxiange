@@ -467,7 +467,6 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
 // 点击订单详情
 -(void)orderInfo:(UIButton *)btn{
     
-    
     [SVProgressHUD show];
     
     UILabel *head_orderID = (UILabel *)[btn.superview viewWithTag:69];

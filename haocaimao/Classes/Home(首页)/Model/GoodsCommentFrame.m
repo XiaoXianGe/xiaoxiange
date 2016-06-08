@@ -51,6 +51,7 @@
     CGFloat originalY = 0;
     CGFloat originalW = cellW;
     CGFloat originalH = CGRectGetMaxY(self.contentLabelF) + HCMCommentCellBorderW;
+    
     self.originalViewF = CGRectMake(originalX, originalY, originalW, originalH);
     
     self.cellHeight = CGRectGetMaxY(self.originalViewF);

@@ -24,7 +24,9 @@
 #import "HCMOrderInfoTableVC.h"
 #import "HCMOrderInfoCellModel.h"
 #import "HCMOrderInfoModel.h"
+#import "OrderExpressModel.h"
 
+#import "OrderExpressTableViewController.h"
 
 @interface HCMWaitForTheDeliveryTableVC ()
 
@@ -281,7 +283,7 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
     UILabel *head_orderID = (UILabel *)[headView viewWithTag:69];
     
     snlabel.text = [NSString stringWithFormat:@"订单编号 %@",orderList.order_sn];
-    timelabel.text = [NSString stringWithFormat:@"订单编号 %@",orderList.order_time];
+    timelabel.text = [NSString stringWithFormat:@"成交时间 %@",orderList.order_time];
     head_orderID.text = orderList.order_id;
     
     
@@ -295,7 +297,6 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         UILabel *SNLabel = [self setLabelsRect:snRECT textAlignment:YES];
         SNLabel.text = [NSString stringWithFormat:@"订单编号 %@",orderList.order_sn];
         SNLabel.font = [UIFont systemFontOfSize:11];
-        
         SNLabel.tag = 67;
         
         UILabel *timeLabel = [self setLabelsRect:timeRECT textAlignment:YES];
@@ -313,7 +314,7 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         UIButton *orderImageBtn = [self setButtonRect:CGRectMake(HCMScreenWidth - 80 , 13, 60, 20) bgImage:@"button-narrow-gray" title:@"订单详情"];
         [orderImageBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [orderInfoBtn addTarget:self action:@selector(orderInfo:) forControlEvents:UIControlEventTouchUpInside];
-
+        
         headView = headview.view;
         headView.tag = 66;
         
@@ -338,7 +339,6 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
     
     UIView *footer = (UIView *)[myFooter.contentView viewWithTag:80];
     UILabel *totalLabel = (UILabel *)[footer viewWithTag:81];
-
     UILabel *orderIDLabel = (UILabel *)[footer viewWithTag:79];
     
     orderIDLabel.text = orderList.order_id;
@@ -347,8 +347,6 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
     if (footer == nil) {
         
         HCMNoPayFooterview *footerView = [[HCMNoPayFooterview alloc]initWithNibName:@"HCMNoPayFooterview" bundle:nil];
-        
-        //CGFloat footerW = [UIScreen mainScreen].bounds.size.width - 125;
         
         UILabel *order_id = [self setLabelsRect:CGRectMake(0, 0, 0, 0) textAlignment:YES];
         order_id.tag = 79;
@@ -359,9 +357,13 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         total_fee_label.tag = 81;
         total_fee_label.textColor = [UIColor redColor];
         total_fee_label.text = orderList.total_fee;
-       
         
+        //快递物流btn
+        UIButton *orderBtn = [self setButtonRect:CGRectMake(HCMScreenWidth - 170 , 10, 60, 20) bgImage:@"button-narrow-gray" title:@"物流信息"];
+        [orderBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        [orderBtn addTarget:self action:@selector(cheatEMS:) forControlEvents:UIControlEventTouchUpInside];
         
+        //确认收货btn
         UIButton *affirmReceivedBtn = [[UIButton alloc]initWithFrame:CGRectMake(HCMScreenWidth - 100, 10, 80, 20)];
         affirmReceivedBtn.tag = 86;
         affirmReceivedBtn.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -376,17 +378,59 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         [footer addSubview:order_id];
         [footer addSubview:affirmReceivedBtn];
         [footer addSubview:total_fee_label];
-
+        [footer addSubview:orderBtn];
+        
         [myFooter.contentView addSubview:footer];
     }
     return myFooter;
 }
 
+-(void)cheatEMS:(UIButton *)btn{
+    
+    [SVProgressHUD showInfoWithStatus:@"加载中，请稍后"];
+    
+    UILabel *orderID = (UILabel *)[btn.superview viewWithTag:79];
+//    HCMLog(@"%@",orderID.text);
+    NSDictionary *params = @{@"session":@{@"sid":self.sid,@"uid":self.uid},
+                             @"order_id":orderID.text};
+
+    [[AddressNerworking sharedManager]postOrder_expressURL:params successBlock:^(id responseBody) {
+        HCMLog(@"%@",responseBody);
+        
+        if (responseBody[@"status"][@"error_desc"]) {
+            [SVProgressHUD showInfoWithStatus:responseBody[@"status"][@"error_desc"]];
+            return;
+        }
+        
+        OrderExpressTableViewController *ExpressVC = [[OrderExpressTableViewController alloc]init];
+        
+        ExpressVC.dict = responseBody[@"data"];
+        
+        [self.navigationController pushViewController:ExpressVC animated:YES];
+        
+//        for (NSDictionary *dict in ExpressVC.array) {
+//            
+//            OrderExpressModel *model = [OrderExpressModel objectWithKeyValues:dict];
+//            NSLog(@"%@",model.context);
+//            
+//        }
+        
+        
+        
+        
+        
+        
+    } failureBlock:^(NSString *error) {
+        [SVProgressHUD showInfoWithStatus:@"网络连接失败"];
+    }];
+    
+
+    
+}
+
 // 点击订单详情
 -(void)orderInfo:(UIButton *)btn{
-    
-    HCMLogFunc;
-    
+
     [SVProgressHUD show];
     
     UILabel *head_orderID = (UILabel *)[btn.superview viewWithTag:69];

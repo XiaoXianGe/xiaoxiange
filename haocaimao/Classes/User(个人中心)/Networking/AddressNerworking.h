@@ -188,6 +188,11 @@ typedef void(^FailureBlock)(NSString *error);
  */
 - (void)postOrder_detailsURL:(NSDictionary *)userInfo successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
 
+/**
+ *  物流信息
+ */
+- (void)postOrder_expressURL:(NSDictionary *)userInfo successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
+
 
 
 

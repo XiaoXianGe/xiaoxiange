@@ -37,6 +37,10 @@
 		231CF3BC1C560D4400A3899B /* partnerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 231CF3BA1C560D4400A3899B /* partnerCell.m */; };
 		231CF3BD1C560D4400A3899B /* partnerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 231CF3BB1C560D4400A3899B /* partnerCell.xib */; };
 		23251A581CC2023000E894E0 /* HCMSortTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 23251A571CC2023000E894E0 /* HCMSortTool.m */; };
+		23424A881D069F5300F9A9BB /* OrderExpressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 23424A871D069F5300F9A9BB /* OrderExpressModel.m */; };
+		23424A8E1D06AAAA00F9A9BB /* OrderExpressTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23424A8D1D06AAAA00F9A9BB /* OrderExpressTableViewController.m */; };
+		23424A921D06ADF700F9A9BB /* OrderExpressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23424A901D06ADF700F9A9BB /* OrderExpressCell.m */; };
+		23424A931D06ADF700F9A9BB /* OrderExpressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23424A911D06ADF700F9A9BB /* OrderExpressCell.xib */; };
 		234A44DA1BCF7DB1006910BE /* CategoryGoods.m in Sources */ = {isa = PBXBuildFile; fileRef = 234A44D71BCF7DB1006910BE /* CategoryGoods.m */; };
 		234A44DB1BCF7DB1006910BE /* RegionNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 234A44D91BCF7DB1006910BE /* RegionNetworking.m */; };
 		234A44DF1BCF8334006910BE /* SceneCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 234A44DD1BCF8334006910BE /* SceneCollectionViewCell.m */; };
@@ -425,6 +429,13 @@
 		231CF3BB1C560D4400A3899B /* partnerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = partnerCell.xib; sourceTree = "<group>"; };
 		23251A561CC2023000E894E0 /* HCMSortTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMSortTool.h; sourceTree = "<group>"; };
 		23251A571CC2023000E894E0 /* HCMSortTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMSortTool.m; sourceTree = "<group>"; };
+		23424A861D069F5300F9A9BB /* OrderExpressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderExpressModel.h; sourceTree = "<group>"; };
+		23424A871D069F5300F9A9BB /* OrderExpressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderExpressModel.m; sourceTree = "<group>"; };
+		23424A8C1D06AAAA00F9A9BB /* OrderExpressTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderExpressTableViewController.h; sourceTree = "<group>"; };
+		23424A8D1D06AAAA00F9A9BB /* OrderExpressTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderExpressTableViewController.m; sourceTree = "<group>"; };
+		23424A8F1D06ADF700F9A9BB /* OrderExpressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderExpressCell.h; sourceTree = "<group>"; };
+		23424A901D06ADF700F9A9BB /* OrderExpressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderExpressCell.m; sourceTree = "<group>"; };
+		23424A911D06ADF700F9A9BB /* OrderExpressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderExpressCell.xib; sourceTree = "<group>"; };
 		234A44D61BCF7DB1006910BE /* CategoryGoods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryGoods.h; sourceTree = "<group>"; };
 		234A44D71BCF7DB1006910BE /* CategoryGoods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryGoods.m; sourceTree = "<group>"; };
 		234A44D81BCF7DB1006910BE /* RegionNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionNetworking.h; sourceTree = "<group>"; };
@@ -1345,6 +1356,8 @@
 				2352D6791C9FEB2E00B9E209 /* HCMOrderInfoModel.m */,
 				23E7FECA1CA02108002A25BD /* HCMOrderInfoCellModel.h */,
 				23E7FECB1CA02108002A25BD /* HCMOrderInfoCellModel.m */,
+				23424A861D069F5300F9A9BB /* OrderExpressModel.h */,
+				23424A871D069F5300F9A9BB /* OrderExpressModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1405,6 +1418,9 @@
 				2352D67B1C9FEFE300B9E209 /* HCMOrderInfoCell.h */,
 				2352D67C1C9FEFE300B9E209 /* HCMOrderInfoCell.m */,
 				2352D67D1C9FEFE300B9E209 /* HCMOrderInfoCell.xib */,
+				23424A8F1D06ADF700F9A9BB /* OrderExpressCell.h */,
+				23424A901D06ADF700F9A9BB /* OrderExpressCell.m */,
+				23424A911D06ADF700F9A9BB /* OrderExpressCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1627,6 +1643,8 @@
 				2300A9D41C9BA2F4002A3B53 /* HCMOrderInfoTableVC.h */,
 				2300A9D51C9BA2F4002A3B53 /* HCMOrderInfoTableVC.m */,
 				2300A9D61C9BA2F4002A3B53 /* HCMOrderInfoTableVC.xib */,
+				23424A8C1D06AAAA00F9A9BB /* OrderExpressTableViewController.h */,
+				23424A8D1D06AAAA00F9A9BB /* OrderExpressTableViewController.m */,
 			);
 			path = "我的订单";
 			sourceTree = "<group>";
@@ -2476,6 +2494,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23424A931D06ADF700F9A9BB /* OrderExpressCell.xib in Resources */,
 				238FD6221C2E7EC500F95CCD /* HCMStockoutTableViewController.xib in Resources */,
 				2371D6851BF41E3200F61C8E /* sg_pop_images.xcassets in Resources */,
 				23D6505A1C101CBC00774848 /* secondCollectionReusableView.xib in Resources */,
@@ -2710,6 +2729,7 @@
 				236F81C91BD0B8AA0053E24A /* HCMDealWebViewController.m in Sources */,
 				23ADDA001C5891B1009A1642 /* PartnerViewController.m in Sources */,
 				23D026111B8B22210009C7EE /* HWSearchBar.m in Sources */,
+				23424A8E1D06AAAA00F9A9BB /* OrderExpressTableViewController.m in Sources */,
 				22E285C11BA6B5FF008B18B4 /* GoodsCommentModel.m in Sources */,
 				238FD5FD1C2E7B3100F95CCD /* HCMMyWalletTableViewController.m in Sources */,
 				23AF71561C897571001B51CD /* UINavigationBar+Background.m in Sources */,
@@ -2780,6 +2800,7 @@
 				238FD5E41C2E790300F95CCD /* HCMNotReceivingTableVC.m in Sources */,
 				236332751C9FB7EF00A418BD /* Foundation+Log.m in Sources */,
 				23AF718B1C897660001B51CD /* MJRefreshAutoStateFooter.m in Sources */,
+				23424A881D069F5300F9A9BB /* OrderExpressModel.m in Sources */,
 				22E285C61BA6B5FF008B18B4 /* HCMCommentTableViewController.m in Sources */,
 				238FD6171C2E7EC500F95CCD /* HCMBusinessViewController.m in Sources */,
 				23D026091B8B22210009C7EE /* UIImage+WebP.m in Sources */,
@@ -2822,6 +2843,7 @@
 				2357E2F61C02C8EC00E7FA4B /* HCMWebViewController.m in Sources */,
 				23AF714E1C8974A6001B51CD /* ViewController.m in Sources */,
 				23E016DE1C3CC5740039440E /* MJPhotoProgressView.m in Sources */,
+				23424A921D06ADF700F9A9BB /* OrderExpressCell.m in Sources */,
 				23AF718C1C897660001B51CD /* MJRefreshBackGifFooter.m in Sources */,
 				23DA22081B8EE990001CC7A0 /* MBProgressHUD+MJ.m in Sources */,
 				23D025F71B8B22210009C7EE /* UIAlertView+AFNetworking.m in Sources */,
