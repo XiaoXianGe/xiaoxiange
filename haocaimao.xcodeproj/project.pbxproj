@@ -243,6 +243,8 @@
 		23AF71951C897660001B51CD /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AF71811C897660001B51CD /* UIScrollView+MJRefresh.m */; };
 		23AF71961C897660001B51CD /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AF71831C897660001B51CD /* UIView+MJExtension.m */; };
 		23AF71B01C8AC846001B51CD /* WeChatPayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AF71AF1C8AC846001B51CD /* WeChatPayModel.m */; };
+		23AFB7141D0E63A400372004 /* AlartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AFB7121D0E63A400372004 /* AlartViewController.m */; };
+		23AFB7151D0E63A400372004 /* AlartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23AFB7131D0E63A400372004 /* AlartViewController.xib */; };
 		23B0130B1C7BF62700A87752 /* HCMTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B0130A1C7BF62700A87752 /* HCMTabBar.m */; };
 		23B3CD701C02C70A000CC09F /* CartGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B3CD6F1C02C70A000CC09F /* CartGoodsModel.m */; };
 		23C4BAE21C83D94000F0610B /* HCMAdvisoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C4BAE01C83D94000F0610B /* HCMAdvisoryViewController.m */; };
@@ -777,6 +779,9 @@
 		23AF71831C897660001B51CD /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
 		23AF71AE1C8AC846001B51CD /* WeChatPayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeChatPayModel.h; sourceTree = "<group>"; };
 		23AF71AF1C8AC846001B51CD /* WeChatPayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeChatPayModel.m; sourceTree = "<group>"; };
+		23AFB7111D0E63A400372004 /* AlartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlartViewController.h; sourceTree = "<group>"; };
+		23AFB7121D0E63A400372004 /* AlartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlartViewController.m; sourceTree = "<group>"; };
+		23AFB7131D0E63A400372004 /* AlartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlartViewController.xib; sourceTree = "<group>"; };
 		23B013091C7BF62700A87752 /* HCMTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMTabBar.h; sourceTree = "<group>"; };
 		23B0130A1C7BF62700A87752 /* HCMTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMTabBar.m; sourceTree = "<group>"; };
 		23B3CD6E1C02C70A000CC09F /* CartGoodsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartGoodsModel.h; sourceTree = "<group>"; };
@@ -1890,6 +1895,16 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		23AFB7101D0E63A400372004 /* ExpandAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				23AFB7111D0E63A400372004 /* AlartViewController.h */,
+				23AFB7121D0E63A400372004 /* AlartViewController.m */,
+				23AFB7131D0E63A400372004 /* AlartViewController.xib */,
+			);
+			path = ExpandAlertView;
+			sourceTree = "<group>";
+		};
 		23C805781B9403470090E285 /* MJExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -1989,6 +2004,7 @@
 		23D0256B1B8B22200009C7EE /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				23AFB7101D0E63A400372004 /* ExpandAlertView */,
 				2362C4021C5B45DE00C0F4F2 /* GtSdkLib */,
 				23A334A81C19473700CEC213 /* fmdb */,
 				2371D6811BF41E3200F61C8E /* SGPopSelectView */,
@@ -2573,6 +2589,7 @@
 				238FD63C1C2E816100F95CCD /* HCMSaleGoodsTableViewCell.xib in Resources */,
 				238FD63E1C2E816100F95CCD /* HCMStockoutInfoTableViewCell.xib in Resources */,
 				23E016DB1C3CC5740039440E /* MJPhotoBrowser.bundle in Resources */,
+				23AFB7151D0E63A400372004 /* AlartViewController.xib in Resources */,
 				2357E2F71C02C8EC00E7FA4B /* HCMWebViewController.xib in Resources */,
 				238FD61C1C2E7EC500F95CCD /* HCMChangeUserInfoViewController.xib in Resources */,
 				2357E2EB1C02C8EC00E7FA4B /* User.plist in Resources */,
@@ -2743,6 +2760,7 @@
 				23D0260B1B8B22210009C7EE /* UIImageView+WebCache.m in Sources */,
 				22E285C41BA6B5FF008B18B4 /* HCMCenterLineLabel.m in Sources */,
 				23AF71941C897660001B51CD /* UIScrollView+MJExtension.m in Sources */,
+				23AFB7141D0E63A400372004 /* AlartViewController.m in Sources */,
 				23E016DA1C3CC5740039440E /* MJPhoto.m in Sources */,
 				238FD6431C2E820600F95CCD /* OutOfGoodsModel.m in Sources */,
 				2357E2E71C02C8EC00E7FA4B /* GoodsListModel.m in Sources */,

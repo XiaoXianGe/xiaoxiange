@@ -387,10 +387,10 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
 
 -(void)cheatEMS:(UIButton *)btn{
     
-    [SVProgressHUD showInfoWithStatus:@"加载中，请稍后"];
+    [SVProgressHUD showWithStatus:@"加载中"];
     
     UILabel *orderID = (UILabel *)[btn.superview viewWithTag:79];
-//    HCMLog(@"%@",orderID.text);
+
     NSDictionary *params = @{@"session":@{@"sid":self.sid,@"uid":self.uid},
                              @"order_id":orderID.text};
 
@@ -408,23 +408,9 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         
         [self.navigationController pushViewController:ExpressVC animated:YES];
         
-//        for (NSDictionary *dict in ExpressVC.array) {
-//            
-//            OrderExpressModel *model = [OrderExpressModel objectWithKeyValues:dict];
-//            NSLog(@"%@",model.context);
-//            
-//        }
-        
-        
-        
-        
-        
-        
     } failureBlock:^(NSString *error) {
         [SVProgressHUD showInfoWithStatus:@"网络连接失败"];
     }];
-    
-
     
 }
 
@@ -457,9 +443,6 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
     } failureBlock:^(NSString *error) {
         [SVProgressHUD showInfoWithStatus:@"失败"];
     }];
-    
-    
-    
     
 }
 // 抽取代码 设置btn

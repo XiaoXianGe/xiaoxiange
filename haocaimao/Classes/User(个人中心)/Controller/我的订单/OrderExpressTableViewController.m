@@ -39,6 +39,8 @@ static NSString *const orderExpressID = @"orderExpressCell";
     //创建头部视图
     [self setUpHeardView];
     
+    [SVProgressHUD dismiss];
+    
 }
 
 //创建头部视图

@@ -23,11 +23,12 @@
 
 #import "HCMbuyView.h"
 #import "HCMCartSection.h"
-//#import "FootCollectionView.h"
 #import "FootPopView.h"
 
 #import "DealViewController.h"
-@interface HCMShoppingTableViewController ()<HCMCartCellDelegate,UIAlertViewDelegate>
+#import "AlartViewController.h"
+
+@interface HCMShoppingTableViewController ()<HCMCartCellDelegate,UIAlertViewDelegate,ExpendableAlartViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *goodsNum;
 
 @property (strong, nonatomic) IBOutlet UIView *deleteFootView;
@@ -35,28 +36,24 @@
 @property (strong, nonatomic) IBOutlet UIView *footerView;
 @property (weak, nonatomic) IBOutlet UILabel *goodsTotal;
 @property (strong, nonatomic) CartListFrame *frame;
-//@property (strong, nonatomic) DealViewController *deal;
 
 @property (nonatomic, strong)NSMutableArray *cartListFrame;
 @property (nonatomic, strong)CartTotalListModel *cartTotal;
 @property (strong, nonatomic) HCMbuyView *buyView;
 @property (strong, nonatomic) FootPopView *popView;
+
 @property (strong, nonatomic) UICollectionView *fool;
 @property (strong, nonatomic) NSMutableArray *allShopName;
 @property (strong, nonatomic) NSMutableArray *sectionArr;
-
 @property (weak, nonatomic) UIWindow *window;
 @property (assign, nonatomic) CGPoint scrollViewPoint;
-
-
 
 @property (nonatomic, strong)NSString *sid;
 @property (nonatomic, strong)NSString *uid;
 @property (assign, nonatomic) BOOL status;
 @property (weak, nonatomic) UIButton *animaBtn;
-
 @property (nonatomic, strong)NSUserDefaults *defaults;
-
+@property(nonatomic,strong)NSString * deleteGoodsID;/** 记录删除商品的ID */
 @end
 
 @implementation HCMShoppingTableViewController
@@ -115,6 +112,7 @@ static NSString *ID = @"Cell";
 
 - (void)loadMoneyView{
     UIWindow *window = [[UIApplication sharedApplication]keyWindow];
+
     self.window = window;
     
     self.footerView.frame = CGRectMake(0, HCMScreenHeight - 84, HCMScreenWidth, 35);
@@ -244,15 +242,6 @@ static NSString *ID = @"Cell";
 
     self.tabBarController.tabBar.hidden = NO;
     
-    HCMLog(@"%d---",[self.defaults boolForKey:@"status"]);
-    HCMLog(@"%@---",[self.defaults objectForKey:@"userName"]);
-    HCMLog(@"%@---",[self.defaults objectForKey:@"headimgurl"]);
-    HCMLog(@"%@---",[self.defaults objectForKey:@"imgData"]);
-    HCMLog(@"%@---",[self.defaults objectForKey:@"unionid"]);
-    HCMLog(@"%@---",[self.defaults objectForKey:@"realName"]);
-    HCMLog(@"%@---",[self.defaults objectForKey:@"sid"]);
-    HCMLog(@"%@---",[self.defaults objectForKey:@"uid"]);
-    
     if (![self.defaults boolForKey:@"status"]){
         
         [self.cartListFrame removeAllObjects];
@@ -338,7 +327,7 @@ static NSString *ID = @"Cell";
         self.goodsNum.text = [NSString stringWithFormat:@"已选%@种",self.cartTotal.real_goods_count];
         self.allShopName = shopName;
            // self.tableView.tableFooterView = self.footerView;
-            [SVProgressHUD showSuccessWithStatus:nil];
+        [SVProgressHUD dismiss];
         
         [self.tableView.header endRefreshing];
         self.tableView.tableFooterView = self.popView;
@@ -512,47 +501,17 @@ static NSString *ID = @"Cell";
 // 点击了删除，cell代理方法
 - (void)clickDeleteGoodsCell:(HCMCartCell *)cell redID:(NSString *)redID{
     
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"确定删除该商品?" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-    
-    alert.tag = [redID integerValue];
-    
-    [alert show];
-    
-   }
+    _deleteGoodsID = redID;
 
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    AlartViewController *aAlartViewController = [[AlartViewController alloc] init];
+    aAlartViewController.expendAbleAlartViewDelegate = self;
+    __weak UIViewController *weakVC = self;
+    [aAlartViewController showView:weakVC];
     
-    NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
     
-    if ([buttonTitle isEqualToString:@"确定"]) {
-        NSString * redID = [NSString stringWithFormat:@"%ld",(long)alertView.tag];
-        [self deleteShoppingGoods:redID];
-    }
-
 }
 
--(void)deleteShoppingGoods:(NSString *)redID{
-    self.navigationItem.rightBarButtonItem = nil;
-    NSDictionary *dict = @{@"session":@{@"sid":self.sid,@"uid":self.uid},
-                           @"rec_id":redID};
-    
-    [SVProgressHUD show];
-    
-    [[CartNetwork sharedManager]postCartDelete:dict successBlock:^(id responseBody) {
-        
-        if (responseBody[@"status"][@"error_code"]) {
-            
-            [SVProgressHUD showInfoWithStatus:responseBody[@"status"][@"error_desc"]];
-            return ;
-        }
-        
-        [self network];
-        
-    } failureBlock:^(NSString *error) {
-        [SVProgressHUD showInfoWithStatus:@"网络链接失败"];
-    }];
 
-}
 
 //点击删除店铺
 - (void)clickDeleteShopGoodsCell:(HCMCartCell *)cell seller_id:(NSString *)seller_id{
@@ -605,4 +564,37 @@ static NSString *ID = @"Cell";
     self.navigationItem.rightBarButtonItem.customView.hidden = YES;
     
 }
+
+#pragma mark --- ExpendableAlartViewDelegate
+- (void)positiveButtonAction{
+    self.navigationItem.rightBarButtonItem = nil;
+    NSDictionary *dict = @{@"session":@{@"sid":self.sid,@"uid":self.uid},
+                           @"rec_id":_deleteGoodsID};
+    
+//    [SVProgressHUD show];
+    
+    [[CartNetwork sharedManager]postCartDelete:dict successBlock:^(id responseBody) {
+        
+        if (responseBody[@"status"][@"error_code"]) {
+            
+            [SVProgressHUD showInfoWithStatus:responseBody[@"status"][@"error_desc"]];
+            return ;
+        }
+        
+        [self network];
+        
+    } failureBlock:^(NSString *error) {
+        [SVProgressHUD showInfoWithStatus:@"网络链接失败"];
+    }];
+
+    
+}
+- (void)negativeButtonAction{
+    [SVProgressHUD showInfoWithStatus:@"已取消"];
+   }
+- (void)closeButtonAction{
+    HCMLog(@"关闭");
+}
+
+
 @end
