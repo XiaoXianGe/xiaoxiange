@@ -247,6 +247,7 @@ CA_EXTERN CATransform3D CATransform3DPerspect(CATransform3D t, CGPoint center, f
     if ([negativeView.layer.presentationLayer hitTest:touchPoint])
     {
 //        [self.expendAbleAlartViewDelegate positiveButtonAction];
+        [self.expendAbleAlartViewDelegate negativeButtonAction];
         [self cancelAction];
     }
     else if([positiveView.layer.presentationLayer hitTest:touchPoint])

@@ -89,7 +89,7 @@ static NSString *ID = @"Cell";
     
     [HCMNSNotificationCenter addObserver:self selector:@selector(pop:) name:@"pop" object:self.popView];
     [HCMNSNotificationCenter addObserver:self selector:@selector(buyClick:) name:@"clickCollectionView" object:nil];
-    
+    [HCMNSNotificationCenter addObserver:self selector:@selector(scrollAndUserInteraction) name:@"scrollAndUserInteraction" object:nil];
 }
 
 - (void)buyClick:(NSNotification *)notification{
@@ -508,7 +508,9 @@ static NSString *ID = @"Cell";
     __weak UIViewController *weakVC = self;
     [aAlartViewController showView:weakVC];
     
-    
+    self.tableView.scrollEnabled = NO;
+    self.footerView.userInteractionEnabled = NO;
+    self.navigationItem.rightBarButtonItem = nil;
 }
 
 
@@ -567,7 +569,10 @@ static NSString *ID = @"Cell";
 
 #pragma mark --- ExpendableAlartViewDelegate
 - (void)positiveButtonAction{
-    self.navigationItem.rightBarButtonItem = nil;
+    
+    
+    [HCMNSNotificationCenter postNotificationName:@"scrollAndUserInteraction" object:nil];
+    
     NSDictionary *dict = @{@"session":@{@"sid":self.sid,@"uid":self.uid},
                            @"rec_id":_deleteGoodsID};
     
@@ -589,11 +594,23 @@ static NSString *ID = @"Cell";
 
     
 }
+
 - (void)negativeButtonAction{
-    [SVProgressHUD showInfoWithStatus:@"已取消"];
-   }
+    [HCMNSNotificationCenter postNotificationName:@"scrollAndUserInteraction" object:nil];
+     HCMLog(@"放弃");
+}
+
 - (void)closeButtonAction{
+    [HCMNSNotificationCenter postNotificationName:@"scrollAndUserInteraction" object:nil];
     HCMLog(@"关闭");
+}
+
+-(void)scrollAndUserInteraction{
+    HCMLog(@"我在疯狂测试");
+    
+    self.tableView.scrollEnabled = YES;
+    self.footerView.userInteractionEnabled = YES;
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickShop:) title:@"编辑" selectedTitle:@"完成"];
 }
 
 
