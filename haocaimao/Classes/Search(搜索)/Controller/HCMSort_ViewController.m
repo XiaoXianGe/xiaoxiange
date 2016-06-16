@@ -115,9 +115,6 @@ static NSString * const reuseIdentifier = @"Cell";
     
     self.navigationItem.rightBarButtonItems = rightBtns;
     
-//    self.sortClickView.frame = CGRectMake(0, 64, HCMScreenWidth, 40);
-//    self.collectView.frame = CGRectMake(0, 104, HCMScreenWidth, HCMScreenHeight - 104);
-    
     self.sortClickView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"item-grid-filter-bg"]];
     
     self.collectView.footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreGoods)];
@@ -140,7 +137,6 @@ static NSString * const reuseIdentifier = @"Cell";
     self.keyWords = self.searchBar.text;
     
     [self loadGoodsFrist];
-    
     
 }
 
@@ -195,6 +191,9 @@ static NSString * const reuseIdentifier = @"Cell";
     
     NSDictionary *dict = [HCMSortTool sortWithDictBrand_id:_brand_id keyWords:_keyWords category_id:_category_id price_min:_price_min price_max:_price_max page:_page sortWay:_sortWay];
     
+    HCMLog(@"----%@",dict);
+    
+    
     [[SearchNetwork sharedManager]postSubSearch:dict successBlock:^(id responseBody) {
         
         NSMutableArray *array = [NSMutableArray array];
@@ -237,7 +236,6 @@ static NSString * const reuseIdentifier = @"Cell";
     [[SearchNetwork sharedManager]postSubSearch:dict successBlock:^(id responseBody) {
         
         HCMLog(@"-----------=====------------%@",dict);
-        HCMLog(@"-----------=====------------%@",responseBody);
         
         //筛选商品的总数
         self.total = [responseBody[@"paginated"][@"total"] integerValue];
@@ -291,6 +289,9 @@ static NSString * const reuseIdentifier = @"Cell";
         NSDictionary *dict =[HCMSortTool sortWithDictBrand_id:_brand_id keyWords:_keyWords category_id:_category_id price_min:_price_min price_max:_price_max page:_page sortWay:_sortWay];
         
         [[SearchNetwork sharedManager]postSubSearch:dict successBlock:^(id responseBody) {
+            
+            HCMLog(@"-----------=====------------%@",dict);
+            
             
             NSMutableArray *array = [NSMutableArray array];
             

@@ -355,6 +355,8 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark --- 协议
 -(void)touchGBTopLineView:(id)type title:(id)title{
     
+    [SVProgressHUD showWithStatus:@"加载中"];
+    
     self.tabBarController.tabBar.hidden = YES;
     self.navigationController.navigationBarHidden = NO;
     
@@ -372,6 +374,8 @@ static NSString * const reuseIdentifier = @"Cell";
     [vc.view addSubview:webView];
 
     [self.navigationController pushViewController:vc animated:YES];
+    
+    [SVProgressHUD dismiss];
     
 }
 

@@ -11,7 +11,7 @@
 
 
 
-#define HWNewfeatureCount 5
+#define HWNewfeatureCount 4
 
 @interface HWNewfeatureViewController () <UIScrollViewDelegate>
 @property (nonatomic, weak) UIPageControl *pageControl;
@@ -61,7 +61,7 @@
     UIPageControl *pageControl = [[UIPageControl alloc] init];
     pageControl.numberOfPages = HWNewfeatureCount;
     pageControl.backgroundColor = [UIColor redColor];
-    pageControl.currentPageIndicatorTintColor = HCMColor(253, 98, 42, 1.0);
+    pageControl.currentPageIndicatorTintColor = HCMColor(240, 200, 42, 1.0);
     pageControl.pageIndicatorTintColor = HCMColor(189, 189, 189, 1.0);
     pageControl.centerX = scrollW * 0.5;
     pageControl.centerY = scrollH - 20;
@@ -100,17 +100,25 @@
     // 开启交互功能
     imageView.userInteractionEnabled = YES;
     
+    //1.lable
+    UILabel *textlabel = [[UILabel alloc]init];
+    textlabel.width = 100;
+    textlabel.height = 35;
+    textlabel.x = HCMScreenWidth - 100;
+    textlabel.y = HCMScreenHeight - 35;
+    textlabel.text = @"开始采购 >";
+    textlabel.textColor = [UIColor whiteColor];
+    [imageView addSubview:textlabel];
     
     // 2.开始
     UIButton *startBtn = [[UIButton alloc] init];
-    
-     [startBtn setBackgroundImage:[UIImage imageNamed:@"blueButton"] forState:UIControlStateNormal];
-     startBtn.width = startBtn.currentBackgroundImage.size.width - 20;
-    startBtn.height = startBtn.currentBackgroundImage.size.height - 10;
-    startBtn.centerX = self.view.centerX;
-    startBtn.y = HCMScreenHeight - 60;
-    //startBtn.backgroundColor = [UIColor yellowColor];
-    [startBtn setTitle:@"开始采购" forState:UIControlStateNormal];
+//     [startBtn setBackgroundImage:[UIImage imageNamed:@"blueButton"] forState:UIControlStateNormal];
+    startBtn.width = HCMScreenWidth;
+    startBtn.height = HCMScreenHeight;
+    startBtn.x = 0;
+    startBtn.y = 0;
+//    startBtn.backgroundColor = [UIColor yellowColor];
+//    [startBtn setTitle:@"开始采购 >" forState:UIControlStateNormal];
    
     [startBtn addTarget:self action:@selector(startClick) forControlEvents:UIControlEventTouchUpInside];
     [imageView addSubview:startBtn];
@@ -124,6 +132,7 @@
 
 - (void)startClick
 {
+    
     // 切换到HWTabBarController
     /*
      切换控制器的手段

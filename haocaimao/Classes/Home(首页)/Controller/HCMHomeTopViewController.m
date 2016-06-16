@@ -315,6 +315,7 @@
     [_eightLogo6 sd_setImageWithURL:[self loadPic:@"7.png"] forState:UIControlStateNormal];
     [_eightLogo7 sd_setImageWithURL:[self loadPic:@"8.png"] forState:UIControlStateNormal];
     [_eightLogo8 sd_setImageWithURL:[self loadPic:@"9.png"] forState:UIControlStateNormal];
+    
 }
 
 //加载6个分类图标（六宫格）
