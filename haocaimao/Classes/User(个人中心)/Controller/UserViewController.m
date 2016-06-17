@@ -143,7 +143,6 @@
     self.UserTableVIew.tableHeaderView = self.UserLoginView;
     
     
-    
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickEdit) image:@"profile-refresh-site-icon" highImage:@"profile-refresh-site-icon"];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLoginOut) name:@"UserLoginOut" object:nil];

@@ -45,7 +45,7 @@
 
 @implementation HCMHomeCollectionViewController
 
-#define HCM320ViewH 1510
+#define HCM320ViewH 1525
 #define HCM375ViewH 1725
 #define HCM414ViewH 1875
 
