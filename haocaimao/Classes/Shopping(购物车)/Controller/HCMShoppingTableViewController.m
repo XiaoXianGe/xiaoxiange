@@ -90,6 +90,7 @@ static NSString *ID = @"Cell";
     [HCMNSNotificationCenter addObserver:self selector:@selector(pop:) name:@"pop" object:self.popView];
     [HCMNSNotificationCenter addObserver:self selector:@selector(buyClick:) name:@"clickCollectionView" object:nil];
     [HCMNSNotificationCenter addObserver:self selector:@selector(scrollAndUserInteraction) name:@"scrollAndUserInteraction" object:nil];
+    
 }
 
 - (void)buyClick:(NSNotification *)notification{

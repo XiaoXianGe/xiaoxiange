@@ -11,7 +11,7 @@
 @interface UserViewController : UIViewController
 
 @property (nonatomic, strong)NSString *userName;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 @end
