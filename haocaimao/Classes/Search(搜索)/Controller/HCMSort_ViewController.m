@@ -128,6 +128,11 @@ static NSString * const reuseIdentifier = @"Cell";
 
 -(void)gotoTheSearch{
     
+    if (self.searchBar.text.length == 0) {
+        [SVProgressHUD showInfoWithStatus:@"请输入搜索内容"];
+        return;
+    }
+    
     [self.searchBar resignFirstResponder];
     
     [self.noDataView removeFromSuperview];

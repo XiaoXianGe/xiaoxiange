@@ -115,8 +115,8 @@ static NSString * const reuseIdentifier = @"Cell";
     
     CGFloat changeH = self.diyNavView.height/50;
     
-    UIButton *logoBtn = [[UIButton alloc]initWithFrame:CGRectMake(2, 22*changeH, 40*HCMScreenWidth/320, 25*HCMScreenWidth/320)];
-    [logoBtn setBackgroundImage:[UIImage imageNamed:@"logo-icon"] forState:UIControlStateNormal];
+    UIButton *logoBtn = [[UIButton alloc]initWithFrame:CGRectMake(5, 22*changeH - 4, 40*HCMScreenWidth/320, 25*HCMScreenWidth/320 + 6)];
+    [logoBtn setBackgroundImage:[UIImage imageNamed:@"logoHaveMsg"] forState:UIControlStateNormal];
     [logoBtn addTarget:self action:@selector(clickLogo) forControlEvents:UIControlEventTouchUpInside];
     
     UIButton *btnSearch = [[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width - (45 *HCMScreenWidth/320) , 22*changeH, 40*HCMScreenWidth/320, 25*HCMScreenWidth/320)];
@@ -137,6 +137,11 @@ static NSString * const reuseIdentifier = @"Cell";
 -(void)gotoTheSearch{
     
     [self.searchBar resignFirstResponder];
+    
+    if (self.searchBar.text.length == 0) {
+        [SVProgressHUD showInfoWithStatus:@"内容不能为空"];
+        return;
+    }
     
     HCMSort_ViewController *passKeyWords = [[HCMSort_ViewController alloc]initWithNibName:@"HCMSort_ViewController" bundle:nil];
     

@@ -98,6 +98,8 @@
         
         [[HomeNetwork sharedManager]postPartnerIndexURL:params successBlock:^(id responseBody) {
             
+            HCMLog(@"ssssssdfasdf%@",responseBody);
+            
             self.partnerIndexModel= [PartnerIndexModel objectWithKeyValues:responseBody[@"data"]];
             
            self.indexArray = [PartnerIndex2Model objectArrayWithKeyValuesArray:responseBody[@"data"][@"index"]];
@@ -176,22 +178,7 @@
         return count1;
     }else{
         
-//        self.headGreenView.y = self.headRedVIew.y + self.headRedVIew.height + CellHeight * count1 + 15;
-//        
-//        self.orderNumberTableView.y = self.headGreenView.y + self.headGreenView.height;
-//        
-//        self.orderNumberTableView.height = CellHeight * (self.indexArray.count? self.indexArray.count : 1 );
-//        
-//        self.shareFaceToFace.y = self.orderNumberTableView.y + self.orderNumberTableView.height + 30;
-//        
-//        self.shareWeChat.y = self.shareFaceToFace.y;
-//        
-//        _scrollView.contentSize = CGSizeMake(320, self.orderNumberTableView.y + self.orderNumberTableView.height + 100);
-        
-//        if (HCMScreenWidth == 320.0) {
-//            self.top_heightConstraint.constant = 0;
-//        }
-        
+
         self.top_heightConstraint.constant = CellHeight * (self.indexArray.count? self.indexArray.count : 1 );
         
         

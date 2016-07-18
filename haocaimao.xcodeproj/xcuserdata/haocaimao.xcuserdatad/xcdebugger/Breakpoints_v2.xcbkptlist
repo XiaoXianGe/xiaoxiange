@@ -9,45 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "haocaimao/Classes/Shopping(&#x8d2d;&#x7269;&#x8f66;)/Controller/HCMShoppingTableViewController.m"
-            timestampString = "488886241.445702"
+            filePath = "haocaimao/Classes/User(&#x4e2a;&#x4eba;&#x4e2d;&#x5fc3;)/Controller/&#x6d88;&#x606f;&#x4e2d;&#x5fc3;/HCMMesageViewController.m"
+            timestampString = "490497780.165766"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "-buyClick:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "haocaimao/Classes/Shopping(&#x8d2d;&#x7269;&#x8f66;)/Controller/HCMShoppingTableViewController.m"
-            timestampString = "488886242.630871"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
-            landmarkName = "-pushGoods:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "haocaimao/Classes/Shopping(&#x8d2d;&#x7269;&#x8f66;)/Controller/HCMShoppingTableViewController.m"
-            timestampString = "488886263.942692"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
-            landmarkName = "-animateBtn:"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "-NetWorking"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -46,6 +46,7 @@
 }
 - (void)setGoods_image:(NSString *)goods_image{
     _goods_image = goods_image;
+    [self.goodsImageView setContentMode:UIViewContentModeScaleAspectFit];
     [self.goodsImageView sd_setImageWithURL:[NSURL URLWithString:self.goods_image] placeholderImage:[UIImage imageNamed:@"searcher-no-result-empty-icon"]];
 }
 @end

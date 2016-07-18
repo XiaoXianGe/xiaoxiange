@@ -249,6 +249,14 @@
 		23B3CD701C02C70A000CC09F /* CartGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B3CD6F1C02C70A000CC09F /* CartGoodsModel.m */; };
 		23C4BAE21C83D94000F0610B /* HCMAdvisoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C4BAE01C83D94000F0610B /* HCMAdvisoryViewController.m */; };
 		23C4BAE31C83D94000F0610B /* HCMAdvisoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23C4BAE11C83D94000F0610B /* HCMAdvisoryViewController.xib */; };
+		23C6503D1D37894200ECFB5D /* messageTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C6503C1D37894200ECFB5D /* messageTools.m */; };
+		23C650421D3884D700ECFB5D /* HCMMesageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C650401D3884D700ECFB5D /* HCMMesageViewController.m */; };
+		23C650431D3884D700ECFB5D /* HCMMesageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23C650411D3884D700ECFB5D /* HCMMesageViewController.xib */; };
+		23C6504C1D3888E100ECFB5D /* HCMDealMsgTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C6504A1D3888E100ECFB5D /* HCMDealMsgTableViewController.m */; };
+		23C6504D1D3888E100ECFB5D /* HCMDealMsgTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23C6504B1D3888E100ECFB5D /* HCMDealMsgTableViewController.xib */; };
+		23C650511D3888FC00ECFB5D /* HCMDealMsgTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C6504F1D3888FC00ECFB5D /* HCMDealMsgTableViewCell.m */; };
+		23C650521D3888FC00ECFB5D /* HCMDealMsgTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23C650501D3888FC00ECFB5D /* HCMDealMsgTableViewCell.xib */; };
+		23C650551D388BE700ECFB5D /* dealMsgModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C650541D388BE700ECFB5D /* dealMsgModel.m */; };
 		23C805901B9403470090E285 /* MJDictionaryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C8057A1B9403470090E285 /* MJDictionaryCache.m */; };
 		23C805911B9403470090E285 /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C8057D1B9403470090E285 /* MJExtensionConst.m */; };
 		23C805921B9403470090E285 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C8057F1B9403470090E285 /* MJFoundation.m */; };
@@ -789,6 +797,19 @@
 		23C4BADF1C83D94000F0610B /* HCMAdvisoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMAdvisoryViewController.h; sourceTree = "<group>"; };
 		23C4BAE01C83D94000F0610B /* HCMAdvisoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMAdvisoryViewController.m; sourceTree = "<group>"; };
 		23C4BAE11C83D94000F0610B /* HCMAdvisoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HCMAdvisoryViewController.xib; sourceTree = "<group>"; };
+		23C6503B1D37894200ECFB5D /* messageTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = messageTools.h; sourceTree = "<group>"; };
+		23C6503C1D37894200ECFB5D /* messageTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = messageTools.m; sourceTree = "<group>"; };
+		23C6503F1D3884D700ECFB5D /* HCMMesageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMMesageViewController.h; sourceTree = "<group>"; };
+		23C650401D3884D700ECFB5D /* HCMMesageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMMesageViewController.m; sourceTree = "<group>"; };
+		23C650411D3884D700ECFB5D /* HCMMesageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HCMMesageViewController.xib; sourceTree = "<group>"; };
+		23C650491D3888E100ECFB5D /* HCMDealMsgTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMDealMsgTableViewController.h; sourceTree = "<group>"; };
+		23C6504A1D3888E100ECFB5D /* HCMDealMsgTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMDealMsgTableViewController.m; sourceTree = "<group>"; };
+		23C6504B1D3888E100ECFB5D /* HCMDealMsgTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HCMDealMsgTableViewController.xib; sourceTree = "<group>"; };
+		23C6504E1D3888FC00ECFB5D /* HCMDealMsgTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMDealMsgTableViewCell.h; sourceTree = "<group>"; };
+		23C6504F1D3888FC00ECFB5D /* HCMDealMsgTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMDealMsgTableViewCell.m; sourceTree = "<group>"; };
+		23C650501D3888FC00ECFB5D /* HCMDealMsgTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HCMDealMsgTableViewCell.xib; sourceTree = "<group>"; };
+		23C650531D388BE700ECFB5D /* dealMsgModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dealMsgModel.h; sourceTree = "<group>"; };
+		23C650541D388BE700ECFB5D /* dealMsgModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dealMsgModel.m; sourceTree = "<group>"; };
 		23C805791B9403470090E285 /* MJDictionaryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJDictionaryCache.h; sourceTree = "<group>"; };
 		23C8057A1B9403470090E285 /* MJDictionaryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJDictionaryCache.m; sourceTree = "<group>"; };
 		23C8057B1B9403470090E285 /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
@@ -1317,6 +1338,7 @@
 				23798E101C5711E3007D1AD6 /* 合伙人 */,
 				238FD6011C2E7EC500F95CCD /* 会员中心 */,
 				238FD6451C2E82E300F95CCD /* 意见反馈帮助 */,
+				23C6503E1D3884D700ECFB5D /* 消息中心 */,
 				2357E2321C02C8EC00E7FA4B /* UserViewController.h */,
 				2357E2331C02C8EC00E7FA4B /* UserViewController.m */,
 				2357E2341C02C8EC00E7FA4B /* UserViewController.xib */,
@@ -1363,6 +1385,10 @@
 				23E7FECB1CA02108002A25BD /* HCMOrderInfoCellModel.m */,
 				23424A861D069F5300F9A9BB /* OrderExpressModel.h */,
 				23424A871D069F5300F9A9BB /* OrderExpressModel.m */,
+				23C6503B1D37894200ECFB5D /* messageTools.h */,
+				23C6503C1D37894200ECFB5D /* messageTools.m */,
+				23C650531D388BE700ECFB5D /* dealMsgModel.h */,
+				23C650541D388BE700ECFB5D /* dealMsgModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1426,6 +1452,9 @@
 				23424A8F1D06ADF700F9A9BB /* OrderExpressCell.h */,
 				23424A901D06ADF700F9A9BB /* OrderExpressCell.m */,
 				23424A911D06ADF700F9A9BB /* OrderExpressCell.xib */,
+				23C6504E1D3888FC00ECFB5D /* HCMDealMsgTableViewCell.h */,
+				23C6504F1D3888FC00ECFB5D /* HCMDealMsgTableViewCell.m */,
+				23C650501D3888FC00ECFB5D /* HCMDealMsgTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1903,6 +1932,19 @@
 				23AFB7131D0E63A400372004 /* AlartViewController.xib */,
 			);
 			path = ExpandAlertView;
+			sourceTree = "<group>";
+		};
+		23C6503E1D3884D700ECFB5D /* 消息中心 */ = {
+			isa = PBXGroup;
+			children = (
+				23C6503F1D3884D700ECFB5D /* HCMMesageViewController.h */,
+				23C650401D3884D700ECFB5D /* HCMMesageViewController.m */,
+				23C650411D3884D700ECFB5D /* HCMMesageViewController.xib */,
+				23C650491D3888E100ECFB5D /* HCMDealMsgTableViewController.h */,
+				23C6504A1D3888E100ECFB5D /* HCMDealMsgTableViewController.m */,
+				23C6504B1D3888E100ECFB5D /* HCMDealMsgTableViewController.xib */,
+			);
+			path = "消息中心";
 			sourceTree = "<group>";
 		};
 		23C805781B9403470090E285 /* MJExtension */ = {
@@ -2546,6 +2588,7 @@
 				238FD5E11C2E790300F95CCD /* HCMAllListTableVC.xib in Resources */,
 				23D060571BCA605F00AFA1F2 /* HCMHomeCollectionViewController.xib in Resources */,
 				23AC103D1BCE4948005AD903 /* CollectionViewCell.xib in Resources */,
+				23C650521D3888FC00ECFB5D /* HCMDealMsgTableViewCell.xib in Resources */,
 				23EE22711C02C2600053D68C /* FlowCheckCell.xib in Resources */,
 				22ADFAFF1BCE9EE800F5159A /* HCMSubCollectionViewController.xib in Resources */,
 				238FD62F1C2E802500F95CCD /* HCMVIPCenterViewController.xib in Resources */,
@@ -2561,6 +2604,7 @@
 				236F81CA1BD0B8AA0053E24A /* HCMDealWebViewController.xib in Resources */,
 				236E4C751BD4E90500F49463 /* HCMVipLoginViewController.xib in Resources */,
 				2357E2FD1C02C8EC00E7FA4B /* HCMNoPayHeadview.xib in Resources */,
+				23C650431D3884D700ECFB5D /* HCMMesageViewController.xib in Resources */,
 				23EE22121C02C2600053D68C /* HCMFlowCheckOrderTableViewController.xib in Resources */,
 				23CDA4F11C23A99900F96E4A /* HCMNewPasswordController.xib in Resources */,
 				2357E2F21C02C8EC00E7FA4B /* HCMEnshrineCell.xib in Resources */,
@@ -2599,6 +2643,7 @@
 				238FD5CA1C2E789C00F95CCD /* HCMRecentBrowseTableViewController.xib in Resources */,
 				23A182D11C91255D00BAEE73 /* HCMPartnerCenterViewController.xib in Resources */,
 				238FD64F1C2E82E300F95CCD /* HCMFeedBacksViewController.xib in Resources */,
+				23C6504D1D3888E100ECFB5D /* HCMDealMsgTableViewController.xib in Resources */,
 				238FD5FE1C2E7B3100F95CCD /* HCMMyWalletTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2622,6 +2667,7 @@
 				238FD64E1C2E82E300F95CCD /* HCMFeedBacksViewController.m in Sources */,
 				23D026071B8B22210009C7EE /* UIImage+GIF.m in Sources */,
 				23AF718E1C897660001B51CD /* MJRefreshBackStateFooter.m in Sources */,
+				23C6503D1D37894200ECFB5D /* messageTools.m in Sources */,
 				2357E2F41C02C8EC00E7FA4B /* HCMUserLocationTableViewControllerTableViewCell.m in Sources */,
 				2381FCDF1CE067FA00696A63 /* LCQrcodeUtil.m in Sources */,
 				238FD5EF1C2E79A500F95CCD /* HCMRecentBrowseTableViewCell.m in Sources */,
@@ -2642,6 +2688,7 @@
 				238FD6501C2E82E300F95CCD /* HCMHelpTableViewController.m in Sources */,
 				23EE22111C02C2600053D68C /* HCMFlowCheckOrderTableViewController.m in Sources */,
 				23EE22131C02C2600053D68C /* HCMShoppingTableViewController.m in Sources */,
+				23C6504C1D3888E100ECFB5D /* HCMDealMsgTableViewController.m in Sources */,
 				23D0260C1B8B22210009C7EE /* UIView+WebCacheOperation.m in Sources */,
 				234A44E41BCF9E4C006910BE /* HCMChooseViewController.m in Sources */,
 				23A182D01C91255D00BAEE73 /* HCMPartnerCenterViewController.m in Sources */,
@@ -2659,6 +2706,7 @@
 				23EE22721C02C2600053D68C /* FootCollectionFlowLayout.m in Sources */,
 				22E285BF1BA6B5FF008B18B4 /* DealModel.m in Sources */,
 				23AF718D1C897660001B51CD /* MJRefreshBackNormalFooter.m in Sources */,
+				23C650511D3888FC00ECFB5D /* HCMDealMsgTableViewCell.m in Sources */,
 				23D025EB1B8B22210009C7EE /* HCMTabBarViewController.m in Sources */,
 				2384FDEE1BCB50B800398623 /* NSData+SDDataCache.m in Sources */,
 				23D6504C1C101CBC00774848 /* HCMSort_ViewController.m in Sources */,
@@ -2679,6 +2727,7 @@
 				23D026001B8B22210009C7EE /* SDWebImageCompat.m in Sources */,
 				23D0260A1B8B22210009C7EE /* UIImageView+HighlightedWebCache.m in Sources */,
 				23D6505B1C101CBC00774848 /* secondCollectionViewCell.m in Sources */,
+				23C650421D3884D700ECFB5D /* HCMMesageViewController.m in Sources */,
 				23A334B61C19473800CEC213 /* FMDatabasePool.m in Sources */,
 				23AF71911C897660001B51CD /* MJRefreshStateHeader.m in Sources */,
 				238FD6521C2E82E300F95CCD /* UserClassitfTableViewController.m in Sources */,
@@ -2741,6 +2790,7 @@
 				234A44DB1BCF7DB1006910BE /* RegionNetworking.m in Sources */,
 				23E016DC1C3CC5740039440E /* MJPhotoBrowser.m in Sources */,
 				23D650511C101CBC00774848 /* secondCollectionViewModel.m in Sources */,
+				23C650551D388BE700ECFB5D /* dealMsgModel.m in Sources */,
 				2357E2A71C02C8EC00E7FA4B /* HCMUserEditTableVC.m in Sources */,
 				23EE22781C02C2600053D68C /* HCMCartCell.m in Sources */,
 				236F81C91BD0B8AA0053E24A /* HCMDealWebViewController.m in Sources */,

@@ -193,6 +193,10 @@ typedef void(^FailureBlock)(NSString *error);
  */
 - (void)postOrder_expressURL:(NSDictionary *)userInfo successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
 
+/**
+ *  消息管理中心
+ */
+- (void)postMessageURL:(NSDictionary *)userInfo successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
 
 
 

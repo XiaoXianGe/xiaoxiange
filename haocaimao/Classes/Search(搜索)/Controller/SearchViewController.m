@@ -45,6 +45,7 @@ static NSString *identifier = @"ID";
 }
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
     [self setupSearchBar];
@@ -219,6 +220,11 @@ static NSString *identifier = @"ID";
 -(void)gotoTheSearch
 {
     [self.searchBar resignFirstResponder];
+    
+    if (self.searchBar.text.length == 0) {
+        [SVProgressHUD showInfoWithStatus:@"内容不能为空"];
+        return;
+    }
     
     HCMSort_ViewController *passKeyWords = [[HCMSort_ViewController alloc]initWithNibName:@"HCMSort_ViewController" bundle:nil];
     

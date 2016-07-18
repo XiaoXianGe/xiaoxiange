@@ -121,12 +121,17 @@
     [self deleteHCMTableView];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    self.tabBarController.tabBar.hidden = YES;
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     
     [super viewDidAppear:animated];
     
-    self.tabBarController.tabBar.hidden = YES;
     if ([self.defaults objectForKey:@"userNumber0"]||[self.defaults objectForKey:@"userNumber1"]||[self.defaults objectForKey:@"userNumber2"]) {
         self.memoryNumber.hidden = NO;
     }else{

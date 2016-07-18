@@ -54,7 +54,7 @@
 - (void)setVerticalShowDataArr:(NSMutableArray *)dataArr
 {
     _dataArr = dataArr;
-    NSLog(@"dataArr-->%@",dataArr);
+//    NSLog(@"dataArr-->%@",dataArr);
     GBTopLineViewModel *model = _dataArr[count];
     [self.currentBtn setTitle:model.type forState:UIControlStateNormal];
     self.currentLabel.text = model.title;

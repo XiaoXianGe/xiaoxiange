@@ -44,6 +44,8 @@
 #import "HCMPartnerCenterViewController.h"
 #import "MJExtension.h"
 
+#import "HCMMesageViewController.h"
+
 @interface UserViewController ()<UITableViewDelegate,UITableViewDataSource,UITabBarDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIAlertViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableViewCell *myOrderCell;
@@ -143,7 +145,9 @@
     self.UserTableVIew.tableHeaderView = self.UserLoginView;
     
     
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickEdit) image:@"profile-refresh-site-icon" highImage:@"profile-refresh-site-icon"];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickEdit) image:@"profile-refresh-site-icon" highImage:@"profile-refresh-site-icon"];
+    
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(isMessage) image:@"noMessage" highImage:@"noMessage"];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLoginOut) name:@"UserLoginOut" object:nil];
     
@@ -152,7 +156,8 @@
 }
 
 //适配
--(void)updateLoginViewHeight{
+-(void)updateLoginViewHeight
+{
     
     if (HCMScreenWidth == 414.0) {
          HCMLog(@"%f",HCMScreenWidth);
@@ -179,9 +184,17 @@
     
 }
 
+-(void)isMessage
+{
+    HCMMesageViewController *msgVC = [[HCMMesageViewController alloc]init];
+    
+    [self.navigationController pushViewController:msgVC animated:YES];
+    
+}
 
 // 设置tabbar 没有背景线条
-- (void)setTabbarImage{
+- (void)setTabbarImage
+{
     
     CGRect rect = CGRectMake(0,0, self.view.frame.size.width,self.view.frame.size.height);
     
@@ -214,7 +227,8 @@
     
 }
 
-- (void)viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated
+{
     
     [super viewWillAppear:animated];
     
@@ -228,7 +242,8 @@
      [self isUpdateAPP];
 }
 
--(void)getInfomationForMyWallet{
+-(void)getInfomationForMyWallet
+{
     
     if (self.status) {
         
@@ -260,10 +275,11 @@
 }
 
 
-#pragma mark - UITabBarDelegate
+#pragma mark - UITabBarDelegate代付款，发货，收货，反馈
 
 // 设置tabbar的跳转事件（代付款，发货，收货，反馈）
--(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
+-(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
+{
     
     switch (item.tag) {
         case 101:
@@ -287,13 +303,13 @@
 
 #pragma mark - 判断是否为登录状态
 
-- (void)isLogin{
+- (void)isLogin
+{
     
     self.status = [self.defaults boolForKey:@"status"];
     
     if (self.status) {
-        
-        HCMLog(@"self.status");
+
             //判断是否为合伙人
             if( [[self.defaults objectForKey:@"realName"] isEqualToString:@""] ){
                 
@@ -335,7 +351,8 @@
 }
 
 //登录提醒
--(void)weakUpLogin{
+-(void)weakUpLogin
+{
    
     //当前的时间戳
     NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
@@ -355,7 +372,7 @@
         // 当前时间戳                  上次时间戳
         NSInteger second = [timeString integerValue] - [LastSecond integerValue];
         
-        if ( second > 3600) {
+        if ( second > 3600 *24) {
             
             //将当前的时间戳存到沙盒
             [self.defaults setObject:timeString forKey:@"LastSecond_login"];
@@ -371,7 +388,8 @@
 
 }
 
-- (void)networking{
+- (void)networking
+{
     
     if (self.status) {
         self.userImage.hidden = !self.status;
@@ -421,7 +439,8 @@
     }
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
     
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     
@@ -460,7 +479,8 @@
 }
 
 // 设置 tabbar 的badgeValue值
-- (void)setUserInfo:(HCMVIPUserModel *)vipUserMobel{
+- (void)setUserInfo:(HCMVIPUserModel *)vipUserMobel
+{
     
     if (![vipUserMobel.await_pay isEqualToString:@"0"]) {
         self.noPayItem.badgeValue = vipUserMobel.await_pay;
@@ -491,7 +511,8 @@
 #pragma mark - navigationItemR
 
 // 点击了设置
-- (void)clickEdit{
+- (void)clickEdit
+{
     
     HCMUserEditTableVC *UserEditVC = [[HCMUserEditTableVC alloc]initWithNibName:@"HCMUserEditTableVC" bundle:nil];
     
@@ -501,12 +522,14 @@
 
 #pragma mark - tableView protocol
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return 4;
     
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
    // return 2;
     if (section == 2) {
         return 3;
@@ -515,7 +538,8 @@
     }
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     
@@ -553,7 +577,8 @@
     return nil;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
@@ -601,7 +626,8 @@
 /**
  *  未付款
  */
-- (void)notPaying{
+- (void)notPaying
+{
     
     if (!self.status) {
         [SVProgressHUD showInfoWithStatus:@"请先登录"];
@@ -614,7 +640,8 @@
 /**
  *  等待发货
  */
-- (void)waitForTheDelivery{
+- (void)waitForTheDelivery
+{
     
     if (!self.status) {
         [SVProgressHUD showInfoWithStatus:@"请先登录"];
@@ -627,7 +654,8 @@
 /**
  *  未收货
  */
-- (void)notReceiving{
+- (void)notReceiving
+{
     
     if (!self.status) {
         [SVProgressHUD showInfoWithStatus:@"请先登录"];
@@ -641,7 +669,8 @@
 /**
  *  全部订单
  */
-- (void)allList{
+- (void)allList
+{
     
     if (!self.status) {
         [SVProgressHUD showInfoWithStatus:@"请先登录"];
@@ -658,7 +687,8 @@
 /**
  *  已完成订单
  */
-- (void)orderHistory{
+- (void)orderHistory
+{
     
     if (!self.status) {
         [SVProgressHUD showInfoWithStatus:@"请先登录"];
@@ -672,13 +702,15 @@
 
 #pragma mark 点击登录
 
-- (IBAction)clickLogin:(UIButton *)sender {
+- (IBAction)clickLogin:(UIButton *)sender
+{
     
     [self loginLogin];
     
 }
 
-- (void)loginLogin{
+- (void)loginLogin
+{
     self.userLogin = [[HCMVipLoginViewController alloc]initWithNibName:@"HCMVipLoginViewController" bundle:nil];
     
     [self.navigationController pushViewController:self.userLogin animated:YES];
@@ -686,13 +718,15 @@
 }
 #pragma  mark - 点击更换头像
 
-- (IBAction)setHeadImage:(UIButton *)sender {
+- (IBAction)setHeadImage:(UIButton *)sender
+{
     
     [self openImagePickerController:UIImagePickerControllerSourceTypePhotoLibrary];
     
 }
 
-- (void)openImagePickerController:(UIImagePickerControllerSourceType)type{
+- (void)openImagePickerController:(UIImagePickerControllerSourceType)type
+{
     if (![UIImagePickerController isSourceTypeAvailable:type]) return;
     
     UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
@@ -704,7 +738,8 @@
 
 #pragma mark - 点击了 我的收藏与收货地址管理
 // 收货地址管理
-- (void)addressList{
+- (void)addressList
+{
     
     if (self.status) {
         
@@ -717,13 +752,14 @@
         
         HCMVipLoginViewController *vipLoginVC = [[HCMVipLoginViewController alloc]initWithNibName:@"HCMVipLoginViewController" bundle:nil];
         
-        [self animationtype];
+//        [self animationtype];//跳转动画
         
         [self.navigationController pushViewController:vipLoginVC animated:YES];
     }
 }
 //我的钱包
--(void)myWallet{
+-(void)myWallet
+{
     if (self.status) {
         
         HCMMyWalletTableViewController *mywallet = [[HCMMyWalletTableViewController alloc]initWithNibName:@"HCMMyWalletTableViewController" bundle:nil];
@@ -735,13 +771,14 @@
         
         HCMVipLoginViewController *vipLoginVC = [[HCMVipLoginViewController alloc]initWithNibName:@"HCMVipLoginViewController" bundle:nil];
         
-        [self animationtype];
+//        [self animationtype];//跳转动画
         
         [self.navigationController pushViewController:vipLoginVC animated:YES];
     }
 }
 //合伙人中心
--(void)PartnerCenter{
+-(void)PartnerCenter
+{
     if (self.status) {
         NSString * sid = [self.defaults objectForKey:@"sid"];
         NSString * uid = [self.defaults objectForKey:@"uid"];
@@ -803,7 +840,8 @@
 }
 
 //会员俱乐部
--(void)VIPCenter{
+-(void)VIPCenter
+{
     if (self.status) {
         
         HCMVIPCenterViewController *vip = [[HCMVIPCenterViewController alloc]initWithNibName:@"HCMVIPCenterViewController" bundle:nil];
@@ -817,13 +855,14 @@
         
         HCMVipLoginViewController *vipLoginVC = [[HCMVipLoginViewController alloc]initWithNibName:@"HCMVipLoginViewController" bundle:nil];
         
-        [self animationtype];
+//        [self animationtype];//跳转动画
         
         [self.navigationController pushViewController:vipLoginVC animated:YES];
     }
 }
-//意见反馈
--(void)feedBack{
+//服务反馈
+-(void)feedBack
+{
     if (self.status) {
         
         HCMFeedBacksViewController *feedback = [[HCMFeedBacksViewController alloc]initWithNibName:@"HCMFeedBacksViewController" bundle:nil];
@@ -835,13 +874,14 @@
         
         HCMVipLoginViewController *vipLoginVC = [[HCMVipLoginViewController alloc]initWithNibName:@"HCMVipLoginViewController" bundle:nil];
         
-        [self animationtype];
+//        [self animationtype];//跳转动画
         
         [self.navigationController pushViewController:vipLoginVC animated:YES];
     }
 }
 //帮助
--(void)userHelp{
+-(void)userHelp
+{
     
     HCMHelpTableViewController *helpVC = [[HCMHelpTableViewController alloc]initWithNibName:@"HCMHelpTableViewController" bundle:nil];
     
@@ -850,7 +890,8 @@
 }
 
 //我的收藏
-- (IBAction)myCollection:(UIButton *)sender {
+- (IBAction)myCollection:(UIButton *)sender
+{
     
     if (!self.status) {
         [SVProgressHUD showInfoWithStatus:@"请先登录"];
@@ -868,7 +909,8 @@
     
 }
 //浏览记录
-- (IBAction)recentBrowse:(UIButton *)sender {
+- (IBAction)recentBrowse:(UIButton *)sender
+{
     
     if (!self.status) {
         [SVProgressHUD showInfoWithStatus:@"请先登录"];
@@ -879,17 +921,21 @@
     
     [self.navigationController pushViewController:rbVC animated:YES];
 }
-//热销商品
-- (IBAction)hotGoods:(UIButton *)sender {
+//关注的品牌
+- (IBAction)hotGoods:(UIButton *)sender
+{
     //接口地址http://www.haocaimao.com/ecmobile/index.php?url=user/hotBrand
-    HCMHotGoodsTableViewController *hotGoods = [[HCMHotGoodsTableViewController alloc]init];
-    [self.navigationController pushViewController:hotGoods animated:YES];
     
-    
+    [SVProgressHUD showInfoWithStatus:@"活动暂时未开放！"];
+//    HCMHotGoodsTableViewController *hotGoods = [[HCMHotGoodsTableViewController alloc]init];
+//    [self.navigationController pushViewController:hotGoods animated:YES];
+//    
+//    
     
 }
 
-- (void)animationtype{
+- (void)animationtype
+{
     
     CATransition *animation = [CATransition animation];
     animation.duration = 0.75;
@@ -903,7 +949,8 @@
 }
 
 #pragma mark - NSNotificationCenter
--(void)userLoginOut{
+-(void)userLoginOut
+{
     
     self.noPayItem.badgeValue = nil;
     self.noReceiveItem.badgeValue = nil;
@@ -918,7 +965,8 @@
 /**
  * 从UIImagePickerController选择完图片后就调用（拍照完毕或者选择相册图片完毕）
  */
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
     
     [picker dismissViewControllerAnimated:YES completion:nil];
     
@@ -941,7 +989,8 @@
     [self.defaults setObject:imgData forKey:@"imgData"];
 }
 
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
     
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
@@ -949,7 +998,8 @@
 /**
  * 用户登录
  */
--(void)userGoLogin{
+-(void)userGoLogin
+{
     HCMVipLoginViewController *vipLoginVC = [[HCMVipLoginViewController alloc]init];
     
     self.tabBarController.tabBar.hidden = YES;
@@ -970,7 +1020,8 @@
     return view;
 }
 //版本更新提醒
--(void)isUpdateAPP{
+-(void)isUpdateAPP
+{
     
     //当前的时间戳
     NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
@@ -1031,7 +1082,9 @@
     
 }
 
--(void)viewWillDisappear:(BOOL)animated{
+-(void)viewWillDisappear:(BOOL)animated
+{
+    
     [super viewWillDisappear:animated];
     
     [self.tableView.header endRefreshing];
@@ -1040,7 +1093,8 @@
 }
 
 #pragma  mark - dealloc
--(void)dealloc{
+-(void)dealloc
+{
     [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
