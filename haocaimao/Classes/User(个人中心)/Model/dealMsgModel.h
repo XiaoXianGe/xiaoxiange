@@ -11,12 +11,14 @@
 
 @interface dealMsgModel : NSObject
 
-/** sentTime */
+/** 发送的时间 */
 @property(nonatomic,strong)NSString * sentTime;
-/** title */
+/** 标题 */
 @property(nonatomic,strong)NSString * title;
-/** messageId */
+/** 消息ID */
 @property(nonatomic,strong)NSString * messageId;
+/** 是否已读 1为已读，0为未读*/
+@property(nonatomic,strong)NSString * readed;
 
 
 @end

@@ -2349,12 +2349,12 @@
 		23EE215E1C02C25F0053D68C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				23EE215F1C02C25F0053D68C /* HCMFlowCheckOrderTableViewController.h */,
-				23EE21601C02C25F0053D68C /* HCMFlowCheckOrderTableViewController.m */,
-				23EE21611C02C25F0053D68C /* HCMFlowCheckOrderTableViewController.xib */,
 				23EE21621C02C25F0053D68C /* HCMShoppingTableViewController.h */,
 				23EE21631C02C25F0053D68C /* HCMShoppingTableViewController.m */,
 				23EE21681C02C25F0053D68C /* HCMShoppingTableViewController.xib */,
+				23EE215F1C02C25F0053D68C /* HCMFlowCheckOrderTableViewController.h */,
+				23EE21601C02C25F0053D68C /* HCMFlowCheckOrderTableViewController.m */,
+				23EE21611C02C25F0053D68C /* HCMFlowCheckOrderTableViewController.xib */,
 				23EE21691C02C25F0053D68C /* invContentListVC.h */,
 				23EE216A1C02C25F0053D68C /* invContentListVC.m */,
 				23EE216B1C02C25F0053D68C /* invContentListVC.xib */,

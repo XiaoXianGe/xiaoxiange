@@ -28,6 +28,8 @@
 #import "HCMPartnerCenterViewController.h"
 #import "UIButton+WebCache.h"
 
+#import "AddressNerworking.h"
+#import "HCMMesageViewController.h"
 
 @interface HCMHomeCollectionViewController ()<HCMHomeTopViewControllerDelegate>
 
@@ -38,9 +40,15 @@
 @property (weak , nonatomic)UIButton *TouchButton;
 
 @property (strong, nonatomic)UIView *diyNavView;
-
 @property (strong, nonatomic)NSUserDefaults *defaults;
+/** messageLogoBtn */
+@property(nonatomic,strong)UIButton * messageLogoBtn;
 @property (assign) BOOL status;
+
+/** 记录消息是否有新消息字符串 用于滚动 */
+@property(nonatomic,copy)NSString * messageMark;
+
+
 @end
 
 @implementation HCMHomeCollectionViewController
@@ -74,7 +82,6 @@ static NSString * const reuseIdentifier = @"Cell";
     //初始化控制器
     [self setupController];
    
-    
     //请求首页数据
     [self sendTheMsgToCategoryForCollection];
 
@@ -116,23 +123,32 @@ static NSString * const reuseIdentifier = @"Cell";
     CGFloat changeH = self.diyNavView.height/50;
     
     UIButton *logoBtn = [[UIButton alloc]initWithFrame:CGRectMake(5, 22*changeH - 4, 40*HCMScreenWidth/320, 25*HCMScreenWidth/320 + 6)];
-    [logoBtn setBackgroundImage:[UIImage imageNamed:@"logoHaveMsg"] forState:UIControlStateNormal];
+    [logoBtn setBackgroundImage:[UIImage imageNamed:@"logo"] forState:UIControlStateNormal];
     [logoBtn addTarget:self action:@selector(clickLogo) forControlEvents:UIControlEventTouchUpInside];
     
-    UIButton *btnSearch = [[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width - (45 *HCMScreenWidth/320) , 22*changeH, 40*HCMScreenWidth/320, 25*HCMScreenWidth/320)];
-    [btnSearch setBackgroundImage:[UIImage imageNamed:@"nav_search"] forState:UIControlStateNormal];
-    [btnSearch addTarget:self action:@selector(gotoTheSearch) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIButton *msgBtn = [[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width - (33 *HCMScreenWidth/320) , 20*changeH, 26*HCMScreenWidth/320, 27*HCMScreenWidth/320)];
+    [msgBtn setBackgroundImage:[UIImage imageNamed:@"homeNoMsg"] forState:UIControlStateNormal];
+    [msgBtn addTarget:self action:@selector(goToMessageVC) forControlEvents:UIControlEventTouchUpInside];
+    self.messageLogoBtn = msgBtn;
     
     self.searchBar = [HWSearchBar searchBar];
-    self.searchBar.frame = CGRectMake(48*HCMScreenWidth/320, 22*changeH, HCMScreenWidth - 2*btnSearch.width-30, 25*HCMScreenWidth/320);
+    self.searchBar.frame = CGRectMake(48*HCMScreenWidth/320, 22*changeH, HCMScreenWidth - 2*msgBtn.width-40, 25*HCMScreenWidth/320);
     [self.searchBar addTarget:self action:@selector(gotoTheSearch) forControlEvents:UIControlEventEditingDidEndOnExit];
     
     [self.view addSubview:self.diyNavView];
     [self.view addSubview:logoBtn];
-    [self.view addSubview:btnSearch];
+    [self.view addSubview:msgBtn];
     [self.view addSubview:self.searchBar];
 }
-
+-(void)goToMessageVC{
+    
+    self.navigationController.navigationBarHidden = NO;
+    
+    HCMMesageViewController *msgVC = [[HCMMesageViewController alloc]init];
+    
+    [self.navigationController pushViewController:msgVC animated:YES];
+}
 
 -(void)gotoTheSearch{
     
@@ -163,16 +179,9 @@ static NSString * const reuseIdentifier = @"Cell";
     self.collectionView.delegate = self;
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     
-    
-//    //注册键盘出现的通知
-//    [HCMNSNotificationCenter addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardWillShowNotification object:nil];
-//    //注册键盘隐藏的通知
-//    [HCMNSNotificationCenter addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
-   
-    
+    [self isMessage];
+
 }
-
-
 
 -(void)viewWillDisappear:(BOOL)animated{
     
@@ -193,6 +202,57 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.navigationController pushViewController:passKeyWords animated:YES];
 
 }
+//是否有消息
+-(void)isMessage
+{
+    self.status = [self.defaults boolForKey:@"status"];
+    
+        HCMLog(@"%d",self.status);
+    if (self.status) {
+        NSString * sid = [self.defaults objectForKey:@"sid"];
+        NSString * uid = [self.defaults objectForKey:@"uid"];
+        
+        HCMLog(@"uid%@",uid);
+        
+        //后台定义actionId == 1 ； 为获取未读总数 + 分类列表
+        NSString * actionId = @"1";
+        
+        NSDictionary *postDict = [NSDictionary dictionary];
+        
+        postDict = @{
+                     @"session":@{@"sid":sid,@"uid":uid},
+                     @"actionId":actionId
+                     };
+        
+        [[AddressNerworking sharedManager] postMessageURL:postDict successBlock:^(id responseBody) {
+            
+            if (![responseBody[@"data"][@"unReadTotal"] isEqual:@0]) {
+                
+                HCMLog(@"首页-----%@",responseBody[@"data"][@"unReadTotal"]);
+                
+                if (self.collectionView.contentOffset.y > 150) {
+                    [self.messageLogoBtn setBackgroundImage:[UIImage imageNamed:@"homeHaveMsg"] forState:UIControlStateNormal];
+                }else{
+                    [self.messageLogoBtn setBackgroundImage:[UIImage imageNamed:@"homeHaveMsg_red"] forState:UIControlStateNormal];
+                }
+                
+                
+                self.messageMark = @"homeHaveMsg_red";
+                
+            }else{
+                [self.messageLogoBtn setBackgroundImage:[UIImage imageNamed:@"homeNoMsg"] forState:UIControlStateNormal];
+                self.messageMark = @"homeNoMsg";
+            }
+            
+        } failureBlock:^(NSString *error) {
+            [SVProgressHUD showInfoWithStatus:@"请求失败"];
+        }];
+        
+    }else{
+//        [SVProgressHUD showInfoWithStatus:@"请重新登录"];
+        return;
+    }
+}
 
 -(void)clickLogo{
     
@@ -201,6 +261,8 @@ static NSString * const reuseIdentifier = @"Cell";
 //    vc.goods_id = @"318";
 //    [self.navigationController pushViewController:vc animated:YES];
 //    [SVProgressHUD show];
+    
+    
 
 }
 
@@ -249,9 +311,18 @@ static NSString * const reuseIdentifier = @"Cell";
         
         self.diyNavView.backgroundColor = [UIColor colorWithHue:222 saturation:32 brightness:32 alpha:alphaValue / 15 * 0.1 * 0.8];
         
+        if ([_messageMark isEqualToString:@"homeHaveMsg_red"]) {
+            
+            [self.messageLogoBtn setBackgroundImage:[UIImage imageNamed:_messageMark] forState:UIControlStateNormal];
+        }
+        
     }else if(scrollView.contentOffset.y <= 15 ){
         
         self.diyNavView.backgroundColor = [UIColor colorWithHue:222 saturation:32 brightness:32 alpha:0.1];
+    }
+    
+    if (scrollView.contentOffset.y > 150 && [_messageMark isEqualToString:@"homeHaveMsg_red"]) {
+        [self.messageLogoBtn setBackgroundImage:[UIImage imageNamed:@"homeHaveMsg"] forState:UIControlStateNormal];
     }
 }
 
@@ -358,6 +429,7 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 #pragma mark --- 协议
+
 -(void)touchGBTopLineView:(id)type title:(id)title{
     
     [SVProgressHUD showWithStatus:@"加载中"];
@@ -404,7 +476,6 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.navigationController pushViewController:SortVC animated:YES];
     
 }
-
 
 -(void)touchClickToScene:(HCMHomeTopViewController *)delegate url:(NSString *)url{
     
@@ -541,28 +612,6 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.navigationController pushViewController:vipLoginVC animated:YES];
 }
 
-//-(void)keyboardWasShown:(NSNotification *)notification{
-//    
-//    CGRect keyBoardFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-//    
-//    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 64, HCMScreenWidth, HCMScreenHeight - 64 - keyBoardFrame.size.height)];
-//    [btn addTarget:self action:@selector(TouchEvent) forControlEvents:UIControlEventTouchUpInside];
-//    btn.backgroundColor = [UIColor clearColor];
-//    self.TouchButton = btn;
-//    [self.view addSubview:self.TouchButton];
-//    
-//    
-//}
-//-(void)TouchEvent{
-//    [self.searchBar endEditing:YES];
-//    [self.TouchButton removeFromSuperview];
-//    
-//}
-//-(void)keyboardWillBeHidden:(NSNotification*)aNotification
-//{
-//    [self.TouchButton removeFromSuperview];
-//    
-//}
 
 -(void)dealloc{
     [HCMNSNotificationCenter removeObserver:self];

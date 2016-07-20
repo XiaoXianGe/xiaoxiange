@@ -8,10 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+
+
+
 @interface HCMDealMsgTableViewCell : UITableViewCell
+
+
 @property (weak, nonatomic) IBOutlet UILabel *sentTime;
 @property (weak, nonatomic) IBOutlet UILabel *title;
 /** messageId */
 @property(nonatomic,strong)NSString * messageId;
+@property (weak, nonatomic) IBOutlet UIImageView *pictureView;
+
 
 @end

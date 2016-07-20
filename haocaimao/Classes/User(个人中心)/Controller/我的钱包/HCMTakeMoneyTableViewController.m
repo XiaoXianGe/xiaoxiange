@@ -61,7 +61,7 @@ static NSString *const reuseIdentifier = @"Cell";
     self.tableView =tableView;
     
     [self netWorking];
-    
+    self.tableView.tableFooterView = [[UIView alloc]init];
 }
 //请求提现的申请列表
 -(void)netWorking{

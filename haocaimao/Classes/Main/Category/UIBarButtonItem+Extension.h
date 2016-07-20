@@ -10,6 +10,7 @@
 
 @interface UIBarButtonItem (Extension)
 + (UIBarButtonItem *)itemWithTarget:(id)target action:(SEL)action image:(NSString *)image highImage:(NSString *)highImage;
++ (UIBarButtonItem *)itemWithTarget:(id)target action:(SEL)action image:(NSString *)image highImage:(NSString *)highImage width:(CGFloat)width height:(CGFloat)height;
 + (UIBarButtonItem *)itemWithTarget:(id)target action:(SEL)action image:(NSString *)image selectedImage:(NSString *)selectedImage;
 + (UIBarButtonItem *)itemWithTarget:(id)target action:(SEL)action title:(NSString *)title selectedTitle:(NSString *)selectedTitle;
 @end

@@ -80,15 +80,15 @@
     
     _dataArr=[[NSMutableArray alloc]init];
     //头部广告请求
-    [self sendHomeAdvertisementRequest];
+    [self sendHomeAdvertisementRequestTEXT];
     
     //计算轮播图与分类大图标的距离
     self.headerForLayout.constant =HCMScreenWidth/2+22;//+ 24*HCMScreenWidth/320
     
-    [HCMNSNotificationCenter addObserver:self selector:@selector(test:) name:@"RereshHearView" object:nil];
+    [HCMNSNotificationCenter addObserver:self selector:@selector(UpdownAll:) name:@"RereshHearView" object:nil];
     [self createTopLineView];
     
-    [self loadAllPic];
+//    [self loadAllPic];
     
 }
 
@@ -139,9 +139,6 @@
 -(void)testGBTopLineViewModel:(GBTopLineViewModel *)model{
     
     [self.delegate touchGBTopLineView:model.type title:model.title];
-    
-    
-    
 }
 
 
@@ -160,7 +157,7 @@
 
 
 //刷新广告
--(void)test:(NSNotification *)notification{
+-(void)UpdownAll:(NSNotification *)notification{
     
     [self sendHomeAdvertisementRequest];
     
@@ -233,12 +230,34 @@
     
 }
 
-
+//备用清理缓存 再刷新(通知的方法)
 -(void)sendHomeAdvertisementRequest{
     
+    [[SDImageCache sharedImageCache] clearDisk];
+    
+    [[SDImageCache sharedImageCache] clearMemory];
+    
+    HCMLog(@"清理了缓存");
+    
+    [self loadAllPic];
+    
     [[HomeNetwork sharedManager]postHomeAdvertisement:nil successBlock:^(id responseBody) {
+
+        [self updateAdvertisingOfDic:responseBody];
         
-        [self loadAllPic];
+    } failureBlock:^(NSString *error) {
+        
+        [SVProgressHUD showInfoWithStatus:error];
+    }];
+    
+}
+
+//初始化的netWorking
+-(void)sendHomeAdvertisementRequestTEXT{
+    
+    [self loadAllPic];
+    
+    [[HomeNetwork sharedManager]postHomeAdvertisement:nil successBlock:^(id responseBody) {
         
         [self updateAdvertisingOfDic:responseBody];
         
@@ -250,14 +269,15 @@
 }
 
 
+
 //头部广告
 -(void)updateAdvertisingOfDic:(NSDictionary *)dict{
    
     NSDictionary *dic = [HomeTopGoodsModel NewsWithJSON:dict];
     NSArray * imageArray = dic[@"small"];
     self.receiveGoodsIDArray = dic[@"goods_id"];
-  
-//    CGRect frame = [[UIScreen mainScreen]bounds];
+    /*
+//    CGRect frame = [[UIScreen mainScreen]bounds];儿子
     
     // 情景一：采用本地图片实现
 //    NSArray *images = @[[UIImage imageNamed:@"h1.jpg"],
@@ -267,10 +287,15 @@
     
     // 本地加载 --- 创建不带标题的图片轮播器
 //    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 20, frame.size.width, 160) imagesGroup:images];
-
+*/
+    
+    for (NSString *str in imageArray) {
+        HCMLog(@"%@",str);
+    }
     
     //网络加载 --- 创建带标题的图片轮播器
     SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 20, HCMScreenWidth, HCMScreenWidth/2) imageURLStringsGroup:imageArray]; // 模拟网络延时情景
+   
     
     cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
     cycleScrollView.delegate = self;
@@ -278,6 +303,7 @@
     cycleScrollView.placeholderImage = [UIImage imageNamed:@"Placeholder_ Advertise"];
     cycleScrollView.dotColor = HCMColor(230, 30, 30, 0.2);
     [self.view addSubview:cycleScrollView];
+
 
 }
 
@@ -291,17 +317,19 @@
 #pragma 获取首页界面图片
 
 -(void)loadAllPic{
-    
-    [self load8Png];
-    
-    [self load6Png];
-    
-    [self load4Banner];
-    
-    [self load4Activity];
-    
-    [self load9Png];
-    
+
+  
+        [self load8Png];
+        
+        [self load6Png];
+        
+        [self load4Banner];
+        
+        [self load4Activity];
+        
+        [self load9Png];
+
+
 }
 
 

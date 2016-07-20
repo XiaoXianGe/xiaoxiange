@@ -28,8 +28,8 @@
     if ([dictt[@"toAll"] isKindOfClass:[NSDictionary class]]) {
         _toAllContent = dictt[@"toAll"][@"title"];
         _toAllIcon = ![dictt[@"toAll"][@"unReadTotal"] integerValue];
-        _toAllYearMonthDay = [dictt[@"sentTime"] substringToIndex:10];
-        _toAllHourMinuteSecond = [dictt[@"sentTime"] substringFromIndex:12];
+        _toAllYearMonthDay = [dictt[@"toAll"][@"sentTime"] substringToIndex:10];
+        _toAllHourMinuteSecond = [dictt[@"toAll"][@"sentTime"] substringFromIndex:11];
     }else{
         _toAllContent = dictt[@"toAll"];
         _toAllIcon = 1;

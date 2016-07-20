@@ -147,7 +147,7 @@
     
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickEdit) image:@"profile-refresh-site-icon" highImage:@"profile-refresh-site-icon"];
     
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(isMessage) image:@"noMessage" highImage:@"noMessage"];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickMessage) image:@"homeNoMsg" highImage:@"homeNoMsg" width:30 height:30];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLoginOut) name:@"UserLoginOut" object:nil];
     
@@ -184,7 +184,8 @@
     
 }
 
--(void)isMessage
+//点击消息中心
+-(void)clickMessage
 {
     HCMMesageViewController *msgVC = [[HCMMesageViewController alloc]init];
     
@@ -192,6 +193,47 @@
     
 }
 
+//是否有消息
+-(void)isMessage
+{
+    self.status = [self.defaults boolForKey:@"status"];
+    
+    //    HCMLog(@"%d",self.status);
+    if (self.status) {
+        NSString * sid = [self.defaults objectForKey:@"sid"];
+        NSString * uid = [self.defaults objectForKey:@"uid"];
+        
+        HCMLog(@"uid%@",uid);
+        
+        //后台定义actionId == 1 ； 为获取未读总数 + 分类列表
+        NSString * actionId = @"1";
+        
+        NSDictionary *postDict = [NSDictionary dictionary];
+        
+        postDict = @{
+                     @"session":@{@"sid":sid,@"uid":uid},
+                     @"actionId":actionId
+                     };
+        
+        [[AddressNerworking sharedManager] postMessageURL:postDict successBlock:^(id responseBody) {
+            
+            if (![responseBody[@"data"][@"unReadTotal"] isEqual: @0]) {
+                
+                HCMLog(@"asdfasdfas-----%@",responseBody[@"data"][@"unReadTotal"]);
+                self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickMessage) image:@"homeHaveMsg_white" highImage:@"homeHaveMsg_white" width:30 height:30];
+            }else{
+                self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickMessage) image:@"homeNoMsg" highImage:@"homeNoMsg" width:30 height:30];
+            }
+            
+        } failureBlock:^(NSString *error) {
+            [SVProgressHUD showInfoWithStatus:@"请求失败"];
+        }];
+        
+    }else{
+        [SVProgressHUD showInfoWithStatus:@"请重新登录"];
+        return;
+    }
+}
 // 设置tabbar 没有背景线条
 - (void)setTabbarImage
 {
@@ -240,6 +282,8 @@
     [self getInfomationForMyWallet];
     
      [self isUpdateAPP];
+    
+    [self isMessage];
 }
 
 -(void)getInfomationForMyWallet
@@ -438,6 +482,8 @@
         [self.tableView.header endRefreshing];
     }
 }
+
+
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
