@@ -20,7 +20,7 @@
 /** 昵称 */
 @property (nonatomic , weak) UILabel *nameLabel;
 /** 时间 */
-@property (nonatomic , weak) UILabel *timeLabel;
+//@property (nonatomic , weak) UILabel *timeLabel;
 /** 正文 */
 @property (nonatomic , weak) UILabel *contentLabel;
 
@@ -66,10 +66,10 @@
         self.nameLabel = nameLabel;
         
         /** 时间 */
-        UILabel *timeLabel = [[UILabel alloc] init];
-        timeLabel.font = HCMCommentCellTimeFont;
-        [originalView addSubview:timeLabel];
-        self.timeLabel = timeLabel;
+//        UILabel *timeLabel = [[UILabel alloc] init];
+//        timeLabel.font = HCMCommentCellTimeFont;
+//        [originalView addSubview:timeLabel];
+//        self.timeLabel = timeLabel;
         
         /** 正文 */
         UILabel *contentLabel = [[UILabel alloc] init];
@@ -100,8 +100,8 @@
     self.nameLabel.frame = CommentFrame.nameLabelF;
     
     /**时间*/
-    self.timeLabel.text = [CommentFrame.comment.Comment_create substringToIndex:10];
-    self.timeLabel.frame = CommentFrame.timeLabelF;
+//    self.timeLabel.text = [CommentFrame.comment.Comment_create substringToIndex:10];
+//    self.timeLabel.frame = CommentFrame.timeLabelF;
     
    //NSString *b = [a substringToIndex:4];
     /**正问*/
