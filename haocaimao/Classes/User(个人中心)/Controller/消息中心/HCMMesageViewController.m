@@ -66,7 +66,7 @@
     
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickBack) image:@"nav-back" highImage:@"nav-back"];
     
-    
+    [SVProgressHUD show];
 
 }
 
@@ -109,6 +109,7 @@
             
             [self beginFuckingData];
             
+            [SVProgressHUD dismiss];
             
         } failureBlock:^(NSString *error) {
             [SVProgressHUD showInfoWithStatus:@"请求失败"];

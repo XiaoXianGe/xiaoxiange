@@ -843,27 +843,18 @@
                     <subviews>
                         <button opaque="NO" tag="33" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbF-pj-koR" userLabel="Hot Good4">
                             <rect key="frame" x="0.0" y="134" width="133" height="133"/>
-                            <variation key="widthClass=compact" misplaced="YES">
-                                <rect key="frame" x="0.0" y="135" width="133" height="132"/>
-                            </variation>
                             <connections>
                                 <action selector="goods_nineButton:" destination="-1" eventType="touchUpInside" id="jW9-Qy-yaS"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="34" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Tb-Hy-DQC" userLabel="Hot Good5">
                             <rect key="frame" x="134" y="134" width="132" height="133"/>
-                            <variation key="widthClass=compact" misplaced="YES">
-                                <rect key="frame" x="134" y="135" width="132" height="132"/>
-                            </variation>
                             <connections>
                                 <action selector="goods_nineButton:" destination="-1" eventType="touchUpInside" id="ssU-6x-BcZ"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="35" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xxv-iP-5jd" userLabel="Hot Good6">
                             <rect key="frame" x="267" y="134" width="133" height="133"/>
-                            <variation key="widthClass=compact" misplaced="YES">
-                                <rect key="frame" x="267" y="135" width="133" height="132"/>
-                            </variation>
                             <connections>
                                 <action selector="goods_nineButton:" destination="-1" eventType="touchUpInside" id="Hgx-X8-nLH"/>
                             </connections>
@@ -888,27 +879,18 @@
                         </button>
                         <button opaque="NO" tag="31" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NPX-2l-aUt" userLabel="Hot Good2">
                             <rect key="frame" x="134" y="1" width="132" height="132"/>
-                            <variation key="widthClass=compact" misplaced="YES">
-                                <rect key="frame" x="134" y="1" width="132" height="133"/>
-                            </variation>
                             <connections>
                                 <action selector="goods_nineButton:" destination="-1" eventType="touchUpInside" id="p1x-w4-Wvb"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="32" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRT-DB-H2x" userLabel="Hot Good3">
                             <rect key="frame" x="267" y="1" width="133" height="132"/>
-                            <variation key="widthClass=compact" misplaced="YES">
-                                <rect key="frame" x="267" y="1" width="133" height="133"/>
-                            </variation>
                             <connections>
                                 <action selector="goods_nineButton:" destination="-1" eventType="touchUpInside" id="OdW-qs-Y8p"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="30" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7rs-Hp-LiT">
                             <rect key="frame" x="0.0" y="1" width="133" height="132"/>
-                            <variation key="widthClass=compact" misplaced="YES">
-                                <rect key="frame" x="0.0" y="1" width="133" height="133"/>
-                            </variation>
                             <connections>
                                 <action selector="goods_nineButton:" destination="-1" eventType="touchUpInside" id="Vv5-aq-Js9"/>
                             </connections>
@@ -1194,7 +1176,7 @@
                     <include reference="dFu-SX-yxc"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="314" y="-1889"/>
+            <point key="canvasLocation" x="306" y="-2030"/>
         </view>
         <view contentMode="scaleToFill" id="V81-gd-nel" userLabel="最品牌">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>

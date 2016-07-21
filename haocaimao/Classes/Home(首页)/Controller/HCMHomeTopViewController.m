@@ -238,9 +238,7 @@
     [[SDImageCache sharedImageCache] clearMemory];
     
     HCMLog(@"清理了缓存");
-    
-    [self loadAllPic];
-    
+
     [[HomeNetwork sharedManager]postHomeAdvertisement:nil successBlock:^(id responseBody) {
 
         [self updateAdvertisingOfDic:responseBody];
@@ -249,14 +247,14 @@
         
         [SVProgressHUD showInfoWithStatus:error];
     }];
+    
+    
     
 }
 
 //初始化的netWorking
 -(void)sendHomeAdvertisementRequestTEXT{
-    
-    [self loadAllPic];
-    
+
     [[HomeNetwork sharedManager]postHomeAdvertisement:nil successBlock:^(id responseBody) {
         
         [self updateAdvertisingOfDic:responseBody];
@@ -266,6 +264,7 @@
         [SVProgressHUD showInfoWithStatus:error];
     }];
     
+
 }
 
 
@@ -303,6 +302,10 @@
     cycleScrollView.placeholderImage = [UIImage imageNamed:@"Placeholder_ Advertise"];
     cycleScrollView.dotColor = HCMColor(230, 30, 30, 0.2);
     [self.view addSubview:cycleScrollView];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self loadAllPic];
+    });
 
 
 }

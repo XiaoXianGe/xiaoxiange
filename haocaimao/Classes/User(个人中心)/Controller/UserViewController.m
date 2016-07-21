@@ -187,6 +187,7 @@
 //点击消息中心
 -(void)clickMessage
 {
+    if (!_status) return;
     HCMMesageViewController *msgVC = [[HCMMesageViewController alloc]init];
     
     [self.navigationController pushViewController:msgVC animated:YES];
@@ -230,7 +231,7 @@
         }];
         
     }else{
-        [SVProgressHUD showInfoWithStatus:@"请重新登录"];
+//        [SVProgressHUD showInfoWithStatus:@"请重新登录"];
         return;
     }
 }

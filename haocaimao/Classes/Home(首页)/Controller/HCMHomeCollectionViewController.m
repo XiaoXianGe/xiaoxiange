@@ -143,6 +143,8 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 -(void)goToMessageVC{
     
+    if (!_status) return;
+    
     self.navigationController.navigationBarHidden = NO;
     
     HCMMesageViewController *msgVC = [[HCMMesageViewController alloc]init];
