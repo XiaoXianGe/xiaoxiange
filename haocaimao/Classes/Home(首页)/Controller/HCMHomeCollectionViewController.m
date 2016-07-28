@@ -31,7 +31,7 @@
 #import "AddressNerworking.h"
 #import "HCMMesageViewController.h"
 
-@interface HCMHomeCollectionViewController ()<HCMHomeTopViewControllerDelegate>
+@interface HCMHomeCollectionViewController ()<HCMHomeTopViewControllerDelegate,UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic)HCMHomeTopViewController *homeTop;
 @property (strong, nonatomic)NSMutableArray *receiveArray;
@@ -102,6 +102,8 @@ static NSString * const reuseIdentifier = @"Cell";
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, 60, 0);
+    
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
 }
 
 //头部刷新
@@ -168,6 +170,11 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.navigationController pushViewController:passKeyWords animated:YES];
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
+}
+
 -(void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
@@ -175,7 +182,7 @@ static NSString * const reuseIdentifier = @"Cell";
     [SVProgressHUD dismiss];
     
     self.tabBarController.tabBar.hidden = NO;
-    self.navigationController.navigationBarHidden = YES;
+    
 
     
     self.collectionView.delegate = self;

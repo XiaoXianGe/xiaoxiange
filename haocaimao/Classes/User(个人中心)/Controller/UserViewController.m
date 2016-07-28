@@ -46,7 +46,7 @@
 
 #import "HCMMesageViewController.h"
 
-@interface UserViewController ()<UITableViewDelegate,UITableViewDataSource,UITabBarDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIAlertViewDelegate>
+@interface UserViewController ()<UITableViewDelegate,UITableViewDataSource,UITabBarDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIAlertViewDelegate,UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableViewCell *myOrderCell;
 @property (strong, nonatomic) IBOutlet UITableViewCell *waitingForDoingCell;
@@ -152,6 +152,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLoginOut) name:@"UserLoginOut" object:nil];
     
     [self setTabbarImage];
+    
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
     
 }
 

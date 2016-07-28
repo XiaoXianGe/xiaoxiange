@@ -1152,7 +1152,7 @@
     if (--self.counter <0 ) {
         [self.timer invalidate];
     }else{
-        self.promote_end_date.text = [NSString stringWithFormat:@"%d天%d小时%d分钟%d秒",(self.counter/86400),(self.counter/3600%24),(self.counter/60%60),(self.counter%60)];
+        self.promote_end_date.text = [NSString stringWithFormat:@"%ld天%ld小时%ld分钟%ld秒",(self.counter/86400),(self.counter/3600%24),(self.counter/60%60),(self.counter%60)];
     }
 }
 

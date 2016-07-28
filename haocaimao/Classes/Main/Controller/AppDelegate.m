@@ -44,25 +44,23 @@
         [self setUp3Dtouch];
     }
     
-    //微信分享
-    //onReq微信终端向第三方程序发起请求，要求第三方程序响应。第三方程序响应完后必须调用
+    //微信分享 onReq微信终端向第三方程序发起请求，要求第三方程序响应。第三方程序响应完后必须调用
     [WXApi registerApp:APP_ID];
     [UMSocialData setAppKey:@"5636fa51e0f55af8bf004172"];
     
-    //微信支付
-    //向微信注册wxd930ea5d5a258f4f
-     ///[WXApi registerApp:@"wx2a1388283f78955d" withDescription:@"好采猫采购平台"];
+    //微信支付 向微信注册wxd930ea5d5a258f4f
+    //[WXApi registerApp:@"wx2a1388283f78955d" withDescription:@"好采猫采购平台"];
     
     // 根据--新版本--设置根控制器
     [self setUpRootViewController];
     
-    
     //注册推送通知
 //    [self registerNotification];
+    
     // 处理远程通知启动APP
 //    [self receiveNotificationByLaunchingOptions:launchOptions];
     
-        return YES;
+    return YES;
 
 }
 
@@ -162,7 +160,7 @@
  *********************************
  *********************************/
 
-//
+
 //
 //
 //-(void)registerNotification{
@@ -204,8 +202,7 @@
 //
 ///** 自定义：APP被“推送”启动时处理推送消息处理（APP 未启动-->启动）*/
 //- (void)receiveNotificationByLaunchingOptions:(NSDictionary *)launchOptions {
-//    if (!launchOptions)
-//        return;
+//    if (!launchOptions)return;
 //    
 //    /*
 //     通过“远程推送”启动APP
@@ -260,7 +257,7 @@
 //
 ///** APP已经接收到“远程”通知(推送) - (App运行在后台/App运行在前台) */
 //- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-//    application.applicationIconBadgeNumber = 0; // 标签
+//    application.applicationIconBadgeNumber = 20; // 标签
 //    
 //    NSLog(@"\n(App运行在后台/App运行在前台)>>:%@\n\n", userInfo);
 //}
@@ -269,7 +266,7 @@
 //- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
 //    
 //    // 处理APN
-//    NSLog(@"\n透传推送消息>>:%@\n\n", userInfo);
+//    NSLog(@"\n透传推送消息userInfouserInfouserInfo:%@\n\n", userInfo);
 //        
 //    
 //    //这里回收到
@@ -323,7 +320,7 @@
 //    
 //    pushVC.goods_id = @"188";
 //    
-//    //[self.window.rootViewController presentViewController:pushVC animated:YES completion:nil];
+////    [self.window.rootViewController presentViewController:pushVC animated:YES completion:nil];
 //
 //    
 //    // 获取导航控制器

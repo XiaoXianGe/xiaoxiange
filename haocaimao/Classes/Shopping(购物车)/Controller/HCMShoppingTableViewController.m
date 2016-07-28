@@ -28,7 +28,7 @@
 #import "DealViewController.h"
 #import "AlartViewController.h"
 
-@interface HCMShoppingTableViewController ()<HCMCartCellDelegate,UIAlertViewDelegate,ExpendableAlartViewDelegate>
+@interface HCMShoppingTableViewController ()<HCMCartCellDelegate,UIAlertViewDelegate,ExpendableAlartViewDelegate,UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *goodsNum;
 
 @property (strong, nonatomic) IBOutlet UIView *deleteFootView;
@@ -90,6 +90,8 @@ static NSString *ID = @"Cell";
     [HCMNSNotificationCenter addObserver:self selector:@selector(pop:) name:@"pop" object:self.popView];
     [HCMNSNotificationCenter addObserver:self selector:@selector(buyClick:) name:@"clickCollectionView" object:nil];
     [HCMNSNotificationCenter addObserver:self selector:@selector(scrollAndUserInteraction) name:@"scrollAndUserInteraction" object:nil];
+    
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
     
 }
 
