@@ -10,21 +10,15 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="SceneCollectionViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="145" height="210"/>
+            <rect key="frame" x="0.0" y="0.0" width="145" height="200"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="145" height="210"/>
+                <rect key="frame" x="0.0" y="0.0" width="145" height="200"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="价格：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGr-xe-Xd4">
-                        <rect key="frame" x="47" y="191" width="42" height="17"/>
+                        <rect key="frame" x="47" y="179" width="42" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.75039457070000004" green="0.007542605965" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="原价：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="skl-5U-HaG" customClass="HCMCenterLineLabel">
-                        <rect key="frame" x="8" y="179" width="33" height="12"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <color key="textColor" red="0.26584201390000001" green="0.26584201390000001" blue="0.26584201390000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="这是家数据家数据家叔叔开会范德萨" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="129" translatesAutoresizingMaskIntoConstraints="NO" id="T3D-RS-Wa1">
@@ -34,7 +28,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="价格:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uUr-pj-u6W">
-                        <rect key="frame" x="8" y="191" width="30" height="16"/>
+                        <rect key="frame" x="8" y="179" width="30" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.26584201390000001" green="0.26584201390000001" blue="0.26584201390000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -50,27 +44,23 @@
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="skl-5U-HaG" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="12/210" id="0qr-cr-hyr"/>
-                <constraint firstAttribute="bottom" secondItem="uUr-pj-u6W" secondAttribute="bottom" constant="3" id="66B-r5-ERd"/>
+                <constraint firstAttribute="bottom" secondItem="uUr-pj-u6W" secondAttribute="bottom" constant="5" id="66B-r5-ERd"/>
                 <constraint firstItem="JGr-xe-Xd4" firstAttribute="centerY" secondItem="uUr-pj-u6W" secondAttribute="centerY" id="8Fq-iw-fYW"/>
                 <constraint firstItem="WvY-jL-OLf" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="9Oy-ZV-WAF"/>
-                <constraint firstItem="skl-5U-HaG" firstAttribute="top" secondItem="T3D-RS-Wa1" secondAttribute="bottom" id="A80-pw-ryx"/>
                 <constraint firstItem="WvY-jL-OLf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="AEB-VE-kjq"/>
                 <constraint firstItem="T3D-RS-Wa1" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="Cl0-TE-Bqe"/>
                 <constraint firstItem="uUr-pj-u6W" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="16/210" id="Gjs-eA-uJE"/>
                 <constraint firstItem="WvY-jL-OLf" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="HIe-Ip-tjq"/>
                 <constraint firstItem="JGr-xe-Xd4" firstAttribute="leading" secondItem="uUr-pj-u6W" secondAttribute="trailing" constant="9" id="KLI-qh-pUQ"/>
-                <constraint firstItem="skl-5U-HaG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="YTX-qG-gmZ"/>
                 <constraint firstItem="uUr-pj-u6W" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="e2y-iW-dAC"/>
                 <constraint firstAttribute="trailing" secondItem="T3D-RS-Wa1" secondAttribute="trailing" constant="8" id="ls1-5G-H76"/>
                 <constraint firstItem="T3D-RS-Wa1" firstAttribute="top" secondItem="WvY-jL-OLf" secondAttribute="bottom" constant="2" id="rYx-uE-bnu"/>
-                <constraint firstItem="T3D-RS-Wa1" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="32/210" id="sfG-tL-ftL"/>
+                <constraint firstItem="T3D-RS-Wa1" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="34/210" id="sfG-tL-ftL"/>
             </constraints>
             <size key="customSize" width="50" height="140"/>
             <connections>
                 <outlet property="good_Image" destination="WvY-jL-OLf" id="lJg-Pr-z17"/>
                 <outlet property="good_Name" destination="T3D-RS-Wa1" id="Ntv-72-UHF"/>
-                <outlet property="market_price" destination="skl-5U-HaG" id="3zX-tx-Wa2"/>
                 <outlet property="shop_price" destination="JGr-xe-Xd4" id="MO3-8H-ix5"/>
             </connections>
             <point key="canvasLocation" x="299.5" y="226"/>

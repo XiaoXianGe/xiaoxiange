@@ -13,7 +13,7 @@
 @property(strong,nonatomic)NSString *goods_id;
 @property (weak, nonatomic) IBOutlet UIImageView *good_Image;
 @property (weak, nonatomic) IBOutlet UILabel *good_Name;
-@property (weak, nonatomic) IBOutlet UILabel *market_price;
+
 @property (weak, nonatomic) IBOutlet UILabel *shop_price;
 
 

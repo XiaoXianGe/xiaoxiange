@@ -127,7 +127,6 @@ static NSString * const url = @"http://www.haocaimao.com/mobile/index.php?c=topi
     self.title = self.categoryNames[indexPath.section];
     
     cell.good_Name.text = good.goods_name;
-    cell.market_price.text = [NSString stringWithFormat:@"原价:￥%@",good.market_price];
 
     if ([good.promote_price isEqualToString:@""]) {
          cell.shop_price.text = good.shop_price;
@@ -198,7 +197,7 @@ static NSString * const url = @"http://www.haocaimao.com/mobile/index.php?c=topi
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat width =(HCMScreenWidth -30)/2;
-    return CGSizeMake(width, 210*width/145);
+    return CGSizeMake(width, 200*width/145);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{

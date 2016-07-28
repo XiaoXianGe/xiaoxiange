@@ -11,7 +11,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *good_Image;
 @property (weak, nonatomic) IBOutlet UILabel *good_Name;
-@property (weak, nonatomic) IBOutlet UILabel *market_price;
+
 @property (weak, nonatomic) IBOutlet UILabel *shop_price;
 
 
@@ -25,8 +25,6 @@
     
     [self.good_Image sd_setImageWithURL:[NSURL URLWithString:categoryModel.goods_image] placeholderImage:[UIImage imageNamed:@"searcher-no-result-empty-icon"]];
     
-    self.market_price.text = [NSString stringWithFormat:@"原价:￥%@",categoryModel.goods_market_price];
-
     self.good_Name.text = categoryModel.goods_name;
     
     if ([categoryModel.promote_price isEqualToString:@""]) {
