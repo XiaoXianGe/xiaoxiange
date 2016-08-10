@@ -18,7 +18,7 @@
 
 #import "WXApiManager.h"
 #import "DealViewController.h"
-//#import "WXApi.h"
+
 
 @interface AppDelegate ()<WXApiDelegate,UIAlertViewDelegate>
 
@@ -126,17 +126,12 @@
             [WXApi handleOpenURL:url delegate:[weiXinData alloc]];
 }
 
-//- (void)applicationWillTerminate:(UIApplication *)application {
-//    
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    [defaults setBool:NO forKey:@"status"];
-//    [defaults setObject:nil forKey:@"userName"];
-//    [defaults synchronize];
-//    
-//}
+
+-(void)applicationDidBecomeActive:(UIApplication *)application{
+    application.applicationIconBadgeNumber -= 1;
+}
 
 -(void)applicationWillEnterForeground:(UIApplication *)application{
-    
     HCMLog(@"进入前台");
 }
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -266,8 +261,7 @@
 /** APP已经接收到“远程”通知(推送) - (App运行在后台/App运行在前台) */
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
-    application.applicationIconBadgeNumber = 20; // 标签
-    
+    application.applicationIconBadgeNumber -= 1;
     NSLog(@"\n(App运行在后台/App运行在前台)>>:%@\n\n", userInfo);
 }
 
@@ -276,20 +270,10 @@
 {
     
     // 处理APN
-    NSLog(@"\n透传推送消息userInfouserInfouserInfo:%@\n\n", userInfo);
+    NSLog(@"---透传推送消息---:%@\n\n", userInfo);
         
-    
-    //这里回收到
-    /*
-     {
-         aps = {
-        alert = { 
-            body = 这里是字符串msg
-                },
-        sound = default
-                }
-     }
-     */
+    application.applicationIconBadgeNumber -= 1;
+
     
     completionHandler(UIBackgroundFetchResultNewData);
 }
@@ -300,14 +284,14 @@
 - (void)GeTuiSdkDidRegisterClient:(NSString *)clientId
 {
     // [4-EXT-1]: 个推SDK已注册，返回clientId
-    NSLog(@"\n--SDK启动成功返回cid--:%@\n\n", clientId);
+    NSLog(@"返回的 cid = %@\n\n", clientId);
 }
 
 /** SDK遇到错误回调 */
 - (void)GeTuiSdkDidOccurError:(NSError *)error
 {
     // [EXT]:个推错误报告，集成步骤发生的任何错误都在这里通知，如果集成后，无法正常收到消息，查看这里的通知。
-    NSLog(@"\n--SDK遇到错误回调--:%@\n\n", [error localizedDescription]);
+    NSLog(@"错误回调:%@\n\n", [error localizedDescription]);
 }
 
 
@@ -325,12 +309,26 @@
     
     NSString *msg = [NSString stringWithFormat:@" 1111payloadId=%@,2222taskId=%@,3333messageId:%@,4444payloadMsg:%@%@", payloadId, taskId, aMsgId, payloadMsg, offLine ? @"<离线消息>" : @""];
     
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"通知" message:payloadMsg delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"立刻查看", nil];
+    NSLog(@"透传消息回调:%@\n\n", msg);
     
-    [alert show];
-    
-    NSLog(@"\n---SDK收到透传消息回调-:%@\n\n", msg);
-    
+    if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive) {
+        
+        //app在前台
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"通知" message:payloadMsg delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"立刻查看", nil];
+        [alert show];
+        
+    }else{//app在后台
+
+        //这里收的是    *消息内容
+        DealViewController *pushVC = [[DealViewController alloc]initWithNibName:@"DealViewController" bundle:nil];
+        pushVC.goods_id = @"188";
+        // 获取导航控制器
+        UITabBarController *tabVC = (UITabBarController *)self.window.rootViewController;
+        UINavigationController *pushClassStance = (UINavigationController *)tabVC.viewControllers[tabVC.selectedIndex];
+        // 跳转到对应的控制器
+        [pushClassStance pushViewController:pushVC animated:YES];
+    }
+
     /**
      *汇报个推自定义事件
      *actionId：用户自定义的actionid，int类型，取值90001-90999。
@@ -348,14 +346,14 @@
 {
     // [4-EXT]:发送上行消息结果反馈
     NSString *msg = [NSString stringWithFormat:@"sendmessage=%@,result=%d", messageId, result];
-    NSLog(@"\n---SDK收到sendMessage消息回调-:%@\n\n", msg);
+    NSLog(@"sendMessage消息回调:%@\n\n", msg);
 }
 
 /** SDK运行状态通知 */
 - (void)GeTuiSDkDidNotifySdkState:(SdkStatus)aStatus
 {
     // [EXT]:通知SDK运行状态
-    NSLog(@"\n--SDK运行状态通知-:%u\n\n", aStatus);
+    NSLog(@"运行状态通知:%u\n\n", aStatus);
 }
 
 /** SDK设置推送模式回调 */
@@ -366,7 +364,7 @@
         return;
     }
     
-    NSLog(@"\n---SDK设置推送模式--:%@\n\n", isModeOff ? @"开启" : @"关闭");
+    NSLog(@"设置推送模式:%@\n\n", isModeOff ? @"开启" : @"关闭");
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

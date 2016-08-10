@@ -216,12 +216,12 @@ static NSString * const reuseIdentifier = @"Cell";
 {
     self.status = [self.defaults boolForKey:@"status"];
     
-        HCMLog(@"%d",self.status);
+//        HCMLog(@"%d",self.status);
     if (self.status) {
         NSString * sid = [self.defaults objectForKey:@"sid"];
         NSString * uid = [self.defaults objectForKey:@"uid"];
         
-        HCMLog(@"uid%@",uid);
+//        HCMLog(@"uid%@",uid);
         
         //后台定义actionId == 1 ； 为获取未读总数 + 分类列表
         NSString * actionId = @"1";
@@ -237,7 +237,7 @@ static NSString * const reuseIdentifier = @"Cell";
             
             if (![responseBody[@"data"][@"unReadTotal"] isEqual:@0]) {
                 
-                HCMLog(@"首页-----%@",responseBody[@"data"][@"unReadTotal"]);
+//                HCMLog(@"首页-----%@",responseBody[@"data"][@"unReadTotal"]);
                 
                 if (self.collectionView.contentOffset.y > 150) {
                     [self.messageLogoBtn setBackgroundImage:[UIImage imageNamed:@"homeHaveMsg"] forState:UIControlStateNormal];
