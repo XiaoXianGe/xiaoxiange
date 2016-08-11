@@ -18,13 +18,18 @@
 
 #import "WXApiManager.h"
 #import "DealViewController.h"
+#import "HCMSubCollectionViewController.h"
 
 
 @interface AppDelegate ()<WXApiDelegate,UIAlertViewDelegate>
 
 @property (strong, nonatomic) HCMTabBarViewController *tab;
 
+@property( strong ,nonatomic )NSDictionary *dict;
+
 @property (copy,nonatomic)NSString *push;
+
+@property(copy,nonatomic)NSString * markPush;
 
 @end
 
@@ -36,6 +41,14 @@
     }
     return _tab;
 }
+
+-(NSDictionary *)dict{
+    if (!_dict) {
+        _dict = [NSDictionary dictionary];
+    }
+    return _dict;
+}
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
@@ -59,16 +72,28 @@
     
     // 处理远程通知启动APP
     [self receiveNotificationByLaunchingOptions:launchOptions];
+
+    _markPush = @"0";
     
     return YES;
 
 }
+-(NSString*)dictionaryToJson:(NSDictionary *)dic
 
-// 根据--新版本--设置根控制器
+{
+    
+    NSError *parseError = nil;
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&parseError];
+    
+    return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+}
+
 -(void)setUpRootViewController{
     
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
-    
+
     NSString *key = @"CFBundleShortVersionString";
     
     // 上一次的使用版本（存储在沙盒中的版本号）
@@ -210,6 +235,7 @@
     NSDictionary *userInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
     if (userInfo) {
         NSLog(@"\nAPP被“推送”启动时处理推送消息处理（APP 未启动-->启动>>>[Launching RemoteNotification]:%@", userInfo);
+
     }
 }
 
@@ -225,7 +251,6 @@
 }
 
 #pragma mark - 用户通知(推送)回调 _IOS 8.0以上使用
-
 /** 已登记用户通知 */
 - (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings
 {
@@ -234,7 +259,6 @@
 }
 
 #pragma mark - 远程通知(推送)回调
-
 /** 远程通知注册成功委托 */
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
@@ -263,19 +287,25 @@
 {
     application.applicationIconBadgeNumber -= 1;
     NSLog(@"\n(App运行在后台/App运行在前台)>>:%@\n\n", userInfo);
+
 }
 
 /** APP已经接收到“远程”通知(推送) - 透传推送消息  */
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler
 {
-    
     // 处理APN
     NSLog(@"---透传推送消息---:%@\n\n", userInfo);
         
     application.applicationIconBadgeNumber -= 1;
 
-    
     completionHandler(UIBackgroundFetchResultNewData);
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self test];
+    });
+    _markPush = @"1";
+    
+
 }
 
 #pragma mark - GeTuiSdkDelegate
@@ -302,32 +332,38 @@
     // [4]: 收到个推消息
     NSData *payload = [GeTuiSdk retrivePayloadById:payloadId];
     
-    NSString *payloadMsg = nil;
     if (payload) {
-        payloadMsg = [[NSString alloc] initWithBytes:payload.bytes length:payload.length encoding:NSUTF8StringEncoding];
-    }
-    
-    NSString *msg = [NSString stringWithFormat:@" 1111payloadId=%@,2222taskId=%@,3333messageId:%@,4444payloadMsg:%@%@", payloadId, taskId, aMsgId, payloadMsg, offLine ? @"<离线消息>" : @""];
-    
-    NSLog(@"透传消息回调:%@\n\n", msg);
-    
-    if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive) {
+        //接收到的《描述内容》
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:payload options:NSJSONReadingMutableContainers error:nil];
         
-        //app在前台
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"通知" message:payloadMsg delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"立刻查看", nil];
-        [alert show];
+        _dict = dic;
         
-    }else{//app在后台
+        HCMLog(@"--_dict---%@",_dict);
 
-        //这里收的是    *消息内容
-        DealViewController *pushVC = [[DealViewController alloc]initWithNibName:@"DealViewController" bundle:nil];
-        pushVC.goods_id = @"188";
-        // 获取导航控制器
-        UITabBarController *tabVC = (UITabBarController *)self.window.rootViewController;
-        UINavigationController *pushClassStance = (UINavigationController *)tabVC.viewControllers[tabVC.selectedIndex];
-        // 跳转到对应的控制器
-        [pushClassStance pushViewController:pushVC animated:YES];
+        
+        if ([_markPush isEqualToString:@"1"]){
+            _markPush = @"0";
+            return;
+        }
+
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:_dict[@"title"] message:_dict[@"content"] delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"立刻查看", nil];
+        [alert show];
+
+
     }
+
+    
+//    NSString *payloadMsg = nil;
+//    if (payload) {
+//        payloadMsg = [[NSString alloc] initWithBytes:payload.bytes length:payload.length encoding:NSUTF8StringEncoding];
+//    }
+//    
+//    NSString *msg = [NSString stringWithFormat:@" 1111payloadId=%@,2222taskId=%@,3333messageId:%@,4444payloadMsg:%@%@", payloadId, taskId, aMsgId, payloadMsg, offLine ? @"<离线消息>" : @""];
+//    NSLog(@"透传消息回调:%@\n\n", msg);
+//
+//
+    
+
 
     /**
      *汇报个推自定义事件
@@ -340,7 +376,14 @@
     
 }
 
-
+- (void)clickBack
+{
+    // 获取导航控制器
+    UITabBarController *tabVC = (UITabBarController *)self.window.rootViewController;
+    UINavigationController *pushClassStance = (UINavigationController *)tabVC.viewControllers[tabVC.selectedIndex];
+    
+    [pushClassStance popViewControllerAnimated:YES];
+}
 /** SDK收到sendMessage消息回调 */
 - (void)GeTuiSdkDidSendMessage:(NSString *)messageId result:(int)result
 {
@@ -369,24 +412,64 @@
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     
      if ([title isEqualToString:@"立刻查看"])
      {
-         
-         //这里收的是    *消息内容
-         DealViewController *pushVC = [[DealViewController alloc]initWithNibName:@"DealViewController" bundle:nil];
-         
-         pushVC.goods_id = @"188";
-         
-         // 获取导航控制器
-         UITabBarController *tabVC = (UITabBarController *)self.window.rootViewController;
-         UINavigationController *pushClassStance = (UINavigationController *)tabVC.viewControllers[tabVC.selectedIndex];
-         
-         // 跳转到对应的控制器
-         [pushClassStance pushViewController:pushVC animated:YES];
-
+         [self test];
      }
+}
+
+-(void)test{
+    
+    // 获取导航控制器
+    UITabBarController *tabVC = (UITabBarController *)self.window.rootViewController;
+    
+    UINavigationController *pushClassStance = (UINavigationController *)tabVC.viewControllers[tabVC.selectedIndex];
+
+    NSString *contenttype = _dict[@"contenttype"];
+    if ([contenttype isEqualToString:@"1"]) {
+        
+        //这里收的是    *消息内容
+        DealViewController *pushVC = [[DealViewController alloc]initWithNibName:@"DealViewController" bundle:nil];
+        pushVC.goods_id = _dict[@"actionId"];
+        
+        // 跳转到对应的控制器
+        [pushClassStance pushViewController:pushVC animated:YES];
+        
+    }else if ([contenttype isEqualToString:@"2"]){
+
+        HCMSubCollectionViewController *subCOllVC = [[HCMSubCollectionViewController alloc]initWithNibName:@"HCMSubCollectionViewController" bundle:nil];
+        subCOllVC.urlStr = _dict[@"actionId"];
+        // 跳转到对应的控制器
+        [pushClassStance pushViewController:subCOllVC animated:YES];
+        
+    }else if ([contenttype isEqualToString:@"3"]){
+        
+        [SVProgressHUD showWithStatus:@"加载中"];
+        
+        tabVC.tabBar.hidden = YES;
+        pushClassStance.navigationBarHidden = NO;
+        
+        UIViewController *vc = [[UIViewController alloc]init];
+        
+        UIWebView *webView = [[UIWebView alloc]initWithFrame:CGRectMake(0,0, HCMScreenWidth,HCMScreenHeight)];
+        
+        //    NSString *url = @"http://www.haocaimao.com/culture.html";
+        
+        [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_dict[@"actionId"]]]];
+        
+        vc.title = @"企业简介";
+        vc.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickBack) image:@"nav-back" highImage:@"nav-back"];
+        
+        [vc.view addSubview:webView];
+        
+        [pushClassStance pushViewController:vc animated:YES];
+        
+        [SVProgressHUD dismiss];
+    }
+
 }
 
 @end

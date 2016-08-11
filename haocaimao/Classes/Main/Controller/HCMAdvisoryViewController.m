@@ -208,15 +208,15 @@
     }
     
     if (self.titleField.text.length<1) {
-        [SVProgressHUD showInfoWithStatus:@"尚未填写咨询的标题"];
+        [SVProgressHUD showInfoWithStatus:@"请填写手机号码"];
         return;
     }
     if (self.contentTextView.text.length<1) {
-        [SVProgressHUD showInfoWithStatus:@"尚未填写咨询内容"];
+        [SVProgressHUD showInfoWithStatus:@"请填写内容"];
         return;
     }
     if (self.PhotosImageView.image == nil) {
-        [SVProgressHUD showInfoWithStatus:@"尚未添加图片"];
+        [SVProgressHUD showInfoWithStatus:@"请添加图片"];
         return;
     }
     
