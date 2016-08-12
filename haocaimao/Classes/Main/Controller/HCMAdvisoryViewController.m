@@ -26,6 +26,16 @@
 @property (strong, nonatomic) IBOutlet UIView *successView;
 @property (weak, nonatomic) IBOutlet UIButton *chackMoreBtn;
 
+/** webView */
+@property(nonatomic,strong)UIWebView * webView;
+/** bgView */
+@property(nonatomic,weak)UIView * bgView;
+/** btnClose */
+@property(nonatomic,weak)UIButton * btnClose;
+/** bgBtn */
+@property(nonatomic,weak)UIButton * bgBtn;
+
+
 @property(assign,nonatomic) BOOL status;
 @end
 
@@ -83,14 +93,14 @@
 -(void)setUpPhotosImageViewAndButton{
     
     _PhotosImageView = [[UIImageView alloc]init];
-    _PhotosImageView.frame = CGRectMake((HCMScreenWidth-130)/2, 339, 130, 130);
+    _PhotosImageView.frame = CGRectMake((HCMScreenWidth-100)/2, 350, 100, 100);
     
     _PhotosImageViewOut = [[UIImageView alloc]init];
-    _PhotosImageViewOut.frame = CGRectMake((HCMScreenWidth-170)/2, 320, 170, 170);
+    _PhotosImageViewOut.frame = CGRectMake((HCMScreenWidth-140)/2, 331, 140, 140);
     [_PhotosImageViewOut setImage:[UIImage imageNamed:@"图片显示框"]];
     
     _updateImageBtn = [[UIButton alloc]init];
-    _updateImageBtn.frame = CGRectMake((HCMScreenWidth-30)/2 + 70, 320, 30, 30);
+    _updateImageBtn.frame = CGRectMake((HCMScreenWidth-30)/2 + 60, 328, 30, 30);
     [_updateImageBtn addTarget:self action:@selector(deleteImage) forControlEvents:UIControlEventTouchUpInside];
     [_updateImageBtn setImage:[UIImage imageNamed:@"按钮"] forState:UIControlStateNormal];
     
@@ -109,6 +119,56 @@
     
 }
 
+//规则按钮
+- (IBAction)clickTheRegulationButton:(UIButton *)sender {
+    
+    [SVProgressHUD show];
+    
+    [self loadWebViewWithHtmlStr:@"http://www.haocaimao.com/mobile/index.php?m=default&c=article&a=info&aid=12"];
+    
+}
+-(void)loadWebViewWithHtmlStr:(NSString *)htmlStr
+{
+    UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(8, 66, HCMScreenWidth - 16, HCMScreenHeight - 106)];
+    bgView.backgroundColor = [UIColor lightGrayColor];
+    self.bgView = bgView;
+    [self.view addSubview:bgView];
+    
+    UIButton *bgBtn = [[UIButton alloc]init];
+    bgBtn.frame = CGRectMake(0, 0, HCMScreenWidth, HCMScreenHeight);
+    [bgBtn addTarget:self action:@selector(touchUpWebViewHidden:) forControlEvents:UIControlEventTouchUpInside];
+    [bgBtn setBackgroundColor:HCMColor(222, 222, 222, 0.8)];
+    self.bgBtn = bgBtn;
+    [self.view addSubview:bgBtn];
+    
+    UIWebView *webVeiw = [[UIWebView alloc]initWithFrame:CGRectMake(10, 68, HCMScreenWidth - 20, HCMScreenHeight-110)];
+    webVeiw.backgroundColor = [UIColor lightGrayColor];
+//    webVeiw.scalesPageToFit = YES;  //是否支持放大缩小
+    [webVeiw loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:htmlStr]]];
+    self.webView = webVeiw;
+    [self.view addSubview:webVeiw];
+    
+    UIButton *btnClose = [[UIButton alloc]init];
+    btnClose.frame = CGRectMake(HCMScreenWidth - 32, 58, 32, 32);
+    [btnClose addTarget:self action:@selector(touchUpWebViewHidden:) forControlEvents:UIControlEventTouchUpInside];
+    [btnClose setBackgroundImage:[UIImage imageNamed:@"delete"] forState:UIControlStateNormal];
+    self.btnClose = btnClose;
+    [self.view addSubview:btnClose];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [SVProgressHUD dismiss];
+    });
+    
+}
+
+-(void)touchUpWebViewHidden:(UIButton*)btn{
+    
+    [self.webView removeFromSuperview];
+    [self.bgView removeFromSuperview];
+    [self.bgBtn removeFromSuperview];
+    [self.btnClose removeFromSuperview];
+
+}
 /**
  * 调用ActionSheet
  */

@@ -149,10 +149,13 @@
                      };
         
         [[AddressNerworking sharedManager] postMessageURL:postDict successBlock:^(id responseBody) {
-            HCMLog(@"responseBodyresponseBody%@",responseBody);
-            HCMLog(@"responseBodyresponseBody%@",responseBody[@"data"][0][@"message"]);
+
+            NSString *message = responseBody[@"data"][0][@"message"];
+            NSString *title = responseBody[@"data"][0][@"title"];
+            NSString *sentTime = responseBody[@"data"][0][@"sentTime"];
             
-            [self loadWebViewWithHtmlStr:responseBody[@"data"][0][@"message"] title:responseBody[@"data"][0][@"title"] time:responseBody[@"data"][0][@"sentTime"]];
+            [self loadWebViewWithHtmlStr:message title:title time:sentTime];
+            
             [SVProgressHUD dismiss];
             
         } failureBlock:^(NSString *error) {

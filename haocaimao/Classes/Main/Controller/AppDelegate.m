@@ -301,7 +301,7 @@
     completionHandler(UIBackgroundFetchResultNewData);
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self test];
+        [self pushMessageToController];
     });
     _markPush = @"1";
     
@@ -417,11 +417,11 @@
     
      if ([title isEqualToString:@"立刻查看"])
      {
-         [self test];
+         [self pushMessageToController];
      }
 }
 
--(void)test{
+-(void)pushMessageToController{
     
     // 获取导航控制器
     UITabBarController *tabVC = (UITabBarController *)self.window.rootViewController;

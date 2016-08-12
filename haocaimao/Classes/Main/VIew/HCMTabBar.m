@@ -16,15 +16,14 @@
 @property(nonatomic,weak)UIButton * consultingBtn;
 
 @property (strong, nonatomic)NSUserDefaults *defaults;
-@property (assign, nonatomic)BOOL status;
 
+@property (assign, nonatomic)BOOL status;
 
 @property(nonatomic,weak)UIView * backView;
 
 @end
 
 @implementation HCMTabBar
-
 
 -(NSUserDefaults *)defaults{
     if (!_defaults) {
@@ -34,6 +33,7 @@
 }
 
 -(instancetype)initWithFrame:(CGRect)frame{
+    
     if (self = [super initWithFrame:frame]) {
         
         //去除tabbar顶部线条 (此线会档住"我要咨询"按钮)
@@ -49,9 +49,14 @@
         
         //添加咨询按钮consultingBtn
         UIButton * consultingBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [consultingBtn setBackgroundImage:[UIImage imageNamed:@"我要询价"] forState:UIControlStateNormal];
-        [consultingBtn setBackgroundImage:[UIImage imageNamed:@"我要询价"] forState:UIControlStateHighlighted];
+//        [consultingBtn setBackgroundImage:[UIImage imageNamed:@"我要询价"] forState:UIControlStateNormal];
+//        [consultingBtn setBackgroundImage:[UIImage imageNamed:@"我要询价"] forState:UIControlStateHighlighted];
+        
+        [consultingBtn sd_setImageWithURL:[NSURL URLWithString:@"http://www.haocaimao.com/ios/33.png"] forState:UIControlStateNormal];
+        [consultingBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:@"http://www.haocaimao.com/ios/33.png"] forState:UIControlStateHighlighted];
+        
         [consultingBtn addTarget:self action:@selector(goToconsulting) forControlEvents:UIControlEventTouchUpInside];
+
 //        consultingBtn.size = consultingBtn.currentBackgroundImage.size;
         consultingBtn.size = CGSizeMake(50, 47);
        
@@ -98,7 +103,6 @@
         // 增加索引
         index++;
     }
-    
 }
 
 //我要咨询
