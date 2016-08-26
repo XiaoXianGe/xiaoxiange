@@ -61,6 +61,10 @@ static NSString *const PartnerIndexURL = @"http://www.haocaimao.com/ecmobile/?ur
  */
 static NSString *const PartnerQRCodeCreateURL = @"http://www.haocaimao.com/ecmobile/?url=common/QRCodeCreate";
 
+/**
+ * 我要询价-不带图片post
+ */
+static NSString *const inquirePriceURL = @"http://www.haocaimao.com/ecmobile/?url=user/inquirePrice";
 
 
 
@@ -326,5 +330,29 @@ static NSString *const PartnerQRCodeCreateURL = @"http://www.haocaimao.com/ecmob
     }];
     
 }
+
+/**
+ *  我要询价-不带图片post
+ */
+-(void)postinquriePriceURL:(NSDictionary *)userInfo successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+    
+    AFHTTPRequestOperationManager *manager = [self baseHtppRequest];
+    
+    NSString *urlStr = [inquirePriceURL stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    [manager POST:urlStr parameters:userInfo success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        successBlock(responseObject);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        failureBlock(errorStr);
+        
+    }];
+}
+
+
+
 
 @end

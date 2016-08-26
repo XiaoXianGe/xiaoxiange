@@ -22,7 +22,7 @@
                             <constraint firstAttribute="height" constant="46" id="vVN-K1-yZW"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥699.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0P-Ld-mfm">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥699.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="M0P-Ld-mfm">
                         <rect key="frame" x="257" y="17" width="59" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="59" id="Jzl-0J-prO"/>
@@ -32,7 +32,7 @@
                         <color key="textColor" red="0.17146875" green="0.17146875" blue="0.17146875" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynk-xQ-zV7">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="ynk-xQ-zV7">
                         <rect key="frame" x="69" y="39" width="42" height="13"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="42" id="Hyk-yt-YYU"/>
@@ -49,7 +49,7 @@
                             <constraint firstAttribute="height" constant="1" id="woN-7K-Ksg"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="看来撒竟陵街道食饭啦就死定了开发建设李开复静安寺开朗大方" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Z5-RK-uXT">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="看来撒竟陵街道食饭啦就死定了开发建设李开复静安寺开朗大方" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="2Z5-RK-uXT">
                         <rect key="frame" x="66" y="7" width="189" height="32"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="32" id="ANq-c2-voP"/>

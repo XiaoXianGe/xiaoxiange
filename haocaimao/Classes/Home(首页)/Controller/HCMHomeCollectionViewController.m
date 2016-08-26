@@ -6,27 +6,27 @@
 //  Copyright © 2015年 haocaimao. All rights reserved.
 //
 
-#import "HCMHomeCollectionViewController.h"
 #import "HCMHomeTopViewController.h"
+#import "HCMHomeCollectionViewController.h"
 
-#import "HCMSort_ViewController.h"
 #import "HomeNetwork.h"
-#import "HomeCategoryCellModel.h"
 #import "DealViewController.h"
+#import "HomeCategoryCellModel.h"
+#import "HCMSort_ViewController.h"
 
 #import "CollectionViewCell.h"
-#import "HCMSubCollectionViewController.h"
 #import "HCMChooseViewController.h"
+#import "HCMSubCollectionViewController.h"
 
 #import "MJRefresh.h"
 #import "ViewController.h"
 #import "PartnerViewController.h"
 #import "HCMVipLoginViewController.h"
 
-#import "HCMPartnerInfoModel.h"
 #import "MJExtension.h"
-#import "HCMPartnerCenterViewController.h"
 #import "UIButton+WebCache.h"
+#import "HCMPartnerInfoModel.h"
+#import "HCMPartnerCenterViewController.h"
 
 #import "AddressNerworking.h"
 #import "HCMMesageViewController.h"
@@ -36,6 +36,7 @@
 @property (strong, nonatomic)HCMHomeTopViewController *homeTop;
 @property (strong, nonatomic)NSMutableArray *receiveArray;
 @property (strong, nonatomic)HWSearchBar *searchBar;
+
 @property (strong, nonatomic)UICollectionReusableView *headerView;
 @property (weak , nonatomic)UIButton *TouchButton;
 
@@ -264,14 +265,12 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 -(void)clickLogo{
-    
-   [self.collectionView setContentOffset:CGPointMake(0, 0) animated:YES];
-//    ViewController *vc = [[ViewController alloc]init];
-//    vc.goods_id = @"318";
-//    [self.navigationController pushViewController:vc animated:YES];
-//    [SVProgressHUD show];
-    
-    
+
+//   [self.collectionView setContentOffset:CGPointMake(0, 0) animated:YES];
+    ViewController *vc = [[ViewController alloc]init];
+    vc.goods_id = @"318";
+    [self.navigationController pushViewController:vc animated:YES];
+    [SVProgressHUD show];
 
 }
 

@@ -8,7 +8,7 @@
 
 #import "HCMAdvisoryViewController.h"
 #import "AFNetworking.h"
-
+#import "HomeNetwork.h"
 
 @interface HCMAdvisoryViewController ()<UIImagePickerControllerDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UITextViewDelegate>
 @property (strong, nonatomic) UIActionSheet *actionSheet;
@@ -58,7 +58,6 @@
     
     [self setUpPhotosImageViewAndButton];
     
-    
 }
 
 - (IBAction)checkMoreGoods {
@@ -84,7 +83,6 @@
     if (text.length > 0) {
         self.hcmLable.hidden = YES;
     }
-    
     return YES;
 }
 
@@ -242,7 +240,6 @@
     
     self.PhotosImageView.image = image;
     
-    
     [self.view addSubview:self.PhotosImageViewOut];
     [self.view addSubview:self.PhotosImageView];
     [self.view addSubview:self.updateImageBtn];
@@ -259,9 +256,7 @@
 
 /** 提交 */
 - (IBAction)Networking {
-    
-    HCMLogFunc;
-    
+
     if (!self.status) {
         [SVProgressHUD showInfoWithStatus:@"请先登录"];
         return;
@@ -275,13 +270,11 @@
         [SVProgressHUD showInfoWithStatus:@"请填写内容"];
         return;
     }
-    if (self.PhotosImageView.image == nil) {
-        [SVProgressHUD showInfoWithStatus:@"请添加图片"];
-        return;
-    }
-    
-    
-    
+//    if (self.PhotosImageView.image == nil) {
+//        [SVProgressHUD showInfoWithStatus:@"请添加图片"];
+//        return;
+//    }
+
     // 创建警告框实例
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"是否立刻提交？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定",nil];
     //设置alertview的样式
@@ -298,16 +291,48 @@
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     
     if ([title isEqualToString:@"取消"]) {
-        
-        
-        
+
     } else{
         
         [SVProgressHUD showWithStatus:@"上传中"];
-        [self sendWithImage];
+         if (self.PhotosImageView.image != nil) {
+             
+             [self sendWithImage];
+         }else{
+             [self sendWithoutImage];
+         }
         
     }
 }
+
+/**
+ * 发布不带图片的
+ */
+-(void)sendWithoutImage
+{
+    NSString *sid = [self.defaults objectForKey:@"sid"];
+    NSString *uid = [self.defaults objectForKey:@"uid"];
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    params[@"session"] = @{@"uid":uid,@"sid":sid};
+    params[@"title"] = self.titleField.text;
+    params[@"content"] = self.contentTextView.text;
+    
+    [[HomeNetwork sharedManager]postinquriePriceURL:params successBlock:^(id responseBody) {
+        
+        HCMLog(@"-=-=-=-=-=  %@",responseBody);
+        [SVProgressHUD dismiss];
+        
+    } failureBlock:^(NSString *error) {
+        
+        [SVProgressHUD showInfoWithStatus:@"网络不通"];
+        
+    }];
+    
+}
+
+
 
 /**
  * 发布带有图片的
@@ -320,10 +345,9 @@
      title
      content
      licence
-     
      接口：user/enterpriseApply。
      */
-    /**	*/
+
     /**	pic 图。*/
     
     NSString *sid = [self.defaults objectForKey:@"sid"];
@@ -371,7 +395,6 @@
         [SVProgressHUD showInfoWithStatus:@"网络不畅通"];
 
     }];
-    
     
 }
 

@@ -401,6 +401,7 @@ static NSString * const HCMDealNumberCellID = @"Number";
     if (_webView == nil)
     {
         _webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, HCMScreenHeight, HCMScreenWidth, HCMScreenHeight- 44)];
+        _webView.scalesPageToFit = YES;
     }
     return _webView;
 }

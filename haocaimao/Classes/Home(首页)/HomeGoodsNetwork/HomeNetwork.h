@@ -78,5 +78,11 @@ typedef void(^FailureBlock)(NSString *error);
  *  合伙人当面扫
  */
 -(void)postPartnerQRCodeCreateURL:(NSDictionary *)userInfo successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
+/**
+ *  我要询价-不带图片post
+ */
+-(void)postinquriePriceURL:(NSDictionary *)userInfo successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
+
+
 
 @end

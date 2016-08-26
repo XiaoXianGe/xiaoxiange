@@ -223,6 +223,7 @@
     }
 }
 
+
 /** 自定义：APP被“推送”启动时处理推送消息处理（APP 未启动-->启动）*/
 - (void)receiveNotificationByLaunchingOptions:(NSDictionary *)launchOptions
 {
@@ -262,6 +263,7 @@
 /** 远程通知注册成功委托 */
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
+    NSLog(@"deviceToken:%@",deviceToken.description);
     
     NSString *myToken = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     myToken = [myToken stringByReplacingOccurrencesOfString:@" " withString:@""];
