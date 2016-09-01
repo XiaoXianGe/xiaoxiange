@@ -67,6 +67,11 @@
 @property(nonatomic)CGFloat totalPriceMark;
 @property(nonatomic,strong)NSString * integralMark;
 
+@property (strong, nonatomic) IBOutlet UIView *totalPriceFooterView;
+
+/** window */
+@property(nonatomic,strong)UIWindow * window;
+
 
 @end
 
@@ -99,7 +104,9 @@ static NSString * const reuseIdentifier = @"MyCell";
     
     _integralMark = @"";
     
-    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, -44, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, -20, 0);
+    
+    
 }
 
 - (void)clickBack{
@@ -121,7 +128,21 @@ static NSString * const reuseIdentifier = @"MyCell";
     
     //接收支付失败的通知
     [HCMNSNotificationCenter addObserver:self selector:@selector(clickBack) name:@"WX_PayFailure" object:nil];
+    
+   
 
+}
+
+-(void)loadtotalPricedFooterView
+{
+    UIWindow *window = [[UIApplication sharedApplication]keyWindow];
+    
+    self.window = window;
+    
+    self.totalPriceFooterView.frame = CGRectMake(0, HCMScreenHeight - 45, HCMScreenWidth, 45);
+    
+    [window addSubview:self.totalPriceFooterView];
+    
     
     
 }
@@ -197,8 +218,6 @@ static NSString * const reuseIdentifier = @"MyCell";
     
     [[CartNetwork sharedManager]postFlowCheckOrder:dict successBlock:^(id responseBody) {
         
-        HCMLog(@"结算%@",responseBody);
-        
         if (responseBody[@"status"][@"error_code"]) {
             
             [SVProgressHUD showInfoWithStatus:responseBody[@"status"][@"error_desc"]];
@@ -229,9 +248,9 @@ static NSString * const reuseIdentifier = @"MyCell";
         //判断是否能实用积分
         if ([responseBody[@"data"][@"order_max_integral"] integerValue]>0)[self maodou:responseBody];
         
-        HCMLog(@"%@",responseBody[@"data"][@"allow_use_integral"]);
-        
         [self.tableView reloadData];
+        
+        [self loadtotalPricedFooterView];
         
     } failureBlock:^(NSString *error) {
         
@@ -469,10 +488,24 @@ static NSString * const reuseIdentifier = @"MyCell";
     
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    
+}
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self.totalPriceFooterView removeFromSuperview];
+
+}
 
 -(void)dealloc{
     [HCMNSNotificationCenter removeObserver:self];
+    
 }
 
 @end

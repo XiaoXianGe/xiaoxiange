@@ -83,7 +83,7 @@ static NSString *ID = @"Cell";
     self.title = @"购物车";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ID];
     
-    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 35, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 45, 0);
     
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"index-body-bg"]];
     
@@ -118,8 +118,8 @@ static NSString *ID = @"Cell";
 
     self.window = window;
     
-    self.footerView.frame = CGRectMake(0, HCMScreenHeight - 84, HCMScreenWidth, 35);
-    self.deleteFootView.frame = CGRectMake(0, HCMScreenHeight - 84, HCMScreenWidth, 35);
+    self.footerView.frame = CGRectMake(0, HCMScreenHeight - 94, HCMScreenWidth, 45);
+    self.deleteFootView.frame = CGRectMake(0, HCMScreenHeight - 94, HCMScreenWidth, 45);
     
     [window addSubview:self.deleteFootView];
     self.deleteFootView.hidden = YES;
@@ -193,7 +193,7 @@ static NSString *ID = @"Cell";
         if (popBtn.selected) {
             
             [UIView animateWithDuration:0.5 animations:^{
-                self.popView.frame = CGRectMake(0,  self.scrollViewPoint.y +HCMScreenHeight - 90 -35, HCMScreenWidth, 230);
+                self.popView.frame = CGRectMake(0,  self.scrollViewPoint.y +HCMScreenHeight - 90 - 45, HCMScreenWidth, 230);
                 self.popView.fool.alpha = 0;
             }];
             
@@ -243,6 +243,12 @@ static NSString *ID = @"Cell";
     
     [super viewWillAppear:animated];
 
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
     self.tabBarController.tabBar.hidden = NO;
     
     if (![self.defaults boolForKey:@"status"]){
@@ -252,21 +258,19 @@ static NSString *ID = @"Cell";
         
         [self.tableView reloadData];
         [self.tableView.header endRefreshing];
-        
-//        [self network];
+
         [self setUPcontroller];
-        //[SVProgressHUD showInfoWithStatus:@"请先登录"];
-        
+
         return;
     }
     
     self.tableView.header  = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-    [self setUPcontroller];
-    [self network];
+        [self setUPcontroller];
+        [self network];
         
     }];
     [self.tableView.header beginRefreshing];
-     
+    
 }
 
 -(void)setUPcontroller{

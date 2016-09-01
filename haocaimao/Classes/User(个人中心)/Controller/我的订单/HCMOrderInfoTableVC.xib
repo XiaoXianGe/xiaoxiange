@@ -46,7 +46,7 @@
                 <outlet property="dataSource" destination="-1" id="Tng-2m-Rnh"/>
                 <outlet property="delegate" destination="-1" id="9aC-8N-iBw"/>
             </connections>
-            <point key="canvasLocation" x="-18" y="316"/>
+            <point key="canvasLocation" x="97" y="313"/>
         </tableView>
         <view contentMode="scaleToFill" id="6mk-ki-SzK" userLabel="头部视图">
             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -302,7 +302,7 @@
                     <include reference="YcX-q7-atx"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="313" y="83"/>
+            <point key="canvasLocation" x="492" y="83"/>
         </view>
         <view contentMode="scaleToFill" id="1zm-Ok-N7d" userLabel="尾部视图">
             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>

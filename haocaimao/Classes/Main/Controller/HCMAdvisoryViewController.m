@@ -13,9 +13,9 @@
 @interface HCMAdvisoryViewController ()<UIImagePickerControllerDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UITextViewDelegate>
 @property (strong, nonatomic) UIActionSheet *actionSheet;
 
-@property(strong,nonatomic)UIImageView *PhotosImageView;
-@property(strong,nonatomic)UIImageView *PhotosImageViewOut;
-@property(strong,nonatomic) UIButton *updateImageBtn;
+//@property(strong,nonatomic)UIImageView *PhotosImageView;
+//@property(strong,nonatomic)UIImageView *PhotosImageViewOut;
+//@property(strong,nonatomic) UIButton *updateImageBtn;
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
 
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
@@ -25,6 +25,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *hcmLable;
 @property (strong, nonatomic) IBOutlet UIView *successView;
 @property (weak, nonatomic) IBOutlet UIButton *chackMoreBtn;
+
+@property (weak, nonatomic) IBOutlet UIImageView *PhotosImageView;
+
 
 /** webView */
 @property(nonatomic,strong)UIWebView * webView;
@@ -56,7 +59,7 @@
     
      self.status = [self.defaults boolForKey:@"status"];
     
-    [self setUpPhotosImageViewAndButton];
+//    [self setUpPhotosImageViewAndButton];
     
 }
 
@@ -66,9 +69,10 @@
     self.titleField.text = nil;
     self.contentTextView.text = nil;
     
-    [self.PhotosImageViewOut removeFromSuperview];
-    [self.PhotosImageView removeFromSuperview];
-    [self.updateImageBtn removeFromSuperview];
+    self.PhotosImageView.image = nil;
+//    [self.PhotosImageViewOut removeFromSuperview];
+//    [self.PhotosImageView removeFromSuperview];
+//    [self.updateImageBtn removeFromSuperview];
     
 }
 
@@ -90,25 +94,29 @@
 //提前创建图片区
 -(void)setUpPhotosImageViewAndButton{
     
-    _PhotosImageView = [[UIImageView alloc]init];
-    _PhotosImageView.frame = CGRectMake((HCMScreenWidth-100)/2, 350, 100, 100);
+//    _PhotosImageView = [[UIImageView alloc]init];
+//    _PhotosImageView.frame = CGRectMake((HCMScreenWidth-100)/2, 350, 100, 100);
+//    
+//    _PhotosImageViewOut = [[UIImageView alloc]init];
+//    _PhotosImageViewOut.frame = CGRectMake((HCMScreenWidth-140)/2, 331, 140, 140);
+//    [_PhotosImageViewOut setImage:[UIImage imageNamed:@"图片显示框"]];
+//    
+//    _updateImageBtn = [[UIButton alloc]init];
+//    _updateImageBtn.frame = CGRectMake((HCMScreenWidth-30)/2 + 60, 328, 30, 30);
+//    [_updateImageBtn addTarget:self action:@selector(deleteImage) forControlEvents:UIControlEventTouchUpInside];
+//    [_updateImageBtn setImage:[UIImage imageNamed:@"按钮"] forState:UIControlStateNormal];
     
-    _PhotosImageViewOut = [[UIImageView alloc]init];
-    _PhotosImageViewOut.frame = CGRectMake((HCMScreenWidth-140)/2, 331, 140, 140);
-    [_PhotosImageViewOut setImage:[UIImage imageNamed:@"图片显示框"]];
+}
+- (IBAction)deleteImage {
     
-    _updateImageBtn = [[UIButton alloc]init];
-    _updateImageBtn.frame = CGRectMake((HCMScreenWidth-30)/2 + 60, 328, 30, 30);
-    [_updateImageBtn addTarget:self action:@selector(deleteImage) forControlEvents:UIControlEventTouchUpInside];
-    [_updateImageBtn setImage:[UIImage imageNamed:@"按钮"] forState:UIControlStateNormal];
-    
+    self.PhotosImageView.image = nil;
 }
 
--(void)deleteImage{
-    [self.PhotosImageViewOut removeFromSuperview];
-    [self.PhotosImageView removeFromSuperview];
-    [self.updateImageBtn removeFromSuperview];
-}
+//-(void)deleteImage{
+//    [self.PhotosImageViewOut removeFromSuperview];
+//    [self.PhotosImageView removeFromSuperview];
+//    [self.updateImageBtn removeFromSuperview];
+//}
 
 - (IBAction)addPhoto {
     
@@ -240,9 +248,9 @@
     
     self.PhotosImageView.image = image;
     
-    [self.view addSubview:self.PhotosImageViewOut];
-    [self.view addSubview:self.PhotosImageView];
-    [self.view addSubview:self.updateImageBtn];
+//    [self.view addSubview:self.PhotosImageViewOut];
+//    [self.view addSubview:self.PhotosImageView];
+//    [self.view addSubview:self.updateImageBtn];
     
 }
 
@@ -320,14 +328,24 @@
     params[@"content"] = self.contentTextView.text;
     
     [[HomeNetwork sharedManager]postinquriePriceURL:params successBlock:^(id responseBody) {
-        
-        HCMLog(@"-=-=-=-=-=  %@",responseBody);
+
         [SVProgressHUD dismiss];
-        
+        if ([responseBody[@"status"][@"error_desc"] isEqualToString:@"恭喜，操作成功"]) {
+            
+            [SVProgressHUD showSuccessWithStatus:responseBody[@"status"][@"error_desc"]];
+            
+            [self setupSuccessView];
+            
+        }else{
+            
+            [SVProgressHUD showInfoWithStatus:responseBody[@"status"][@"error_desc"]];
+            
+        }
     } failureBlock:^(NSString *error) {
         
         [SVProgressHUD showInfoWithStatus:@"网络不通"];
-        
+      
+
     }];
     
 }
