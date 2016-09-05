@@ -8,7 +8,15 @@
 
 #import "HCMUserLocationTableViewControllerTableViewCell.h"
 
+@interface HCMUserLocationTableViewControllerTableViewCell ()
+
+
+
+@end
+
 @implementation HCMUserLocationTableViewControllerTableViewCell
+
+
 
 - (void)awakeFromNib {
     // Initialization code
@@ -21,5 +29,14 @@
 
     // Configure the view for the selected state
 }
+- (IBAction)changeAddaress:(UIButton *)btn {
+    
+    self.popVC(btn.tag);
+    
+    
+    
+}
+
+
 
 @end

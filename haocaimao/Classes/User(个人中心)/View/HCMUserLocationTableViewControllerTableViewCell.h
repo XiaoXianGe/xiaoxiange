@@ -29,5 +29,13 @@
  *  被选中状态标图
  */
 @property (weak, nonatomic) IBOutlet UIImageView *click;
+/**
+ *  编辑的btn
+ */
+@property (weak, nonatomic) IBOutlet UIButton *changeAddaressBtn;
+
+
+@property (nonatomic, copy)void (^popVC)(NSInteger tag);
+
 
 @end

@@ -38,6 +38,11 @@
  *  是否为默认地址
  */
 @property (strong, nonatomic)NSNumber *default_address;
+/**
+ *  记录点击哪一个cell
+ */
+@property(nonatomic,assign) NSInteger cellIndex;
+
 
 + (id)parseAddressData:(NSDictionary *)dict;
 

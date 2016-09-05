@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -34,7 +34,7 @@
                 <outlet property="dataSource" destination="-1" id="Tng-2m-Rnh"/>
                 <outlet property="delegate" destination="-1" id="9aC-8N-iBw"/>
             </connections>
-            <point key="canvasLocation" x="-6" y="255"/>
+            <point key="canvasLocation" x="-2" y="312"/>
         </tableView>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6OB-xC-jI7" userLabel="收货姓名">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -46,7 +46,7 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell-bg-header-small" translatesAutoresizingMaskIntoConstraints="NO" id="F5O-N4-7iX">
                         <rect key="frame" x="8" y="0.0" width="304" height="43"/>
                     </imageView>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="收货姓名（必填）" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NNS-O8-sZI">
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="收货姓名（必填）" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NNS-O8-sZI">
                         <rect key="frame" x="15" y="10" width="280" height="27"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
@@ -57,9 +57,13 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="F5O-N4-7iX" firstAttribute="top" secondItem="HCv-yx-YeT" secondAttribute="top" id="9ks-BH-CYu"/>
+                    <constraint firstItem="NNS-O8-sZI" firstAttribute="top" secondItem="HCv-yx-YeT" secondAttribute="top" constant="10" id="EYB-9s-CnB"/>
+                    <constraint firstItem="NNS-O8-sZI" firstAttribute="leading" secondItem="HCv-yx-YeT" secondAttribute="leading" constant="15" id="I78-Ir-Rgq"/>
                     <constraint firstItem="F5O-N4-7iX" firstAttribute="leading" secondItem="HCv-yx-YeT" secondAttribute="leading" constant="8" id="VIF-nf-QJv"/>
                     <constraint firstAttribute="bottom" secondItem="F5O-N4-7iX" secondAttribute="bottom" id="VrA-9k-xDJ"/>
+                    <constraint firstAttribute="bottom" secondItem="NNS-O8-sZI" secondAttribute="bottom" constant="6" id="fEZ-w5-UdU"/>
                     <constraint firstAttribute="trailing" secondItem="F5O-N4-7iX" secondAttribute="trailing" constant="8" id="obd-VG-vua"/>
+                    <constraint firstAttribute="trailing" secondItem="NNS-O8-sZI" secondAttribute="trailing" constant="25" id="uUw-l5-yrE"/>
                 </constraints>
             </tableViewCellContentView>
             <point key="canvasLocation" x="503" y="45"/>
@@ -74,7 +78,7 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell-bg-content-small" translatesAutoresizingMaskIntoConstraints="NO" id="Rgo-xy-YAQ">
                         <rect key="frame" x="8" y="0.0" width="304" height="43"/>
                     </imageView>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号码（必填）" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="F3q-V6-oMS">
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号码（必填）" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="F3q-V6-oMS">
                         <rect key="frame" x="15" y="8" width="286" height="27"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -84,9 +88,13 @@
                     </textField>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="F3q-V6-oMS" secondAttribute="trailing" constant="19" id="1Oy-NH-eY7"/>
                     <constraint firstAttribute="trailing" secondItem="Rgo-xy-YAQ" secondAttribute="trailing" constant="8" id="Nrc-Qe-32o"/>
+                    <constraint firstItem="F3q-V6-oMS" firstAttribute="leading" secondItem="roG-lO-MuX" secondAttribute="leading" constant="15" id="Ub2-K5-TSp"/>
                     <constraint firstAttribute="bottom" secondItem="Rgo-xy-YAQ" secondAttribute="bottom" id="Y1V-Tg-7R0"/>
                     <constraint firstItem="Rgo-xy-YAQ" firstAttribute="top" secondItem="roG-lO-MuX" secondAttribute="top" id="aSV-lI-DeR"/>
+                    <constraint firstItem="F3q-V6-oMS" firstAttribute="top" secondItem="roG-lO-MuX" secondAttribute="top" constant="8" id="fD5-lY-ysJ"/>
+                    <constraint firstAttribute="bottom" secondItem="F3q-V6-oMS" secondAttribute="bottom" constant="8" id="fz0-Cq-iuZ"/>
                     <constraint firstItem="Rgo-xy-YAQ" firstAttribute="leading" secondItem="roG-lO-MuX" secondAttribute="leading" constant="8" id="jvh-L1-GTd"/>
                 </constraints>
             </tableViewCellContentView>
@@ -102,8 +110,8 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell-bg-content-small" translatesAutoresizingMaskIntoConstraints="NO" id="rcR-rc-3Me">
                         <rect key="frame" x="8" y="0.0" width="304" height="43"/>
                     </imageView>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="邮箱（必填）" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oux-6Z-6Wu">
-                        <rect key="frame" x="15" y="8" width="299" height="27"/>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="邮箱（选填）" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oux-6Z-6Wu">
+                        <rect key="frame" x="15" y="8" width="284" height="27"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                         <connections>
@@ -112,10 +120,14 @@
                     </textField>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Oux-6Z-6Wu" secondAttribute="bottom" constant="8" id="Co9-7C-i3P"/>
+                    <constraint firstItem="Oux-6Z-6Wu" firstAttribute="top" secondItem="eBk-PE-KRu" secondAttribute="top" constant="8" id="TaP-Px-D9v"/>
+                    <constraint firstAttribute="trailing" secondItem="Oux-6Z-6Wu" secondAttribute="trailing" constant="21" id="UWY-Un-zaD"/>
                     <constraint firstItem="rcR-rc-3Me" firstAttribute="leading" secondItem="eBk-PE-KRu" secondAttribute="leading" constant="8" id="dP4-pG-cEK"/>
                     <constraint firstAttribute="trailing" secondItem="rcR-rc-3Me" secondAttribute="trailing" constant="8" id="dy0-BW-BmU"/>
                     <constraint firstAttribute="bottom" secondItem="rcR-rc-3Me" secondAttribute="bottom" id="k1Z-e2-oWC"/>
                     <constraint firstItem="rcR-rc-3Me" firstAttribute="top" secondItem="eBk-PE-KRu" secondAttribute="top" id="ogc-7y-fLy"/>
+                    <constraint firstItem="Oux-6Z-6Wu" firstAttribute="leading" secondItem="eBk-PE-KRu" secondAttribute="leading" constant="15" id="toJ-Pr-rJ9"/>
                 </constraints>
             </tableViewCellContentView>
             <point key="canvasLocation" x="503" y="214"/>
@@ -130,8 +142,8 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell-bg-content-small" translatesAutoresizingMaskIntoConstraints="NO" id="edQ-Wg-A56">
                         <rect key="frame" x="8" y="0.0" width="304" height="43"/>
                     </imageView>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="邮编所在地" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YeX-Id-fpL">
-                        <rect key="frame" x="13" y="8" width="299" height="27"/>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="邮编所在地" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YeX-Id-fpL">
+                        <rect key="frame" x="13" y="8" width="285" height="27"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         <connections>
@@ -142,13 +154,17 @@
                 <constraints>
                     <constraint firstItem="edQ-Wg-A56" firstAttribute="leading" secondItem="t1g-qu-i04" secondAttribute="leading" constant="8" id="11g-9S-g0p"/>
                     <constraint firstAttribute="bottom" secondItem="edQ-Wg-A56" secondAttribute="bottom" id="Hr4-gL-zhb"/>
+                    <constraint firstItem="YeX-Id-fpL" firstAttribute="leading" secondItem="t1g-qu-i04" secondAttribute="leading" constant="13" id="WQl-C5-Cl9"/>
+                    <constraint firstAttribute="trailing" secondItem="YeX-Id-fpL" secondAttribute="trailing" constant="22" id="cp2-OK-fgt"/>
+                    <constraint firstAttribute="bottom" secondItem="YeX-Id-fpL" secondAttribute="bottom" constant="8" id="j4q-2a-0GI"/>
                     <constraint firstAttribute="trailing" secondItem="edQ-Wg-A56" secondAttribute="trailing" constant="8" id="jgq-Te-FLo"/>
+                    <constraint firstItem="YeX-Id-fpL" firstAttribute="top" secondItem="t1g-qu-i04" secondAttribute="top" constant="8" id="kYT-g6-mgp"/>
                     <constraint firstItem="edQ-Wg-A56" firstAttribute="top" secondItem="t1g-qu-i04" secondAttribute="top" id="vbh-vW-TKo"/>
                 </constraints>
             </tableViewCellContentView>
             <point key="canvasLocation" x="503" y="300"/>
         </tableViewCell>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="OKm-XP-5qD" userLabel="所在地区">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="OKm-XP-5qD" userLabel="所在地区">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OKm-XP-5qD" id="kiH-Kq-u3h">
@@ -156,9 +172,9 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell-bg-content-small" translatesAutoresizingMaskIntoConstraints="NO" id="M5v-h5-azN">
-                        <rect key="frame" x="8" y="0.0" width="304" height="23"/>
+                        <rect key="frame" x="8" y="0.0" width="304" height="28"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="23" id="K11-eH-VrB"/>
+                            <constraint firstAttribute="height" constant="28" id="K11-eH-VrB"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="accsessory-arrow-right" translatesAutoresizingMaskIntoConstraints="NO" id="cUp-dp-vOE">
@@ -223,7 +239,7 @@
                         <rect key="frame" x="8" y="0.0" width="304" height="43"/>
                     </imageView>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="详细地址（必填）" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hXa-IH-itJ">
-                        <rect key="frame" x="15" y="7" width="299" height="27"/>
+                        <rect key="frame" x="15" y="7" width="285" height="27"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                         <connections>
@@ -233,7 +249,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="N7J-hy-tud" secondAttribute="bottom" id="0ob-Ti-Gvt"/>
-                    <constraint firstAttribute="trailing" secondItem="hXa-IH-itJ" secondAttribute="trailing" constant="6" id="Ypp-Ua-HqR"/>
+                    <constraint firstAttribute="trailing" secondItem="hXa-IH-itJ" secondAttribute="trailing" constant="20" id="Ypp-Ua-HqR"/>
                     <constraint firstAttribute="trailing" secondItem="N7J-hy-tud" secondAttribute="trailing" constant="8" id="awp-1G-BgO"/>
                     <constraint firstItem="hXa-IH-itJ" firstAttribute="top" secondItem="7Qp-I0-1fG" secondAttribute="top" constant="7" id="dpf-PP-Da3"/>
                     <constraint firstItem="N7J-hy-tud" firstAttribute="leading" secondItem="7Qp-I0-1fG" secondAttribute="leading" constant="8" id="eWD-GE-E6b"/>

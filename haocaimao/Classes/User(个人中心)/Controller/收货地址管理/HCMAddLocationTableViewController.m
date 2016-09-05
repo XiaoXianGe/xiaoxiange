@@ -129,12 +129,12 @@
         return;
     }
 
-    if ( self.emali.text.length < 6  ||  ![self.emali.text hasSuffix:@".com"]  ) {//
-        
-        [SVProgressHUD showInfoWithStatus:@"邮箱格式不正确"];
-        return;
-    }
-    
+//    if ( self.emali.text.length < 6  ||  ![self.emali.text hasSuffix:@".com"]  ) {//
+//        
+//        [SVProgressHUD showInfoWithStatus:@"邮箱格式不正确"];
+//        return;
+//    }
+//    
     if ([self.locationName isEqualToString:@"请选择"]) {
         
         [SVProgressHUD showInfoWithStatus:@"请选择省市区"];
@@ -217,7 +217,7 @@
                                              @"province":provinceID,
                                              @"city":cityLeveID,
                                              @"district":cityID,
-                                             @"tel":self.phone.text,
+                                             @"mobile":self.phone.text,
                                              @"address":self.address.text,
                                              @"zipcode":self.postcode.text,
                                              @"email":self.emali.text,
@@ -298,6 +298,8 @@
 
 // 设置为默认
 - (IBAction)tolerant:(UIButton *)sender {
+    
+    [self addLocation];
     
     NSDictionary *dict = @{@"session":@{@"sid":self.sid,@"uid":self.uid},
                            @"address_id":self.adderssID};

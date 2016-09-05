@@ -93,7 +93,6 @@
 }
 
 #pragma mark -navigationItem right&left
-
 - (void)setnavigationItemLR{
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(edit) image:@"nav-add" highImage:@"nav-add"];
     
@@ -124,6 +123,7 @@
     imageBg.hidden = YES;
     [self.tableView setBackgroundView:imageBg];
 }
+
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -142,6 +142,7 @@
     cell.userName.text = address.consignee;
 #warning 预留了电话的接口
     //cell.name.text = @"预留电话接口...";
+    cell.changeAddaressBtn.tag = [address.ID integerValue];
     
     NSString *str = [NSString stringWithFormat:@"%@ %@ %@",address.province_name,address.city_name,address.district_name];
     
@@ -151,26 +152,65 @@
     
     cell.click.hidden = ![address.default_address intValue];
     
+    cell.popVC = ^(NSInteger tag){
+      
+        NSString *addressID = [NSString stringWithFormat:@"%ld",tag];
+        
+
+            self.HCMAddLocationVC = [[HCMAddLocationTableViewController alloc]initWithNibName:@"HCMAddLocationTableViewController" bundle:nil];
+        
+            self.HCMAddLocationVC.adderssID = addressID;
+        
+            self.HCMAddLocationVC.tableView.tableFooterView.hidden = NO;
+            [self.navigationController pushViewController:self.HCMAddLocationVC animated:YES];
+        
+    };
+    
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 65;
+    return 100;
 }
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section{
-    return 20;
-}
+//
+//- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section{
+//    return 20;
+//}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
     AddressModel *address = self.adderssArrays[indexPath.row];
+    
+    NSString *addressID = address.ID;
+    
+//
+//    self.HCMAddLocationVC = [[HCMAddLocationTableViewController alloc]initWithNibName:@"HCMAddLocationTableViewController" bundle:nil];
+//
+//    self.HCMAddLocationVC.adderssID = address.ID;
+//
+//    self.HCMAddLocationVC.tableView.tableFooterView.hidden = NO;
+//    [self.navigationController pushViewController:self.HCMAddLocationVC animated:YES];
+    
+    NSString *uid = [self.defaults objectForKey:@"uid"];
+    NSString *sid = [self.defaults objectForKey:@"sid"];
+    
+    NSDictionary *mutabDitc = @{@"session":@{@"uid":uid,@"sid":sid},@"address_id":addressID};
+    
+    [SVProgressHUD show];
+    [[AddressNerworking sharedManager]postAddressSetDefault:mutabDitc successBlock:^(id responseBody) {
+        
+        if (responseBody[@"status"][@"error_code"]) {
+            
+            [SVProgressHUD showInfoWithStatus:responseBody[@"status"][@"error_desc"]];
+            return ;
+        }
+        [SVProgressHUD showSuccessWithStatus:nil];
+//        [self.navigationController popViewControllerAnimated:YES];
+        [self network];
 
-    self.HCMAddLocationVC = [[HCMAddLocationTableViewController alloc]initWithNibName:@"HCMAddLocationTableViewController" bundle:nil];
-    
-    self.HCMAddLocationVC.adderssID = address.ID;
-    
-    self.HCMAddLocationVC.tableView.tableFooterView.hidden = NO;
-    [self.navigationController pushViewController:self.HCMAddLocationVC animated:YES];
+    } failureBlock:^(NSString *error) {
+        [SVProgressHUD showInfoWithStatus:@"网络错误"];
+    }];
     
 }
 
