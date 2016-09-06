@@ -143,6 +143,7 @@
 #warning 预留了电话的接口
     //cell.name.text = @"预留电话接口...";
     cell.changeAddaressBtn.tag = [address.ID integerValue];
+    cell.deleAddressBtn.tag = [address.ID integerValue];
     
     NSString *str = [NSString stringWithFormat:@"%@ %@ %@",address.province_name,address.city_name,address.district_name];
     
@@ -156,13 +157,37 @@
       
         NSString *addressID = [NSString stringWithFormat:@"%ld",tag];
         
+        self.HCMAddLocationVC = [[HCMAddLocationTableViewController alloc]initWithNibName:@"HCMAddLocationTableViewController" bundle:nil];
+    
+        self.HCMAddLocationVC.adderssID = addressID;
+    
+        self.HCMAddLocationVC.tableView.tableFooterView.hidden = NO;
+        [self.navigationController pushViewController:self.HCMAddLocationVC animated:YES];
+    
+    };
+    
+    cell.deleAddress = ^(NSInteger tag){
+        
+        NSString *uid = [self.defaults objectForKey:@"uid"];
+        NSString *sid = [self.defaults objectForKey:@"sid"];
+        
+        NSString *addressID = [NSString stringWithFormat:@"%ld",tag];
 
-            self.HCMAddLocationVC = [[HCMAddLocationTableViewController alloc]initWithNibName:@"HCMAddLocationTableViewController" bundle:nil];
-        
-            self.HCMAddLocationVC.adderssID = addressID;
-        
-            self.HCMAddLocationVC.tableView.tableFooterView.hidden = NO;
-            [self.navigationController pushViewController:self.HCMAddLocationVC animated:YES];
+        NSDictionary *dict = @{@"session":@{@"sid":sid,@"uid":uid},
+                               @"address_id":addressID};
+        [SVProgressHUD show];
+        [[AddressNerworking sharedManager]postAddressDelete:dict successBlock:^(id responseBody) {
+            if (responseBody[@"status"][@"error_code"]) {
+                
+                [SVProgressHUD showInfoWithStatus:responseBody[@"status"][@"error_desc"]];
+                return ;
+            }
+            [SVProgressHUD showSuccessWithStatus:nil];
+            [self network];
+            [self.tableView reloadData];
+        } failureBlock:^(NSString *error) {
+            [SVProgressHUD showInfoWithStatus:@"网络错误"];
+        }];
         
     };
     

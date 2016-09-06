@@ -222,6 +222,12 @@ static NSString * const reuseIdentifier = @"MyCell";
         
         if (responseBody[@"status"][@"error_code"]) {
             
+            if ([responseBody[@"status"][@"error_desc"] isEqualToString:@"购物车中没有商品"]) {
+                [SVProgressHUD showInfoWithStatus:@"新增默认收货地址已更改，请重新下单"];
+                [self.navigationController popViewControllerAnimated:YES];
+                return ;
+            }
+            
             [SVProgressHUD showInfoWithStatus:responseBody[@"status"][@"error_desc"]];
             [self.navigationController popViewControllerAnimated:YES];
            
@@ -354,8 +360,6 @@ static NSString * const reuseIdentifier = @"MyCell";
     
 }
 - (IBAction)payWay:(UIButton *)sender {
-    
-    
 
     for (int i = 0 ; i < self.payWayArray.count; i++) {
         UIButton *btn = self.payWayArray[i];

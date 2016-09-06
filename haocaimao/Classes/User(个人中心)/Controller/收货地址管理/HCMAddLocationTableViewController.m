@@ -240,6 +240,22 @@
            
         }];
     }
+    NSDictionary *dict = @{@"session":@{@"sid":self.sid,@"uid":self.uid},
+                           @"address_id":self.adderssID};
+    [SVProgressHUD show];
+    [[AddressNerworking sharedManager]postAddressSetDefault:dict successBlock:^(id responseBody) {
+        
+        if (responseBody[@"status"][@"error_code"]) {
+            
+            [SVProgressHUD showInfoWithStatus:responseBody[@"status"][@"error_desc"]];
+            return ;
+        }
+        [SVProgressHUD showSuccessWithStatus:nil];
+        [self.navigationController popViewControllerAnimated:YES];
+        
+    } failureBlock:^(NSString *error) {
+        [SVProgressHUD showInfoWithStatus:@"网络错误"];
+    }];
 }
 
 #pragma mark - 选择地址

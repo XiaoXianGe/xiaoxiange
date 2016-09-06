@@ -33,9 +33,14 @@
  *  编辑的btn
  */
 @property (weak, nonatomic) IBOutlet UIButton *changeAddaressBtn;
-
+/**
+ *  删除的btn
+ */
+@property (weak, nonatomic) IBOutlet UIButton *deleAddressBtn;
 
 @property (nonatomic, copy)void (^popVC)(NSInteger tag);
+
+@property (nonatomic, copy)void (^deleAddress)(NSInteger tag);
 
 
 @end

@@ -36,6 +36,12 @@
     
     
 }
+- (IBAction)deleteAddress:(UIButton *)btn {
+    
+    self.deleAddress(btn.tag);
+    
+    
+}
 
 
 

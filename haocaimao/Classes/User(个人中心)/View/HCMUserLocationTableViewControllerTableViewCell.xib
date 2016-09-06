@@ -8,14 +8,17 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell alpha="0.0" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="102" id="KGk-i7-Jjw" customClass="HCMUserLocationTableViewControllerTableViewCell">
+        <tableViewCell alpha="0.0" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="137" id="KGk-i7-Jjw" customClass="HCMUserLocationTableViewControllerTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="profile-refresh-prompt-bg" translatesAutoresizingMaskIntoConstraints="NO" id="SFA-Yh-fGg" userLabel="背景图">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shopping-checkout-cont-bg" translatesAutoresizingMaskIntoConstraints="NO" id="V20-iw-CiX">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    </imageView>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="profile-refresh-prompt-bg" translatesAutoresizingMaskIntoConstraints="NO" id="SFA-Yh-fGg" userLabel="背景图">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
                     </imageView>
                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="accsessory-check" translatesAutoresizingMaskIntoConstraints="NO" id="Y5D-RL-rBu" userLabel="被点击打勾">
@@ -102,24 +105,10 @@
                                 <include reference="tJh-zf-YkI"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <action selector="deleteAddress:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="3KN-eT-Rwx"/>
+                        </connections>
                     </button>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8sh-yY-acR" userLabel="分割线">
-                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                        <color key="backgroundColor" red="0.87530208330000003" green="0.87530208330000003" blue="0.87530208330000003" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="1" id="bwT-rB-7hq"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="bwT-rB-7hq"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="constraints">
-                                <include reference="bwT-rB-7hq"/>
-                            </mask>
-                        </variation>
-                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ejj-7f-6su">
                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                         <color key="backgroundColor" red="0.94766666669999999" green="0.94766666669999999" blue="0.94766666669999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -144,23 +133,24 @@
                         <variation key="widthClass=compact" constant="11"/>
                     </constraint>
                     <constraint firstItem="SFA-Yh-fGg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="CQV-Kg-z64"/>
-                    <constraint firstItem="8sh-yY-acR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Exz-Q5-aCv"/>
+                    <constraint firstItem="V20-iw-CiX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Ce6-dq-6yw"/>
                     <constraint firstItem="Y5D-RL-rBu" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Fdm-os-Iby"/>
                     <constraint firstItem="Npy-aq-vPI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="OKJ-Ys-1pW"/>
                     <constraint firstAttribute="bottom" secondItem="XU1-ny-zMh" secondAttribute="bottom" id="RHR-AS-4nY">
                         <variation key="widthClass=compact" constant="11"/>
                     </constraint>
                     <constraint firstItem="yP4-Kd-58l" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="6" id="cIi-O3-Xzm"/>
-                    <constraint firstItem="8sh-yY-acR" firstAttribute="top" secondItem="XU1-ny-zMh" secondAttribute="top" id="cYp-FR-DJj"/>
                     <constraint firstAttribute="bottomMargin" secondItem="SFA-Yh-fGg" secondAttribute="bottom" constant="27" id="eoh-Af-Yc5"/>
                     <constraint firstAttribute="trailing" secondItem="Vh2-qN-QXz" secondAttribute="trailing" id="g3H-QY-NDz"/>
-                    <constraint firstItem="XU1-ny-zMh" firstAttribute="leading" secondItem="8sh-yY-acR" secondAttribute="trailing" id="j5H-7F-4Z1"/>
+                    <constraint firstAttribute="bottom" secondItem="V20-iw-CiX" secondAttribute="bottom" id="iH8-pF-QSp"/>
+                    <constraint firstItem="V20-iw-CiX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="iWl-bJ-UWk"/>
                     <constraint firstItem="cfh-jd-p77" firstAttribute="top" secondItem="Npy-aq-vPI" secondAttribute="bottom" constant="1" id="kMh-lU-qoX"/>
                     <constraint firstItem="Ejj-7f-6su" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="mE1-F3-YET"/>
                     <constraint firstAttribute="bottom" secondItem="Ejj-7f-6su" secondAttribute="bottom" id="oat-cI-yhu"/>
                     <constraint firstItem="Npy-aq-vPI" firstAttribute="top" secondItem="yP4-Kd-58l" secondAttribute="bottom" constant="3" id="obH-Ew-Se4"/>
                     <constraint firstItem="yP4-Kd-58l" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="owS-xg-tjF"/>
                     <constraint firstItem="Vh2-qN-QXz" firstAttribute="leading" secondItem="XU1-ny-zMh" secondAttribute="trailing" constant="1" id="pMu-Ha-qPG"/>
+                    <constraint firstAttribute="trailing" secondItem="V20-iw-CiX" secondAttribute="trailing" id="paG-Id-Xh8"/>
                     <constraint firstItem="Y5D-RL-rBu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="11" id="tZH-NQ-QA2"/>
                     <constraint firstItem="cfh-jd-p77" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="u4U-mp-qYL"/>
                     <constraint firstItem="SFA-Yh-fGg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="w0D-wS-160"/>
@@ -168,19 +158,20 @@
                 </constraints>
                 <variation key="default">
                     <mask key="subviews">
+                        <exclude reference="V20-iw-CiX"/>
                         <exclude reference="Vh2-qN-QXz"/>
                         <exclude reference="XU1-ny-zMh"/>
-                        <exclude reference="8sh-yY-acR"/>
                         <exclude reference="Ejj-7f-6su"/>
                     </mask>
                     <mask key="constraints">
-                        <exclude reference="Exz-Q5-aCv"/>
-                        <exclude reference="cYp-FR-DJj"/>
+                        <exclude reference="Ce6-dq-6yw"/>
+                        <exclude reference="iH8-pF-QSp"/>
+                        <exclude reference="iWl-bJ-UWk"/>
+                        <exclude reference="paG-Id-Xh8"/>
                         <exclude reference="mE1-F3-YET"/>
                         <exclude reference="oat-cI-yhu"/>
                         <exclude reference="w4X-KK-Rgp"/>
                         <exclude reference="RHR-AS-4nY"/>
-                        <exclude reference="j5H-7F-4Z1"/>
                         <exclude reference="B2U-5V-EWZ"/>
                         <exclude reference="g3H-QY-NDz"/>
                         <exclude reference="pMu-Ha-qPG"/>
@@ -188,19 +179,20 @@
                 </variation>
                 <variation key="widthClass=compact">
                     <mask key="subviews">
+                        <include reference="V20-iw-CiX"/>
                         <include reference="Vh2-qN-QXz"/>
                         <include reference="XU1-ny-zMh"/>
-                        <include reference="8sh-yY-acR"/>
                         <include reference="Ejj-7f-6su"/>
                     </mask>
                     <mask key="constraints">
-                        <include reference="Exz-Q5-aCv"/>
-                        <include reference="cYp-FR-DJj"/>
+                        <include reference="Ce6-dq-6yw"/>
+                        <include reference="iH8-pF-QSp"/>
+                        <include reference="iWl-bJ-UWk"/>
+                        <include reference="paG-Id-Xh8"/>
                         <include reference="mE1-F3-YET"/>
                         <include reference="oat-cI-yhu"/>
                         <include reference="w4X-KK-Rgp"/>
                         <include reference="RHR-AS-4nY"/>
-                        <include reference="j5H-7F-4Z1"/>
                         <include reference="B2U-5V-EWZ"/>
                         <include reference="g3H-QY-NDz"/>
                         <include reference="pMu-Ha-qPG"/>
@@ -211,15 +203,17 @@
                 <outlet property="addresseLabel" destination="cfh-jd-p77" id="QzB-1N-vVm"/>
                 <outlet property="changeAddaressBtn" destination="Vh2-qN-QXz" id="AKY-DB-xll"/>
                 <outlet property="click" destination="Y5D-RL-rBu" id="Cg1-D7-ayj"/>
+                <outlet property="deleAddressBtn" destination="XU1-ny-zMh" id="SCI-ak-g9u"/>
                 <outlet property="location" destination="Npy-aq-vPI" id="3bo-sn-wI2"/>
                 <outlet property="name" destination="hRe-xy-CxH" id="EpT-eU-SSU"/>
                 <outlet property="userName" destination="yP4-Kd-58l" id="wHG-gz-RoV"/>
             </connections>
-            <point key="canvasLocation" x="320" y="314"/>
+            <point key="canvasLocation" x="320" y="331"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="accsessory-check" width="13" height="13"/>
         <image name="profile-refresh-prompt-bg" width="75" height="17"/>
+        <image name="shopping-checkout-cont-bg" width="303" height="113"/>
     </resources>
 </document>
