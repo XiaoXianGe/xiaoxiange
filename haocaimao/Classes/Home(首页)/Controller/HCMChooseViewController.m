@@ -37,6 +37,7 @@
     [self.navigationController popViewControllerAnimated:YES];
     
 }
+
 - (IBAction)chooseScene:(UIButton *)sender {
     
     int tag = sender.tag%90;

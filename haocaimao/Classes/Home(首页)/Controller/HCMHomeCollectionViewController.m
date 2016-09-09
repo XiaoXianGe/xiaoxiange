@@ -62,22 +62,24 @@ static NSString * const reuseIdentifier = @"Cell";
 
 
 
--(NSUserDefaults *)defaults{
+-(NSUserDefaults *)defaults
+{
     if (!_defaults) {
         _defaults = [NSUserDefaults standardUserDefaults];
     }
     return _defaults;
 }
 
-
--(HCMHomeTopViewController *)homeTop{
+-(HCMHomeTopViewController *)homeTop
+{
     if (!_homeTop) {
         _homeTop = [[HCMHomeTopViewController alloc]init];
     }
     return _homeTop;
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     //初始化控制器
@@ -96,7 +98,8 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 //初始化控制器
--(void)setupController{
+-(void)setupController
+{
     [self.collectionView registerNib:[UINib nibWithNibName:@"CollectionViewCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
     [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView"];
     
@@ -108,7 +111,8 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 //头部刷新
--(void)headerRereshing{
+-(void)headerRereshing
+{
     
     [HCMNSNotificationCenter postNotificationName:@"RereshHearView" object:nil userInfo:@{@"collection":self}];
     
@@ -118,7 +122,8 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 //自定义头部的导航栏
--(void)setNavigationBar{
+-(void)setNavigationBar
+{
     
     self.diyNavView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, HCMScreenWidth, 50*HCMScreenWidth/320)];
     self.diyNavView.backgroundColor = [UIColor colorWithHue:222 saturation:32 brightness:32 alpha:0.2];
@@ -144,7 +149,9 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.view addSubview:msgBtn];
     [self.view addSubview:self.searchBar];
 }
--(void)goToMessageVC{
+
+-(void)goToMessageVC
+{
     
     if (!_status) return;
     
@@ -155,7 +162,8 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.navigationController pushViewController:msgVC animated:YES];
 }
 
--(void)gotoTheSearch{
+-(void)gotoTheSearch
+{
     
     [self.searchBar resignFirstResponder];
     
@@ -171,12 +179,14 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.navigationController pushViewController:passKeyWords animated:YES];
 }
 
--(void)viewDidAppear:(BOOL)animated{
+-(void)viewDidAppear:(BOOL)animated
+{
     [super viewDidAppear:animated];
     self.navigationController.navigationBarHidden = YES;
 }
 
--(void)viewWillAppear:(BOOL)animated{
+-(void)viewWillAppear:(BOOL)animated
+{
     
     [super viewWillAppear:animated];
     
@@ -193,7 +203,8 @@ static NSString * const reuseIdentifier = @"Cell";
 
 }
 
--(void)viewWillDisappear:(BOOL)animated{
+-(void)viewWillDisappear:(BOOL)animated
+{
     
     [super viewWillDisappear:animated];
     self.collectionView.delegate = nil;
@@ -201,7 +212,8 @@ static NSString * const reuseIdentifier = @"Cell";
 
 }
 
--(void)clickSearchBrand{
+-(void)clickSearchBrand
+{
     
     [self.searchBar resignFirstResponder];
     
@@ -212,6 +224,7 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.navigationController pushViewController:passKeyWords animated:YES];
 
 }
+
 //是否有消息
 -(void)isMessage
 {
@@ -264,7 +277,8 @@ static NSString * const reuseIdentifier = @"Cell";
     }
 }
 
--(void)clickLogo{
+-(void)clickLogo
+{
 
 //   [self.collectionView setContentOffset:CGPointMake(0, 0) animated:YES];
     ViewController *vc = [[ViewController alloc]init];
@@ -275,7 +289,8 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 //发送请求数据
--(void)sendTheMsgToCategoryForCollection{
+-(void)sendTheMsgToCategoryForCollection
+{
     
     [[HomeNetwork sharedManager]postHomeCategoryGoods:nil successBlock:^(id responseBody) {
         
@@ -336,15 +351,18 @@ static NSString * const reuseIdentifier = @"Cell";
 
 #pragma mark <UICollectionViewDataSource>
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
     return 1;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
     return self.receiveArray.count;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
     
     CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
@@ -353,14 +371,17 @@ static NSString * const reuseIdentifier = @"Cell";
     return cell;
 }
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
     
     HomeCategoryCellModel *sort = self.receiveArray[indexPath.row];
     
     [self pusuDealView:sort.goods_id];
     
 }
-- (void)pusuDealView:(NSString *)goods_id{
+
+- (void)pusuDealView:(NSString *)goods_id
+{
     DealViewController *dealVc = [[DealViewController alloc]initWithNibName:@"DealViewController" bundle:nil];
     
     dealVc.goods_id = goods_id;
@@ -375,16 +396,15 @@ static NSString * const reuseIdentifier = @"Cell";
     return CGSizeMake(width, 200*width/145);
 }
 
-
 /* 定义每个UICollectionView 的边缘 */
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
     return UIEdgeInsetsMake(0, 10, 0, 10);//上 左 下 右
 }
 
-
 //为collection插入头视图
--(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
+-(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
     
     UICollectionReusableView *reusableview = nil;
     
@@ -416,7 +436,8 @@ static NSString * const reuseIdentifier = @"Cell";
 
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
+{
     
     CGFloat cellH = 0;
     
@@ -437,8 +458,8 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 #pragma mark --- 协议
-
--(void)touchGBTopLineView:(id)type title:(id)title{
+-(void)touchGBTopLineView:(id)type title:(id)title
+{
     
     [SVProgressHUD showWithStatus:@"加载中"];
     
@@ -464,12 +485,14 @@ static NSString * const reuseIdentifier = @"Cell";
     
 }
 
--(void)clickBack{
+-(void)clickBack
+{
     
     [self.navigationController popViewControllerAnimated:YES];
 }
 
--(void)touchClickPrassCategory:(HCMHomeTopViewController *)mothed tag:(NSString *)tag number:(NSInteger)number{
+-(void)touchClickPrassCategory:(HCMHomeTopViewController *)mothed tag:(NSString *)tag number:(NSInteger)number
+{
     
     [self.searchBar resignFirstResponder];
     
@@ -485,7 +508,8 @@ static NSString * const reuseIdentifier = @"Cell";
     
 }
 
--(void)touchClickToScene:(HCMHomeTopViewController *)delegate url:(NSString *)url{
+-(void)touchClickToScene:(HCMHomeTopViewController *)delegate url:(NSString *)url
+{
     
     [self.searchBar resignFirstResponder];
     
@@ -503,7 +527,8 @@ static NSString * const reuseIdentifier = @"Cell";
     
 }
 
--(void)touchClickToBanner:(HCMHomeTopViewController *)delegate goodsID:(NSString *)goodsID{
+-(void)touchClickToBanner:(HCMHomeTopViewController *)delegate goodsID:(NSString *)goodsID
+{
     
     [self.searchBar resignFirstResponder];
     
@@ -526,7 +551,8 @@ static NSString * const reuseIdentifier = @"Cell";
     
 }
 
--(void)touchClickToAdvertise:(HCMHomeTopViewController *)delegate goodsID:(NSString *)goodsID{
+-(void)touchClickToAdvertise:(HCMHomeTopViewController *)delegate goodsID:(NSString *)goodsID
+{
     
     [self.searchBar resignFirstResponder];
     
@@ -538,11 +564,11 @@ static NSString * const reuseIdentifier = @"Cell";
     
 }
 
-
 /**
  * 申请成为合伙人
  */
--(void)gotoPartnerCenter:(HCMHomeTopViewController *)delegate{
+-(void)gotoPartnerCenter:(HCMHomeTopViewController *)delegate
+{
     
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     [SVProgressHUD show];
@@ -612,7 +638,8 @@ static NSString * const reuseIdentifier = @"Cell";
 /**
  * 用户登录
  */
--(void)userLogin{
+-(void)userLogin
+{
     HCMVipLoginViewController *vipLoginVC = [[HCMVipLoginViewController alloc]init];
     
     self.tabBarController.tabBar.hidden = YES;
@@ -620,8 +647,8 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.navigationController pushViewController:vipLoginVC animated:YES];
 }
 
-
--(void)dealloc{
+-(void)dealloc
+{
     [HCMNSNotificationCenter removeObserver:self];
 }
 

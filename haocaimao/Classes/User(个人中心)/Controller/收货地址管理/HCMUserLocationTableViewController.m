@@ -45,6 +45,8 @@
     
     [self setnavigationItemLR];
     
+    self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{

@@ -59,8 +59,6 @@
     
      self.status = [self.defaults boolForKey:@"status"];
     
-//    [self setUpPhotosImageViewAndButton];
-    
 }
 
 - (IBAction)checkMoreGoods {
@@ -70,9 +68,7 @@
     self.contentTextView.text = nil;
     
     self.PhotosImageView.image = nil;
-//    [self.PhotosImageViewOut removeFromSuperview];
-//    [self.PhotosImageView removeFromSuperview];
-//    [self.updateImageBtn removeFromSuperview];
+
     
 }
 
@@ -90,39 +86,14 @@
     return YES;
 }
 
-
-//提前创建图片区
--(void)setUpPhotosImageViewAndButton{
-    
-//    _PhotosImageView = [[UIImageView alloc]init];
-//    _PhotosImageView.frame = CGRectMake((HCMScreenWidth-100)/2, 350, 100, 100);
-//    
-//    _PhotosImageViewOut = [[UIImageView alloc]init];
-//    _PhotosImageViewOut.frame = CGRectMake((HCMScreenWidth-140)/2, 331, 140, 140);
-//    [_PhotosImageViewOut setImage:[UIImage imageNamed:@"图片显示框"]];
-//    
-//    _updateImageBtn = [[UIButton alloc]init];
-//    _updateImageBtn.frame = CGRectMake((HCMScreenWidth-30)/2 + 60, 328, 30, 30);
-//    [_updateImageBtn addTarget:self action:@selector(deleteImage) forControlEvents:UIControlEventTouchUpInside];
-//    [_updateImageBtn setImage:[UIImage imageNamed:@"按钮"] forState:UIControlStateNormal];
-    
-}
 - (IBAction)deleteImage {
     
     self.PhotosImageView.image = nil;
 }
 
-//-(void)deleteImage{
-//    [self.PhotosImageViewOut removeFromSuperview];
-//    [self.PhotosImageView removeFromSuperview];
-//    [self.updateImageBtn removeFromSuperview];
-//}
-
 - (IBAction)addPhoto {
-    
     [self.view endEditing:YES];
      [self callActionSheetFunc];
-    
 }
 
 //规则按钮
@@ -133,6 +104,7 @@
     [self loadWebViewWithHtmlStr:@"http://www.haocaimao.com/mobile/index.php?m=default&c=article&a=info&aid=12"];
     
 }
+
 -(void)loadWebViewWithHtmlStr:(NSString *)htmlStr
 {
     UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(8, 66, HCMScreenWidth - 16, HCMScreenHeight - 106)];
@@ -247,11 +219,7 @@
     UIImage *image = info[UIImagePickerControllerEditedImage];
     
     self.PhotosImageView.image = image;
-    
-//    [self.view addSubview:self.PhotosImageViewOut];
-//    [self.view addSubview:self.PhotosImageView];
-//    [self.view addSubview:self.updateImageBtn];
-    
+
 }
 
 /** 关闭 */
@@ -278,10 +246,7 @@
         [SVProgressHUD showInfoWithStatus:@"请填写内容"];
         return;
     }
-//    if (self.PhotosImageView.image == nil) {
-//        [SVProgressHUD showInfoWithStatus:@"请添加图片"];
-//        return;
-//    }
+
 
     // 创建警告框实例
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"是否立刻提交？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定",nil];

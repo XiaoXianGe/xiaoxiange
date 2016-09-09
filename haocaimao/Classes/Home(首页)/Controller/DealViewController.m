@@ -165,7 +165,6 @@
     }
     return _uid;
 }
-
 -(BOOL)status{
     if (!_status) {
         _status = [self.defaults boolForKey:@"status"];
@@ -252,7 +251,8 @@
 
 #pragma mark --- 系统viewDidLoad ---
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     
     [super viewDidLoad];
     
@@ -267,7 +267,8 @@
     
 }
 
--(void)setUpController{
+-(void)setUpController
+{
     
     self.count = 1;
     
@@ -285,7 +286,8 @@
 }
 
 //分享到微信
--(void)shareToWeChet{
+-(void)shareToWeChet
+{
     
     NSString *url = [[NSString alloc]init];
     if (self.status) {//带用户信息的分享
@@ -297,12 +299,10 @@
     [UMSocialWechatHandler setWXAppId:APP_ID appSecret:APP_SECRET url:url];
 }
 
-
 #pragma mark --- 商品详情的toolBar所有控件 ---
-/**                 ***
- *  加入购物车 按钮    *  立即购买 按钮
- *                  **/
-- (IBAction)addCartCreateButton:(UIButton *)sender {
+// 加入购物车 按钮      立即购买 按钮
+- (IBAction)addCartCreateButton:(UIButton *)sender
+{
 
     if ([self.app_app isEqualToString:@"1"]) {
         
@@ -448,10 +448,9 @@
 
 }
 
-/**
- *  我的收藏
- */
-- (IBAction)collectButton:(UIButton *)sender {
+// 我的收藏
+- (IBAction)collectButton:(UIButton *)sender
+{
 
    // NSUserDefaults *defaults =  [NSUserDefaults standardUserDefaults];
     BOOL status = [self.defaults boolForKey:@"status"];
@@ -507,10 +506,9 @@
     }
 }
 
-/**
- *  购物车
- */
-- (IBAction)cartButton:(UIButton *)sender {
+// 购物车
+- (IBAction)cartButton:(UIButton *)sender
+{
     
     
     BOOL status = [self.defaults boolForKey:@"status"];
@@ -549,10 +547,9 @@
     }
 }
 
-/**
- *  翻页动画
- */
-- (void)animationtype{
+// 翻页动画
+- (void)animationtype
+{
     CATransition *animation = [CATransition animation];
     animation.duration = 1;
     animation.timingFunction = UIViewAnimationCurveEaseInOut;
@@ -563,10 +560,9 @@
     [self.view.window.layer addAnimation:animation forKey:nil];
 }
 
-/**
- *  购物车徽标
- */
--(void)setMKNumberBadgeView{
+//  购物车徽标
+-(void)setMKNumberBadgeView
+{
     
     self.numberBadge.value = [self.goods_list_number integerValue];
     
@@ -574,13 +570,11 @@
     
 }
 
-
-
 #pragma mark --- 商品评论 ---
-/**
- *  商品评论按钮
- */
-- (IBAction)CommentButton:(UIButton *)sender {
+
+// 商品评论按钮
+- (IBAction)CommentButton:(UIButton *)sender
+{
     
     [MBProgressHUD showMessage:@"加载数据"];
     
@@ -619,10 +613,9 @@
 }
 
 #pragma mark --- 购买数量 ---
-/**
- *  修改购买数量  键盘弹出
- */
--(void)changeTextFieldStatus{
+// 修改购买数量  键盘弹出
+-(void)changeTextFieldStatus
+{
     
     HCMLogFunc;
     
@@ -634,10 +627,9 @@
 
 }
 
-/**
- *  购买数量  *  加
- */
--(void)countAdd{
+// 购买数量  *  加
+-(void)countAdd
+{
     
     int buymax = [self.buyMax intValue];
     
@@ -655,10 +647,9 @@
     
 }
 
-/**
- *  购买数量  *  减
- */
--(void)countSub{
+// 购买数量  *  减
+-(void)countSub
+{
     
     self.count = [self.countTextField.text integerValue];
     self.count -= 1;
@@ -669,10 +660,10 @@
 
 }
 
-/**
- *  购买数量  *  确定
- */
--(void)clickOOKK{
+
+// 购买数量  *  确定
+-(void)clickOOKK
+{
     
     if (!self.countTextField.text.length) {
         [SVProgressHUD showInfoWithStatus:@"数量不能为空"];
@@ -707,10 +698,10 @@
 }
 
 #pragma mark --- PopView弹出 ---
-/**
- *  数量按钮：PopView弹出
- */
-- (IBAction)PopViewShow:(id)sender {
+
+//  数量按钮：PopView弹出
+- (IBAction)PopViewShow:(id)sender
+{
     
     
     UIColor *color=HCMColor(200, 45, 55,1.0);
@@ -889,12 +880,14 @@
 
 }
 
-- (void) textFieldDidChange:(UITextField *) TextField{
+- (void) textFieldDidChange:(UITextField *) TextField
+{
     self.count =  [TextField.text integerValue];
   
 }
 
--(void)chooseFormatButton:(UIButton *)btns{
+-(void)chooseFormatButton:(UIButton *)btns
+{
     
     self.tag = btns.tag;
     for (UIButton *btn in self.btnsArray) {
@@ -917,7 +910,8 @@
     
 }
 
--(void)chooseFormatButtonOne:(UIButton *)btns{
+-(void)chooseFormatButtonOne:(UIButton *)btns
+{
      self.tagOne = btns.tag;
     for (UIButton *btn in self.btnArr) {
         btn.selected = NO;
@@ -925,7 +919,8 @@
     btns.selected = YES;
 }
 
--(void)chooseFormatButtonTwo:(UIButton *)btns{
+-(void)chooseFormatButtonTwo:(UIButton *)btns
+{
     self.tagTwo = btns.tag;
     for (UIButton *btn in self.btnArra) {
         btn.selected = NO;
@@ -933,7 +928,8 @@
     btns.selected = YES;
 }
 
--(void)clickshare{
+-(void)clickshare
+{
 
     if (!self.status) {
 
@@ -948,7 +944,8 @@
     
 }
 
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
     
     if (buttonIndex == 0) {
         
@@ -962,7 +959,8 @@
     }
 }
 
--(void)shareGoodsAndSomeInfo{
+-(void)shareGoodsAndSomeInfo
+{
     UIImageView *imageView = [self.shareImageArray firstObject];
     
     [UMSocialSnsService presentSnsIconSheetView:self
@@ -983,7 +981,8 @@
     }
 }
 
--(void)clickBack{
+-(void)clickBack
+{
     
     [MBProgressHUD hideHUD];
     [SVProgressHUD dismiss];
@@ -992,7 +991,8 @@
      [self.timer invalidate];
 }
 
--(void)viewWillAppear:(BOOL)animated{
+-(void)viewWillAppear:(BOOL)animated
+{
     
     [super viewWillAppear:animated];
     
@@ -1004,11 +1004,9 @@
     }
 }
 
-
-/**
- *  商品详情webView
- */
-- (IBAction)GoodsDealsShow:(UIButton *)sender {
+// 商品详情webView
+- (IBAction)GoodsDealsShow:(UIButton *)sender
+{
     
     HCMDealWebViewController *webViewVC = [[HCMDealWebViewController alloc]initWithNibName:@"HCMDealWebViewController" bundle:nil];
     
@@ -1020,10 +1018,10 @@
 
 #pragma mark --- 商品详情请求 ---
 
-/**
- *  发送商品详情的请求体
- */
--(void)sendDealOfGoodsRequest{
+
+// 发送商品详情的请求体
+-(void)sendDealOfGoodsRequest
+{
     
     [SVProgressHUD showWithStatus:@"网络加载"];
     
@@ -1091,7 +1089,8 @@
     
 }
 
-- (void)loadGoods_number{
+- (void)loadGoods_number
+{
     
     NSDictionary * dictBuyNow = @{@"session":@{@"sid":self.sid,@"uid":self.uid}};
     
@@ -1111,7 +1110,8 @@
 }
 
 //倒计时
--(void)promoteEndDate:(NSString *)inputTime{
+-(void)promoteEndDate:(NSString *)inputTime
+{
     
     //当前时间
     NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:60*8*60];
@@ -1147,7 +1147,8 @@
     
 }
 
--(void)updateTimer:(NSTimer *)timer{
+-(void)updateTimer:(NSTimer *)timer
+{
     
     if (--self.counter <0 ) {
         [self.timer invalidate];
@@ -1157,7 +1158,8 @@
 }
 
 //解析
--(void)parseJsonData:(NSDictionary *)jsonDict{
+-(void)parseJsonData:(NSDictionary *)jsonDict
+{
     
     
     NSLog(@"%@",jsonDict);
@@ -1319,7 +1321,8 @@
     [browser show];
 }
 
--(void)dealloc{
+-(void)dealloc
+{
     [self.timer invalidate];
     
 }

@@ -28,7 +28,8 @@ static NSString * const reuseIdentifier = @"Cell";
 static NSString * const url = @"http://www.haocaimao.com/mobile/index.php?c=topic&a=appTopicIndex&id=";
 
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     [SVProgressHUD showWithStatus:@"加载中"];
@@ -48,7 +49,8 @@ static NSString * const url = @"http://www.haocaimao.com/mobile/index.php?c=topi
     [self network];
 }
 
--(void)viewWillAppear:(BOOL)animated{
+-(void)viewWillAppear:(BOOL)animated
+{
     
     [super viewWillAppear:animated];
     
@@ -56,8 +58,8 @@ static NSString * const url = @"http://www.haocaimao.com/mobile/index.php?c=topi
     
 }
 
-
--(void)clickBack{
+-(void)clickBack
+{
     
     [SVProgressHUD dismiss];
     
@@ -65,7 +67,9 @@ static NSString * const url = @"http://www.haocaimao.com/mobile/index.php?c=topi
     
     [self.navigationController popViewControllerAnimated:YES];
 }
-- (void)network{
+
+- (void)network
+{
     
     NSString *newURL = [NSString stringWithFormat:@"%@%@",url,self.urlStr];
     
@@ -106,16 +110,19 @@ static NSString * const url = @"http://www.haocaimao.com/mobile/index.php?c=topi
 
 #pragma mark <UICollectionViewDataSource>
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
     return [self.categoryNames count];
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
     NSArray *array = self.categoryGoogs[section];
     return [array count];
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
     
     SceneCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     cell.backgroundColor = [UIColor whiteColor];
@@ -137,7 +144,8 @@ static NSString * const url = @"http://www.haocaimao.com/mobile/index.php?c=topi
     return cell;
 }
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
     
     NSArray *array = self.categoryGoogs[indexPath.section];
     CategoryGoods * good = array[indexPath.row];
@@ -149,9 +157,9 @@ static NSString * const url = @"http://www.haocaimao.com/mobile/index.php?c=topi
     
 }
 
-
 //为collection插入头视图
--(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
+-(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
     
     UICollectionReusableView *reusableview = nil;
     
@@ -193,6 +201,7 @@ static NSString * const url = @"http://www.haocaimao.com/mobile/index.php?c=topi
     return reusableview;
     
 }
+
 /* 定义每个UICollectionView 的大小 */
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -200,7 +209,8 @@ static NSString * const url = @"http://www.haocaimao.com/mobile/index.php?c=topi
     return CGSizeMake(width, 200*width/145);
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
+{
     
     CGFloat cellW = [UIScreen mainScreen].bounds.size.width;
     

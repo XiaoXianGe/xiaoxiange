@@ -27,6 +27,7 @@
 
 #import "DealViewController.h"
 #import "AlartViewController.h"
+#import "HCMFlowCheckOrderTableViewController.h"
 
 @interface HCMShoppingTableViewController ()<HCMCartCellDelegate,UIAlertViewDelegate,ExpendableAlartViewDelegate,UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *goodsNum;
@@ -60,7 +61,8 @@
 static NSString *ID = @"Cell";
     
 
--(NSUserDefaults *)defaults{
+-(NSUserDefaults *)defaults
+{
     
     if (!_defaults) {
         _defaults = [NSUserDefaults standardUserDefaults];
@@ -68,7 +70,8 @@ static NSString *ID = @"Cell";
     return _defaults;
 }//数据持久化
 
-- (CartTotalListModel *)cartTotal{
+- (CartTotalListModel *)cartTotal
+{
     
     if (!_cartTotal) {
         _cartTotal = [[CartTotalListModel alloc]init];
@@ -76,7 +79,8 @@ static NSString *ID = @"Cell";
     return _cartTotal;
 }//数据
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     
     [super viewDidLoad];
 
@@ -95,7 +99,8 @@ static NSString *ID = @"Cell";
     
 }
 
-- (void)buyClick:(NSNotification *)notification{
+- (void)buyClick:(NSNotification *)notification
+{
     
     NSString *goods_id = [NSString stringWithFormat:@"%@", notification.userInfo[@"good_id"]];
     
@@ -105,7 +110,8 @@ static NSString *ID = @"Cell";
     
 }
 
-- (void)pushGoods:(NSString *)goods_id{
+- (void)pushGoods:(NSString *)goods_id
+{
     
     DealViewController *vc = [[DealViewController alloc]initWithNibName:@"DealViewController" bundle:nil];
     vc.goods_id = goods_id;
@@ -113,7 +119,8 @@ static NSString *ID = @"Cell";
 
 }
 
-- (void)loadMoneyView{
+- (void)loadMoneyView
+{
     UIWindow *window = [[UIApplication sharedApplication]keyWindow];
 
     self.window = window;
@@ -125,10 +132,14 @@ static NSString *ID = @"Cell";
     self.deleteFootView.hidden = YES;
     
     [window addSubview:self.footerView];
+    self.footerView.hidden = YES;
 }
 
-- (void)viewWillDisappear:(BOOL)animated{
+- (void)viewWillDisappear:(BOOL)animated
+{
     [super viewWillDisappear:animated];
+    self.footerView.hidden = YES;
+    self.deleteFootView.hidden = YES;
     [self.footerView removeFromSuperview];
     [self.deleteFootView removeFromSuperview];
     self.animaBtn.selected = NO;
@@ -137,14 +148,24 @@ static NSString *ID = @"Cell";
 
 }
 
-- (void)setupNavi{
+-(void)viewDidDisappear:(BOOL)animated{
+    
+    [super viewDidDisappear:animated];
+    self.footerView.hidden = YES;
+    self.deleteFootView.hidden = YES;
+    
+}
+
+- (void)setupNavi
+{
     if (self.status) {
         
         self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickShop:) title:@"编辑" selectedTitle:@"完成"];
     }
 }
 
-- (void)clickShop:(UIButton *)btn{
+- (void)clickShop:(UIButton *)btn
+{
     btn.selected = !btn.selected;
     if (btn.selected) {
         self.footerView.hidden = YES;
@@ -157,7 +178,8 @@ static NSString *ID = @"Cell";
 }
 
 //猜你喜欢
-- (void)setupView{
+- (void)setupView
+{
     FootPopView *popView = [[FootPopView alloc]init];
     [[CartNetwork sharedManager]postguessLike:nil successBlock:^(id responseBody) {
         NSArray *array = responseBody[@"data"];
@@ -174,14 +196,18 @@ static NSString *ID = @"Cell";
    
     
 }
-- (void)pop:(NSNotification *)notification{
+
+- (void)pop:(NSNotification *)notification
+{
     self.animaBtn = notification.userInfo[@"popBtn"];
     [self.animaBtn addTarget:self action:@selector(animateBtn:) forControlEvents:UIControlEventTouchUpInside];
 
     self.fool = notification.userInfo[@"fool"];
     
 }
-- (void)animateBtn:(UIButton *)popBtn{
+
+- (void)animateBtn:(UIButton *)popBtn
+{
     
     popBtn.selected = !popBtn.selected;
     
@@ -231,16 +257,21 @@ static NSString *ID = @"Cell";
     
     
 }
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
     self.scrollViewPoint = scrollView.contentOffset;
 }
-- (void)loadBackgroundView{
+
+- (void)loadBackgroundView
+{
     HCMbuyView *buyView = [[HCMbuyView alloc]init];
     self.buyView = buyView;
     
 }
--(void)viewWillAppear:(BOOL)animated{
-    
+
+-(void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear:animated];
 
 }
@@ -270,10 +301,11 @@ static NSString *ID = @"Cell";
         
     }];
     [self.tableView.header beginRefreshing];
-    
+    [self loadMoneyView];
 }
 
--(void)setUPcontroller{
+-(void)setUPcontroller
+{
     if (!self.status) {
         if (self.buyView ==nil) [self loadBackgroundView];
     }else{
@@ -287,7 +319,8 @@ static NSString *ID = @"Cell";
     }
 }
 
-- (void)network{
+- (void)network
+{
     
     self.uid = [self.defaults objectForKey:@"uid"];
     self.sid = [self.defaults objectForKey:@"sid"];
@@ -340,7 +373,6 @@ static NSString *ID = @"Cell";
         self.tableView.tableFooterView = self.popView;
         [self.tableView reloadData];
         
-        
     } failureBlock:^(NSString *error) {
         
         [self.tableView.header endRefreshing];
@@ -350,7 +382,8 @@ static NSString *ID = @"Cell";
 }
 
 #pragma mark - Table view data source
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     BOOL status =  ([self.cartListFrame count] != 0);
     self.status = status;
     if (status) {
@@ -360,13 +393,17 @@ static NSString *ID = @"Cell";
         return 1;
     }
 }
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     
    
     if (self.status) {
         
         [self setupNavi];
-        [self loadMoneyView];
+        
+        self.footerView.hidden = NO;
+        
         return [self.cartListFrame[section]count] ;
         
     }
@@ -378,7 +415,8 @@ static NSString *ID = @"Cell";
     
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     
     
     if (self.status) {
@@ -409,11 +447,15 @@ static NSString *ID = @"Cell";
     }
     
 }
-- (void)popBackView:(UIButton *)btn{
+
+- (void)popBackView:(UIButton *)btn
+{
 
     [self pushGoods:[NSString stringWithFormat:@"%lu",(long)btn.tag]];
 }
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     if (self.status) {
         CartListFrame *frame = self.cartListFrame[indexPath.section][indexPath.row];
         return frame.cellHeightF;
@@ -422,7 +464,9 @@ static NSString *ID = @"Cell";
     }
     
 }
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
     if (self.status) {
         HCMCartSection *sectionView = [[HCMCartSection alloc]init];
         
@@ -433,14 +477,18 @@ static NSString *ID = @"Cell";
     }
     return nil;
    }
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
     if (self.status) {
         return 40;
     }
     return 0;
 }
+
 // 点击了支付
-- (IBAction)clickPay:(UIButton *)sender {
+- (IBAction)clickPay:(UIButton *)sender
+{
 
     NSDictionary *mutabDitc = @{@"session":@{@"sid":self.sid,@"uid":self.uid}};
     
@@ -482,7 +530,8 @@ static NSString *ID = @"Cell";
 
 #pragma mark - HCMCartCellDelegate
 // 点击编辑数量，cell的代理方法
-- (void)clickEditGoodsNumberCell:(HCMCartCell *)cell redID:(NSString *)redID number:(int)number{
+- (void)clickEditGoodsNumberCell:(HCMCartCell *)cell redID:(NSString *)redID number:(int)number
+{
     
     NSString *goodsNumber = [NSString stringWithFormat:@"%d",number];
     
@@ -505,8 +554,10 @@ static NSString *ID = @"Cell";
     }];
     
 }
+
 // 点击了删除，cell代理方法
-- (void)clickDeleteGoodsCell:(HCMCartCell *)cell redID:(NSString *)redID{
+- (void)clickDeleteGoodsCell:(HCMCartCell *)cell redID:(NSString *)redID
+{
     
     _deleteGoodsID = redID;
 
@@ -520,10 +571,9 @@ static NSString *ID = @"Cell";
     self.navigationItem.rightBarButtonItem = nil;
 }
 
-
-
 //点击删除店铺
-- (void)clickDeleteShopGoodsCell:(HCMCartCell *)cell seller_id:(NSString *)seller_id{
+- (void)clickDeleteShopGoodsCell:(HCMCartCell *)cell seller_id:(NSString *)seller_id
+{
     self.navigationItem.rightBarButtonItem = nil;
     NSDictionary *dict = @{@"session":@{@"sid":self.sid,@"uid":self.uid},
                            @"seller_id":seller_id};
@@ -545,12 +595,14 @@ static NSString *ID = @"Cell";
 
 }
 
-- (void)dealloc{
+- (void)dealloc
+{
     [HCMNSNotificationCenter removeObserver:self];
     
 }
 
-- (IBAction)allDeleteBtn:(UIButton *)sender {
+- (IBAction)allDeleteBtn:(UIButton *)sender
+{
     NSDictionary *dict = @{@"session":@{@"sid":self.sid,@"uid":self.uid}};
     [SVProgressHUD show];
     
@@ -575,7 +627,8 @@ static NSString *ID = @"Cell";
 }
 
 #pragma mark --- ExpendableAlartViewDelegate
-- (void)positiveButtonAction{
+- (void)positiveButtonAction
+{
     
     
     [HCMNSNotificationCenter postNotificationName:@"scrollAndUserInteraction" object:nil];
@@ -602,17 +655,20 @@ static NSString *ID = @"Cell";
     
 }
 
-- (void)negativeButtonAction{
+- (void)negativeButtonAction
+{
     [HCMNSNotificationCenter postNotificationName:@"scrollAndUserInteraction" object:nil];
      HCMLog(@"放弃");
 }
 
-- (void)closeButtonAction{
+- (void)closeButtonAction
+{
     [HCMNSNotificationCenter postNotificationName:@"scrollAndUserInteraction" object:nil];
     HCMLog(@"关闭");
 }
 
--(void)scrollAndUserInteraction{
+-(void)scrollAndUserInteraction
+{
     HCMLog(@"我在疯狂测试");
     
     self.tableView.scrollEnabled = YES;

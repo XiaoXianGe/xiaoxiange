@@ -75,7 +75,8 @@
 
 
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     _dataArr=[[NSMutableArray alloc]init];
@@ -93,7 +94,8 @@
 }
 
 #pragma mark-创建头条视图
--(void)createTopLineView{
+-(void)createTopLineView
+{
     
     _TopLineView = [[GBTopLineView alloc]initWithFrame:CGRectMake(0, 0, 260, 30)];
     
@@ -135,14 +137,14 @@
     [_TopLineView setVerticalShowDataArr:_dataArr];
 }
 
-
--(void)testGBTopLineViewModel:(GBTopLineViewModel *)model{
+-(void)testGBTopLineViewModel:(GBTopLineViewModel *)model
+{
     
     [self.delegate touchGBTopLineView:model.type title:model.title];
 }
 
-
--(NSInteger)GBTopLineViewHeight{
+-(NSInteger)GBTopLineViewHeight
+{
     
     NSInteger height = 0;
     
@@ -154,20 +156,18 @@
     
 }
 
-
-
 //刷新广告
--(void)UpdownAll:(NSNotification *)notification{
+-(void)UpdownAll:(NSNotification *)notification
+{
     
     [self sendHomeAdvertisementRequest];
     
     
 }
 
-
-
 //横幅
-- (IBAction)Banner:(UIButton *)sender {
+- (IBAction)Banner:(UIButton *)sender
+{
     
     int tag = sender.tag%60;
     
@@ -176,14 +176,16 @@
 }
 
 //申请成为合伙人
-- (IBAction)gotoThePartnerCenter {
+- (IBAction)gotoThePartnerCenter
+{
     
     [self.delegate gotoPartnerCenter:self];
     
 }
 
 //应用场景
-- (IBAction)clickZoneButtons:(UIButton *)sender {
+- (IBAction)clickZoneButtons:(UIButton *)sender
+{
     
     int tag = sender.tag%10;
      NSArray *arr = @[@"20",@"21",@"28",@"38",@"27",@"22",@"24",@"29"];
@@ -192,7 +194,8 @@
 }
 
 //劳保，消防，机械，清洁，办公，焊接
-- (IBAction)category_six_Button:(UIButton *)sender {
+- (IBAction)category_six_Button:(UIButton *)sender
+{
     int tag = sender.tag%20;
     
     NSArray *arr = @[@"132",@"622",@"21",@"16",@"69",@"21"];
@@ -200,7 +203,8 @@
 }
 
 //活动专区
-- (IBAction)activityVPN:(UIButton *)sender {
+- (IBAction)activityVPN:(UIButton *)sender
+{
     int tag = sender.tag%50;
     
     NSArray *arr = @[@"30",@"40",@"16",@"41"];
@@ -210,7 +214,8 @@
 }
 
 //九宫格
-- (IBAction)goods_nineButton:(UIButton *)sender {
+- (IBAction)goods_nineButton:(UIButton *)sender
+{
     int tag = sender.tag%30;
 
     NSArray *arr = @[@"681", @"631", @"1535",   @"215", @"21", @"1961",  @"629", @"624", @"625"];
@@ -220,7 +225,8 @@
 }
 
 //品牌
-- (IBAction)brandButton:(UIButton *)sender {
+- (IBAction)brandButton:(UIButton *)sender
+{
     int tag = sender.tag%40;
     NSArray *arr = @[@"44",@"施耐德",@"47",@"61",@"122",@"298"];
                     //3M              世达  霍尼韦尔 威力狮 金佰利
@@ -229,7 +235,8 @@
 }
 
 //备用清理缓存 再刷新(通知的方法)
--(void)sendHomeAdvertisementRequest{
+-(void)sendHomeAdvertisementRequest
+{
     
     [[SDImageCache sharedImageCache] clearDisk];
     
@@ -251,7 +258,8 @@
 }
 
 //初始化的netWorking
--(void)sendHomeAdvertisementRequestTEXT{
+-(void)sendHomeAdvertisementRequestTEXT
+{
 
     [[HomeNetwork sharedManager]postHomeAdvertisement:nil successBlock:^(id responseBody) {
         
@@ -265,10 +273,9 @@
 
 }
 
-
-
 //头部广告
--(void)updateAdvertisingOfDic:(NSDictionary *)dict{
+-(void)updateAdvertisingOfDic:(NSDictionary *)dict
+{
    
     NSDictionary *dic = [HomeTopGoodsModel NewsWithJSON:dict];
     NSArray * imageArray = dic[@"small"];
@@ -309,7 +316,8 @@
 }
 
 #pragma mark --- SDCycleScrollViewDelegate
--(void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
+-(void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
+{
     
     [self.delegate touchClickToAdvertise:self goodsID:self.receiveGoodsIDArray[index]];
 
@@ -317,7 +325,8 @@
 
 #pragma 获取首页界面图片
 
--(void)loadAllPic{
+-(void)loadAllPic
+{
 
   
         [self load8Png];
@@ -333,10 +342,9 @@
 
 }
 
-
-
 //加载8个大分类图标
--(void)load8Png{
+-(void)load8Png
+{
     
     [_eightLogo1 sd_setImageWithURL:[self loadPic:@"2.png"] forState:UIControlStateNormal];
     [_eightLogo2 sd_setImageWithURL:[self loadPic:@"3.png"] forState:UIControlStateNormal];
@@ -350,7 +358,8 @@
 }
 
 //加载6个分类图标（六宫格）
--(void)load6Png{
+-(void)load6Png
+{
     [_sixLogo1 sd_setImageWithURL:[self loadPic:@"11.jpg"] forState:UIControlStateNormal];
     [_sixLogo2 sd_setImageWithURL:[self loadPic:@"12.jpg"] forState:UIControlStateNormal];
     [_sixLogo3 sd_setImageWithURL:[self loadPic:@"13.jpg"] forState:UIControlStateNormal];
@@ -360,7 +369,8 @@
 }
 
 //加载活动专区4图
--(void)load4Activity{
+-(void)load4Activity
+{
     [_Activity1 sd_setBackgroundImageWithURL:[self loadPic:@"18.jpg"] forState:UIControlStateNormal];
     [_Activity2 sd_setBackgroundImageWithURL:[self loadPic:@"19.jpg"] forState:UIControlStateNormal];
     [_Activity3 sd_setBackgroundImageWithURL:[self loadPic:@"20.jpg"] forState:UIControlStateNormal];
@@ -368,7 +378,8 @@
 }
 
 //加载9宫图
--(void)load9Png{
+-(void)load9Png
+{
     
     [_nineLogo1 sd_setBackgroundImageWithURL:[self loadPic:@"23.jpg"] forState:UIControlStateNormal];
     [_nineLogo2 sd_setBackgroundImageWithURL:[self loadPic:@"24.jpg"] forState:UIControlStateNormal];
@@ -384,7 +395,8 @@
 }
 
 //加载广告横幅
--(void)load4Banner{
+-(void)load4Banner
+{
     
     [_Banner1 sd_setBackgroundImageWithURL:[self loadPic:@"10.jpg"] forState:UIControlStateNormal];
     [_Banner2 sd_setBackgroundImageWithURL:[self loadPic:@"17.jpg"] forState:UIControlStateNormal];
@@ -393,7 +405,8 @@
     
 }
 
--(NSURL *)loadPic:(NSString *)PicName{
+-(NSURL *)loadPic:(NSString *)PicName
+{
     
     NSString *URLa = @"http://www.haocaimao.com/ios/";
     NSString *urlStr = [URLa stringByAppendingString:PicName];

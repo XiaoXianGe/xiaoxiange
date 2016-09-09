@@ -49,7 +49,6 @@ static NSString *const url = @"http://www.haocaimao.com/ecmobile/?url=article";
 
 - (void)networkRequest:(NSString *)netKey{
     
-    
     NSDictionary *dict = @{@"article_id":[self modelParsingParameter:netKey]};
     
     [SVProgressHUD show];

@@ -13,7 +13,6 @@
 
 #import "FlowCheckCell.h"
 #import "MJExtension.h"
-
 #import "CartListModel.h"
 #import "OrderGoodsListModel.h"
 
@@ -29,7 +28,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *tel; // 电话
 @property (weak, nonatomic) IBOutlet UILabel *address; // 地址
 @property (weak, nonatomic) IBOutlet UILabel *countrys; // 省市区
-@property (weak, nonatomic) IBOutlet UILabel *payment; // 支付方式
+//@property (weak, nonatomic) IBOutlet UILabel *payment; // 支付方式
 @property (weak, nonatomic) IBOutlet UILabel *shipping; // 配送方式
 @property (weak, nonatomic) IBOutlet UILabel *invContent; // 发票信息
 
@@ -72,21 +71,22 @@
 /** window */
 @property(nonatomic,strong)UIWindow * window;
 
-
 @end
 
 @implementation HCMFlowCheckOrderTableViewController
 
 static NSString * const reuseIdentifier = @"MyCell";
 
--(WeChatPayModel *)wechatmmodel{
+-(WeChatPayModel *)wechatmmodel
+{
     if (!_wechatmmodel) {
         _wechatmmodel = [[WeChatPayModel alloc]init];
     }
     return _wechatmmodel;
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     
     [super viewDidLoad];
     
@@ -109,13 +109,15 @@ static NSString * const reuseIdentifier = @"MyCell";
     
 }
 
-- (void)clickBack{
+- (void)clickBack
+{
     
     [self.navigationController popViewControllerAnimated:YES];
     
 }
 
-- (void)viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated
+{
     [SVProgressHUD show];
     [super viewWillAppear:animated];
     
@@ -143,12 +145,13 @@ static NSString * const reuseIdentifier = @"MyCell";
     
     [window addSubview:self.totalPriceFooterView];
     
-    
+    self.totalPriceFooterView.hidden = YES;
     
 }
 
 //使用猫豆
--(void)maodou:(id)model{
+-(void)maodou:(id)model
+{
     
     _jiFenH.constant = 95;
     _integralState.hidden = YES;
@@ -171,14 +174,16 @@ static NSString * const reuseIdentifier = @"MyCell";
 }
 
 //判断输入的是否为纯数字
-- (BOOL)isPureInt:(NSString*)string{
+- (BOOL)isPureInt:(NSString*)string
+{
     NSScanner* scan = [NSScanner scannerWithString:string];
     int val;
     return[scan scanInt:&val] && [scan isAtEnd];
 }
 
 //积分 （确认输入）
-- (IBAction)integralOK:(UITextField *)sender {
+- (IBAction)integralOK:(UITextField *)sender
+{
     
     if([sender.text isEqual: @""])
     {
@@ -208,7 +213,8 @@ static NSString * const reuseIdentifier = @"MyCell";
     
 }
 
-- (void)network{
+- (void)network
+{
         
     NSUserDefaults *defaults = [NSUserDefaults  standardUserDefaults];
     self.uid = [defaults objectForKey:@"uid"];
@@ -258,8 +264,8 @@ static NSString * const reuseIdentifier = @"MyCell";
         
         [self.tableView reloadData];
         
-        [self loadtotalPricedFooterView];
-        
+        self.totalPriceFooterView.hidden = NO;
+
     } failureBlock:^(NSString *error) {
         
         self.tableView.tableHeaderView.hidden = YES;
@@ -269,9 +275,10 @@ static NSString * const reuseIdentifier = @"MyCell";
     }];
     
 }
-#pragma mark - 初始化 头尾视图
 
-- (void)initWithFooterHeaderViewData:(OrderGoodsListModel *)orderGoods{
+#pragma mark - 初始化 头尾视图
+- (void)initWithFooterHeaderViewData:(OrderGoodsListModel *)orderGoods
+{
     
     self.consignee.text = orderGoods.consignee;
     self.tel.text = orderGoods.tel;
@@ -296,14 +303,16 @@ static NSString * const reuseIdentifier = @"MyCell";
     _totalPriceMark = totalPriceM;
     
 }
-#pragma mark - Table view data source
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+#pragma mark - Table view data source
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     
     return [self.orderGoodsArrays count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     
     FlowCheckCell *cell = [self.tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
     
@@ -317,16 +326,16 @@ static NSString * const reuseIdentifier = @"MyCell";
     
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     
     return 50;
 }
+
 #pragma  mark -- 各种点击事件
-
-
-
 //打开发票信息
-- (IBAction)clickLnvoiceType:(UIButton *)sender {
+- (IBAction)clickLnvoiceType:(UIButton *)sender
+{
     
     invContentListVC *InvVC = [[invContentListVC alloc]initWithNibName:@"invContentListVC" bundle:nil];
     
@@ -337,7 +346,8 @@ static NSString * const reuseIdentifier = @"MyCell";
 }
 #pragma mark -invContentListVCDelegate
 //发票信息
-- (void)setInvContent:(invContentListVC *)invContent dictData:(NSDictionary *)dict{
+- (void)setInvContent:(invContentListVC *)invContent dictData:(NSDictionary *)dict
+{
     
     self.invDict = dict;
     HCMLog(@"%@",dict);
@@ -352,14 +362,17 @@ static NSString * const reuseIdentifier = @"MyCell";
 }
 
 //打开地址信息
-- (IBAction)clickAddress:(UIButton *)sender {
+- (IBAction)clickAddress:(UIButton *)sender
+{
     
     HCMUserLocationTableViewController *userLocationVC = [[HCMUserLocationTableViewController alloc]initWithNibName:@"HCMUserLocationTableViewController" bundle:nil];
     
     [self.navigationController pushViewController:userLocationVC animated:YES];
     
 }
-- (IBAction)payWay:(UIButton *)sender {
+
+- (IBAction)payWay:(UIButton *)sender
+{
 
     for (int i = 0 ; i < self.payWayArray.count; i++) {
         UIButton *btn = self.payWayArray[i];
@@ -372,7 +385,8 @@ static NSString * const reuseIdentifier = @"MyCell";
 }
 
 //提交订单
-- (IBAction)clickSubmitListing:(UIButton *)sender {
+- (IBAction)clickSubmitListing:(UIButton *)sender
+{
 
     //检查资料是否完整
      NSString *pay = [[NSString alloc]init];
@@ -497,8 +511,9 @@ static NSString * const reuseIdentifier = @"MyCell";
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
-    
+
+    [self loadtotalPricedFooterView];
+
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -509,7 +524,8 @@ static NSString * const reuseIdentifier = @"MyCell";
 
 }
 
--(void)dealloc{
+-(void)dealloc
+{
     [HCMNSNotificationCenter removeObserver:self];
     
 }
