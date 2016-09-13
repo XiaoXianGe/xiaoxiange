@@ -39,9 +39,9 @@
                     </variation>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="body-cont-bg" translatesAutoresizingMaskIntoConstraints="NO" id="YmI-0r-Ytt" userLabel="背景图">
-                    <rect key="frame" x="0.0" y="206" width="320" height="97"/>
+                    <rect key="frame" x="0.0" y="206" width="320" height="102"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="97" id="FYb-MF-uo2"/>
+                        <constraint firstAttribute="height" constant="102" id="FYb-MF-uo2"/>
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jhz-uW-b5K" userLabel="中线">
@@ -62,7 +62,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VuL-Ou-ZCf">
-                    <rect key="frame" x="28" y="304" width="264" height="55"/>
+                    <rect key="frame" x="28" y="309" width="264" height="55"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="CRH-6w-1gN"/>
                         <constraint firstAttribute="width" constant="264" id="oH1-YQ-Q53"/>
@@ -77,7 +77,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xe6-Sn-Sw0">
-                    <rect key="frame" x="20" y="369" width="80" height="30"/>
+                    <rect key="frame" x="20" y="374" width="80" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="YVF-mJ-4lP"/>
                         <constraint firstAttribute="height" constant="30" id="wRj-bE-DgK"/>
@@ -140,7 +140,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0lc-fT-Kgg">
-                    <rect key="frame" x="220" y="369" width="80" height="30"/>
+                    <rect key="frame" x="220" y="374" width="80" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="Nku-v5-FnZ"/>
                         <constraint firstAttribute="width" constant="80" id="S63-Iz-ktF"/>

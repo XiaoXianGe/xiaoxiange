@@ -81,7 +81,6 @@
     
    // UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 56)];
     self.backView.frame = CGRectMake(0, 0, HCMScreenWidth, 56);
-    
     CGFloat width = self.width;
     CGFloat height = self.height;
     
