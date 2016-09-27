@@ -197,8 +197,7 @@
 - (IBAction)category_six_Button:(UIButton *)sender
 {
     int tag = sender.tag%20;
-    
-    NSArray *arr = @[@"132",@"622",@"21",@"16",@"69",@"21"];
+    NSArray *arr = @[@"132",@"622",@"21",@"16",@"69",@"265"];
     [self.delegate touchClickPrassCategory:self tag:arr[tag] number:sender.tag];
 }
 
