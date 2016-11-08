@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HCMOrderInfoTableVC">
@@ -38,10 +42,9 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" bouncesZoom="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
                 <outlet property="dataSource" destination="-1" id="Tng-2m-Rnh"/>
                 <outlet property="delegate" destination="-1" id="9aC-8N-iBw"/>
@@ -49,17 +52,17 @@
             <point key="canvasLocation" x="97" y="313"/>
         </tableView>
         <view contentMode="scaleToFill" id="6mk-ki-SzK" userLabel="头部视图">
-            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="164"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P61-iX-T3J">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <rect key="frame" x="0.0" y="30" width="320" height="106"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shopping-checkout-cont-bg" translatesAutoresizingMaskIntoConstraints="NO" id="9By-Yl-5mB" userLabel="地址背景">
-                            <rect key="frame" x="10" y="10" width="300" height="110"/>
+                            <rect key="frame" x="8" y="9" width="304" height="87"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shopping-checkout-phone-icon" translatesAutoresizingMaskIntoConstraints="NO" id="666-Q4-Yd4" userLabel="地址电话">
-                            <rect key="frame" x="184" y="28" width="24" height="26"/>
+                            <rect key="frame" x="181" y="19" width="24" height="26"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="24" id="xBh-FR-Jg1"/>
                                 <constraint firstAttribute="height" constant="26" id="y5o-ay-HfI"/>
@@ -78,13 +81,13 @@
                             </variation>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收件人:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="RhP-JA-60Q">
-                            <rect key="frame" x="22" y="31" width="55" height="20"/>
+                            <rect key="frame" x="22" y="22" width="53" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="6Rr-k7-CTb"/>
                                 <constraint firstAttribute="width" constant="53" id="h49-EC-a6r"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.26831249999999995" green="0.26831249999999995" blue="0.26831249999999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.26831249999999995" green="0.26831249999999995" blue="0.26831249999999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
@@ -100,12 +103,12 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="53D-Tv-nTR" userLabel="地址">
-                            <rect key="frame" x="22" y="90" width="276" height="14"/>
+                            <rect key="frame" x="22" y="50" width="276" height="41"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="41" id="ewJ-RE-62b"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
@@ -119,13 +122,13 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="u0g-3V-pgc" userLabel="电话">
-                            <rect key="frame" x="205" y="33" width="100" height="15"/>
+                            <rect key="frame" x="206" y="23" width="100" height="18"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="18" id="JT3-nk-U6N"/>
                                 <constraint firstAttribute="width" constant="100" id="WDn-xB-iUx"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
@@ -141,13 +144,13 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="P31-NT-1hj" userLabel="收件人姓名">
-                            <rect key="frame" x="76" y="31" width="100" height="20"/>
+                            <rect key="frame" x="76" y="22" width="100" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="4fx-fG-h2i"/>
                                 <constraint firstAttribute="width" constant="100" id="xIR-0Q-I90"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
@@ -163,7 +166,7 @@
                             </variation>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="666-Q4-Yd4" firstAttribute="top" secondItem="P61-iX-T3J" secondAttribute="top" constant="19" id="DjX-rH-slW"/>
                         <constraint firstItem="u0g-3V-pgc" firstAttribute="leading" secondItem="666-Q4-Yd4" secondAttribute="trailing" constant="1" id="Ifs-PV-phW"/>
@@ -243,32 +246,26 @@
                         </mask>
                     </variation>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hcmLogo" translatesAutoresizingMaskIntoConstraints="NO" id="eKc-dB-bBS">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="8" y="139" width="25" height="25"/>
-                    </variation>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hcmLogo" translatesAutoresizingMaskIntoConstraints="NO" id="eKc-dB-bBS">
+                    <rect key="frame" x="8" y="139" width="25" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="好采猫" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="4Rw-Be-re7">
-                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="好采猫" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="4Rw-Be-re7">
+                    <rect key="frame" x="36" y="141" width="51" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" red="0.24937500000000001" green="0.24937500000000001" blue="0.24937500000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.24937500000000001" green="0.24937500000000001" blue="0.24937500000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="36" y="141" width="51" height="21"/>
-                    </variation>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="订单号:12345678" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="evi-T0-h0w">
-                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="订单号:12345678" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="evi-T0-h0w">
+                    <rect key="frame" x="8" y="8" width="273" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" red="0.27630208333333328" green="0.27630208333333328" blue="0.27630208333333328" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.27630208333333328" green="0.27630208333333328" blue="0.27630208333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="8" y="8" width="273" height="21"/>
-                    </variation>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="P61-iX-T3J" firstAttribute="leading" secondItem="6mk-ki-SzK" secondAttribute="leading" id="Mjl-Gk-sXK"/>
                 <constraint firstItem="P61-iX-T3J" firstAttribute="top" secondItem="6mk-ki-SzK" secondAttribute="top" constant="30" id="PTr-X9-Z6o"/>
@@ -302,18 +299,18 @@
                     <include reference="YcX-q7-atx"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="492" y="83"/>
+            <point key="canvasLocation" x="520" y="70"/>
         </view>
         <view contentMode="scaleToFill" id="1zm-Ok-N7d" userLabel="尾部视图">
-            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="451"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l4F-Ma-dqN" userLabel="支付状态View">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <rect key="frame" x="0.0" y="8" width="320" height="182"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6tT-WX-mL2" userLabel="-----分割线">
-                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                            <color key="backgroundColor" red="0.89916615477689166" green="0.89794022487432978" blue="0.91935416666666669" alpha="1" colorSpace="calibratedRGB"/>
+                            <rect key="frame" x="8" y="40" width="304" height="1"/>
+                            <color key="backgroundColor" red="0.89916615477689166" green="0.89794022487432978" blue="0.91935416666666669" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="dkK-IR-hHE"/>
                             </constraints>
@@ -322,9 +319,6 @@
                                     <exclude reference="dkK-IR-hHE"/>
                                 </mask>
                             </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="8" y="40" width="304" height="1"/>
-                            </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
                                     <include reference="dkK-IR-hHE"/>
@@ -332,22 +326,19 @@
                             </variation>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="付款状态" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHh-Xl-IW5">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="8" y="49" width="60" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="gG9-C4-njT"/>
                                 <constraint firstAttribute="width" constant="60" id="h1w-jz-tZl"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.43670833333333337" green="0.43670833333333337" blue="0.43670833333333337" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.43670833333333337" green="0.43670833333333337" blue="0.43670833333333337" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="gG9-C4-njT"/>
                                     <exclude reference="h1w-jz-tZl"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="8" y="49" width="60" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -357,22 +348,19 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="配送状态" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHR-VS-AaW">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="8" y="74" width="60" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="ThZ-eN-knh"/>
                                 <constraint firstAttribute="width" constant="60" id="xK2-3g-rP1"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.43670833333333337" green="0.43670833333333337" blue="0.43670833333333337" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.43670833333333337" green="0.43670833333333337" blue="0.43670833333333337" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="ThZ-eN-knh"/>
                                     <exclude reference="xK2-3g-rP1"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="8" y="74" width="60" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -382,22 +370,19 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未付款" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tgs-ee-nmp">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="216" y="49" width="96" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="NRE-vb-leS"/>
                                 <constraint firstAttribute="width" constant="96" id="d5e-76-JwG"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="NRE-vb-leS"/>
                                     <exclude reference="d5e-76-JwG"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="216" y="49" width="96" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -407,22 +392,19 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未配送" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfC-qL-s6h">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="216" y="74" width="96" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="gGe-bm-7hY"/>
                                 <constraint firstAttribute="width" constant="96" id="gq5-BW-vqM"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="gGe-bm-7hY"/>
                                     <exclude reference="gq5-BW-vqM"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="216" y="74" width="96" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -432,8 +414,8 @@
                             </variation>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CqE-kv-3me" userLabel="-----分割线">
-                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                            <color key="backgroundColor" red="0.90353606522510599" green="0.89998730088781465" blue="0.92595833333333333" alpha="1" colorSpace="calibratedRGB"/>
+                            <rect key="frame" x="8" y="101" width="304" height="1"/>
+                            <color key="backgroundColor" red="0.90353606522510599" green="0.89998730088781465" blue="0.92595833333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="EUA-6A-b42"/>
                             </constraints>
@@ -442,9 +424,6 @@
                                     <exclude reference="EUA-6A-b42"/>
                                 </mask>
                             </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="8" y="101" width="304" height="1"/>
-                            </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
                                     <include reference="EUA-6A-b42"/>
@@ -452,22 +431,19 @@
                             </variation>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付方式" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kq2-ln-Dds">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="8" y="12" width="75" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="0jH-iY-K2Z"/>
                                 <constraint firstAttribute="width" constant="75" id="mlQ-Am-Kvv"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.43670833333333337" green="0.43670833333333337" blue="0.43670833333333337" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.43670833333333337" green="0.43670833333333337" blue="0.43670833333333337" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="0jH-iY-K2Z"/>
                                     <exclude reference="mlQ-Am-Kvv"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="8" y="12" width="75" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -477,22 +453,19 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信支付" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDg-hn-Bqs">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="216" y="12" width="96" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="96" id="aqV-Rr-l2o"/>
                                 <constraint firstAttribute="height" constant="21" id="pfz-e2-juy"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="aqV-Rr-l2o"/>
                                     <exclude reference="pfz-e2-juy"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="216" y="12" width="96" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -502,22 +475,19 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发票信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zUT-eZ-dd4">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="8" y="110" width="81" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="81" id="4fV-dz-ZKt"/>
                                 <constraint firstAttribute="height" constant="21" id="GFc-cW-O63"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.10769791666666662" green="0.10769791666666662" blue="0.10769791666666662" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.10769791666666662" green="0.10769791666666662" blue="0.10769791666666662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="4fV-dz-ZKt"/>
                                     <exclude reference="GFc-cW-O63"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="8" y="110" width="81" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -527,22 +497,19 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发票抬头:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsn-o6-Lui">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="8" y="135" width="60" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="dsW-oB-UfF"/>
                                 <constraint firstAttribute="width" constant="60" id="fq4-Ww-K05"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.43670833333333337" green="0.43670833333333337" blue="0.43670833333333337" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.43670833333333337" green="0.43670833333333337" blue="0.43670833333333337" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="dsW-oB-UfF"/>
                                     <exclude reference="fq4-Ww-K05"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="8" y="135" width="60" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -552,22 +519,19 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="广州市好采猫科技有限公司" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AI7-4L-tPQ">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="76" y="135" width="228" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="228" id="hYA-h5-7sw"/>
                                 <constraint firstAttribute="height" constant="21" id="jfv-U8-Wcr"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.43670833329999997" green="0.43670833329999997" blue="0.43670833329999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.43670833329999997" green="0.43670833329999997" blue="0.43670833329999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="hYA-h5-7sw"/>
                                     <exclude reference="jfv-U8-Wcr"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="76" y="135" width="228" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -577,22 +541,19 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发票内容:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="08p-QJ-Bld">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="8" y="155" width="60" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="60" id="i1t-eC-NVS"/>
                                 <constraint firstAttribute="height" constant="21" id="rIp-jJ-BaT"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.43670833333333337" green="0.43670833333333337" blue="0.43670833333333337" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.43670833333333337" green="0.43670833333333337" blue="0.43670833333333337" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="i1t-eC-NVS"/>
                                     <exclude reference="rIp-jJ-BaT"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="8" y="155" width="60" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -602,22 +563,19 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="明细" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZm-1O-hNM">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="76" y="155" width="60" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="RJJ-iB-mAn"/>
                                 <constraint firstAttribute="width" constant="60" id="Uab-3m-bEH"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.43670833329999997" green="0.43670833329999997" blue="0.43670833329999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.43670833329999997" green="0.43670833329999997" blue="0.43670833329999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="RJJ-iB-mAn"/>
                                     <exclude reference="Uab-3m-bEH"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="76" y="155" width="60" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -627,7 +585,7 @@
                             </variation>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="Tgs-ee-nmp" secondAttribute="trailing" constant="8" id="1Q5-cy-GhV"/>
                         <constraint firstAttribute="trailing" secondItem="6tT-WX-mL2" secondAttribute="trailing" constant="8" id="1wE-Wa-tto"/>
@@ -677,38 +635,37 @@
                         </mask>
                         <mask key="constraints">
                             <exclude reference="MNX-wE-Zmq"/>
-                            <exclude reference="2L7-zP-001"/>
-                            <exclude reference="nUw-ok-4F4"/>
-                            <exclude reference="P5O-eE-8JK"/>
-                            <exclude reference="gbf-MH-zwh"/>
+                            <exclude reference="Mix-Kp-NkG"/>
+                            <exclude reference="fbL-9z-4kR"/>
+                            <exclude reference="1wE-Wa-tto"/>
+                            <exclude reference="rrb-NL-h9v"/>
+                            <exclude reference="yC5-n8-ZU5"/>
+                            <exclude reference="CqO-fw-eYx"/>
+                            <exclude reference="UJA-jB-yuc"/>
                             <exclude reference="OUR-c3-u6F"/>
                             <exclude reference="mxX-IC-sAZ"/>
+                            <exclude reference="ADg-cf-Dep"/>
+                            <exclude reference="eBP-n4-C3k"/>
+                            <exclude reference="wOD-7Z-jlP"/>
+                            <exclude reference="udN-pt-rQC"/>
+                            <exclude reference="zFd-JW-IfZ"/>
+                            <exclude reference="8gj-vn-r5B"/>
+                            <exclude reference="oTO-vW-G5j"/>
+                            <exclude reference="P5O-eE-8JK"/>
+                            <exclude reference="gbf-MH-zwh"/>
+                            <exclude reference="2L7-zP-001"/>
+                            <exclude reference="nUw-ok-4F4"/>
+                            <exclude reference="HfZ-TN-iqp"/>
+                            <exclude reference="WJV-zc-SRA"/>
+                            <exclude reference="ARC-oo-Kts"/>
+                            <exclude reference="Jd0-Uu-eeg"/>
                             <exclude reference="1Q5-cy-GhV"/>
                             <exclude reference="vcX-ef-y03"/>
                             <exclude reference="QLI-TX-qHp"/>
                             <exclude reference="dVa-0z-bhr"/>
-                            <exclude reference="8gj-vn-r5B"/>
-                            <exclude reference="oTO-vW-G5j"/>
-                            <exclude reference="HfZ-TN-iqp"/>
-                            <exclude reference="WJV-zc-SRA"/>
-                            <exclude reference="Mix-Kp-NkG"/>
-                            <exclude reference="fbL-9z-4kR"/>
-                            <exclude reference="ARC-oo-Kts"/>
-                            <exclude reference="Jd0-Uu-eeg"/>
-                            <exclude reference="CqO-fw-eYx"/>
-                            <exclude reference="UJA-jB-yuc"/>
-                            <exclude reference="udN-pt-rQC"/>
-                            <exclude reference="zFd-JW-IfZ"/>
-                            <exclude reference="1wE-Wa-tto"/>
-                            <exclude reference="rrb-NL-h9v"/>
-                            <exclude reference="yC5-n8-ZU5"/>
-                            <exclude reference="ADg-cf-Dep"/>
-                            <exclude reference="eBP-n4-C3k"/>
-                            <exclude reference="wOD-7Z-jlP"/>
                         </mask>
                     </variation>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="0.0" y="27" width="320" height="182"/>
+                    <variation key="widthClass=compact">
                         <mask key="subviews">
                             <include reference="6tT-WX-mL2"/>
                             <include reference="vHh-Xl-IW5"/>
@@ -728,57 +685,54 @@
                     <variation key="heightClass=regular-widthClass=compact">
                         <mask key="constraints">
                             <include reference="MNX-wE-Zmq"/>
-                            <include reference="2L7-zP-001"/>
-                            <include reference="nUw-ok-4F4"/>
-                            <include reference="P5O-eE-8JK"/>
-                            <include reference="gbf-MH-zwh"/>
+                            <include reference="Mix-Kp-NkG"/>
+                            <include reference="fbL-9z-4kR"/>
+                            <include reference="1wE-Wa-tto"/>
+                            <include reference="rrb-NL-h9v"/>
+                            <include reference="yC5-n8-ZU5"/>
+                            <include reference="CqO-fw-eYx"/>
+                            <include reference="UJA-jB-yuc"/>
                             <include reference="OUR-c3-u6F"/>
                             <include reference="mxX-IC-sAZ"/>
+                            <include reference="ADg-cf-Dep"/>
+                            <include reference="eBP-n4-C3k"/>
+                            <include reference="wOD-7Z-jlP"/>
+                            <include reference="udN-pt-rQC"/>
+                            <include reference="zFd-JW-IfZ"/>
+                            <include reference="8gj-vn-r5B"/>
+                            <include reference="oTO-vW-G5j"/>
+                            <include reference="P5O-eE-8JK"/>
+                            <include reference="gbf-MH-zwh"/>
+                            <include reference="2L7-zP-001"/>
+                            <include reference="nUw-ok-4F4"/>
+                            <include reference="HfZ-TN-iqp"/>
+                            <include reference="WJV-zc-SRA"/>
+                            <include reference="ARC-oo-Kts"/>
+                            <include reference="Jd0-Uu-eeg"/>
                             <include reference="1Q5-cy-GhV"/>
                             <include reference="vcX-ef-y03"/>
                             <include reference="QLI-TX-qHp"/>
                             <include reference="dVa-0z-bhr"/>
-                            <include reference="8gj-vn-r5B"/>
-                            <include reference="oTO-vW-G5j"/>
-                            <include reference="HfZ-TN-iqp"/>
-                            <include reference="WJV-zc-SRA"/>
-                            <include reference="Mix-Kp-NkG"/>
-                            <include reference="fbL-9z-4kR"/>
-                            <include reference="ARC-oo-Kts"/>
-                            <include reference="Jd0-Uu-eeg"/>
-                            <include reference="CqO-fw-eYx"/>
-                            <include reference="UJA-jB-yuc"/>
-                            <include reference="udN-pt-rQC"/>
-                            <include reference="zFd-JW-IfZ"/>
-                            <include reference="1wE-Wa-tto"/>
-                            <include reference="rrb-NL-h9v"/>
-                            <include reference="yC5-n8-ZU5"/>
-                            <include reference="ADg-cf-Dep"/>
-                            <include reference="eBP-n4-C3k"/>
-                            <include reference="wOD-7Z-jlP"/>
                         </mask>
                     </variation>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VUN-5z-mQj" userLabel="底部总价view">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <rect key="frame" x="0.0" y="271" width="320" height="180"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="商品总额" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5J1-AL-fDd">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="8" y="8" width="81" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="81" id="7gO-4t-i4x"/>
                                 <constraint firstAttribute="height" constant="21" id="unf-s4-6Gg"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.10769791669999999" green="0.10769791669999999" blue="0.10769791669999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.10769791669999999" green="0.10769791669999999" blue="0.10769791669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="7gO-4t-i4x"/>
                                     <exclude reference="unf-s4-6Gg"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="8" y="8" width="81" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -787,23 +741,20 @@
                                 </mask>
                             </variation>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="实付款：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Nc-vF-wmp">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="实付款：" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Nc-vF-wmp">
+                            <rect key="frame" x="176" y="96" width="66" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="TYX-g5-boX"/>
-                                <constraint firstAttribute="width" constant="56" id="iKF-ti-zmS"/>
+                                <constraint firstAttribute="width" constant="66" id="iKF-ti-zmS"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.10769791669999999" green="0.10769791669999999" blue="0.10769791669999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.10769791669999999" green="0.10769791669999999" blue="0.10769791669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="TYX-g5-boX"/>
                                     <exclude reference="iKF-ti-zmS"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="186" y="63" width="81" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -813,22 +764,19 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥1234.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hih-JQ-9vl">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="233" y="96" width="79" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="79" id="Eq5-2r-KGd"/>
                                 <constraint firstAttribute="height" constant="21" id="pCM-C4-ro1"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.84019886369999996" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.84019886369999996" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="Eq5-2r-KGd"/>
                                     <exclude reference="pCM-C4-ro1"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="233" y="63" width="79" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -838,22 +786,19 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+运费" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kg-Je-ymE">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="8" y="30" width="60" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="80l-kb-Yhc"/>
                                 <constraint firstAttribute="width" constant="60" id="XfE-IT-plk"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.43670833329999997" green="0.43670833329999997" blue="0.43670833329999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.43670833329999997" green="0.43670833329999997" blue="0.43670833329999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="80l-kb-Yhc"/>
                                     <exclude reference="XfE-IT-plk"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="8" y="30" width="60" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -863,8 +808,8 @@
                             </variation>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="enH-Iz-VnZ" userLabel="-----分割线">
-                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                            <color key="backgroundColor" red="0.81773404579999998" green="0.81661914099999999" blue="0.83609374999999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <rect key="frame" x="8" y="91" width="304" height="1"/>
+                            <color key="backgroundColor" red="0.81773404579999998" green="0.81661914099999999" blue="0.83609374999999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="CKk-bT-z1b"/>
                             </constraints>
@@ -873,9 +818,6 @@
                                     <exclude reference="CKk-bT-z1b"/>
                                 </mask>
                             </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="8" y="56" width="304" height="1"/>
-                            </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
                                     <include reference="CKk-bT-z1b"/>
@@ -883,22 +825,19 @@
                             </variation>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YnH-7J-tfP">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="252" y="30" width="60" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="60" id="IRd-yY-6Ox"/>
                                 <constraint firstAttribute="height" constant="21" id="tKh-lq-4Qr"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.84019886369999996" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.84019886369999996" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="IRd-yY-6Ox"/>
                                     <exclude reference="tKh-lq-4Qr"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="252" y="30" width="60" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -908,22 +847,19 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥1234.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L73-YP-lrJ">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="233" y="8" width="79" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="9Kt-sa-VL6"/>
                                 <constraint firstAttribute="width" constant="79" id="QIH-9h-Zwa"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.84019886369999996" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.84019886369999996" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="9Kt-sa-VL6"/>
                                     <exclude reference="QIH-9h-Zwa"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="233" y="8" width="79" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -933,26 +869,23 @@
                             </variation>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4v1-0U-s1F" userLabel="结算">
-                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <rect key="frame" x="0.0" y="137" width="320" height="43"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EKf-vV-m4T">
-                                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                    <rect key="frame" x="160" y="11" width="70" height="24"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="24" id="88m-e7-vYK"/>
                                         <constraint firstAttribute="width" constant="70" id="OiT-Ea-d7n"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" title="取消订单" backgroundImage="button-narrow-gray">
-                                        <color key="titleColor" red="0.086541666666666628" green="0.086541666666666628" blue="0.086541666666666628" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleColor" red="0.086541666666666628" green="0.086541666666666628" blue="0.086541666666666628" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
                                     <variation key="default">
                                         <mask key="constraints">
                                             <exclude reference="88m-e7-vYK"/>
                                             <exclude reference="OiT-Ea-d7n"/>
                                         </mask>
-                                    </variation>
-                                    <variation key="widthClass=compact" fixedFrame="YES">
-                                        <rect key="frame" x="160" y="11" width="70" height="24"/>
                                     </variation>
                                     <variation key="heightClass=regular-widthClass=compact">
                                         <mask key="constraints">
@@ -965,23 +898,20 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="enY-oF-EVx">
-                                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                    <rect key="frame" x="242" y="11" width="70" height="24"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="24" id="EDv-QJ-ZXd"/>
                                         <constraint firstAttribute="width" constant="70" id="Efp-Jd-Bz7"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" title="去付款" backgroundImage="button-narrow-red">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
                                     <variation key="default">
                                         <mask key="constraints">
                                             <exclude reference="EDv-QJ-ZXd"/>
                                             <exclude reference="Efp-Jd-Bz7"/>
                                         </mask>
-                                    </variation>
-                                    <variation key="widthClass=compact" fixedFrame="YES">
-                                        <rect key="frame" x="242" y="11" width="70" height="24"/>
                                     </variation>
                                     <variation key="heightClass=regular-widthClass=compact">
                                         <mask key="constraints">
@@ -994,7 +924,7 @@
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="enY-oF-EVx" secondAttribute="bottom" constant="8" id="D1v-ms-NNm"/>
                                 <constraint firstAttribute="trailing" secondItem="enY-oF-EVx" secondAttribute="trailing" constant="8" id="Fmz-wI-Rxi"/>
@@ -1015,8 +945,7 @@
                                     <exclude reference="brs-N0-QGI"/>
                                 </mask>
                             </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="0.0" y="104" width="320" height="43"/>
+                            <variation key="widthClass=compact">
                                 <mask key="subviews">
                                     <include reference="EKf-vV-m4T"/>
                                     <include reference="enY-oF-EVx"/>
@@ -1033,22 +962,19 @@
                             </variation>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="下单时间：2016/03/18 20:20:20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGX-eh-39k">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="140" y="113" width="172" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="1Ra-3I-ns3"/>
                                 <constraint firstAttribute="width" constant="172" id="FeF-CU-x8E"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                            <color key="textColor" red="0.43670833329999997" green="0.43670833329999997" blue="0.43670833329999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.43670833329999997" green="0.43670833329999997" blue="0.43670833329999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="1Ra-3I-ns3"/>
                                     <exclude reference="FeF-CU-x8E"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="140" y="80" width="172" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -1058,22 +984,19 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-红包" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4U-4p-A1I">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="8" y="48" width="60" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="60" id="U4Z-Z0-wNx"/>
                                 <constraint firstAttribute="height" constant="21" id="i0G-nY-wog"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.43670833329999997" green="0.43670833329999997" blue="0.43670833329999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.43670833329999997" green="0.43670833329999997" blue="0.43670833329999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="U4Z-Z0-wNx"/>
                                     <exclude reference="i0G-nY-wog"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="8" y="30" width="60" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -1083,22 +1006,19 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mak-iv-aCd">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="252" y="48" width="60" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="Mv8-Ym-eeS"/>
                                 <constraint firstAttribute="width" constant="60" id="jhb-ot-NDt"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.84019886369999996" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.84019886369999996" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="Mv8-Ym-eeS"/>
                                     <exclude reference="jhb-ot-NDt"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="252" y="30" width="60" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -1108,22 +1028,19 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-积分" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAU-bY-73w">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="8" y="67" width="60" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="jmo-NB-6Jo"/>
                                 <constraint firstAttribute="width" constant="60" id="uyQ-rJ-m8j"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.43670833329999997" green="0.43670833329999997" blue="0.43670833329999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.43670833329999997" green="0.43670833329999997" blue="0.43670833329999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="jmo-NB-6Jo"/>
                                     <exclude reference="uyQ-rJ-m8j"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="8" y="30" width="60" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -1133,22 +1050,19 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tVt-gD-vWf">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="252" y="67" width="60" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="3Ld-JU-61L"/>
                                 <constraint firstAttribute="width" constant="60" id="rFN-dz-4Ef"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.84019886369999996" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.84019886369999996" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="3Ld-JU-61L"/>
                                     <exclude reference="rFN-dz-4Ef"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="252" y="30" width="60" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -1158,7 +1072,7 @@
                             </variation>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="4kg-Je-ymE" firstAttribute="leading" secondItem="VUN-5z-mQj" secondAttribute="leading" constant="8" id="0AT-sH-E66"/>
                         <constraint firstAttribute="trailing" secondItem="enH-Iz-VnZ" secondAttribute="trailing" constant="8" id="0AT-sJ-ufN"/>
@@ -1208,38 +1122,37 @@
                         </mask>
                         <mask key="constraints">
                             <exclude reference="shH-YA-mB6"/>
-                            <exclude reference="ChT-mF-lXi"/>
-                            <exclude reference="GAF-28-GUi"/>
-                            <exclude reference="0AT-sH-E66"/>
-                            <exclude reference="UZ4-En-PrV"/>
                             <exclude reference="4SV-29-OL3"/>
                             <exclude reference="AVF-dN-gRl"/>
-                            <exclude reference="8Lg-a3-dL6"/>
-                            <exclude reference="uzP-bh-Gfo"/>
-                            <exclude reference="E2X-d4-V6m"/>
-                            <exclude reference="eNb-yB-aGe"/>
-                            <exclude reference="7yF-Sw-L50"/>
-                            <exclude reference="Shh-vr-LgH"/>
+                            <exclude reference="0AT-sH-E66"/>
+                            <exclude reference="UZ4-En-PrV"/>
                             <exclude reference="cpx-A5-fXK"/>
                             <exclude reference="eWg-uw-e4p"/>
-                            <exclude reference="RlL-bD-YgU"/>
-                            <exclude reference="dTH-3p-1ZX"/>
-                            <exclude reference="M24-vh-LFs"/>
-                            <exclude reference="hP5-bQ-rWr"/>
-                            <exclude reference="4BZ-io-0eO"/>
-                            <exclude reference="eqN-f4-x76"/>
                             <exclude reference="OrZ-sz-6kl"/>
                             <exclude reference="g1Y-9N-mrT"/>
-                            <exclude reference="Aj3-Rq-NkL"/>
-                            <exclude reference="L92-Sm-YwU"/>
-                            <exclude reference="fpO-aO-tvt"/>
                             <exclude reference="0AT-sJ-ufN"/>
                             <exclude reference="fds-1w-VQd"/>
                             <exclude reference="l2R-ED-ydN"/>
+                            <exclude reference="Aj3-Rq-NkL"/>
+                            <exclude reference="L92-Sm-YwU"/>
+                            <exclude reference="fpO-aO-tvt"/>
+                            <exclude reference="M24-vh-LFs"/>
+                            <exclude reference="hP5-bQ-rWr"/>
+                            <exclude reference="ChT-mF-lXi"/>
+                            <exclude reference="GAF-28-GUi"/>
+                            <exclude reference="E2X-d4-V6m"/>
+                            <exclude reference="eNb-yB-aGe"/>
+                            <exclude reference="8Lg-a3-dL6"/>
+                            <exclude reference="uzP-bh-Gfo"/>
+                            <exclude reference="7yF-Sw-L50"/>
+                            <exclude reference="Shh-vr-LgH"/>
+                            <exclude reference="RlL-bD-YgU"/>
+                            <exclude reference="dTH-3p-1ZX"/>
+                            <exclude reference="4BZ-io-0eO"/>
+                            <exclude reference="eqN-f4-x76"/>
                         </mask>
                     </variation>
-                    <variation key="widthClass=compact" misplaced="YES">
-                        <rect key="frame" x="0.0" y="0.0" width="240" height="147"/>
+                    <variation key="widthClass=compact">
                         <mask key="subviews">
                             <include reference="5J1-AL-fDd"/>
                             <include reference="4Nc-vF-wmp"/>
@@ -1263,57 +1176,54 @@
                             <include reference="tVt-gD-vWf"/>
                         </mask>
                         <mask key="constraints">
-                            <include reference="ChT-mF-lXi"/>
-                            <include reference="GAF-28-GUi"/>
-                            <include reference="0AT-sH-E66"/>
-                            <include reference="UZ4-En-PrV"/>
                             <include reference="4SV-29-OL3"/>
                             <include reference="AVF-dN-gRl"/>
-                            <include reference="8Lg-a3-dL6"/>
-                            <include reference="uzP-bh-Gfo"/>
-                            <include reference="E2X-d4-V6m"/>
-                            <include reference="eNb-yB-aGe"/>
-                            <include reference="7yF-Sw-L50"/>
-                            <include reference="Shh-vr-LgH"/>
+                            <include reference="0AT-sH-E66"/>
+                            <include reference="UZ4-En-PrV"/>
                             <include reference="cpx-A5-fXK"/>
                             <include reference="eWg-uw-e4p"/>
-                            <include reference="RlL-bD-YgU"/>
-                            <include reference="dTH-3p-1ZX"/>
-                            <include reference="M24-vh-LFs"/>
-                            <include reference="hP5-bQ-rWr"/>
-                            <include reference="4BZ-io-0eO"/>
-                            <include reference="eqN-f4-x76"/>
                             <include reference="OrZ-sz-6kl"/>
                             <include reference="g1Y-9N-mrT"/>
-                            <include reference="Aj3-Rq-NkL"/>
-                            <include reference="L92-Sm-YwU"/>
-                            <include reference="fpO-aO-tvt"/>
                             <include reference="0AT-sJ-ufN"/>
                             <include reference="fds-1w-VQd"/>
                             <include reference="l2R-ED-ydN"/>
+                            <include reference="Aj3-Rq-NkL"/>
+                            <include reference="L92-Sm-YwU"/>
+                            <include reference="fpO-aO-tvt"/>
+                            <include reference="M24-vh-LFs"/>
+                            <include reference="hP5-bQ-rWr"/>
+                            <include reference="ChT-mF-lXi"/>
+                            <include reference="GAF-28-GUi"/>
+                            <include reference="E2X-d4-V6m"/>
+                            <include reference="eNb-yB-aGe"/>
+                            <include reference="8Lg-a3-dL6"/>
+                            <include reference="uzP-bh-Gfo"/>
+                            <include reference="7yF-Sw-L50"/>
+                            <include reference="Shh-vr-LgH"/>
+                            <include reference="RlL-bD-YgU"/>
+                            <include reference="dTH-3p-1ZX"/>
+                            <include reference="4BZ-io-0eO"/>
+                            <include reference="eqN-f4-x76"/>
                         </mask>
                     </variation>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oo2-cx-B55" userLabel="中间增值税View">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <rect key="frame" x="0.0" y="110" width="320" height="150"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发票信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yh-Mb-inB">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="8" y="8" width="81" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="7RP-93-dOQ"/>
                                 <constraint firstAttribute="width" constant="81" id="MlX-Fs-DSP"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.10769791669999999" green="0.10769791669999999" blue="0.10769791669999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.10769791669999999" green="0.10769791669999999" blue="0.10769791669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="7RP-93-dOQ"/>
                                     <exclude reference="MlX-Fs-DSP"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="8" y="8" width="81" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -1323,22 +1233,19 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="纳税人识别码:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iro-qR-yWq">
-                            <rect key="frame" x="4" y="44" width="84" height="21"/>
+                            <rect key="frame" x="8" y="47" width="84" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="Fvb-Wn-U6P"/>
                                 <constraint firstAttribute="width" constant="84" id="RA3-Fm-EBF"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" red="0.39167708333333329" green="0.39167708333333329" blue="0.39167708333333329" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.39167708333333329" green="0.39167708333333329" blue="0.39167708333333329" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="Fvb-Wn-U6P"/>
                                     <exclude reference="RA3-Fm-EBF"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="8" y="47" width="84" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -1348,22 +1255,19 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注册地址:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JRr-XB-Kas">
-                            <rect key="frame" x="12" y="77" width="76" height="21"/>
+                            <rect key="frame" x="16" y="66" width="76" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="76" id="1zE-CU-5fu"/>
                                 <constraint firstAttribute="height" constant="21" id="9aR-K0-MyC"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" red="0.39167708333333329" green="0.39167708333333329" blue="0.39167708333333329" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.39167708333333329" green="0.39167708333333329" blue="0.39167708333333329" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="1zE-CU-5fu"/>
                                     <exclude reference="9aR-K0-MyC"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="16" y="66" width="76" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -1373,22 +1277,19 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="银行账号:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2LV-Wy-YMX">
-                            <rect key="frame" x="12" y="176" width="76" height="21"/>
+                            <rect key="frame" x="16" y="123" width="76" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="76" id="qI4-Za-Hrn"/>
                                 <constraint firstAttribute="height" constant="21" id="vXy-2k-jz5"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" red="0.39167708333333329" green="0.39167708333333329" blue="0.39167708333333329" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.39167708333333329" green="0.39167708333333329" blue="0.39167708333333329" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="qI4-Za-Hrn"/>
                                     <exclude reference="vXy-2k-jz5"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="16" y="123" width="76" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -1398,22 +1299,19 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="单位名称:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOf-dg-CKM">
-                            <rect key="frame" x="12" y="11" width="76" height="21"/>
+                            <rect key="frame" x="16" y="28" width="76" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="76" id="5iv-jm-unW"/>
                                 <constraint firstAttribute="height" constant="21" id="n4E-Gv-GYb"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" red="0.39167708333333329" green="0.39167708333333329" blue="0.39167708333333329" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.39167708333333329" green="0.39167708333333329" blue="0.39167708333333329" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="5iv-jm-unW"/>
                                     <exclude reference="n4E-Gv-GYb"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="16" y="28" width="76" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -1423,22 +1321,19 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注册电话:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ci2-pt-uyE">
-                            <rect key="frame" x="12" y="110" width="76" height="21"/>
+                            <rect key="frame" x="16" y="85" width="76" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="jzF-BG-TIN"/>
                                 <constraint firstAttribute="width" constant="76" id="raE-hS-RLc"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" red="0.39167708333333329" green="0.39167708333333329" blue="0.39167708333333329" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.39167708333333329" green="0.39167708333333329" blue="0.39167708333333329" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="jzF-BG-TIN"/>
                                     <exclude reference="raE-hS-RLc"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="16" y="85" width="76" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -1448,22 +1343,19 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开户银行:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OL0-RE-w3z">
-                            <rect key="frame" x="12" y="143" width="76" height="21"/>
+                            <rect key="frame" x="16" y="104" width="76" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="76" id="1ui-E5-Ygm"/>
                                 <constraint firstAttribute="height" constant="21" id="5Sx-gd-POo"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" red="0.39167708333333329" green="0.39167708333333329" blue="0.39167708333333329" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.39167708333333329" green="0.39167708333333329" blue="0.39167708333333329" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="1ui-E5-Ygm"/>
                                     <exclude reference="5Sx-gd-POo"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="16" y="104" width="76" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -1473,22 +1365,19 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8o0-4u-Aro" userLabel="单位名称">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="106" y="28" width="203" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="203" id="EhR-0g-BE7"/>
                                 <constraint firstAttribute="height" constant="21" id="hDy-nN-v6c"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" red="0.28270833333333334" green="0.28270833333333334" blue="0.28270833333333334" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.28270833333333334" green="0.28270833333333334" blue="0.28270833333333334" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="EhR-0g-BE7"/>
                                     <exclude reference="hDy-nN-v6c"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="106" y="28" width="203" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -1498,22 +1387,19 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="74b-4Y-kbX" userLabel="纳税人识别码">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="106" y="47" width="203" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="203" id="MtL-9b-O4b"/>
                                 <constraint firstAttribute="height" constant="21" id="wa6-U9-5Oe"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" red="0.2827083333" green="0.2827083333" blue="0.2827083333" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.2827083333" green="0.2827083333" blue="0.2827083333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="MtL-9b-O4b"/>
                                     <exclude reference="wa6-U9-5Oe"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="106" y="47" width="203" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -1523,22 +1409,19 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNh-Al-uZi" userLabel="注册地址">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="106" y="66" width="203" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="203" id="Ej7-jy-eFn"/>
                                 <constraint firstAttribute="height" constant="21" id="q4D-kd-0tN"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" red="0.2827083333" green="0.2827083333" blue="0.2827083333" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.2827083333" green="0.2827083333" blue="0.2827083333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="Ej7-jy-eFn"/>
                                     <exclude reference="q4D-kd-0tN"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="106" y="66" width="203" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -1548,22 +1431,19 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cr-RM-LAi" userLabel="注册电话">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="106" y="85" width="203" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="203" id="Jwf-MK-RWz"/>
                                 <constraint firstAttribute="height" constant="21" id="QwJ-6s-psn"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" red="0.2827083333" green="0.2827083333" blue="0.2827083333" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.2827083333" green="0.2827083333" blue="0.2827083333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="Jwf-MK-RWz"/>
                                     <exclude reference="QwJ-6s-psn"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="106" y="85" width="203" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -1573,22 +1453,19 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l3n-E6-GTR" userLabel="银行账号">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="106" y="123" width="203" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="203" id="SGQ-CO-18E"/>
                                 <constraint firstAttribute="height" constant="21" id="luW-3J-Waf"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" red="0.2827083333" green="0.2827083333" blue="0.2827083333" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.2827083333" green="0.2827083333" blue="0.2827083333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="SGQ-CO-18E"/>
                                     <exclude reference="luW-3J-Waf"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="106" y="123" width="203" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -1598,22 +1475,19 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXS-WU-Tct" userLabel="开户银行">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="106" y="104" width="203" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="4C4-dS-ZBQ"/>
                                 <constraint firstAttribute="width" constant="203" id="MUa-Is-24G"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" red="0.2827083333" green="0.2827083333" blue="0.2827083333" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.2827083333" green="0.2827083333" blue="0.2827083333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="4C4-dS-ZBQ"/>
                                     <exclude reference="MUa-Is-24G"/>
                                 </mask>
-                            </variation>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="106" y="104" width="203" height="21"/>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
@@ -1623,7 +1497,7 @@
                             </variation>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="9yh-Mb-inB" firstAttribute="top" secondItem="oo2-cx-B55" secondAttribute="top" constant="8" id="0ki-uO-O7y"/>
                         <constraint firstItem="l3n-E6-GTR" firstAttribute="leading" secondItem="2LV-Wy-YMX" secondAttribute="trailing" constant="14" id="29y-Oo-oQ0"/>
@@ -1671,36 +1545,35 @@
                         </mask>
                         <mask key="constraints">
                             <exclude reference="BYj-W0-I6J"/>
-                            <exclude reference="KKA-3F-BMZ"/>
-                            <exclude reference="hCI-Ro-lN5"/>
-                            <exclude reference="cLK-zl-wSw"/>
-                            <exclude reference="t8x-mO-ATU"/>
-                            <exclude reference="X7b-Ue-NxC"/>
-                            <exclude reference="srw-bc-rX1"/>
-                            <exclude reference="Zbi-2T-VtD"/>
-                            <exclude reference="khd-NC-cT7"/>
                             <exclude reference="0ki-uO-O7y"/>
                             <exclude reference="gMy-5M-hYu"/>
-                            <exclude reference="66H-G5-YeC"/>
-                            <exclude reference="ZK8-Ly-s5h"/>
-                            <exclude reference="29y-Oo-oQ0"/>
-                            <exclude reference="SU6-u5-q4Y"/>
-                            <exclude reference="73F-AC-tpa"/>
-                            <exclude reference="qeK-bI-OKd"/>
+                            <exclude reference="KKA-3F-BMZ"/>
+                            <exclude reference="hCI-Ro-lN5"/>
                             <exclude reference="FS5-e7-IgV"/>
                             <exclude reference="mwa-ro-mQr"/>
                             <exclude reference="FNV-dL-aZY"/>
                             <exclude reference="koB-r7-d2g"/>
+                            <exclude reference="Zbi-2T-VtD"/>
+                            <exclude reference="khd-NC-cT7"/>
+                            <exclude reference="cLK-zl-wSw"/>
+                            <exclude reference="t8x-mO-ATU"/>
                             <exclude reference="QOk-FK-jNv"/>
                             <exclude reference="xYY-FH-7MI"/>
+                            <exclude reference="73F-AC-tpa"/>
+                            <exclude reference="qeK-bI-OKd"/>
+                            <exclude reference="X7b-Ue-NxC"/>
+                            <exclude reference="srw-bc-rX1"/>
+                            <exclude reference="66H-G5-YeC"/>
+                            <exclude reference="ZK8-Ly-s5h"/>
                             <exclude reference="RcI-wV-kIE"/>
                             <exclude reference="f3N-e7-A89"/>
+                            <exclude reference="29y-Oo-oQ0"/>
+                            <exclude reference="SU6-u5-q4Y"/>
                             <exclude reference="Lid-gM-OKf"/>
                             <exclude reference="eAP-g6-4EL"/>
                         </mask>
                     </variation>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="0.0" y="129" width="320" height="150"/>
+                    <variation key="widthClass=compact">
                         <mask key="subviews">
                             <include reference="9yh-Mb-inB"/>
                             <include reference="iro-qR-yWq"/>
@@ -1720,37 +1593,37 @@
                     <variation key="heightClass=regular-widthClass=compact">
                         <mask key="constraints">
                             <include reference="BYj-W0-I6J"/>
-                            <include reference="KKA-3F-BMZ"/>
-                            <include reference="hCI-Ro-lN5"/>
-                            <include reference="cLK-zl-wSw"/>
-                            <include reference="t8x-mO-ATU"/>
-                            <include reference="X7b-Ue-NxC"/>
-                            <include reference="srw-bc-rX1"/>
-                            <include reference="Zbi-2T-VtD"/>
-                            <include reference="khd-NC-cT7"/>
                             <include reference="0ki-uO-O7y"/>
                             <include reference="gMy-5M-hYu"/>
-                            <include reference="66H-G5-YeC"/>
-                            <include reference="ZK8-Ly-s5h"/>
-                            <include reference="29y-Oo-oQ0"/>
-                            <include reference="SU6-u5-q4Y"/>
-                            <include reference="73F-AC-tpa"/>
-                            <include reference="qeK-bI-OKd"/>
+                            <include reference="KKA-3F-BMZ"/>
+                            <include reference="hCI-Ro-lN5"/>
                             <include reference="FS5-e7-IgV"/>
                             <include reference="mwa-ro-mQr"/>
                             <include reference="FNV-dL-aZY"/>
                             <include reference="koB-r7-d2g"/>
+                            <include reference="Zbi-2T-VtD"/>
+                            <include reference="khd-NC-cT7"/>
+                            <include reference="cLK-zl-wSw"/>
+                            <include reference="t8x-mO-ATU"/>
                             <include reference="QOk-FK-jNv"/>
                             <include reference="xYY-FH-7MI"/>
+                            <include reference="73F-AC-tpa"/>
+                            <include reference="qeK-bI-OKd"/>
+                            <include reference="X7b-Ue-NxC"/>
+                            <include reference="srw-bc-rX1"/>
+                            <include reference="66H-G5-YeC"/>
+                            <include reference="ZK8-Ly-s5h"/>
                             <include reference="RcI-wV-kIE"/>
                             <include reference="f3N-e7-A89"/>
+                            <include reference="29y-Oo-oQ0"/>
+                            <include reference="SU6-u5-q4Y"/>
                             <include reference="Lid-gM-OKf"/>
                             <include reference="eAP-g6-4EL"/>
                         </mask>
                     </variation>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="l4F-Ma-dqN" secondAttribute="trailing" id="25u-Zc-PJO"/>
                 <constraint firstAttribute="bottom" secondItem="VUN-5z-mQj" secondAttribute="bottom" id="Cff-Hr-pyf"/>
@@ -1804,7 +1677,7 @@
                     <include reference="QUc-3O-o5C"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="313" y="434"/>
+            <point key="canvasLocation" x="534" y="443.5"/>
         </view>
     </objects>
     <resources>

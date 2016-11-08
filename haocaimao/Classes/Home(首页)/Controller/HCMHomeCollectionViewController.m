@@ -31,7 +31,7 @@
 #import "AddressNerworking.h"
 #import "HCMMesageViewController.h"
 
-@interface HCMHomeCollectionViewController ()<HCMHomeTopViewControllerDelegate,UIGestureRecognizerDelegate>
+@interface HCMHomeCollectionViewController ()<HCMHomeTopViewControllerDelegate>
 
 @property (strong, nonatomic)HCMHomeTopViewController *homeTop;
 @property (strong, nonatomic)NSMutableArray *receiveArray;
@@ -106,8 +106,7 @@ static NSString * const reuseIdentifier = @"Cell";
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, 60, 0);
-    
-    self.navigationController.interactivePopGestureRecognizer.delegate = self;
+ 
 }
 
 //头部刷新
@@ -280,11 +279,11 @@ static NSString * const reuseIdentifier = @"Cell";
 -(void)clickLogo
 {
 
-//   [self.collectionView setContentOffset:CGPointMake(0, 0) animated:YES];
-    ViewController *vc = [[ViewController alloc]init];
-    vc.goods_id = @"318";
-    [self.navigationController pushViewController:vc animated:YES];
-    [SVProgressHUD show];
+   [self.collectionView setContentOffset:CGPointMake(0, 0) animated:YES];
+//    ViewController *vc = [[ViewController alloc]init];
+//    vc.goods_id = @"318";
+//    [self.navigationController pushViewController:vc animated:YES];
+//    [SVProgressHUD show];
 
 }
 

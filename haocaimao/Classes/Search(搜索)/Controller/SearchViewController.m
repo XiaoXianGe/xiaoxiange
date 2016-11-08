@@ -21,7 +21,7 @@
 #import "mainTableViewModel.h"
 #import "secondCollectionViewModel.h"
 
-@interface SearchViewController ()<UIGestureRecognizerDelegate>
+@interface SearchViewController ()
 @property (strong , nonatomic)NSMutableArray *mainCategoryArray;
 @property (strong , nonatomic)NSMutableArray *SubCategoryArray;
 @property(strong,nonatomic)HWSearchBar *searchBar;
@@ -93,8 +93,6 @@ static NSString *identifier = @"ID";
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(gotoTheSearch) image:@"nav_search" highImage:@"nav_search"];
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:nil image:@"logo-icon" highImage:@"logo-icon"];
     self.view.backgroundColor = [UIColor whiteColor];
-    
-     self.navigationController.interactivePopGestureRecognizer.delegate = self;
     
 }
 

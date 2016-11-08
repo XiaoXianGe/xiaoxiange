@@ -27,9 +27,9 @@
 
 @implementation HCMDealCell
 
-- (void)awakeFromNib {
-    
-}
+//- (void)awakeFromNib {
+//    
+//}
 
 -(void)setHCMDealModel:(HCMDealModel *)HCMDealModel{
     

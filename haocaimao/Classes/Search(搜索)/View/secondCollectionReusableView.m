@@ -9,9 +9,9 @@
 #import "secondCollectionReusableView.h"
 
 @implementation secondCollectionReusableView
-
-- (void)awakeFromNib {
-    // Initialization code
-}
+//
+//- (void)awakeFromNib {
+//    // Initialization code
+//}
 
 @end

@@ -10,11 +10,11 @@
 
 @implementation HCMPartnerCenterCell
 
-- (void)awakeFromNib {
-
-
-
-}
+//- (void)awakeFromNib {
+//
+//
+//
+//}
 
 
 @end

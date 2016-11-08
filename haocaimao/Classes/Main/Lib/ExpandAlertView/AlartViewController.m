@@ -8,7 +8,7 @@
 
 #import "AlartViewController.h"
 
-@interface AlartViewController ()
+@interface AlartViewController ()<CAAnimationDelegate>
 
 @end
 

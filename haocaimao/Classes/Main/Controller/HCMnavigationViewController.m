@@ -10,7 +10,7 @@
 #import "DealViewController.h"
 #import "HCMnavigationViewController.h"
 
-@interface HCMnavigationViewController ()
+@interface HCMnavigationViewController ()<UIGestureRecognizerDelegate>
 
 @end
 
@@ -21,6 +21,7 @@
     [super viewDidLoad];
     
     
+    self.interactivePopGestureRecognizer.delegate = self;
    
 }
 
@@ -30,4 +31,15 @@
     [super pushViewController:viewController animated:animated];
 }
 
+
+-(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+//    if (self.childViewControllers.count== 1) {
+//        
+//        HCMLog(@"...");
+//        return NO;
+//    }
+    //手势返回
+    return self.childViewControllers.count> 1;
+}
 @end

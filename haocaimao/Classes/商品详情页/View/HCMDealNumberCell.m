@@ -23,11 +23,11 @@
 
 
 
-- (void)awakeFromNib {
-    
-
-
-}
+//- (void)awakeFromNib {
+//    
+//
+//
+//}
 
 /** 加按钮 */
 - (IBAction)add {
