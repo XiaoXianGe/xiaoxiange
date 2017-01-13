@@ -111,7 +111,7 @@
         
         NSLog(@"%@,%@",model.type,model.title);
         
-        [weakSelf testGBTopLineViewModel:(GBTopLineViewModel *)model];
+        [weakSelf GBTopLineViewModel:(GBTopLineViewModel *)model];
     
     };
     
@@ -120,6 +120,7 @@
     [self getData];
     
 }
+
 #pragma mark-获取数据
 - (void)getData
 {
@@ -137,7 +138,7 @@
     [_TopLineView setVerticalShowDataArr:_dataArr];
 }
 
--(void)testGBTopLineViewModel:(GBTopLineViewModel *)model
+-(void)GBTopLineViewModel:(GBTopLineViewModel *)model
 {
     
     [self.delegate touchGBTopLineView:model.type title:model.title];

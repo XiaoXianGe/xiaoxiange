@@ -234,11 +234,10 @@
     
     [UMSocialSnsService presentSnsIconSheetView:self
                                          appKey:@"5636fa51e0f55af8bf004172"
-                                      shareText:@"0元创业,立刻成为好采猫合伙人，领只招财猫回家！"
+                                      shareText:@"成为好采猫合伙人，轻松创业，成就梦想。"
                                      shareImage:[UIImage imageNamed:@"partnerLogo"]
                                 shareToSnsNames:[NSArray arrayWithObjects:UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,nil]
                                        delegate:self];
-    
     
 }
  

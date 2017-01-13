@@ -234,14 +234,12 @@
 //    return [[NSString alloc] initWithBytes:data length:32 encoding:NSUTF8StringEncoding];
 //}
 
-
-
 /**
  *  返回
  */
 - (void)back{
     
-       [self.navigationController popToRootViewControllerAnimated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 /**
@@ -266,12 +264,7 @@
     }else{
         [self deleteHCMTableView];
     }
-    
-    
-        
-    
 
-   
 }
 
 - (void)addUserNumber

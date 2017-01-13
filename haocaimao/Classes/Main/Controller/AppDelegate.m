@@ -50,7 +50,8 @@
 }
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
     
     //3D-touch
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0){
@@ -78,20 +79,18 @@
     return YES;
 
 }
--(NSString*)dictionaryToJson:(NSDictionary *)dic
 
+-(NSString*)dictionaryToJson:(NSDictionary *)dic
 {
     
     NSError *parseError = nil;
-    
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&parseError];
-    
     return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     
 }
 
--(void)setUpRootViewController{
-    
+-(void)setUpRootViewController
+{
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
 
     NSString *key = @"CFBundleShortVersionString";
@@ -108,7 +107,6 @@
         self.window.rootViewController = self.tab;
         
     } else {
-        
         // 这次打开的版本和上一次不一样，显示新特性
         self.window.rootViewController = [[HWNewfeatureViewController alloc] init];
         
@@ -122,7 +120,8 @@
 }
 
 //3D-touch
--(void)setUp3Dtouch{
+-(void)setUp3Dtouch
+{
     
     UIApplicationShortcutIcon *icon = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeSearch];
     
@@ -134,7 +133,8 @@
 }
 
 
-- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler{
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler
+{
     self.tab.selectedIndex = 1;
     
 }
@@ -152,13 +152,16 @@
 }
 
 
--(void)applicationDidBecomeActive:(UIApplication *)application{
+-(void)applicationDidBecomeActive:(UIApplication *)application
+{
     application.applicationIconBadgeNumber -= 1;
 }
 
--(void)applicationWillEnterForeground:(UIApplication *)application{
+-(void)applicationWillEnterForeground:(UIApplication *)application
+{
     HCMLog(@"进入前台");
 }
+
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
     //通知删除《分类搜索》的键盘退出按钮
@@ -180,9 +183,6 @@
  *********************************
  *********************************
  *********************************/
-
-
-
 
 -(void)registerNotification
 {
@@ -243,7 +243,6 @@
 
 
 #pragma mark - 系统为_IOS 7.0 _时使用
-
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
     /// Background Fetch 恢复 SDK 运行
@@ -311,7 +310,6 @@
 }
 
 #pragma mark - GeTuiSdkDelegate
-
 /** SDK启动成功返回cid */
 - (void)GeTuiSdkDidRegisterClient:(NSString *)clientId
 {
@@ -337,12 +335,8 @@
     if (payload) {
         //接收到的《描述内容》
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:payload options:NSJSONReadingMutableContainers error:nil];
-        
         _dict = dic;
-        
-        HCMLog(@"--_dict---%@",_dict);
 
-        
         if ([_markPush isEqualToString:@"1"]){
             _markPush = @"0";
             return;
@@ -350,11 +344,9 @@
 
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:_dict[@"title"] message:_dict[@"content"] delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"立刻查看", nil];
         [alert show];
-
-
     }
 
-    
+    /**
 //    NSString *payloadMsg = nil;
 //    if (payload) {
 //        payloadMsg = [[NSString alloc] initWithBytes:payload.bytes length:payload.length encoding:NSUTF8StringEncoding];
@@ -364,10 +356,7 @@
 //    NSLog(@"透传消息回调:%@\n\n", msg);
 //
 //
-    
 
-
-    /**
      *汇报个推自定义事件
      *actionId：用户自定义的actionid，int类型，取值90001-90999。
      *taskId：下发任务的任务ID。
@@ -408,35 +397,29 @@
         NSLog(@"\nError---:%@\n\n", [error localizedDescription]);
         return;
     }
-    
     NSLog(@"设置推送模式:%@\n\n", isModeOff ? @"开启" : @"关闭");
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
-    
      if ([title isEqualToString:@"立刻查看"])
      {
          [self pushMessageToController];
      }
 }
 
+//获取到推送后，跳转到对应的控制器
 -(void)pushMessageToController{
-    
     // 获取导航控制器
     UITabBarController *tabVC = (UITabBarController *)self.window.rootViewController;
-    
     UINavigationController *pushClassStance = (UINavigationController *)tabVC.viewControllers[tabVC.selectedIndex];
-
     NSString *contenttype = _dict[@"contenttype"];
     if ([contenttype isEqualToString:@"1"]) {
         
         //这里收的是    *消息内容
         DealViewController *pushVC = [[DealViewController alloc]initWithNibName:@"DealViewController" bundle:nil];
         pushVC.goods_id = _dict[@"actionId"];
-        
         // 跳转到对应的控制器
         [pushClassStance pushViewController:pushVC animated:YES];
         
@@ -450,7 +433,6 @@
     }else if ([contenttype isEqualToString:@"3"]){
         
         [SVProgressHUD showWithStatus:@"加载中"];
-        
         tabVC.tabBar.hidden = YES;
         pushClassStance.navigationBarHidden = NO;
         
