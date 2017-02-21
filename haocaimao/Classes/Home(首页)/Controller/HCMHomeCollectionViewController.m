@@ -94,6 +94,8 @@ static NSString * const reuseIdentifier = @"Cell";
     //添加刷新事件
     self.collectionView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
     
+    //监听网络
+    [self netWorkStatus];
 
 }
 
@@ -647,6 +649,38 @@ static NSString * const reuseIdentifier = @"Cell";
     
     [self.navigationController pushViewController:vipLoginVC animated:YES];
 }
+
+//监听网络
+
+-(void)netWorkStatus{
+    
+    AFNetworkReachabilityManager *statusManager = [AFNetworkReachabilityManager sharedManager];
+    [statusManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        switch (status) {
+            case AFNetworkReachabilityStatusUnknown:
+                NSLog(@"未知");
+                break;
+            case AFNetworkReachabilityStatusNotReachable:
+                NSLog(@"没有网络");
+                break;
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+                NSLog(@"3G");
+                [self.collectionView.header beginRefreshing];
+                break;
+                
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+                NSLog(@"WIFI");
+                [self.collectionView.header beginRefreshing];
+                break;
+                
+            default:
+                break;
+        }
+    }];
+    //3.开始监听
+    [statusManager startMonitoring];
+}
+
 
 -(void)dealloc
 {

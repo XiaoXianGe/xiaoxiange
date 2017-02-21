@@ -9,6 +9,7 @@
 #import "HCMTabBar.h"
 #import "HCMAdvisoryViewController.h"
 #import "HCMVipLoginViewController.h"
+#import "HomeNetwork.h"
 
 @interface HCMTabBar()<UIAlertViewDelegate>
 
@@ -69,6 +70,7 @@
         [self addSubview:self.consultingBtn];
         
         self.backView = backView;
+
     }
     return self;
 }

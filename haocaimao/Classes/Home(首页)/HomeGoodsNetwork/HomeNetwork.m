@@ -83,8 +83,10 @@ static NSString *const inquirePriceURL = @"http://www.haocaimao.com/ecmobile/?ur
     [manager.requestSerializer setTimeoutInterval:HCMTIMEOUT];
     
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"text/html", @"application/json", nil];
+    
     return manager;
 }
+
 
 
 
@@ -105,9 +107,9 @@ static NSString *const inquirePriceURL = @"http://www.haocaimao.com/ecmobile/?ur
         failureBlock(errorStr);
         
     }];
-    
-    
+
 }
+
 #pragma mark - 首页广告
 - (void)postHomeAdvertisement:(NSDictionary *)userInfo successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
     
@@ -118,13 +120,15 @@ static NSString *const inquirePriceURL = @"http://www.haocaimao.com/ecmobile/?ur
     [manager POST:urlStr parameters:userInfo success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         successBlock(responseObject);
-        
+       
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
         failureBlock(errorStr);
         
+        
     }];
+
     
     
 }
