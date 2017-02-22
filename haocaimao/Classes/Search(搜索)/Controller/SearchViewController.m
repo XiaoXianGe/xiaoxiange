@@ -64,8 +64,6 @@ static NSString *identifier = @"ID";
     
     //从前台退出后台时，删除键盘按钮
     [HCMNSNotificationCenter addObserver:self selector:@selector(deleteBtn) name:@"deleteBtn" object:nil];
-    
-   
 
 }
 

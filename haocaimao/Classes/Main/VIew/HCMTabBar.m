@@ -50,9 +50,10 @@
         
         //添加咨询按钮consultingBtn
         UIButton * consultingBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//        consultingBtn = (UIButton *)[self viewWithTag:111];
 //        [consultingBtn setBackgroundImage:[UIImage imageNamed:@"我要询价"] forState:UIControlStateNormal];
 //        [consultingBtn setBackgroundImage:[UIImage imageNamed:@"我要询价"] forState:UIControlStateHighlighted];
-        
+
         [consultingBtn sd_setImageWithURL:[NSURL URLWithString:@"http://www.haocaimao.com/ios/33.png"] forState:UIControlStateNormal];
         [consultingBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:@"http://www.haocaimao.com/ios/33.png"] forState:UIControlStateHighlighted];
         
@@ -60,8 +61,9 @@
 
 //        consultingBtn.size = consultingBtn.currentBackgroundImage.size;
         consultingBtn.size = CGSizeMake(50, 47);
-       
+        
         self.consultingBtn = consultingBtn;
+        
         
         UIView *backView = [[UIView alloc] init];
         backView.backgroundColor = HCMColor(56, 56, 56,1.0);
@@ -70,9 +72,20 @@
         [self addSubview:self.consultingBtn];
         
         self.backView = backView;
-
+        
+        [HCMNSNotificationCenter addObserver:self selector:@selector(loadTabbarAdvisoryIcon) name:@"loadTabbarAdvisoryIcon" object:nil];
+        
     }
     return self;
+}
+
+-(void)loadTabbarAdvisoryIcon
+{
+    HCMLog(@"测试");
+    HCMLog(@"测试%@", [_consultingBtn.imageView.image description]);
+    [_consultingBtn sd_setImageWithURL:[NSURL URLWithString:@"http://www.haocaimao.com/ios/33.png"] forState:UIControlStateNormal];
+    [_consultingBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:@"http://www.haocaimao.com/ios/33.png"] forState:UIControlStateHighlighted];
+    HCMLog(@"测试%@", _consultingBtn.imageView.image.description);
 }
 
 -(void)layoutSubviews{
@@ -135,6 +148,11 @@
             
         }
     
+}
+
+-(void)dealloc
+{
+    [HCMNSNotificationCenter removeObserver:self];
 }
 
 @end

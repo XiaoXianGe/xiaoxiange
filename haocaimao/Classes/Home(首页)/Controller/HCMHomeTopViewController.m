@@ -238,11 +238,11 @@
 -(void)sendHomeAdvertisementRequest
 {
     
-    [[SDImageCache sharedImageCache] clearDisk];
+//    [[SDImageCache sharedImageCache] clearDisk];
+//    
+//    [[SDImageCache sharedImageCache] clearMemory];
     
-    [[SDImageCache sharedImageCache] clearMemory];
-    
-    HCMLog(@"清理了缓存");
+    HCMLog(@"没有清理了缓存");
 
     [[HomeNetwork sharedManager]postHomeAdvertisement:nil successBlock:^(id responseBody) {
 
@@ -252,9 +252,7 @@
         
         [SVProgressHUD showInfoWithStatus:error];
     }];
-    
-    
-    
+
 }
 
 //初始化的netWorking

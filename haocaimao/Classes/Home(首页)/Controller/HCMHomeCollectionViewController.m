@@ -651,7 +651,6 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 //监听网络
-
 -(void)netWorkStatus{
     
     AFNetworkReachabilityManager *statusManager = [AFNetworkReachabilityManager sharedManager];
@@ -664,13 +663,11 @@ static NSString * const reuseIdentifier = @"Cell";
                 NSLog(@"没有网络");
                 break;
             case AFNetworkReachabilityStatusReachableViaWWAN:
-                NSLog(@"3G");
-                [self.collectionView.header beginRefreshing];
-                break;
-                
             case AFNetworkReachabilityStatusReachableViaWiFi:
-                NSLog(@"WIFI");
+                NSLog(@"3G 或者 WIFI");
                 [self.collectionView.header beginRefreshing];
+                //通知加载tabbar中间咨询按钮
+                [HCMNSNotificationCenter postNotificationName:@"loadTabbarAdvisoryIcon" object:nil];
                 break;
                 
             default:

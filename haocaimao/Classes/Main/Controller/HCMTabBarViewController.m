@@ -39,7 +39,6 @@
 }
 
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -57,7 +56,6 @@
     
     [self setValue:[[HCMTabBar alloc]init] forKeyPath:@"tabBar"];
     
-    
     //改变tabbar的高度
 //    self.tabBar.y = self.view.height - 45;
 //    self.tabBar.height = 45;
@@ -67,7 +65,10 @@
 //    [self.tabBar insertSubview:backView atIndex:0];
 //
     
+    
+    
 }
+
 
 -(void)addchildVc:(UIViewController *)childVc title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage{
     
@@ -94,8 +95,8 @@
     
     [self addChildViewController:nav];
     
-   
 }
+
 
 
 

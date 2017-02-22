@@ -1203,7 +1203,7 @@
         NSString *str = self.dealModel.shop_price;
         NSRange range = NSMakeRange(0, (str.length -1));
         str = [str substringWithRange:range];
-        if (str.floatValue >= 39.0) {
+        if (str.floatValue >= 300.0) {
             self.Freight.text = @"运费:  包邮";
         }
     }

@@ -210,7 +210,7 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-#pragma mark - Table view data source
+#pragma mark - TableView dataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
@@ -416,10 +416,7 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
     } failureBlock:^(NSString *error) {
         [SVProgressHUD showInfoWithStatus:@"失败"];
     }];
-    
-    
-    
-    
+
 }
 
 
