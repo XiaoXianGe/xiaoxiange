@@ -50,13 +50,14 @@
     UILabel *label =  self.textLabel;
     label.text = title;
     if (HCMScreenWidth == 414.0) {
-        label.font = [UIFont systemFontOfSize:10];
+        label.font = [UIFont systemFontOfSize:12];
 
     }else{
-        label.font = [UIFont systemFontOfSize:9];
+        label.font = [UIFont systemFontOfSize:10];
 
     }
     label.numberOfLines = 0;
+    label.textAlignment = NSTextAlignmentCenter;
     
     
 }
@@ -74,9 +75,9 @@
     
     if (HCMScreenWidth == 414.0) {
         self.imageView.frame = CGRectMake(2, 9, 33, 33);
-        self.textLabel.frame = CGRectMake(44, 10, 67, 30);
+        self.textLabel.frame = CGRectMake(38, 10, 75, 30);
     }else{
-        self.textLabel.frame = CGRectMake(44, 10, 54, 24);
+        self.textLabel.frame = CGRectMake(32, 10, 64, 24);
         self.imageView.frame = CGRectMake(2, 7, 30, 30);
     }
 

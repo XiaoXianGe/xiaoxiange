@@ -22,7 +22,7 @@
 #define BannerHeight 80
 #define FristLabelHeight 25
 #define sectionHeaderName [UIFont systemFontOfSize:12]
-#define tableViewWidth 110
+#define tableViewWidth 115
 
 @interface searchView()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>;
 

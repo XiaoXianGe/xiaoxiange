@@ -9,9 +9,6 @@
 
 @implementation HCMRecentBrowseTableViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
-}
 
 
 

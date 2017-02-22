@@ -157,7 +157,7 @@
     
     cell.popVC = ^(NSInteger tag){
       
-        NSString *addressID = [NSString stringWithFormat:@"%ld",tag];
+        NSString *addressID = [NSString stringWithFormat:@"%ld",(long)tag];
         
         self.HCMAddLocationVC = [[HCMAddLocationTableViewController alloc]initWithNibName:@"HCMAddLocationTableViewController" bundle:nil];
     
@@ -173,7 +173,7 @@
         NSString *uid = [self.defaults objectForKey:@"uid"];
         NSString *sid = [self.defaults objectForKey:@"sid"];
         
-        NSString *addressID = [NSString stringWithFormat:@"%ld",tag];
+        NSString *addressID = [NSString stringWithFormat:@"%ld",(long)tag];
 
         NSDictionary *dict = @{@"session":@{@"sid":sid,@"uid":uid},
                                @"address_id":addressID};

@@ -10,8 +10,5 @@
 
 @implementation SceneCollectionViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
-}
 
 @end

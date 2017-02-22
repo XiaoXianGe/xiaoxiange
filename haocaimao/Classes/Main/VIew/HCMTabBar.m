@@ -81,11 +81,9 @@
 
 -(void)loadTabbarAdvisoryIcon
 {
-    HCMLog(@"测试");
-    HCMLog(@"测试%@", [_consultingBtn.imageView.image description]);
-    [_consultingBtn sd_setImageWithURL:[NSURL URLWithString:@"http://www.haocaimao.com/ios/33.png"] forState:UIControlStateNormal];
-    [_consultingBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:@"http://www.haocaimao.com/ios/33.png"] forState:UIControlStateHighlighted];
-    HCMLog(@"测试%@", _consultingBtn.imageView.image.description);
+    [_consultingBtn setBackgroundImage:[UIImage imageNamed:@"我要询价"] forState:UIControlStateNormal];
+    [_consultingBtn setBackgroundImage:[UIImage imageNamed:@"我要询价"] forState:UIControlStateHighlighted];
+    
 }
 
 -(void)layoutSubviews{

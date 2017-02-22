@@ -657,15 +657,14 @@ static NSString * const reuseIdentifier = @"Cell";
     [statusManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         switch (status) {
             case AFNetworkReachabilityStatusUnknown:
-                NSLog(@"未知");
-                break;
             case AFNetworkReachabilityStatusNotReachable:
-                NSLog(@"没有网络");
+                [SVProgressHUD showInfoWithStatus:@"网络中断"];
                 break;
             case AFNetworkReachabilityStatusReachableViaWWAN:
             case AFNetworkReachabilityStatusReachableViaWiFi:
                 NSLog(@"3G 或者 WIFI");
                 [self.collectionView.header beginRefreshing];
+                
                 //通知加载tabbar中间咨询按钮
                 [HCMNSNotificationCenter postNotificationName:@"loadTabbarAdvisoryIcon" object:nil];
                 break;
