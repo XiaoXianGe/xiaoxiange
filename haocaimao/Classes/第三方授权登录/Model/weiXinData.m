@@ -200,8 +200,12 @@
                 [defaults setObject:responseBody[@"data"][@"userid"] forKey:@"uid"];
                 [defaults setObject:responseBody[@"data"][@"sessionId"] forKey:@"sid"];
                 [defaults setBool:[responseBody[@"status"][@"succeed"] boolValue]forKey:@"status"];
-                [defaults setObject:responseBody[@"data"][@"userInfo"][@"realName"] forKey:@"realName"];
-               
+                NSString *realName = (NSString *)responseBody[@"data"][@"userInfo"][@"realName"];
+                realName = [self clearNull:realName];
+                
+                HCMLog(@"=======realName %@",realName);
+                [defaults setObject:realName forKey:@"realName"];
+                
                 [defaults synchronize];
                 
                 [HCMNSNotificationCenter postNotificationName:@"weChatLogin" object:nil];
@@ -224,7 +228,16 @@
     //}
  
 }//判断刷新
-
+//随便赋值
+//里边的数据结构有"<null>"，而NSUserDefaults是不能被成功解析并存入的，所有在存入之前需要将里边的"<null>"改成""即可。
+-(NSString *)clearNull:(NSString *)realNameStr
+{
+    HCMLog(@"--------=%@",realNameStr);
+    if (realNameStr.length == 0) {
+        realNameStr = @"";
+    }
+    return realNameStr;
+}
 
 
 - (void)loadData{

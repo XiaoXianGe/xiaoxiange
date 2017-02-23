@@ -84,6 +84,8 @@
                 return ;
             }
             
+            HCMLog(@"%@",responseBody);
+            
             self.dic = responseBody;
             self.MaoDou.text =  [NSString stringWithFormat:@"%@ 豆",[responseBody[@"data"][@"point"] description]];
             

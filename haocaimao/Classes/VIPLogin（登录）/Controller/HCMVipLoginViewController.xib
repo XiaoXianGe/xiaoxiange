@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HCMVipLoginViewController">
@@ -28,15 +32,11 @@
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="head_ portrait_frame" translatesAutoresizingMaskIntoConstraints="NO" id="TJ2-ef-CYB">
                     <rect key="frame" x="13" y="89" width="96" height="96"/>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="28" y="83" width="90" height="90"/>
-                    </variation>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="头像" translatesAutoresizingMaskIntoConstraints="NO" id="YMX-9P-09h">
                     <rect key="frame" x="27" y="105" width="69" height="69"/>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="32" y="87" width="82" height="82"/>
-                    </variation>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="body-cont-bg" translatesAutoresizingMaskIntoConstraints="NO" id="YmI-0r-Ytt" userLabel="背景图">
                     <rect key="frame" x="0.0" y="206" width="320" height="102"/>
@@ -46,7 +46,7 @@
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jhz-uW-b5K" userLabel="中线">
                     <rect key="frame" x="87" y="256" width="230" height="1"/>
-                    <color key="backgroundColor" red="0.66274509800000003" green="0.66274509800000003" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.66274509800000003" green="0.66274509800000003" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="Vwm-Mf-thc"/>
                         <constraint firstAttribute="width" constant="230" id="fUi-DY-td9"/>
@@ -68,8 +68,8 @@
                         <constraint firstAttribute="width" constant="264" id="oH1-YQ-Q53"/>
                     </constraints>
                     <state key="normal" backgroundImage="login_open">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <state key="highlighted" backgroundImage="login_off"/>
                     <connections>
@@ -84,8 +84,8 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <state key="normal" title="手机快速注册">
-                        <color key="titleColor" white="0.54000000000000004" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="0.54000002145767212" green="0.54000002145767212" blue="0.54000002145767212" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="registeringNewUser:" destination="-1" eventType="touchUpInside" id="XEm-Jy-L6D"/>
@@ -98,7 +98,7 @@
                         <constraint firstAttribute="width" constant="237" id="IVl-xb-Cz4"/>
                     </constraints>
                     <state key="normal" backgroundImage="wecat_login">
-                        <color key="titleColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <state key="highlighted" backgroundImage="wecat_login"/>
                     <connections>
@@ -126,7 +126,7 @@
                         <constraint firstAttribute="width" constant="48" id="bfK-JN-o4L"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kC-Ln-Mui">
@@ -136,7 +136,7 @@
                         <constraint firstAttribute="height" constant="21" id="eOR-pv-W7I"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0lc-fT-Kgg">
@@ -147,8 +147,8 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <state key="normal" title="找回密码">
-                        <color key="titleColor" white="0.53859991776315785" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="0.53859990835189819" green="0.53859990835189819" blue="0.53859990835189819" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="getPassword:" destination="-1" eventType="touchUpInside" id="Yyo-IS-A6a"/>
@@ -195,18 +195,19 @@
                                 <constraint firstAttribute="width" constant="77" id="ZgI-yk-zOu"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X27-Or-lFd">
                             <rect key="frame" x="11" y="28" width="46" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" image="nav-cancel"/>
                             <connections>
                                 <action selector="ViPLoginPresentAndDismiss" destination="-1" eventType="touchUpInside" id="ia7-wP-MDS"/>
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="0.88600000000000001" green="0.16761616113631736" blue="0.20309134968824188" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.88600000000000001" green="0.16761616113631736" blue="0.20309134968824188" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="IEs-Qh-n0k" firstAttribute="top" secondItem="0r8-cG-Ng1" secondAttribute="top" constant="32" id="E18-za-Ucf"/>
                         <constraint firstAttribute="height" constant="64" id="Era-YA-Pj9"/>
@@ -214,7 +215,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="uI8-s7-3Hw" secondAttribute="trailing" id="0sG-Kx-Bz3"/>
                 <constraint firstAttribute="trailing" secondItem="YmI-0r-Ytt" secondAttribute="trailing" id="18S-58-bFR"/>

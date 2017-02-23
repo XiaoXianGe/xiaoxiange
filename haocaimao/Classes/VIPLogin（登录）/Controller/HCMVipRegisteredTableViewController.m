@@ -45,6 +45,7 @@
     [super viewDidLoad];
     self.title = @"免费注册";
     
+    self.email.text = @"";
     self.phoneText.text = self.userPhone;
     self.tabBarController.tabBar.hidden = YES;
     
@@ -68,10 +69,11 @@
     }
     
     if (![self.email.text hasSuffix:@".com"]) {
+       
         [SVProgressHUD showInfoWithStatus:@"邮箱格式不正确"];
         return;
     }
-    
+
     if ([self.password.text length] < 6) {
         [SVProgressHUD showInfoWithStatus:@"密码不能小于6个字节"];
         return;
