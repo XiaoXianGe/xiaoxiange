@@ -42,8 +42,8 @@
     if (!_userNumber) {
         _userNumber = [[HCMUserNumberTableViewController alloc]init];
         CGRect frame = self.userName.frame;
-        _userNumber.view.frame = CGRectMake(0, frame.size.height+frame.origin.y
-                                     , HCMScreenWidth, 40);
+        _userNumber.view.frame = CGRectMake(self.userName.frame.origin.x, frame.size.height+200
+                                     , self.userName.bounds.size.width, 45);
         _userNumber.number = [NSMutableArray array];
 
         [self.view addSubview:_userNumber.tableView];
@@ -198,7 +198,7 @@
                 
                 NSString *uid = responseBody[@"data"][@"session"][@"uid"];
                 NSString *sid = responseBody[@"data"][@"session"][@"sid"];
-                
+                HCMLog(@"sid : %@",sid);
                 [self.defaults setObject:uid forKey:@"uid"];
                 [self.defaults setObject:sid forKey:@"sid"];
                 
@@ -264,7 +264,6 @@
     }else{
         [self deleteHCMTableView];
     }
-
 }
 
 - (void)addUserNumber

@@ -231,6 +231,8 @@ static NSString * const reuseIdentifier = @"Cell";
         cellHeight = 137;
     }else if(HCMScreenWidth == 414.0){
         cellHeight = 150;
+    }else{
+        return 150;
     }
     
     return cellHeight;

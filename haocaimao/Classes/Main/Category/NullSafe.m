@@ -125,7 +125,7 @@
 
 - (void)forwardInvocation:(NSInvocation *)invocation
 {
-    [invocation invokeWithTarget:nil];
+    [invocation invokeWithTarget:@""];
     //这种明明都能运行还说我没有定义的警告，是因为你这个协议虽然定义了，但是你这个协议可能还遵守了XX协议，然后这个XX协议没有定义导致会报这种警告，所以遇到这种警告要往“父协议”找。 举个栗子，上面这行就是腾讯授权的库里面报的警告，
 }
 

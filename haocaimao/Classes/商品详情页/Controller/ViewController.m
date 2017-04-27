@@ -179,14 +179,10 @@ static NSString * const HCMDealNumberCellID = @"Number";
     cycleScrollView.delegate = self;
 
     cycleScrollView.placeholderImage = [UIImage imageNamed:@"7E079BD74EF3"];
-    
-    
-    
+
     self.tableView.tableHeaderView = cycleScrollView;
 
-    
 }
-
 
 /**
  * 点击事件
@@ -195,8 +191,6 @@ static NSString * const HCMDealNumberCellID = @"Number";
 {
     NSLog(@"...");
 }
-
-
 
 #warning 测试数据
 -(void)test

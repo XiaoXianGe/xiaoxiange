@@ -214,13 +214,14 @@
         // 注册用户通知 - 根据用户通知设置
         [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
         [[UIApplication sharedApplication] registerForRemoteNotifications];
-    } else { // iOS8.0 以前远程推送设置方式
-        // 定义远程通知类型(Remote.远程 - Badge.标记 Alert.提示 Sound.声音)
-        UIRemoteNotificationType myTypes = UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound;
-        
-        // 注册远程通知 -根据远程通知类型
-        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:myTypes];
     }
+//    } else { // iOS8.0 以前远程推送设置方式
+//        // 定义远程通知类型(Remote.远程 - Badge.标记 Alert.提示 Sound.声音)
+//        UIRemoteNotificationType myTypes = UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound;
+//        
+//        // 注册远程通知 -根据远程通知类型
+//        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:myTypes];
+//    }
 }
 
 

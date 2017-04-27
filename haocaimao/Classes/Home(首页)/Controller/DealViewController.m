@@ -156,6 +156,7 @@
 -(NSString *)sid{
     if (!_sid) {
         _sid = [self.defaults objectForKey:@"sid"];
+        HCMLog(@"sid : %@",_sid);
     }
     return _sid;
 }
@@ -352,7 +353,8 @@
         
         NSString *uid = [self.defaults objectForKey:@"uid"];
         NSString *sid = [self.defaults objectForKey:@"sid"];
-
+        HCMLog(@"sid : %@",_sid);
+        
         NSDictionary * dictBuyNow =   @{
                                         @"session":@{@"sid":sid,@"uid":uid},
                                         @"spec":dict[@"spec"],
@@ -1131,7 +1133,7 @@
     NSDateFormatter *date=[[NSDateFormatter alloc] init];
     [date setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSCalendar *cal=[NSCalendar currentCalendar];
-    unsigned int unitFlags= NSYearCalendarUnit| NSMonthCalendarUnit| NSDayCalendarUnit|NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit;
+    unsigned int unitFlags= NSCalendarUnitYear| NSCalendarUnitMonth| NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond;
     NSDateComponents *d = [cal components:unitFlags fromDate:[date dateFromString:timeStr] toDate:[date dateFromString:endTimeStr] options:0];
     
     //时间差

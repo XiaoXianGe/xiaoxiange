@@ -182,11 +182,11 @@ static CAAnimation* _hideAnimation()
     NSPredicate *maxLength = [NSPredicate predicateWithFormat:@"SELF.length == %@.@max.length", _selections];
     NSString *maxString = [_selections filteredArrayUsingPredicate:maxLength][0];
     CGFloat strWidth;
-    if ([UIDevice currentDevice].systemVersion.floatValue >= 7.0) {
+//    if ([UIDevice currentDevice].systemVersion.floatValue >= 7.0) {
         strWidth = [maxString sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:SGPOP_DEFAULT_FONT_SIZE]}].width;
-    }else {
-        strWidth = [maxString sizeWithFont:[UIFont systemFontOfSize:SGPOP_DEFAULT_FONT_SIZE]].width;
-    }
+//    }else {
+//        strWidth = [maxString sizeWithFont:[UIFont systemFontOfSize:SGPOP_DEFAULT_FONT_SIZE]].width;
+//    }
     return strWidth + 15 * 2 + 30;
 }
 

@@ -203,7 +203,7 @@
                 NSString *realName = (NSString *)responseBody[@"data"][@"userInfo"][@"realName"];
                 realName = [self clearNull:realName];
                 
-                HCMLog(@"=======realName %@",realName);
+                HCMLog(@"===realName==== %@",realName);
                 [defaults setObject:realName forKey:@"realName"];
                 
                 [defaults synchronize];
@@ -232,7 +232,7 @@
 //里边的数据结构有"<null>"，而NSUserDefaults是不能被成功解析并存入的，所有在存入之前需要将里边的"<null>"改成""即可。
 -(NSString *)clearNull:(NSString *)realNameStr
 {
-    HCMLog(@"--------=%@",realNameStr);
+    HCMLog(@"---realName---%@",realNameStr);
     if (realNameStr.length == 0) {
         realNameStr = @"";
     }

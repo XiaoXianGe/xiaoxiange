@@ -24,6 +24,10 @@
     [super viewDidLoad];
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"qwe"];
+    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    self.tableView.backgroundColor = [UIColor clearColor];
 }
 
 #pragma mark - Table view data source
@@ -42,7 +46,7 @@
             }
     cell.textLabel.text = self.number[indexPath.row];
     cell.imageView.image = [UIImage imageNamed:@"log_in_user_name_icon"];
-
+    cell.backgroundColor = HCMColor(238, 238, 238, 1.0);
        return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

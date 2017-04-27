@@ -132,6 +132,9 @@
     
     [super viewDidLoad];
     
+    NSString *path = NSHomeDirectory();
+    NSLog(@"APP path : %@", path);
+    
     //设置头视图
     self.navigationItem.title = @"个人中心";
     
@@ -205,7 +208,7 @@
         NSString * uid = [self.defaults objectForKey:@"uid"];
         
         HCMLog(@"uid%@",uid);
-        
+        HCMLog(@"sid : %@",sid);
         //后台定义actionId == 1 ； 为获取未读总数 + 分类列表
         NSString * actionId = @"1";
         
@@ -220,7 +223,7 @@
             
             if (![responseBody[@"data"][@"unReadTotal"] isEqual: @0]) {
                 
-                HCMLog(@"asdfasdfas-----%@",responseBody[@"data"][@"unReadTotal"]);
+                HCMLog(@"isMessage-----%@",responseBody[@"data"][@"unReadTotal"]);
                 self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickMessage) image:@"homeHaveMsg_white" highImage:@"homeHaveMsg_white" width:30 height:30];
             }else{
                 self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickMessage) image:@"homeNoMsg" highImage:@"homeNoMsg" width:30 height:30];

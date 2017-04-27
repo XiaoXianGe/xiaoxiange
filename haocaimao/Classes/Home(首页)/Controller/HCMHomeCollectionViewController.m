@@ -127,8 +127,8 @@ static NSString * const reuseIdentifier = @"Cell";
 {
     
     self.diyNavView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, HCMScreenWidth, 50*HCMScreenWidth/320)];
-    self.diyNavView.backgroundColor = [UIColor colorWithHue:222 saturation:32 brightness:32 alpha:0.2];
-    
+//    self.diyNavView.backgroundColor = [UIColor colorWithHue:222 saturation:32 brightness:32 alpha:0.2];
+    self.diyNavView.backgroundColor = HCMColor(222, 32, 32, 0.2);
     CGFloat changeH = self.diyNavView.height/50;
     
     UIButton *logoBtn = [[UIButton alloc]initWithFrame:CGRectMake(5, 22*changeH - 4, 40*HCMScreenWidth/320, 25*HCMScreenWidth/320 + 6)];
@@ -236,7 +236,8 @@ static NSString * const reuseIdentifier = @"Cell";
         NSString * sid = [self.defaults objectForKey:@"sid"];
         NSString * uid = [self.defaults objectForKey:@"uid"];
         
-//        HCMLog(@"uid%@",uid);
+        HCMLog(@"uid%@",uid);
+        HCMLog(@"sid : %@",sid);
         
         //后台定义actionId == 1 ； 为获取未读总数 + 分类列表
         NSString * actionId = @"1";
@@ -342,7 +343,8 @@ static NSString * const reuseIdentifier = @"Cell";
         
     }else if(scrollView.contentOffset.y <= 15 ){
         
-        self.diyNavView.backgroundColor = [UIColor colorWithHue:222 saturation:32 brightness:32 alpha:0.1];
+//        self.diyNavView.backgroundColor = [UIColor colorWithHue:222 saturation:32 brightness:32 alpha:0.1];
+        self.diyNavView.backgroundColor = HCMColor(222, 32, 32, 0.1);
     }
     
     if (scrollView.contentOffset.y > 150 && [_messageMark isEqualToString:@"homeHaveMsg_red"]) {
@@ -579,8 +581,10 @@ static NSString * const reuseIdentifier = @"Cell";
      self.status = [self.defaults boolForKey:@"status"];
     
     if (self.status) {
+        
         NSString * sid = [self.defaults objectForKey:@"sid"];
         NSString * uid = [self.defaults objectForKey:@"uid"];
+        HCMLog(@"sid : %@",sid);
         
         NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
                 

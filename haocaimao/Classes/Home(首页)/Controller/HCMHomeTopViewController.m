@@ -291,10 +291,6 @@
 //    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 20, frame.size.width, 160) imagesGroup:images];
 */
     
-    for (NSString *str in imageArray) {
-        HCMLog(@"%@",str);
-    }
-    
     //网络加载 --- 创建带标题的图片轮播器
     SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 20, HCMScreenWidth, HCMScreenWidth/2) imageURLStringsGroup:imageArray]; // 模拟网络延时情景
    

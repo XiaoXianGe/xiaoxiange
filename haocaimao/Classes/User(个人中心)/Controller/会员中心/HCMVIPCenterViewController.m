@@ -67,7 +67,7 @@
         
         NSString *sid = [self.defaults objectForKey:@"sid"];
         NSString *uid = [self.defaults objectForKey:@"uid"];
-        
+        HCMLog(@"sid : %@",sid);
         NSDictionary *dict = @{@"session":@{@"sid":sid,@"uid":uid}};
         
         [[AddressNerworking sharedManager]postUserInfo:dict successBlock:^(id responseBody) {

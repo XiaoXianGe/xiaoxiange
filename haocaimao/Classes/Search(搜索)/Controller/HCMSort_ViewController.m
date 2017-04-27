@@ -240,7 +240,7 @@ static NSString * const reuseIdentifier = @"Cell";
     
     [[SearchNetwork sharedManager]postSubSearch:dict successBlock:^(id responseBody) {
         
-        HCMLog(@"-----------=====------------%@",dict);
+        HCMLog(@"---搜索 第一次加载--%@",dict);
         
         //筛选商品的总数
         self.total = [responseBody[@"paginated"][@"total"] integerValue];
@@ -274,7 +274,7 @@ static NSString * const reuseIdentifier = @"Cell";
     } failureBlock:^(NSString *error) {
         
         [SVProgressHUD showInfoWithStatus:error];
-        HCMLog(@"-----------=====------------%@",error);
+        HCMLog(@"----搜索 第一次加载 失败---%@",error);
 
         
     }];
@@ -295,7 +295,7 @@ static NSString * const reuseIdentifier = @"Cell";
         
         [[SearchNetwork sharedManager]postSubSearch:dict successBlock:^(id responseBody) {
             
-            HCMLog(@"-----------=====------------%@",dict);
+            HCMLog(@"----搜索 加载更多 --%@",dict);
             
             
             NSMutableArray *array = [NSMutableArray array];
