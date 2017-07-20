@@ -88,6 +88,7 @@ NSString * const ID = @"cycleCell";
     
 }
 
+
 + (instancetype)cycleScrollViewWithFrame:(CGRect)frame imagesGroup:(NSArray *)imagesGroup
 {
     SDCycleScrollView *cycleScrollView = [[self alloc] initWithFrame:frame];

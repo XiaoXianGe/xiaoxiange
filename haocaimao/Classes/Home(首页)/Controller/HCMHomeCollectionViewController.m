@@ -108,7 +108,23 @@ static NSString * const reuseIdentifier = @"Cell";
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, 60, 0);
- 
+    
+    [self addLogoAtTitleView];
+    
+    
+}
+
+-(void)addLogoAtTitleView{
+    UIView * titleView = [[UIView alloc]init];
+    titleView.backgroundColor = [UIColor clearColor];
+    titleView.frame = CGRectMake(5, 0, 60, 45);
+    
+    UIImage *image = [UIImage imageNamed:@"logo"];
+    UIImageView *iamgeview = [[UIImageView alloc]initWithImage:image];
+    iamgeview.frame = titleView.frame;
+    [titleView addSubview:iamgeview];
+    
+    self.navigationItem.titleView = titleView;
 }
 
 //头部刷新

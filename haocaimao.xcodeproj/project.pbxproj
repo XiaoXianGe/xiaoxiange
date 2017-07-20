@@ -2514,7 +2514,7 @@
 				TargetAttributes = {
 					23FBE7391B7B272400F8B3AA = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 3G29BN728Z;
+						DevelopmentTeam = 54H5772K23;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -3052,7 +3052,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: kelu Ling (QC6EG4C879)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 3G29BN728Z;
+				DEVELOPMENT_TEAM = 54H5772K23;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3090,7 +3090,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: kelu Ling (QC6EG4C879)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 3G29BN728Z;
+				DEVELOPMENT_TEAM = 54H5772K23;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

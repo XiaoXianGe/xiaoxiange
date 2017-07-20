@@ -29,6 +29,7 @@
 @property(nonatomic,strong)NSMutableArray*dataArr;
 @property (nonatomic,strong) GBTopLineView *TopLineView;
 
+@property (nonatomic,strong)SDCycleScrollView *cycleScrollView;
 
 @property (weak, nonatomic) IBOutlet UIButton *eightLogo1;
 @property (weak, nonatomic) IBOutlet UIButton *eightLogo2;
@@ -72,8 +73,6 @@
 @end
 
 @implementation HCMHomeTopViewController
-
-
 
 - (void)viewDidLoad
 {
@@ -271,7 +270,9 @@
 
 }
 
-//头部广告
+
+
+//头部广告 --- 轮播图
 -(void)updateAdvertisingOfDic:(NSDictionary *)dict
 {
    
@@ -292,15 +293,21 @@
 */
     
     //网络加载 --- 创建带标题的图片轮播器
-    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 20, HCMScreenWidth, HCMScreenWidth/2) imageURLStringsGroup:imageArray]; // 模拟网络延时情景
+    
+//    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 20, HCMScreenWidth, HCMScreenWidth/2) imageURLStringsGroup:imageArray]; // 模拟网络延时情景
    
+    if (!_cycleScrollView) {
+        _cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 20, HCMScreenWidth, HCMScreenWidth/2) imageURLStringsGroup:imageArray];
+        
+        _cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
+        _cycleScrollView.delegate = self;
+        
+        _cycleScrollView.placeholderImage = [UIImage imageNamed:@"Placeholder_ Advertise"];
+        _cycleScrollView.dotColor = HCMColor(230, 30, 30, 0.2);
+        
+        [self.view addSubview:_cycleScrollView];
+    }
     
-    cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
-    cycleScrollView.delegate = self;
-    
-    cycleScrollView.placeholderImage = [UIImage imageNamed:@"Placeholder_ Advertise"];
-    cycleScrollView.dotColor = HCMColor(230, 30, 30, 0.2);
-    [self.view addSubview:cycleScrollView];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self loadAllPic];

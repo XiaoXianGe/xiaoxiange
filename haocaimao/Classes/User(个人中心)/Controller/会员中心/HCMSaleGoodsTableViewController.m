@@ -29,7 +29,7 @@ static NSString *const reuseIdentifier = @"Cell";
     
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickBack) image:@"nav-back" highImage:@"nav-back"];
     
-    [self sendHomeAdvertisementRequest];
+    
     
 }
 
@@ -38,48 +38,48 @@ static NSString *const reuseIdentifier = @"Cell";
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-
--(void)sendHomeAdvertisementRequest{
-    
-    [[HomeNetwork sharedManager]postHomeAdvertisement:nil successBlock:^(id responseBody) {
-        
-        [self updateAdvertisingOfDic:responseBody];
-        
-    } failureBlock:^(NSString *error) {
-        
-        [SVProgressHUD showInfoWithStatus:error];
-    }];
-    
-}
-
-
-//头部广告
--(void)updateAdvertisingOfDic:(NSDictionary *)dict{
-    
-    CGRect frame = [[UIScreen mainScreen]bounds];
-    
-    UIView *testView = [[UIView alloc]init];
-    testView.frame = CGRectMake(0, 0, frame.size.width, 150);
-    
-    NSDictionary *dic = [HomeTopGoodsModel NewsWithJSON:dict];
-    NSArray * imageArray = dic[@"small"];
-   // self.receiveGoodsIDArray = dic[@"goods_id"];
-    
-    
-    
-    //网络加载 --- 创建带标题的图片轮播器
-    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, frame.size.width, 150) imageURLStringsGroup:imageArray]; // 模拟网络延时情景
-    
-    cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
-    cycleScrollView.delegate = self;
-    
-    cycleScrollView.placeholderImage = [UIImage imageNamed:@"Placeholder_ Advertise"];
-    
-    [testView addSubview:cycleScrollView];
-    self.tableView.tableHeaderView = testView;
-}
-
-
+//
+//-(void)sendHomeAdvertisementRequest{
+//    
+//    [[HomeNetwork sharedManager]postHomeAdvertisement:nil successBlock:^(id responseBody) {
+//        
+//        [self updateAdvertisingOfDic:responseBody];
+//        
+//    } failureBlock:^(NSString *error) {
+//        
+//        [SVProgressHUD showInfoWithStatus:error];
+//    }];
+//    
+//}
+//
+//
+////头部广告
+//-(void)updateAdvertisingOfDic:(NSDictionary *)dict{
+//    
+//    CGRect frame = [[UIScreen mainScreen]bounds];
+//    
+//    UIView *testView = [[UIView alloc]init];
+//    testView.frame = CGRectMake(0, 0, frame.size.width, 150);
+//    
+//    NSDictionary *dic = [HomeTopGoodsModel NewsWithJSON:dict];
+//    NSArray * imageArray = dic[@"small"];
+//   // self.receiveGoodsIDArray = dic[@"goods_id"];
+//    
+//    
+//    
+//    //网络加载 --- 创建带标题的图片轮播器
+//    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, frame.size.width, 150) imageURLStringsGroup:imageArray]; // 模拟网络延时情景
+//    
+//    cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
+//    cycleScrollView.delegate = self;
+//    
+//    cycleScrollView.placeholderImage = [UIImage imageNamed:@"Placeholder_ Advertise"];
+//    
+//    [testView addSubview:cycleScrollView];
+//    self.tableView.tableHeaderView = testView;
+//}
+//
+//
 
 
 #pragma mark - Table view data source
