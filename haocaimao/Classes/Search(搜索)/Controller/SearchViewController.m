@@ -152,7 +152,7 @@ static NSString *identifier = @"ID";
 
 - (void)loadSearchView
 {
-    searchView *search = [[searchView alloc]initWithFrame:CGRectMake(0, 64, HCMScreenWidth, HCMScreenHeight) WithDataModel:self.mainCategoryArray WithTableViewModel:self.array];
+    searchView *search = [[searchView alloc]initWithFrame:CGRectMake(0, SafeAreaTopHeight, HCMScreenWidth, HCMScreenHeight) WithDataModel:self.mainCategoryArray WithTableViewModel:self.array];
     
     self.searchView = search;
     [self.view addSubview:search];

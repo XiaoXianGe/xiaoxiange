@@ -297,7 +297,8 @@
 //    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 20, HCMScreenWidth, HCMScreenWidth/2) imageURLStringsGroup:imageArray]; // 模拟网络延时情景
    
     if (!_cycleScrollView) {
-        _cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 20, HCMScreenWidth, HCMScreenWidth/2) imageURLStringsGroup:imageArray];
+        //适配iPhoneX
+        _cycleScrollView = (HCMScreenHeight == 812.0) ? [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 15, HCMScreenWidth, HCMScreenWidth/2) imageURLStringsGroup:imageArray]:[SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, HCMScreenWidth, HCMScreenWidth/2+15) imageURLStringsGroup:imageArray];
         
         _cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
         _cycleScrollView.delegate = self;

@@ -122,13 +122,21 @@
 @property(strong,nonatomic)JKAlertDialog *alert;
 @property(assign,nonatomic)NSInteger buyOrCartIndex;
 @property(nonatomic)BOOL markClickBtn;
+
+//适配iPhoneX
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *toolbarBoom;
+
+
+
 @end
 
 
 @implementation DealViewController
+
+///设置购物车右上角数量
 - (MKNumberBadgeView *)numberBadge{
     if (!_numberBadge) {
-       _numberBadge = [[MKNumberBadgeView alloc] initWithFrame:CGRectMake(self.testToolbar.frame.size.width-23, self.testToolbar.frame.size.height - 45, 23, 23)];
+       _numberBadge = [[MKNumberBadgeView alloc] initWithFrame:CGRectMake(100, self.testToolbar.frame.size.height - 55, 23, 23)];
         [self.testToolbar addSubview:_numberBadge];
 
     }
@@ -266,6 +274,11 @@
     //请求商品详情
     [self sendDealOfGoodsRequest];
     
+    //适配iPhonex
+    int toolhight = 0;
+    HCMScreenHeight == 812.0 ? toolhight = 30 : toolhight;
+    
+    _toolbarBoom.constant = toolhight;
 }
 
 -(void)setUpController
@@ -378,6 +391,7 @@
                 if (responseBody[@"status"][@"error_code"]) {
                     
                     [SVProgressHUD showInfoWithStatus:responseBody[@"status"][@"error_desc"]];
+                    
                     return ;
                 }
 
@@ -392,17 +406,21 @@
             
             [SVProgressHUD showInfoWithStatus:error];
             
+            
         }];
+        
+       
 
         NSDictionary * dictAddToCart = @{@"session":@{@"sid":sid,@"uid":uid}};
         
         [[HomeNetwork sharedManager]postAddToCart:dictAddToCart successBlock:^(id responseBody) {
             
-            //判断
+           // 判断
             if (responseBody[@"status"][@"error_code"]) {
                 
                 [SVProgressHUD showInfoWithStatus:responseBody[@"status"][@"error_desc"]];
-
+                self.tabBarController.selectedIndex = 3;
+                [SVProgressHUD showInfoWithStatus:@"亲爱的用户，请先登录"];
                 return;
             }
             
@@ -418,6 +436,7 @@
                 if([self.myError isEqualToString:@"您已经达到该商品抢购上限！"]){
                     
                     [SVProgressHUD showInfoWithStatus:@"已达到该商品抢购上限！"];
+                    
                     return;
                     
                 }
@@ -434,17 +453,20 @@
            [SVProgressHUD showInfoWithStatus:error];
             
             if (error) {
-                
                 [SVProgressHUD showInfoWithStatus:error];
+                
                 return;
             }
         }];
         return;
         
     }else{
+        self.tabBarController.selectedIndex = 3;
         
-        HCMVipLoginViewController *login =[[HCMVipLoginViewController alloc]init];
-        [self.navigationController presentViewController:login animated:YES completion:nil];
+//        HCMVipLoginViewController *login =[[HCMVipLoginViewController alloc]init];
+//        [self.navigationController presentViewController:login animated:YES completion:nil];
+        UIAlertView *aler = [[UIAlertView alloc]initWithTitle:@"请登录" message:@"亲爱的用户，您尚未登录" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"立刻登录", nil];
+        [aler show];
 
     }
 
@@ -954,9 +976,11 @@
         [self shareGoodsAndSomeInfo];
     }else{
         
+//        self.tabBarController.selectedIndex = 3;
         HCMVipLoginViewController *vc = [[HCMVipLoginViewController alloc]init];
         
         [self presentViewController:vc animated:YES completion:nil];
+//        [self.navigationController pushViewController:vc animated:YES];
 
     }
 }
@@ -1104,9 +1128,9 @@
         [self setMKNumberBadgeView];
         
     } failureBlock:^(NSString *error) {
-        
+        HCMLog(@"???");
         [SVProgressHUD showInfoWithStatus:error];
-        
+        HCMLog(@"???");
     }];
 
 }

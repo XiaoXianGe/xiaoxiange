@@ -37,6 +37,9 @@
 
 @property (assign, nonatomic)BOOL status;
 
+//适配iPhonex
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *iPhoneTopHight;
+
 @end
 
 @implementation HCMVIPCenterViewController
@@ -58,7 +61,16 @@
     [self getTheInfo];
     
     [self networking];
+    //适配iphonex
+    [self resetTopHight];
+}
+
+//适配iphonex
+-(void)resetTopHight{
+    int iphoneXHight = 0;
     
+    HCMScreenHeight == 812.0 ? iphoneXHight = 35 : iphoneXHight;
+    _iPhoneTopHight.constant += iphoneXHight;
 }
 
 - (void)networking{

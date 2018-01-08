@@ -122,7 +122,7 @@
     if (indexPath.section == 1) {
         // 打电话
         if (indexPath.row == 0){
-            NSURL *phoneURL = [NSURL URLWithString:@"tel:4008-776-879"];
+            NSURL *phoneURL = [NSURL URLWithString:@"tel:020-89001002"];
             UIWebView *phoneWeb = [[UIWebView alloc]initWithFrame:CGRectZero];
             [phoneWeb loadRequest:[NSURLRequest requestWithURL:phoneURL]];
             [self.view addSubview:phoneWeb];

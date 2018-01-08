@@ -111,7 +111,6 @@ static NSString * const reuseIdentifier = @"Cell";
     
     [self addLogoAtTitleView];
     
-    
 }
 
 -(void)addLogoAtTitleView{
@@ -141,11 +140,15 @@ static NSString * const reuseIdentifier = @"Cell";
 //自定义头部的导航栏
 -(void)setNavigationBar
 {
+    int diyNavViewHight =0;
+    int allLogoY = 0;
+    diyNavViewHight =  (HCMScreenHeight == 812.0) ? 76 : 50;
+    allLogoY = (HCMScreenHeight == 812.0) ? 38 : 50;
     
-    self.diyNavView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, HCMScreenWidth, 50*HCMScreenWidth/320)];
+    self.diyNavView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, HCMScreenWidth, diyNavViewHight*HCMScreenWidth/320)];
 //    self.diyNavView.backgroundColor = [UIColor colorWithHue:222 saturation:32 brightness:32 alpha:0.2];
     self.diyNavView.backgroundColor = HCMColor(222, 32, 32, 0.2);
-    CGFloat changeH = self.diyNavView.height/50;
+    CGFloat changeH = self.diyNavView.height/allLogoY;
     
     UIButton *logoBtn = [[UIButton alloc]initWithFrame:CGRectMake(5, 22*changeH - 4, 40*HCMScreenWidth/320, 25*HCMScreenWidth/320 + 6)];
     [logoBtn setBackgroundImage:[UIImage imageNamed:@"logo"] forState:UIControlStateNormal];
@@ -158,6 +161,7 @@ static NSString * const reuseIdentifier = @"Cell";
     self.messageLogoBtn = msgBtn;
     
     self.searchBar = [HWSearchBar searchBar];
+    
     self.searchBar.frame = CGRectMake(48*HCMScreenWidth/320, 22*changeH, HCMScreenWidth - 2*msgBtn.width-40, 25*HCMScreenWidth/320);
     [self.searchBar addTarget:self action:@selector(gotoTheSearch) forControlEvents:UIControlEventEditingDidEndOnExit];
     
@@ -297,8 +301,9 @@ static NSString * const reuseIdentifier = @"Cell";
 
 -(void)clickLogo
 {
-
-   [self.collectionView setContentOffset:CGPointMake(0, 0) animated:YES];
+    //适配iPhoneX 
+    int TopHight = HCMScreenHeight == 812.0 ? -44 : 0;
+   [self.collectionView setContentOffset:CGPointMake(0, TopHight) animated:YES];
 //    ViewController *vc = [[ViewController alloc]init];
 //    vc.goods_id = @"318";
 //    [self.navigationController pushViewController:vc animated:YES];

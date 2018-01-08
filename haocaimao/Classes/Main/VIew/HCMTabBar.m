@@ -93,17 +93,19 @@
 //    self.height = 45;
     
    // UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 56)];
-    self.backView.frame = CGRectMake(0, 0, HCMScreenWidth, 56);
+    self.backView.frame = CGRectMake(0, 0, HCMScreenWidth, 88);
     CGFloat width = self.width;
     CGFloat height = self.height;
     
     // 设置发布按钮的frame
-    self.consultingBtn.center = CGPointMake(width * 0.5, height * 0.5);
+    int consultingBtnHight = (HCMScreenHeight == 812.0 ? (height * 0.5 -10 ) : height * 0.5);
+    self.consultingBtn.center = CGPointMake(width * 0.5, consultingBtnHight);
     
     // 设置其他UITabBarButton的frame
+    int buttonHight = (HCMScreenHeight == 812.0 ? height - 30 : height);
     CGFloat buttonY = 0;
     CGFloat buttonW = width / 5;
-    CGFloat buttonH = height;
+    CGFloat buttonH = buttonHight;
     NSInteger index = 0;
     for (UIView *button in self.subviews) {
         if (![button isKindOfClass:[UIControl class]] || button == self.consultingBtn) continue;

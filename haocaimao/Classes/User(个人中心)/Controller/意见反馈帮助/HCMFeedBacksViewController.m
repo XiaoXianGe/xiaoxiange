@@ -18,6 +18,8 @@
 @property (assign, nonatomic) NSInteger count;
 
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+//适配iPhoneX
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *iPhoneXTopHight;
 
 
 @end
@@ -34,6 +36,16 @@
     
     [self setUpPopView];
     
+    //适配iphonex
+    [self resetTopHight];
+}
+
+//适配iphonex
+-(void)resetTopHight{
+    int iphoneXHight = 0;
+    
+    HCMScreenHeight == 812.0 ? iphoneXHight = 35 : iphoneXHight;
+    _iPhoneXTopHight.constant += iphoneXHight;
 }
 
 

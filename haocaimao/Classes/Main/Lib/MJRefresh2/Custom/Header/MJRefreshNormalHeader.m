@@ -57,13 +57,13 @@
 {
     [super placeSubviews];
     
-    // 箭头
+    // 箭头 -- 咸鱼修改过
     self.arrowView.mj_size = self.arrowView.image.size;
     CGFloat arrowCenterX = self.mj_w * 0.5;
     if (!self.stateLabel.hidden) {
-        arrowCenterX -= 100;
+        arrowCenterX -= 60;
     }
-    CGFloat arrowCenterY = self.mj_h * 0.5 ;
+    CGFloat arrowCenterY = self.mj_h * 0.5 - 15;
     self.arrowView.center = CGPointMake(arrowCenterX, arrowCenterY);
     
     // 圈圈

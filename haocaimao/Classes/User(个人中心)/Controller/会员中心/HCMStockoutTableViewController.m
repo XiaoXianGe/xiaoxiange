@@ -48,7 +48,7 @@ static NSString *const reuseIdentifier = @"Cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
    
-    TouchEventForTableView *tableView = [[TouchEventForTableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height-64-80) style:UITableViewStylePlain];
+    TouchEventForTableView *tableView = [[TouchEventForTableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height-SafeAreaTopHeight-80) style:UITableViewStylePlain];
     tableView.dataSource = self;
     tableView.delegate = self;
     

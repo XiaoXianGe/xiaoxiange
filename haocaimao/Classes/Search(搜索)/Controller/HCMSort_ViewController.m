@@ -29,6 +29,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *triangleIMG_ONE;
 @property (weak, nonatomic) IBOutlet UIImageView *triangleIMG_TWO;
 @property (weak, nonatomic) IBOutlet UIImageView *triangleIMG_THR;
+//适配iPhonex 距离头部距离
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *toTOPHight;
+
 @property (strong,nonatomic)NSMutableArray *receiveMutArray;
 @property (strong,nonatomic)HWSearchBar *searchBar;
 @property (strong,nonatomic) NSString *sortWay;
@@ -73,6 +76,9 @@ static NSString * const reuseIdentifier = @"Cell";
 
 //初始化控制器
 -(void)setupViewController{
+    
+    _toTOPHight.constant = (HCMScreenHeight == 812.0 ? 88 : 64);
+    
     self.triangleIMG_ONE.hidden =NO;
     self.triangleIMG_TWO.hidden =YES;
     self.triangleIMG_THR.hidden =YES;

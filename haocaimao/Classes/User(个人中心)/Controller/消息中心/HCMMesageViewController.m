@@ -41,6 +41,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *toManagerBtn;
 @property (weak, nonatomic) IBOutlet UIButton *toCustomBtn;
 
+/// 适配iPhoneX
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topHight1;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topHight2;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topHight3;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topHight4;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topHight5;
+
 
 /** 模型 */
 @property(nonatomic,strong)messageTools * msgModel;
@@ -67,7 +74,20 @@
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickBack) image:@"nav-back" highImage:@"nav-back"];
     
     [SVProgressHUD show];
+    //适配iPhonex
+    [self reSetTopHight];
+}
 
+//适配iPhonex
+-(void)reSetTopHight{
+    
+    int iphonexH = 0;
+     (HCMScreenHeight == 812.0) ? iphonexH=25 : iphonexH;
+    _topHight1.constant += iphonexH;
+    _topHight2.constant += iphonexH;
+    _topHight3.constant += iphonexH;
+    _topHight4.constant += iphonexH;
+    _topHight5.constant += iphonexH;
 }
 
 -(void)viewWillAppear:(BOOL)animated

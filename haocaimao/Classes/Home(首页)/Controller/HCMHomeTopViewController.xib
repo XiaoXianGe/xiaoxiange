@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -55,7 +55,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Pb-5d-O33" userLabel="应用场景">
-                    <rect key="frame" x="0.0" y="178" width="400" height="150"/>
+                    <rect key="frame" x="0.0" y="168" width="400" height="150"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9er-gT-mgB">
                             <rect key="frame" x="0.0" y="75" width="100" height="75"/>
@@ -511,30 +511,18 @@
                         </mask>
                         <mask key="constraints">
                             <exclude reference="cJs-IM-g1f"/>
-                            <exclude reference="JGK-xP-9ao"/>
-                            <exclude reference="elv-dY-idc"/>
-                            <exclude reference="rBt-3N-s9u"/>
-                            <exclude reference="t1P-Sh-Dst"/>
                             <exclude reference="0mc-II-V5f"/>
                             <exclude reference="3S8-8c-9ay"/>
                             <exclude reference="LO7-kt-1zF"/>
                             <exclude reference="fZ9-m1-ltl"/>
-                            <exclude reference="LhB-c2-qBl"/>
-                            <exclude reference="PjB-FN-Qsn"/>
-                            <exclude reference="UHA-Nu-EE5"/>
-                            <exclude reference="kMT-uD-C9e"/>
-                            <exclude reference="6Gh-F4-Bpi"/>
-                            <exclude reference="lWL-jR-E5M"/>
-                            <exclude reference="qTM-lG-njU"/>
-                            <exclude reference="vsg-yK-cvG"/>
                             <exclude reference="4pg-gm-bpt"/>
                             <exclude reference="LYi-P8-kBf"/>
                             <exclude reference="aG2-zI-ea4"/>
                             <exclude reference="hum-pn-F2Z"/>
-                            <exclude reference="KPh-w6-7bU"/>
-                            <exclude reference="LWh-Xe-lrk"/>
-                            <exclude reference="NUm-La-kjV"/>
-                            <exclude reference="nBQ-hx-6mc"/>
+                            <exclude reference="LhB-c2-qBl"/>
+                            <exclude reference="PjB-FN-Qsn"/>
+                            <exclude reference="UHA-Nu-EE5"/>
+                            <exclude reference="kMT-uD-C9e"/>
                             <exclude reference="CzP-Xf-PiS"/>
                             <exclude reference="G6q-gZ-wgr"/>
                             <exclude reference="YmD-Ea-sja"/>
@@ -543,6 +531,18 @@
                             <exclude reference="QeA-E2-WUQ"/>
                             <exclude reference="Zsf-zn-0qB"/>
                             <exclude reference="a2z-Lh-BnF"/>
+                            <exclude reference="KPh-w6-7bU"/>
+                            <exclude reference="LWh-Xe-lrk"/>
+                            <exclude reference="NUm-La-kjV"/>
+                            <exclude reference="nBQ-hx-6mc"/>
+                            <exclude reference="6Gh-F4-Bpi"/>
+                            <exclude reference="lWL-jR-E5M"/>
+                            <exclude reference="qTM-lG-njU"/>
+                            <exclude reference="vsg-yK-cvG"/>
+                            <exclude reference="JGK-xP-9ao"/>
+                            <exclude reference="elv-dY-idc"/>
+                            <exclude reference="rBt-3N-s9u"/>
+                            <exclude reference="t1P-Sh-Dst"/>
                         </mask>
                     </variation>
                     <variation key="widthClass=compact">
@@ -558,30 +558,18 @@
                         </mask>
                         <mask key="constraints">
                             <include reference="cJs-IM-g1f"/>
-                            <include reference="JGK-xP-9ao"/>
-                            <include reference="elv-dY-idc"/>
-                            <include reference="rBt-3N-s9u"/>
-                            <include reference="t1P-Sh-Dst"/>
                             <include reference="0mc-II-V5f"/>
                             <include reference="3S8-8c-9ay"/>
                             <include reference="LO7-kt-1zF"/>
                             <include reference="fZ9-m1-ltl"/>
-                            <include reference="LhB-c2-qBl"/>
-                            <include reference="PjB-FN-Qsn"/>
-                            <include reference="UHA-Nu-EE5"/>
-                            <include reference="kMT-uD-C9e"/>
-                            <include reference="6Gh-F4-Bpi"/>
-                            <include reference="lWL-jR-E5M"/>
-                            <include reference="qTM-lG-njU"/>
-                            <include reference="vsg-yK-cvG"/>
                             <include reference="4pg-gm-bpt"/>
                             <include reference="LYi-P8-kBf"/>
                             <include reference="aG2-zI-ea4"/>
                             <include reference="hum-pn-F2Z"/>
-                            <include reference="KPh-w6-7bU"/>
-                            <include reference="LWh-Xe-lrk"/>
-                            <include reference="NUm-La-kjV"/>
-                            <include reference="nBQ-hx-6mc"/>
+                            <include reference="LhB-c2-qBl"/>
+                            <include reference="PjB-FN-Qsn"/>
+                            <include reference="UHA-Nu-EE5"/>
+                            <include reference="kMT-uD-C9e"/>
                             <include reference="CzP-Xf-PiS"/>
                             <include reference="G6q-gZ-wgr"/>
                             <include reference="YmD-Ea-sja"/>
@@ -590,11 +578,23 @@
                             <include reference="QeA-E2-WUQ"/>
                             <include reference="Zsf-zn-0qB"/>
                             <include reference="a2z-Lh-BnF"/>
+                            <include reference="KPh-w6-7bU"/>
+                            <include reference="LWh-Xe-lrk"/>
+                            <include reference="NUm-La-kjV"/>
+                            <include reference="nBQ-hx-6mc"/>
+                            <include reference="6Gh-F4-Bpi"/>
+                            <include reference="lWL-jR-E5M"/>
+                            <include reference="qTM-lG-njU"/>
+                            <include reference="vsg-yK-cvG"/>
+                            <include reference="JGK-xP-9ao"/>
+                            <include reference="elv-dY-idc"/>
+                            <include reference="rBt-3N-s9u"/>
+                            <include reference="t1P-Sh-Dst"/>
                         </mask>
                     </variation>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p4c-I5-a5d" userLabel="版面1">
-                    <rect key="frame" x="0.0" y="456.5" width="400" height="326.5"/>
+                    <rect key="frame" x="0.0" y="446.5" width="400" height="326.5"/>
                     <subviews>
                         <button opaque="NO" tag="24" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dho-af-xlj">
                             <rect key="frame" x="134" y="164" width="133" height="162.5"/>
@@ -686,14 +686,14 @@
                             <exclude reference="CLQ-hY-0lG"/>
                             <exclude reference="TYL-CV-xJl"/>
                             <exclude reference="XcO-J4-NBt"/>
-                            <exclude reference="Dvj-dy-NTn"/>
-                            <exclude reference="JZ8-Vm-q80"/>
-                            <exclude reference="b64-s6-J8h"/>
-                            <exclude reference="uXP-v6-MHR"/>
                             <exclude reference="OFF-dl-Iy2"/>
                             <exclude reference="ReR-rK-dhI"/>
                             <exclude reference="mGO-nh-83z"/>
                             <exclude reference="whu-mV-ivq"/>
+                            <exclude reference="Dvj-dy-NTn"/>
+                            <exclude reference="JZ8-Vm-q80"/>
+                            <exclude reference="b64-s6-J8h"/>
+                            <exclude reference="uXP-v6-MHR"/>
                             <exclude reference="WV1-RQ-c12"/>
                             <exclude reference="m0o-9Z-5Tx"/>
                             <exclude reference="ufn-Hp-zgK"/>
@@ -715,14 +715,14 @@
                             <include reference="CLQ-hY-0lG"/>
                             <include reference="TYL-CV-xJl"/>
                             <include reference="XcO-J4-NBt"/>
-                            <include reference="Dvj-dy-NTn"/>
-                            <include reference="JZ8-Vm-q80"/>
-                            <include reference="b64-s6-J8h"/>
-                            <include reference="uXP-v6-MHR"/>
                             <include reference="OFF-dl-Iy2"/>
                             <include reference="ReR-rK-dhI"/>
                             <include reference="mGO-nh-83z"/>
                             <include reference="whu-mV-ivq"/>
+                            <include reference="Dvj-dy-NTn"/>
+                            <include reference="JZ8-Vm-q80"/>
+                            <include reference="b64-s6-J8h"/>
+                            <include reference="uXP-v6-MHR"/>
                             <include reference="WV1-RQ-c12"/>
                             <include reference="m0o-9Z-5Tx"/>
                             <include reference="ufn-Hp-zgK"/>
@@ -740,7 +740,7 @@
                     </variation>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Td-zn-xwU" userLabel="活动专区">
-                    <rect key="frame" x="0.0" y="902.5" width="400" height="200"/>
+                    <rect key="frame" x="0.0" y="892.5" width="400" height="200"/>
                     <subviews>
                         <button opaque="NO" tag="53" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHF-aX-Vpd">
                             <rect key="frame" x="284" y="109" width="108" height="84"/>
@@ -828,7 +828,7 @@
                     </variation>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  主题街" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="400" translatesAutoresizingMaskIntoConstraints="NO" id="Sdj-Po-4An">
-                    <rect key="frame" x="0.0" y="1110.5" width="400" height="25"/>
+                    <rect key="frame" x="0.0" y="1100.5" width="400" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="QBp-bc-nfV"/>
                     </constraints>
@@ -837,13 +837,13 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" tag="61" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOh-Kt-oq8" userLabel="广告1">
-                    <rect key="frame" x="0.0" y="1135.5" width="400" height="125"/>
+                    <rect key="frame" x="0.0" y="1125.5" width="400" height="125"/>
                     <connections>
                         <action selector="Banner:" destination="-1" eventType="touchUpInside" id="0Vw-Of-6PN"/>
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SYW-GQ-ipo" userLabel="九宫格">
-                    <rect key="frame" x="0.0" y="1260.5" width="400" height="400"/>
+                    <rect key="frame" x="0.0" y="1250.5" width="400" height="400"/>
                     <subviews>
                         <button opaque="NO" tag="33" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbF-pj-koR" userLabel="Hot Good4">
                             <rect key="frame" x="0.0" y="134" width="133" height="133"/>
@@ -957,7 +957,7 @@
                     </variation>
                 </view>
                 <button opaque="NO" tag="62" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZI0-hw-VPh" userLabel="广告3">
-                    <rect key="frame" x="8" y="1668.5" width="384" height="106.5"/>
+                    <rect key="frame" x="8" y="1658.5" width="384" height="106.5"/>
                     <state key="normal">
                         <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
@@ -966,7 +966,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  猜你喜欢" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="400" translatesAutoresizingMaskIntoConstraints="NO" id="FhN-ik-nI5">
-                    <rect key="frame" x="0.0" y="1783" width="400" height="21"/>
+                    <rect key="frame" x="0.0" y="1773" width="400" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="oAK-DI-nbZ"/>
                     </constraints>
@@ -975,13 +975,13 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kch-eB-foR" userLabel="合伙人申请">
-                    <rect key="frame" x="0.0" y="382" width="400" height="66.5"/>
+                    <rect key="frame" x="0.0" y="372" width="400" height="66.5"/>
                     <connections>
                         <action selector="gotoThePartnerCenter" destination="-1" eventType="touchUpInside" id="fTd-UP-Vzq"/>
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder_ Advertise" translatesAutoresizingMaskIntoConstraints="NO" id="NrY-UP-7i5" userLabel="轮播占位图">
-                    <rect key="frame" x="69.5" y="75" width="261" height="95"/>
+                    <rect key="frame" x="69.5" y="45" width="261" height="95"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="95" id="4QE-ql-G9G"/>
                         <constraint firstAttribute="width" constant="261" id="QUF-HR-uvJ"/>
@@ -1000,7 +1000,7 @@
                     </variation>
                 </imageView>
                 <button opaque="NO" tag="60" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ab-43-eLp" userLabel="广告2">
-                    <rect key="frame" x="0.0" y="791" width="400" height="106.5"/>
+                    <rect key="frame" x="0.0" y="781" width="400" height="106.5"/>
                     <state key="normal">
                         <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
@@ -1009,7 +1009,7 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kW3-tl-I1i" userLabel="好采猫，精才从这里开始">
-                    <rect key="frame" x="0.0" y="336" width="400" height="38"/>
+                    <rect key="frame" x="0.0" y="326" width="400" height="38"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="好采猫，精彩从这里开始！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opl-N7-are">
                             <rect key="frame" x="122.5" y="0.0" width="235" height="38"/>
@@ -1066,10 +1066,10 @@
                             <exclude reference="Anb-Pg-v3X"/>
                         </mask>
                         <mask key="constraints">
+                            <exclude reference="pfh-uu-c3W"/>
                             <exclude reference="CJN-sm-9p4"/>
                             <exclude reference="Uik-Bn-swY"/>
                             <exclude reference="vZ8-Nw-giD"/>
-                            <exclude reference="pfh-uu-c3W"/>
                         </mask>
                     </variation>
                     <variation key="widthClass=compact">
@@ -1078,10 +1078,10 @@
                             <include reference="Anb-Pg-v3X"/>
                         </mask>
                         <mask key="constraints">
+                            <include reference="pfh-uu-c3W"/>
                             <include reference="CJN-sm-9p4"/>
                             <include reference="Uik-Bn-swY"/>
                             <include reference="vZ8-Nw-giD"/>
-                            <include reference="pfh-uu-c3W"/>
                         </mask>
                     </variation>
                 </view>
@@ -1093,7 +1093,7 @@
                 <constraint firstAttribute="trailing" secondItem="SYW-GQ-ipo" secondAttribute="trailing" id="3IH-kK-tcu"/>
                 <constraint firstItem="SYW-GQ-ipo" firstAttribute="top" secondItem="YOh-Kt-oq8" secondAttribute="bottom" id="3XV-gW-dDx"/>
                 <constraint firstItem="kch-eB-foR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3cT-jZ-UsG"/>
-                <constraint firstItem="1Pb-5d-O33" firstAttribute="top" secondItem="NrY-UP-7i5" secondAttribute="bottom" constant="8" id="3j8-OY-V6s"/>
+                <constraint firstItem="1Pb-5d-O33" firstAttribute="top" secondItem="NrY-UP-7i5" secondAttribute="bottom" constant="28" id="3j8-OY-V6s"/>
                 <constraint firstItem="0Td-zn-xwU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="4gj-2C-nGr"/>
                 <constraint firstItem="kW3-tl-I1i" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6gi-gf-VgR"/>
                 <constraint firstItem="p4c-I5-a5d" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="261/320" id="9P9-Hv-GrR"/>
@@ -1124,7 +1124,7 @@
                 <constraint firstItem="ZI0-hw-VPh" firstAttribute="top" secondItem="SYW-GQ-ipo" secondAttribute="bottom" constant="8" id="m03-8S-6cZ"/>
                 <constraint firstItem="YOh-Kt-oq8" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="200/640" id="m0U-od-r0w"/>
                 <constraint firstItem="p4c-I5-a5d" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mRC-Hw-LcC"/>
-                <constraint firstItem="1Pb-5d-O33" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="178" id="nld-pu-xN7"/>
+                <constraint firstItem="1Pb-5d-O33" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="168" id="nld-pu-xN7"/>
                 <constraint firstItem="kch-eB-foR" firstAttribute="top" secondItem="1Pb-5d-O33" secondAttribute="bottom" constant="54" id="uhz-H0-PZD"/>
                 <constraint firstItem="NrY-UP-7i5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="uza-8u-ctL"/>
                 <constraint firstItem="kch-eB-foR" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="125/751" id="wo9-Z6-yJS"/>
@@ -1180,7 +1180,7 @@
                     <include reference="dFu-SX-yxc"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="504" y="-2599"/>
+            <point key="canvasLocation" x="-485" y="-3225"/>
         </view>
         <view contentMode="scaleToFill" id="V81-gd-nel" userLabel="最品牌">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>

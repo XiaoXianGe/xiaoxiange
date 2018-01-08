@@ -46,7 +46,9 @@
     
     [super layoutSubviews];
     
-    self.frame = CGRectMake(0, HCMScreenHeight/2 - 80, HCMScreenWidth, 230);
+
+    
+    self.frame = CGRectMake(0, HCMScreenHeight/2 - 40, HCMScreenWidth, 230);
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{

@@ -1,14 +1,24 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Bold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HCMSort_ViewController">
             <connections>
                 <outlet property="collectView" destination="Vxg-Ui-pnO" id="J5u-Gp-eUe"/>
                 <outlet property="sortClickView" destination="DiH-ST-kfJ" id="Zkw-fy-XpJ"/>
+                <outlet property="toTOPHight" destination="8W5-N4-adf" id="B3L-W4-tlA"/>
                 <outlet property="triangleIMG_ONE" destination="YD7-B2-pLw" id="Uya-qU-ffy"/>
                 <outlet property="triangleIMG_THR" destination="3Gc-9o-eUm" id="NwX-dC-EmE"/>
                 <outlet property="triangleIMG_TWO" destination="6E2-5W-0hE" id="tMI-KL-Ln5"/>
@@ -17,21 +27,21 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DiH-ST-kfJ">
-                    <rect key="frame" x="0.0" y="64" width="320" height="45"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DiH-ST-kfJ">
+                    <rect key="frame" x="0.0" y="64" width="375" height="45"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhY-Kc-KaP">
-                            <rect key="frame" x="0.0" y="3" width="90" height="40"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhY-Kc-KaP">
+                            <rect key="frame" x="8" y="0.0" width="105" height="45"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="105" id="TMy-W4-GKo"/>
                                 <constraint firstAttribute="height" constant="45" id="rKd-6b-1zI"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" weight="black" pointSize="12"/>
                             <state key="normal" title="人气排行" image="item-grid-filter-down-arrow">
-                                <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="selected" image="item-grid-filter-down-active-arrow"/>
                             <variation key="default">
@@ -51,16 +61,16 @@
                                 <action selector="popularitySort:" destination="-1" eventType="touchUpInside" id="HUO-12-EVe"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FdH-Ym-UAE">
-                            <rect key="frame" x="98" y="3" width="106" height="40"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FdH-Ym-UAE">
+                            <rect key="frame" x="135" y="3" width="105" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="105" id="Kw0-Pa-N24"/>
                                 <constraint firstAttribute="height" constant="40" id="u9G-KP-WEo"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <state key="normal" title="价格最低" image="item-grid-filter-down-arrow">
-                                <color key="titleColor" red="0.52764970460000005" green="0.53892440029999999" blue="0.52338832540000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="0.52764970460000005" green="0.53892440029999999" blue="0.52338832540000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="selected" image="item-grid-filter-down-active-arrow"/>
                             <variation key="default">
@@ -79,8 +89,8 @@
                                 <action selector="minPriceSort:" destination="-1" eventType="touchUpInside" id="16e-KY-A1c"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="item-grid-filter-sanjiao-icon" translatesAutoresizingMaskIntoConstraints="NO" id="YD7-B2-pLw">
-                            <rect key="frame" x="42" y="36" width="20" height="10"/>
+                        <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="item-grid-filter-sanjiao-icon" translatesAutoresizingMaskIntoConstraints="NO" id="YD7-B2-pLw">
+                            <rect key="frame" x="50.5" y="36" width="20" height="10"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="10" id="01e-k3-RBU"/>
                                 <constraint firstAttribute="width" constant="20" id="sHc-DD-1Uu"/>
@@ -98,8 +108,8 @@
                                 </mask>
                             </variation>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="item-grid-filter-sanjiao-icon" translatesAutoresizingMaskIntoConstraints="NO" id="6E2-5W-0hE">
-                            <rect key="frame" x="148" y="36" width="20" height="10"/>
+                        <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="item-grid-filter-sanjiao-icon" translatesAutoresizingMaskIntoConstraints="NO" id="6E2-5W-0hE">
+                            <rect key="frame" x="177.5" y="36" width="20" height="10"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="20" id="C6M-0W-YtR"/>
                                 <constraint firstAttribute="height" constant="10" id="EEv-CJ-w9Y"/>
@@ -117,8 +127,8 @@
                                 </mask>
                             </variation>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="item-grid-filter-sanjiao-icon" translatesAutoresizingMaskIntoConstraints="NO" id="3Gc-9o-eUm">
-                            <rect key="frame" x="254" y="36" width="20" height="10"/>
+                        <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="item-grid-filter-sanjiao-icon" translatesAutoresizingMaskIntoConstraints="NO" id="3Gc-9o-eUm">
+                            <rect key="frame" x="303" y="36" width="20" height="10"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="20" id="7mr-zh-pYM"/>
                                 <constraint firstAttribute="height" constant="10" id="pWg-8l-YlC"/>
@@ -136,16 +146,16 @@
                                 </mask>
                             </variation>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iW0-qy-6Kb">
-                            <rect key="frame" x="212" y="5" width="108" height="40"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iW0-qy-6Kb">
+                            <rect key="frame" x="259" y="3" width="108" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="108" id="ibd-pS-hkU"/>
                                 <constraint firstAttribute="height" constant="40" id="lB1-NX-8FH"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <state key="normal" title="价格最高" image="item-grid-filter-down-arrow">
-                                <color key="titleColor" red="0.52764970460000005" green="0.53892440029999999" blue="0.52338832540000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="0.52764970460000005" green="0.53892440029999999" blue="0.52338832540000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="selected" image="item-grid-filter-down-active-arrow"/>
                             <variation key="default">
@@ -165,7 +175,7 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="0.89212436868686873" green="0.89212436868686873" blue="0.89212436868686873" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.89212436868686873" green="0.89212436868686873" blue="0.89212436868686873" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="vhY-Kc-KaP" firstAttribute="leading" secondItem="DiH-ST-kfJ" secondAttribute="leading" constant="8" id="1M5-kp-Jtx"/>
                         <constraint firstAttribute="bottom" secondItem="iW0-qy-6Kb" secondAttribute="bottom" constant="2" id="1x4-6g-6kw"/>
@@ -222,8 +232,8 @@
                         </mask>
                     </variation>
                 </view>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Vxg-Ui-pnO">
-                    <rect key="frame" x="0.0" y="109" width="320" height="459"/>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Vxg-Ui-pnO">
+                    <rect key="frame" x="0.0" y="109" width="375" height="558"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GoP-IY-GEj">
                         <size key="itemSize" width="145" height="195"/>
                         <size key="headerReferenceSize" width="0.0" height="5"/>
@@ -232,7 +242,7 @@
                     </collectionViewFlowLayout>
                 </collectionView>
             </subviews>
-            <color key="backgroundColor" red="0.99445773005318894" green="1" blue="0.98615808702693963" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.99445773005318894" green="1" blue="0.98615808702693963" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="DiH-ST-kfJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="8W5-N4-adf"/>
                 <constraint firstItem="Vxg-Ui-pnO" firstAttribute="top" secondItem="DiH-ST-kfJ" secondAttribute="bottom" id="TcF-ZJ-h2E"/>
@@ -265,7 +275,7 @@
                     <include reference="vIV-fa-V0l"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="342" y="201"/>
+            <point key="canvasLocation" x="-262" y="120"/>
         </view>
     </objects>
     <resources>

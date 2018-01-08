@@ -216,7 +216,7 @@
 -(void)keyboardHide:(NSNotification *)notification{
     // 设定scrollView的可滚动区域的大小
     self.scrollView.contentSize = CGSizeMake(320, 0);
-    [self.scrollView setContentOffset:CGPointMake(0, -64) animated:YES];
+    [self.scrollView setContentOffset:CGPointMake(0, - SafeAreaTopHeight) animated:YES];
 }
 
 -(void)keyboardShow:(NSNotification *)notification{

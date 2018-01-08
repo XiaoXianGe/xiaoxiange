@@ -459,10 +459,11 @@
                 
                 self.vipUserMobel = nil;
                 [self.tableView.header endRefreshing];
-                UIAlertView *aler = [[UIAlertView alloc]initWithTitle:@"登录超时" message:@"登录超时，请您重新登录" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-               [aler show];
-               return ;
                 
+                UIAlertView *aler = [[UIAlertView alloc]initWithTitle:@"登录失败" message:@"登录失败，请您重新登录" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+               [aler show];
+                
+                return;
             }
             
             self.vipUserMobel = [HCMVIPUserModel parseVIPUserDict:responseBody[@"data"]];

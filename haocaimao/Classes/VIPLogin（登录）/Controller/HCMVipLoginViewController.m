@@ -21,6 +21,7 @@
 
 
 @interface HCMVipLoginViewController ()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *TopHight;
 
 @property (weak, nonatomic) IBOutlet UIButton *memoryNumber;
 @property (weak, nonatomic) IBOutlet UITextField *userName;
@@ -69,9 +70,12 @@
     return _defaults;
 }
 
+    
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _TopHight.constant = (HCMScreenHeight == 812.0) ? 25 : 0;
     [HCMNSNotificationCenter addObserver:self selector:@selector(clickUser:) name:@"userNumber" object:nil];
     [HCMNSNotificationCenter addObserver:self selector:@selector(weChatLogin) name:@"weChatLogin" object:nil];
     [HCMNSNotificationCenter addObserver:self selector:@selector(weChatLoginNew) name:@"weChatLoginNew" object:nil];
@@ -88,6 +92,7 @@
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(back) image:@"nav-cancel" highImage:@"nav-cancel"];
     self.navigationController.navigationBarHidden = NO;
 
+    
     
 }
 

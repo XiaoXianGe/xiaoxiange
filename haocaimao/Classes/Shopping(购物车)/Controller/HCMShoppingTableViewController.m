@@ -55,6 +55,8 @@
 @property (weak, nonatomic) UIButton *animaBtn;
 @property (nonatomic, strong)NSUserDefaults *defaults;
 @property(nonatomic,strong)NSString * deleteGoodsID;/** 记录删除商品的ID */
+
+@property(nonatomic,strong)HCMCartSection *sectionView;
 @end
 
 @implementation HCMShoppingTableViewController
@@ -63,12 +65,19 @@ static NSString *ID = @"Cell";
 
 -(NSUserDefaults *)defaults
 {
-    
     if (!_defaults) {
         _defaults = [NSUserDefaults standardUserDefaults];
     }
     return _defaults;
 }//数据持久化
+
+-(HCMCartSection *)sectionView
+{
+    if (!_sectionView) {
+        _sectionView = [[HCMCartSection alloc]init];
+    }
+    return _sectionView;
+}
 
 - (CartTotalListModel *)cartTotal
 {
@@ -81,50 +90,54 @@ static NSString *ID = @"Cell";
 
 - (void)viewDidLoad
 {
-    
     [super viewDidLoad];
 
+    
+    
     self.title = @"购物车";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ID];
     
-    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 45, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 80, 0);
     
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"index-body-bg"]];
     
     [HCMNSNotificationCenter addObserver:self selector:@selector(pop:) name:@"pop" object:self.popView];
     [HCMNSNotificationCenter addObserver:self selector:@selector(buyClick:) name:@"clickCollectionView" object:nil];
     [HCMNSNotificationCenter addObserver:self selector:@selector(scrollAndUserInteraction) name:@"scrollAndUserInteraction" object:nil];
+    
 
 }
 
 - (void)buyClick:(NSNotification *)notification
 {
-    
     NSString *goods_id = [NSString stringWithFormat:@"%@", notification.userInfo[@"good_id"]];
     
     DealViewController *deal = [[DealViewController alloc]initWithNibName:@"DealViewController" bundle:nil];
     deal.goods_id = goods_id;
     [self.navigationController pushViewController:deal animated:YES];
-    
 }
 
 - (void)pushGoods:(NSString *)goods_id
 {
-    
     DealViewController *vc = [[DealViewController alloc]initWithNibName:@"DealViewController" bundle:nil];
     vc.goods_id = goods_id;
     [self.navigationController pushViewController:vc animated:YES];
 
 }
 
+//购物车底部黑色结算条目
 - (void)loadMoneyView
 {
     UIWindow *window = [[UIApplication sharedApplication]keyWindow];
 
     self.window = window;
     
-    self.footerView.frame = CGRectMake(0, HCMScreenHeight - 94, HCMScreenWidth, 45);
-    self.deleteFootView.frame = CGRectMake(0, HCMScreenHeight - 94, HCMScreenWidth, 45);
+    //适配iPhonex
+    int iphonexHight = 0;
+    HCMScreenHeight == 812.0 ? iphonexHight = 34 : iphonexHight;
+    
+    self.footerView.frame = CGRectMake(0, HCMScreenHeight - 94 - iphonexHight, HCMScreenWidth, 45);
+    self.deleteFootView.frame = CGRectMake(0, HCMScreenHeight - 94 -iphonexHight, HCMScreenWidth, 45);
     
     [window addSubview:self.deleteFootView];
     self.deleteFootView.hidden = YES;
@@ -212,7 +225,6 @@ static NSString *ID = @"Cell";
     [popBtn setImage:[UIImage imageNamed:@"item-info-popView"] forState:UIControlStateSelected];
     
     if (self.status) {
-        //
         
         if (popBtn.selected) {
             
@@ -241,7 +253,7 @@ static NSString *ID = @"Cell";
             }];
             
         }else{
-            
+
             [UIView animateWithDuration:0.5 animations:^{
                 self.tableView.tableFooterView = self.popView;
                 self.popView.fool.alpha = 1;
@@ -271,7 +283,7 @@ static NSString *ID = @"Cell";
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-
+    self.tableView.contentInset = UIEdgeInsetsMake(5, 0, 80, 0);
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -292,10 +304,12 @@ static NSString *ID = @"Cell";
 
         return;
     }
-    
+
     self.tableView.header  = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        
         [self setUPcontroller];
         [self network];
+        self.tableView.contentInset = UIEdgeInsetsMake(-30, 0, 80, 0);
         
     }];
     [self.tableView.header beginRefreshing];
@@ -319,7 +333,6 @@ static NSString *ID = @"Cell";
 
 - (void)network
 {
-    
     self.uid = [self.defaults objectForKey:@"uid"];
     self.sid = [self.defaults objectForKey:@"sid"];
     if (self.uid&&self.sid) {
@@ -465,16 +478,16 @@ static NSString *ID = @"Cell";
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+    
     if (self.status) {
         HCMCartSection *sectionView = [[HCMCartSection alloc]init];
-        
-        sectionView.listFrame = self.cartListFrame[0][section];
-        return sectionView;
-       
+        _sectionView = sectionView;
+        _sectionView.listFrame = self.cartListFrame[0][section];
+        return _sectionView;
 
     }
     return nil;
-   }
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
