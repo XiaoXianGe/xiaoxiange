@@ -38,6 +38,10 @@
 #import "MJPhoto.h"
 #import "UIImageView+MJWebCache.h"
 
+#import "UMSocialControllerService.h"
+#import "UMSocialConfig.h"
+#import "UMSocialData.h"
+
 @interface DealViewController ()<UIScrollViewDelegate,UIAlertViewDelegate,UMSocialUIDelegate,UITextFieldDelegate>
 /**
  *  主滚动和商品图滚动
@@ -132,6 +136,10 @@
 
 
 @implementation DealViewController
+
+
+
+
 
 ///设置购物车右上角数量
 - (MKNumberBadgeView *)numberBadge{
@@ -279,7 +287,53 @@
     HCMScreenHeight == 812.0 ? toolhight = 30 : toolhight;
     
     _toolbarBoom.constant = toolhight;
+    
+    
+//    [self setShareActionSheet];
+
+    
+    
 }
+
+
+//设置分享弹出框
+-(void)setShareActionSheet
+{
+//    UMSocialControllerService * service = [UMSocialControllerService defaultControllerService];
+    UMSocialControllerService * service = [[UMSocialControllerService alloc]initWithUMSocialData:[UMSocialData defaultData]];
+    
+    UIViewController * vc = [service getSocialShareListController];
+    vc.view.backgroundColor = [UIColor orangeColor];
+    
+    //设置分享弹出框的主题颜色
+    [UMSocialConfig setTheme:UMSocialThemeWhite];
+    
+    //设置分享成功后，提醒文字的位置
+    [UMSocialConfig setFinishToastIsHidden:NO position:UMSocialiToastPositionCenter];
+    
+    /**
+    //设置分享弹出框详细
+    [UMSocialConfig setShareGridViewTheme:^(CGContextRef ref, UIImageView *backgroundView, UILabel *label) {
+        //改变线颜色和线宽
+        CGContextSetRGBStrokeColor(ref, 0, 0, 0, 1.0);
+        CGContextSetLineWidth(ref, 1.0);
+        //改变背景颜色
+        backgroundView.backgroundColor = [UIColor blackColor];
+
+        //添加背景图片
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:backgroundView.frame];
+        imageView.image = [UIImage imageNamed:@"share_bg.png"];
+        [backgroundView addSubview:imageView];
+        backgroundView.backgroundColor = [UIColor clearColor];
+
+        //改变文字标题的文字颜色
+        label.textColor = [UIColor blueColor];
+        //隐藏文字
+        label.hidden = YES;
+    }];
+    */
+}
+
 
 -(void)setUpController
 {
@@ -311,6 +365,7 @@
         url = [NSString stringWithFormat:@"http://www.haocaimao.com/mobile/index.php?m=default&c=goods&a=index&id=%@",self.goods_id];
     }
     [UMSocialWechatHandler setWXAppId:APP_ID appSecret:APP_SECRET url:url];
+    
 }
 
 #pragma mark --- 商品详情的toolBar所有控件 ---
@@ -995,6 +1050,13 @@
                                      shareImage:imageView.image
                                 shareToSnsNames:[NSArray arrayWithObjects:UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,nil]
                                        delegate:self];
+}
+
+//判断，当前用户所点的分享平台是什么
+-(void)didSelectSocialPlatform:(NSString *)platformName withSocialData:(UMSocialData *)socialData
+{
+    HCMLog(@"%@", platformName);
+    HCMLog(@"%@",socialData);
 }
 
 -(void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response

@@ -31,6 +31,7 @@
 #import "AddressNerworking.h"
 #import "HCMMesageViewController.h"
 
+
 @interface HCMHomeCollectionViewController ()<HCMHomeTopViewControllerDelegate>
 
 @property (strong, nonatomic)HCMHomeTopViewController *homeTop;
@@ -59,6 +60,9 @@
 #define HCM414ViewH 1875
 
 static NSString * const reuseIdentifier = @"Cell";
+
+
+
 
 
 
@@ -129,7 +133,6 @@ static NSString * const reuseIdentifier = @"Cell";
 //头部刷新
 -(void)headerRereshing
 {
-    
     [HCMNSNotificationCenter postNotificationName:@"RereshHearView" object:nil userInfo:@{@"collection":self}];
     
     //再次请求collection数据
