@@ -58,7 +58,9 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         UIImageView * noDataView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"no-plist"]];
         noDataView.centerX = HCMScreenWidth/2;
         [self.view addSubview:noDataView];
+        
         _noDataView = noDataView;
+        _noDataView.hidden = YES;
     }
     return _noDataView;
 }
@@ -88,6 +90,8 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    [SVProgressHUD showWithStatus:@"加载中"];
     
     self.title = @"全部订单";
     
@@ -173,7 +177,14 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         
         [SVProgressHUD showSuccessWithStatus:nil];
         [self.tableView reloadData];
-        
+        if ([self.SectionsCount count] == 0) {
+            
+            //[self.tableView.footer endRefreshing];
+            
+            self.noDataView.hidden = NO;
+        }else{
+            self.noDataView.hidden = YES;
+        }
     } failureBlock:^(NSString *error) {
         
         [self.tableView.header  endRefreshing];
@@ -214,14 +225,7 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
-    if ([self.SectionsCount count] == 0) {
-        self.noDataView.hidden = NO;
-        [self.tableView.footer endRefreshing];
-
-        
-    }else{
-        self.noDataView.hidden = YES;
-    }
+    
     
     return [self.SectionsCount count];
 }

@@ -1,6 +1,6 @@
 //
 //  HWSearchBar.m
-//  傻逼黑马微博2期
+//  
 //
 //  Created by apple on.
 //  Copyright (c) 2015年 heima. All rights reserved.

@@ -58,6 +58,7 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         noDataView.centerX = HCMScreenWidth/2;
         [self.view addSubview:noDataView];
         _noDataView = noDataView;
+        _noDataView.hidden = YES;
     }
     return _noDataView;
 }
@@ -89,7 +90,9 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
     [super viewDidLoad];
     
     self.title = @"待收货";
-        
+    
+    [SVProgressHUD showWithStatus:@"加载中"];
+    
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickBack) image:@"nav-back" highImage:@"nav-back"];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"HCMNonPaymentCell" bundle:nil] forCellReuseIdentifier:reuseIdentifier];
@@ -175,6 +178,13 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         [SVProgressHUD showSuccessWithStatus:nil];
         [self.tableView reloadData];
         
+        if ([self.SectionsCount count] == 0) {
+            self.noDataView.hidden = NO;
+            
+            [self.tableView.footer endRefreshing];
+        }else{
+            self.noDataView.hidden = YES;
+        }
     } failureBlock:^(NSString *error) {
         
         
@@ -218,13 +228,7 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
-    if ([self.SectionsCount count] == 0) {
-        self.noDataView.hidden = NO;
-        
-        [self.tableView.footer endRefreshing];
-    }else{
-        self.noDataView.hidden = YES;
-    }
+    
     
     return [self.SectionsCount count];
 }

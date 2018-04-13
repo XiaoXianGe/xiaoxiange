@@ -61,6 +61,7 @@
         noDataView.centerX = HCMScreenWidth/2;
         [self.view addSubview:noDataView];
         _noDataView = noDataView;
+        _noDataView.hidden = YES;
     }
     return _noDataView;
 }
@@ -192,6 +193,12 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
         
         [SVProgressHUD showSuccessWithStatus:nil];
         [self.tableView reloadData];
+        if ([self.SectionsCount count] == 0) {
+            self.noDataView.hidden = NO;
+            //[self.tableView.header endRefreshing];
+        }else{
+            self.noDataView.hidden = YES;
+        }
         
     } failureBlock:^(NSString *error) {
         
@@ -241,12 +248,7 @@ static NSString * const footerReuseIdentifier = @"TableViewSectionFooterViewIden
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
-    if ([self.SectionsCount count] == 0) {
-        self.noDataView.hidden = NO;
-        //[self.tableView.header endRefreshing];
-    }else{
-        self.noDataView.hidden = YES;
-    }
+   
     
     return [self.SectionsCount count];
 }
